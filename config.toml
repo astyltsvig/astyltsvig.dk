@@ -12,7 +12,7 @@ URL = "blog"
 name = "Blog"
 weight = 3
 [params]
-address = ""
+address = "Byhøjen 28, 3tv 2720 Vanløse,"
 author = "Andreas Styltsvig"
 copyright = ""
 description = ""
@@ -20,7 +20,7 @@ email = "astyltsvig@gmail.com"
 google_analitycs_id = ""
 home = "Home"
 logo = "images/logo.png"
-phone = ""
+phone = "+4531150424 (SMS ONLY)"
 theme_color = "#41228e"
 [params.contact]
 enable = false
