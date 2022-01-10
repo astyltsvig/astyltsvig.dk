@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <>
       <footer className={styles.footer}>
+        <a href="mailto:astyltsvig@gmail.com">astyltsvig@gmail.com</a>
         CVR: 36163771
       </footer>
     </>
