@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <img src="https://github.com/astyltsvig/astyltsvig.dk/blob/main/public/LogoTransperant.png?raw=true">
         <Header title="Astyltsvig consulting" />
         <p className="description">
           Software solutions for you.
