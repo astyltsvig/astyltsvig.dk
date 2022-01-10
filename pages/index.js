@@ -11,7 +11,6 @@ export default function Home() {
       </Head>
 
       <main>
-        <img class="avatar" src="https://media-exp1.licdn.com/dms/image/C5603AQEaV7Zt4G5qeQ/profile-displayphoto-shrink_800_800/0/1542720182911?e=1647475200&v=beta&t=RUc8KakhJsyHMDwAFxwdjcPVWlGMyWqqfHxAc7KHYz0"/>
         <img src="https://github.com/astyltsvig/astyltsvig.dk/blob/main/public/LogoTransperant.png?raw=true"/>
         <p className="description">
           Software solutions for you.
