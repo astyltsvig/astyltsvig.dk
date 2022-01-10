@@ -13,8 +13,9 @@ export default function Home() {
       <main>
         <Header title="Astyltsvig consulting" />
         <p className="description">
-          Do you need software solutions?
-          <br/> Contact me: astyltsvig@gmail.com
+          Software solutions for you.
+          <br/>
+          <br/><a href="mailto:webmaster@example.com">astyltsvig@gmail.com</a> 
         </p>
       </main>
 
