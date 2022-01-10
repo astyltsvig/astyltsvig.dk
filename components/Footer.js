@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <footer className={styles.footer}>
         <a href="mailto:astyltsvig@gmail.com">astyltsvig@gmail.com</a>
-<br/>
+        {"\n"}
         CVR: 36163771
       </footer>
     </>
