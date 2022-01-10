@@ -15,7 +15,7 @@ export default function Home() {
         <p className="description">
           Software solutions for you.
           <br/>
-          <br/><a href="mailto:webmaster@example.com">astyltsvig@gmail.com</a> 
+          <br/>
         </p>
       </main>
 
