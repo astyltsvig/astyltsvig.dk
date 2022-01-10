@@ -13,7 +13,8 @@ export default function Home() {
       <main>
         <Header title="Astyltsvig consulting" />
         <p className="description">
-          astyltsvig@gmail.com
+          Do you need software solutions?
+          <br> Contact me: astyltsvig@gmail.com
         </p>
       </main>
 
