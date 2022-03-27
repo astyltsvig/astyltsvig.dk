@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <img src="https://github.com/astyltsvig/astyltsvig.dk/blob/main/public/LogoTransperant.png?raw=true"/>
+        <img src="https://github.com/astyltsvig/astyltsvig.dk/blob/main/public/logo_transperant.png?raw=true"/>
         <p className="description">
           Software solutions for you.
           <br/>
