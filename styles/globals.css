@@ -42,7 +42,8 @@ main {
 }
 
 /* Type writer effect animation */
-.typewriter {
+.typewriter h3{
+  font-size: 20px;
   color: #fff;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
@@ -52,7 +53,7 @@ main {
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(50, end),
-    blink-caret .5s step-end infinite;
+    blink-caret .5s step-end 8;
 }
 
 /* The typing effect */
