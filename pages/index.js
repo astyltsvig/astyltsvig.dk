@@ -15,7 +15,7 @@ export default function Home() {
           class="fade-in-image"
         />
         <div class="typewriter">
-          <h3>Archive your dream with software.</h3>
+          <h3>Achieve your dream with software.</h3>
         </div>
         
       </main>
