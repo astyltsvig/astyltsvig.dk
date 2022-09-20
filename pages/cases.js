@@ -10,8 +10,8 @@ export default function Home() {
 			</Head>
 			<Navigation></Navigation>
 			<main>
-				<div class='typewriter'>
-					<h3>Archive your dream with software</h3>
+				<div class='text'>
+					<h3>Coming soon</h3>
 				</div>
 			</main>
 			<Footer />

@@ -10,8 +10,15 @@ export default function Home() {
 			</Head>
 			<Navigation></Navigation>
 			<main>
-				<div class='typewriter'>
-					<h3>Archive your dream with software</h3>
+				<div class='text'>
+					<img src='profilImage.jpeg' class='rounded'></img>
+					<h3 class='center'>Andreas Sørbye Styltsvig</h3>
+					<p>
+						<a href='https://www.linkedin.com/in/andreas-styltsvig-b03688119'>Linkedin</a>
+					</p>
+					<p>
+						<a href='https://github.com/Astyltsvig'>Github</a>
+					</p>
 				</div>
 			</main>
 			<Footer />

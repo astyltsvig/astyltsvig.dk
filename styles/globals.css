@@ -28,6 +28,13 @@ main {
     align-items: center;
 }
 
+.rounded {
+    border-radius: 50%;
+}
+
+.center {
+    text-align: center;
+}
 
 .container {
     height: 100vh;
@@ -40,6 +47,8 @@ main {
 .text {
     color: white;
 }
+
+
 
 /* Type writer effect animation */
 .typewriter h3{
