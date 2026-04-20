@@ -5,15 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://astyltsvig.dk',
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'da'],
+    defaultLocale: 'da',
+    locales: ['da', 'en'],
     routing: { prefixDefaultLocale: false },
   },
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: 'en',
-        locales: { en: 'en', da: 'da' },
+        defaultLocale: 'da',
+        locales: { da: 'da', en: 'en' },
       },
     }),
   ],

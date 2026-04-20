@@ -7,7 +7,7 @@ interface Props {
   href?: string;
 }
 
-const { lang, size = 'sm', href = lang === 'da' ? '/da/' : '/' } = Astro.props;
+const { lang, size = 'sm', href = lang === 'en' ? '/en/' : '/' } = Astro.props;
 const big = size === 'lg';
 ---
 <a href={href} class="logo inline-flex items-center gap-3 group" aria-label="AStyltsvig Consulting">

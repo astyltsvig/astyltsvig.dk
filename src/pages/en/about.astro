@@ -1,0 +1,96 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import portrait from '~/assets/andreas-styltsvig.png';
+const lang = 'en' as const;
+---
+<BaseLayout
+  lang={lang}
+  title="About — AStyltsvig Consulting"
+  description="Andreas Sørbye Styltsvig runs AStyltsvig Consulting as a single-person practice in Copenhagen — IT consulting, software development, and AI productivity for companies."
+>
+  <article class="max-w-7xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-24">
+
+    <!-- Hero -->
+    <div class="grid md:grid-cols-[1.2fr_auto] gap-12 md:gap-20 items-center">
+      <div>
+        <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">About</p>
+        <h1 class="fade-in !mt-4 max-w-[18ch]">
+          One developer. <span class="grad-text">Deep focus.</span>
+        </h1>
+        <p class="fade-in mt-8 max-w-[52ch] text-lg text-[var(--color-muted)] leading-relaxed">
+          I'm Andreas Sørbye Styltsvig, and I run <strong class="text-[var(--color-text)] font-semibold">AStyltsvig Consulting</strong> as a single-person practice out of Vanløse, Copenhagen.
+        </p>
+      </div>
+      <figure class="fade-in order-first md:order-last w-48 md:w-64 lg:w-80 justify-self-start md:justify-self-end">
+        <Image
+          src={portrait}
+          alt="Portrait of Andreas Sørbye Styltsvig"
+          widths={[320, 480, 640, 800]}
+          sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, 192px"
+          format="webp"
+          quality={82}
+          loading="eager"
+          class="w-full h-auto rounded-2xl shadow-xl ring-1 ring-white/10"
+        />
+      </figure>
+    </div>
+
+    <!-- Intro bio -->
+    <div class="fade-in mt-20 glass p-8 md:p-12 prose-body !max-w-[72ch]">
+      <p class="!mt-0 text-lg">
+        I've worked in IT and web development for more than a decade, and my focus is on building and maintaining software for organisations where the system needs to live for many years and hold up under actual use — not just a demo.
+      </p>
+      <p>
+        Since late 2025 a growing part of my practice is <strong>AI productivity consulting</strong>: helping companies move from ad-hoc chatbot use to a real AI-assisted workflow that produces measurable gains. I don't sell it as theory — I use it every day on my own production systems, and I can show the difference it makes.
+      </p>
+    </div>
+
+    <!-- Two-column: help / don't -->
+    <div class="mt-6 grid md:grid-cols-2 gap-6">
+      <div class="fade-in glass p-8 md:p-10 prose-body !max-w-none">
+        <p class="!mt-0 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-accent)]">What I help with</p>
+        <h2 class="!mt-3">How I can <span class="grad-text">add value</span>.</h2>
+        <ul class="!mt-6">
+          <li>Helping companies get real productivity out of AI — tools, workflows, and practices that survive production</li>
+          <li>Building and maintaining web applications (typically Vue and Laravel)</li>
+          <li>Migrating older sites (typically WordPress) to modern, static stacks</li>
+          <li>Taking over ownership of DNS, email, and domain administration from a previous vendor</li>
+          <li>Advising on technical architecture, vendor selection, and operational setup</li>
+        </ul>
+      </div>
+      <div class="fade-in glass p-8 md:p-10 prose-body !max-w-none" style="transition-delay: 80ms">
+        <p class="!mt-0 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Not my lane</p>
+        <h2 class="!mt-3">What I <span class="grad-text">don't do</span>.</h2>
+        <p>
+          Pure frontend design without development, SEO-as-a-service, paid advertising, or "quick fixes" on systems I don't have the chance to understand properly.
+        </p>
+        <p>
+          I'd rather take on fewer clients and go deep with each of them than spread thin across work I can't stand behind.
+        </p>
+      </div>
+    </div>
+
+    <!-- Background -->
+    <div class="fade-in mt-6 glass p-8 md:p-12 prose-body !max-w-[80ch]">
+      <p class="!mt-0 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Background</p>
+      <h2 class="!mt-3">A decade of <span class="grad-text">deliberate practice</span>.</h2>
+      <p>
+        I hold a <strong>Professional Bachelor's in Software Development</strong> from Copenhagen Business Academy (Cphbusiness Lyngby, 2019) and started freelancing full-time in 2020 after a year at Prolike ApS — where I was outsourced to <strong>Oticon</strong> leading a migration from Jenkins and SVN to Azure DevOps with proper CI/CD pipelines and Git-based workflows.
+      </p>
+      <p>
+        My flagship product is the ERP system I've built and operated for <a href="https://mallard.dk" target="_blank" rel="noopener"><strong>Mallard</strong></a> since 2022 — the proving ground where I've refined how AI-assisted development actually works in sustained production. Earlier engagements include <strong>SecureLife &amp; Bedstpension</strong>, where I led development of a secure customer portal for insurance and pension policies covering 2,500+ employees across 200+ companies, and <a href="https://book2go.bike" target="_blank" rel="noopener"><strong>book2go.bike</strong></a>, the real-time multilingual booking platform I built for <strong>Cycling Without Age</strong>.
+      </p>
+    </div>
+
+    <!-- Personal -->
+    <div class="fade-in mt-6 glass p-8 md:p-10 prose-body !max-w-[60ch] mx-auto text-center">
+      <p class="!mt-0 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Off the clock</p>
+      <h2 class="!mt-3">Deep thinking, <span class="grad-text">deep water</span>.</h2>
+      <p>
+        I live in Vanløse with my family and spend as much time as the Danish weather allows on my 36-foot sailboat. It's where I do my best thinking about systems that need to hold up over time.
+      </p>
+    </div>
+
+  </article>
+</BaseLayout>

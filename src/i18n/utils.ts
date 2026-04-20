@@ -10,17 +10,17 @@ export function t(lang: Lang) {
 }
 
 export function getLangFromUrl(url: URL): Lang {
-  return url.pathname.startsWith('/da') ? 'da' : 'en';
+  return url.pathname.startsWith('/en') ? 'en' : 'da';
 }
 
 type RouteMap = Record<string, { en: string; da: string }>;
 
 export const routes: RouteMap = {
-  home: { en: '/', da: '/da/' },
-  about: { en: '/about', da: '/da/om' },
-  services: { en: '/services', da: '/da/ydelser' },
-  work: { en: '/work', da: '/da/cases' },
-  contact: { en: '/contact', da: '/da/kontakt' },
+  home: { en: '/en/', da: '/' },
+  about: { en: '/en/about', da: '/om' },
+  services: { en: '/en/services', da: '/ydelser' },
+  work: { en: '/en/work', da: '/cases' },
+  contact: { en: '/en/contact', da: '/kontakt' },
 };
 
 const caseSlugs = [
@@ -36,24 +36,26 @@ export function getAlternateUrl(pathname: string, target: Lang): string {
 
   for (const key of Object.keys(routes)) {
     const r = routes[key];
-    if (clean === r.en.replace(/\/+$/, '') || clean === r.en) return r[target];
-    if (clean === r.da.replace(/\/+$/, '') || clean === r.da) return r[target];
+    const enClean = r.en.replace(/\/+$/, '') || '/';
+    const daClean = r.da.replace(/\/+$/, '') || '/';
+    if (clean === enClean || clean === r.en) return r[target];
+    if (clean === daClean || clean === r.da) return r[target];
   }
 
   for (const slug of caseSlugs) {
-    if (clean === `/work/${slug}` || clean === `/work/${slug}/`) {
-      return target === 'en' ? `/work/${slug}` : `/da/cases/${slug}`;
+    if (clean === `/en/work/${slug}` || clean === `/en/work/${slug}/`) {
+      return target === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
     }
-    if (clean === `/da/cases/${slug}` || clean === `/da/cases/${slug}/`) {
-      return target === 'en' ? `/work/${slug}` : `/da/cases/${slug}`;
+    if (clean === `/cases/${slug}` || clean === `/cases/${slug}/`) {
+      return target === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
     }
   }
 
-  return target === 'en' ? '/' : '/da/';
+  return target === 'en' ? '/en/' : '/';
 }
 
 export function caseUrl(lang: Lang, slug: string): string {
-  return lang === 'en' ? `/work/${slug}` : `/da/cases/${slug}`;
+  return lang === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
 }
 
 export function workIndexUrl(lang: Lang): string {
