@@ -28,6 +28,7 @@ const caseSlugs = [
   'ddl-tegnsprogspakken',
   'cycling-without-age',
   'df1866',
+  'securelife-bedstpension',
 ] as const;
 
 export function getAlternateUrl(pathname: string, target: Lang): string {
