@@ -1,0 +1,18 @@
+---
+import { t, getAlternateUrl, type Lang } from '~/i18n/utils';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const d = t(lang);
+const target: Lang = lang === 'en' ? 'da' : 'en';
+const href = getAlternateUrl(Astro.url.pathname, target);
+---
+<a
+  href={href}
+  hreflang={target}
+  class="relative inline-flex items-center gap-1 rounded-full border border-[var(--color-rule)] px-2.5 py-1 text-[10px] font-[var(--font-mono)] uppercase tracking-[0.18em] text-[var(--color-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-accent)] transition-colors"
+  aria-label={d.languageSwitch.ariaLabel}
+>
+  <span class:list={[lang === 'en' ? 'text-[var(--color-accent)]' : '']}>EN</span>
+  <span class="opacity-40">/</span>
+  <span class:list={[lang === 'da' ? 'text-[var(--color-accent)]' : '']}>DA</span>
+</a>

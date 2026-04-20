@@ -1,18 +1,24 @@
 {
-  "name": "next-netlify-starter",
-  "version": "0.5.0",
+  "name": "astyltsvig-consulting",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy": "astro build && wrangler pages deploy dist --project-name astyltsvig-dk"
   },
   "dependencies": {
-    "next": "^12.0.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.1.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.0.0"
+    "wrangler": "^3.99.0"
   }
 }

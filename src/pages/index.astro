@@ -1,0 +1,163 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import CaseCard from '~/components/CaseCard.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { getCollection } from 'astro:content';
+import { t, routes } from '~/i18n/utils';
+
+const lang = 'en' as const;
+const d = t(lang);
+
+const cases = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.data.order);
+const featured = cases.slice(0, 3);
+
+const stackStrip = [
+  'Vue', 'Laravel', 'Astro', 'PHP', 'TypeScript', 'MySQL', 'PostgreSQL',
+  'Hetzner', 'Cloudflare', 'Google Workspace', 'SPF · DKIM · DMARC', 'Sveltia CMS',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'Andreas Sørbye Styltsvig',
+      jobTitle: 'Principal Engineer & AI Productivity Consultant',
+      url: 'https://astyltsvig.dk',
+      email: 'mailto:hello@astyltsvig.dk',
+      sameAs: ['https://github.com/astyltsvig', 'https://www.linkedin.com/in/astyltsvig/'],
+    },
+    {
+      '@type': 'ProfessionalService',
+      name: 'AStyltsvig Consulting',
+      description: 'Principal engineer building Vue and Laravel software, and helping teams unlock meaningful productivity with AI-assisted development workflows.',
+      url: 'https://astyltsvig.dk',
+      email: 'hello@astyltsvig.dk',
+      areaServed: ['DK', 'EU', 'Worldwide'],
+      identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: '36163771' },
+    },
+  ],
+};
+---
+<BaseLayout
+  lang={lang}
+  title="AStyltsvig Consulting — Vue & Laravel Developer in Copenhagen"
+  description="Freelance Vue and Laravel developer in Copenhagen. I build web applications, migrate websites, and take over technical infrastructure for non-profits and small businesses."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-20">
+    <div class="fade-in inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-[var(--font-mono)] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] animate-pulse"></span>
+      Available — Copenhagen, Denmark
+    </div>
+    <h1 class="fade-in mt-8 max-w-[22ch]">
+      <span>Principal engineer</span>{' '}
+      <span class="grad-text">building with AI, not around it.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[58ch] text-lg text-[var(--color-muted)] leading-relaxed">
+      I build <strong class="text-[var(--color-text)] font-semibold">Vue &amp; Laravel</strong> software for organisations that depend on it — and help development teams unlock meaningful productivity with AI-assisted workflows. Same stack, same quality bar, fewer weeks to ship.
+    </p>
+    <div class="fade-in mt-12 flex flex-wrap gap-4">
+      <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>
+      <ShimmerCTA href={routes.contact[lang]}>{d.cta.getInTouch}</ShimmerCTA>
+    </div>
+  </section>
+
+  <!-- Stack marquee -->
+  <section class="py-8">
+    <div class="marquee">
+      <div class="marquee-track font-[var(--font-mono)] text-lg md:text-xl text-[var(--color-muted)]">
+        {stackStrip.concat(stackStrip).map(s => (
+          <span class="inline-flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>
+            {s}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What I do -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.whatIDo}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">What I <span class="grad-text">do well</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <div class="fade-in glass p-7">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">00</span>
+        <h3 class="!mt-4">AI productivity</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Moving development teams from ad-hoc ChatGPT use to a real AI workflow: Claude Code and Cursor set up properly, codebase conventions that survive AI edits, and a division of labour where humans own architecture and AI handles execution.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 80ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</span>
+        <h3 class="!mt-4">Web applications</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Full-stack Vue and Laravel. ERP systems and booking platforms running in daily production — not prototypes.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 160ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</span>
+        <h3 class="!mt-4">Websites &amp; CMS</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Astro, WordPress, headless CMS like Sveltia. Fast sites, low running costs, editorial workflows people actually use.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 240ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</span>
+        <h3 class="!mt-4">Infrastructure</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          DNS, SPF/DKIM/DMARC, Google Workspace, Hetzner, Cloudflare Pages. Vendor handovers done right.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI practice -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-16">
+    <div class="fade-in glass p-8 md:p-12">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">In practice</p>
+      <h2 class="!mt-4 max-w-[24ch] text-3xl md:text-4xl">I practice what I <span class="grad-text">advise on</span>.</h2>
+      <p class="mt-6 max-w-[60ch] text-[var(--color-muted)] leading-relaxed">
+        My own ERP system is built and operated with Claude Code as an integrated part of the daily development workflow. Architecture and product decisions stay with me; implementation, refactoring and debugging are handled in close collaboration with AI. The result is a sustainable tempo where a single developer can deliver what traditionally required a small team — without sprint culture or quality compromises.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured work -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.selectedWork}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">Recent <span class="grad-text">engagements</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {featured.map((c, i) => (
+        <CaseCard
+          lang={lang}
+          slug={c.slug}
+          client={c.data.client}
+          headline={c.data.headline}
+          stack={c.data.stack}
+          index={i}
+        />
+      ))}
+    </div>
+    <div class="mt-12 fade-in">
+      <ShimmerCTA href={routes.work[lang]}>{d.cta.seeMyWork}</ShimmerCTA>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+    <div class="fade-in glass glass-strong p-10 md:p-16 text-center">
+      <h2 class="!mt-0 max-w-[20ch] mx-auto">
+        Have a project <span class="grad-text">in mind?</span>
+      </h2>
+      <p class="mt-6 max-w-[46ch] mx-auto text-[var(--color-muted)]">
+        I take new clients on a rolling basis. Send a short description — you'll hear back within two working days.
+      </p>
+      <div class="mt-10 flex justify-center">
+        <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

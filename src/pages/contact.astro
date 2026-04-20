@@ -1,0 +1,73 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { t } from '~/i18n/utils';
+const lang = 'en' as const;
+const d = t(lang);
+const email = 'hello@astyltsvig.dk';
+const formspreeId = 'YOUR_FORMSPREE_ID';
+---
+<BaseLayout
+  lang={lang}
+  title="Contact — AStyltsvig Consulting"
+  description="Get in touch about a new project or technical advisory engagement."
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Contact</p>
+    <h1 class="fade-in !mt-4 max-w-[16ch]">
+      Let's <span class="grad-text">talk.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[56ch] text-lg text-[var(--color-muted)]">
+      Describe what you need, when it needs to be delivered, and any context I should know. You'll hear back within two working days.
+    </p>
+
+    <div class="mt-16 grid gap-8 md:grid-cols-[1fr_320px]">
+      <form
+        action={`https://formspree.io/f/${formspreeId}`}
+        method="POST"
+        class="fade-in glass p-8 grid gap-5"
+      >
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.name}</span>
+          <input required name="name" type="text" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.email}</span>
+          <input required name="email" type="email" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.organisation}</span>
+          <input name="organisation" type="text" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.message}</span>
+          <textarea required name="message" rows="6" class="bg-transparent border border-[var(--color-rule)] rounded-2xl px-4 py-3 focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-none"></textarea>
+        </label>
+        <div class="pt-2">
+          <button type="submit" class="btn-shimmer btn-primary">{d.form.send}</button>
+        </div>
+        <p class="text-xs text-[var(--color-muted)]">
+          {d.form.fallback} <a href={`mailto:${email}`} class="text-[var(--color-accent)]">{email}</a>.
+        </p>
+      </form>
+
+      <aside class="fade-in glass p-8 text-sm self-start space-y-6">
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Email</p>
+          <a href={`mailto:${email}`} class="block mt-1.5 grad-text font-[var(--font-display)] text-xl">{email}</a>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CVR</p>
+          <p class="mt-1.5">36163771</p>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Location</p>
+          <p class="mt-1.5">Copenhagen, Denmark</p>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Response time</p>
+          <p class="mt-1.5">Within 2 working days</p>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>

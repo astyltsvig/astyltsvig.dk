@@ -1,0 +1,133 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import CaseCard from '~/components/CaseCard.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { getCollection } from 'astro:content';
+import { t, routes } from '~/i18n/utils';
+
+const lang = 'da' as const;
+const d = t(lang);
+const cases = (await getCollection('casesDa')).sort((a, b) => a.data.order - b.data.order);
+const featured = cases.slice(0, 3);
+
+const stackStrip = [
+  'Vue', 'Laravel', 'Astro', 'PHP', 'TypeScript', 'MySQL', 'PostgreSQL',
+  'Hetzner', 'Cloudflare', 'Google Workspace', 'SPF · DKIM · DMARC', 'Sveltia CMS',
+];
+---
+<BaseLayout
+  lang={lang}
+  title="AStyltsvig Consulting — Vue- & Laravel-udvikler i København"
+  description="Freelance Vue- og Laravel-udvikler i København. Jeg bygger webapplikationer, migrerer hjemmesider og overtager teknisk infrastruktur for foreninger, NGO'er og mindre virksomheder."
+>
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-20">
+    <div class="fade-in inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-[var(--font-mono)] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] animate-pulse"></span>
+      Ledig — København
+    </div>
+    <h1 class="fade-in mt-8 max-w-[22ch]">
+      <span>Principal engineer —</span>{' '}
+      <span class="grad-text">bygger med AI, ikke udenom.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[58ch] text-lg text-[var(--color-muted)] leading-relaxed">
+      Jeg bygger <strong class="text-[var(--color-text)] font-semibold">Vue &amp; Laravel</strong>-software for organisationer der er afhængige af det — og hjælper udviklingsteams med at få markant mere ud af deres udvikling gennem AI-assisterede workflows. Samme stack, samme kvalitetskrav, færre uger til at levere.
+    </p>
+    <div class="fade-in mt-12 flex flex-wrap gap-4">
+      <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>
+      <ShimmerCTA href={routes.contact[lang]}>{d.cta.getInTouch}</ShimmerCTA>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="marquee">
+      <div class="marquee-track font-[var(--font-mono)] text-lg md:text-xl text-[var(--color-muted)]">
+        {stackStrip.concat(stackStrip).map(s => (
+          <span class="inline-flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>
+            {s}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.whatIDo}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">Hvad jeg <span class="grad-text">gør godt</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <div class="fade-in glass p-7">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">00</span>
+        <h3 class="!mt-4">AI-produktivitet</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Fra ad-hoc ChatGPT til et reelt AI-workflow i daglig udvikling: Claude Code og Cursor sat korrekt op, kodekonventioner der holder under AI-redigeringer, og en arbejdsdeling hvor mennesker ejer arkitekturen, og AI håndterer eksekveringen.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 80ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</span>
+        <h3 class="!mt-4">Webapplikationer</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Fullstack i Vue og Laravel. ERP-systemer og bookingplatforme i daglig produktion — ikke prototyper.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 160ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</span>
+        <h3 class="!mt-4">Hjemmesider &amp; CMS</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Astro, WordPress, headless CMS som Sveltia. Hurtige sites, lave omkostninger, workflows som faktisk bliver brugt.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 240ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</span>
+        <h3 class="!mt-4">Infrastruktur</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          DNS, SPF/DKIM/DMARC, Google Workspace, Hetzner, Cloudflare Pages. Leverandøroverdragelser gjort rigtigt.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-praksis -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-16">
+    <div class="fade-in glass p-8 md:p-12">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">I praksis</p>
+      <h2 class="!mt-4 max-w-[24ch] text-3xl md:text-4xl">Jeg praktiserer det jeg <span class="grad-text">rådgiver om</span>.</h2>
+      <p class="mt-6 max-w-[60ch] text-[var(--color-muted)] leading-relaxed">
+        Mit eget ERP-system bygges og drives i dag med Claude Code som integreret del af det daglige udviklingsworkflow. Arkitektur og produktbeslutninger ligger hos mig; implementering, refaktorering og fejlfinding håndteres i tæt samarbejde med AI. Resultatet er et bæredygtigt tempo hvor én udvikler kan levere hvad der tidligere krævede et lille team — uden sprint-kultur eller kvalitetskompromis.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.selectedWork}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">Nylige <span class="grad-text">engagementer</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {featured.map((c, i) => (
+        <CaseCard
+          lang={lang}
+          slug={c.slug}
+          client={c.data.client}
+          headline={c.data.headline}
+          stack={c.data.stack}
+          index={i}
+        />
+      ))}
+    </div>
+    <div class="mt-12 fade-in">
+      <ShimmerCTA href={routes.work[lang]}>{d.cta.seeMyWork}</ShimmerCTA>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+    <div class="fade-in glass glass-strong p-10 md:p-16 text-center">
+      <h2 class="!mt-0 max-w-[20ch] mx-auto">
+        Har du et <span class="grad-text">projekt?</span>
+      </h2>
+      <p class="mt-6 max-w-[46ch] mx-auto text-[var(--color-muted)]">
+        Jeg tager nye kunder ind løbende. Send en kort beskrivelse — du hører tilbage inden for to hverdage.
+      </p>
+      <div class="mt-10 flex justify-center">
+        <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

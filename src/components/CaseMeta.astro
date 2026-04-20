@@ -1,0 +1,39 @@
+---
+import { t, type Lang } from '~/i18n/utils';
+
+interface Props {
+  lang: Lang;
+  role: string;
+  period: string;
+  stack: string[];
+  statusKey: 'inDailyProduction' | 'delivered' | 'ongoing';
+  statusSuffix?: string;
+}
+
+const { lang, role, period, stack, statusKey, statusSuffix } = Astro.props;
+const d = t(lang);
+const statusText = d.status[statusKey] + (statusSuffix ? ` · ${statusSuffix}` : '');
+---
+<aside class="glass p-6 sticky top-28 self-start text-sm">
+  <dl class="grid gap-5">
+    <div>
+      <dt class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.caseMeta.role}</dt>
+      <dd class="mt-1.5">{role}</dd>
+    </div>
+    <div>
+      <dt class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.caseMeta.period}</dt>
+      <dd class="mt-1.5">{period}</dd>
+    </div>
+    <div>
+      <dt class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.caseMeta.stack}</dt>
+      <dd class="mt-2 flex flex-wrap gap-1.5">{stack.map(s => <span class="chip">{s}</span>)}</dd>
+    </div>
+    <div>
+      <dt class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.caseMeta.status}</dt>
+      <dd class="mt-1.5 inline-flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] animate-pulse"></span>
+        {statusText}
+      </dd>
+    </div>
+  </dl>
+</aside>

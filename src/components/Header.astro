@@ -1,0 +1,55 @@
+---
+import { t, routes, type Lang } from '~/i18n/utils';
+import Logo from './Logo.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const d = t(lang);
+
+const navItems = [
+  { label: d.nav.about, href: routes.about[lang] },
+  { label: d.nav.services, href: routes.services[lang] },
+  { label: d.nav.work, href: routes.work[lang] },
+  { label: d.nav.contact, href: routes.contact[lang] },
+];
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+---
+<header class="sticky top-4 z-40 mx-4 md:mx-8 mt-4">
+  <div class="glass max-w-6xl mx-auto px-5 md:px-7 py-3 flex items-center justify-between gap-6 rounded-full">
+    <Logo lang={lang} />
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-7">
+      {navItems.map(item => {
+        const isActive = current === item.href.replace(/\/+$/, '') || current.startsWith(item.href + '/');
+        return (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-medium tracking-tight relative',
+              isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-text)]',
+            ]}
+            aria-current={isActive ? 'page' : undefined}
+          >
+            {item.label}
+            {isActive && <span class="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>}
+          </a>
+        );
+      })}
+    </nav>
+    <div class="flex items-center gap-3">
+      <LanguageSwitcher lang={lang} />
+      <ThemeToggle lang={lang} />
+    </div>
+  </div>
+  <nav aria-label="Primary mobile" class="md:hidden glass mt-2 rounded-2xl px-5 py-3 max-w-6xl mx-auto">
+    <ul class="flex flex-wrap gap-x-5 gap-y-2">
+      {navItems.map(item => (
+        <li>
+          <a href={item.href} class="text-sm">{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

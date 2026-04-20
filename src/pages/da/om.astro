@@ -1,0 +1,47 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+const lang = 'da' as const;
+---
+<BaseLayout
+  lang={lang}
+  title="Om — AStyltsvig Consulting"
+  description="Andreas Sørbye Styltsvig driver AStyltsvig Consulting som enkeltmandsvirksomhed i København — fullstack-udvikling i Vue og Laravel, og AI-produktivitetsrådgivning."
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Om</p>
+    <h1 class="fade-in !mt-4 max-w-[16ch]">
+      Én udvikler. <span class="grad-text">Dybt fokus.</span>
+    </h1>
+
+    <div class="fade-in mt-16 glass p-8 md:p-12 prose-body">
+      <p class="!mt-0 text-lg">
+        Jeg hedder Andreas Sørbye Styltsvig og driver <strong>AStyltsvig Consulting</strong> som enkeltmandsvirksomhed fra Vanløse i København.
+      </p>
+      <p>
+        Jeg har arbejdet med webudvikling i mere end et årti, og mit fokus de seneste år har været fullstack-udvikling i <strong>Vue og Laravel</strong> — særligt til organisationer hvor systemet skal leve i mange år og tåle reel brug, ikke bare en demo.
+      </p>
+      <p>
+        Siden slutningen af 2025 er en voksende del af praksissen <strong>AI-produktivitetsrådgivning</strong>: at hjælpe udviklingsteams fra ad-hoc chatbot-brug til et reelt AI-assisteret workflow. Jeg sælger det ikke som teori — jeg bruger det selv dagligt på produktionssystemer og kan vise forskellen det gør.
+      </p>
+
+      <h2>Hvad jeg kan hjælpe med</h2>
+      <ul>
+        <li>Etablere et AI-assisteret workflow (Claude Code, Cursor) der holder under produktions-code-review</li>
+        <li>Bygge og vedligeholde webapplikationer i Vue/Laravel</li>
+        <li>Migrere ældre sites (typisk WordPress) til moderne, statiske stacks</li>
+        <li>Overtage ansvaret for DNS, email og domæneadministration efter en tidligere leverandør</li>
+        <li>Rådgive om teknisk arkitektur, leverandørvalg og driftsetup</li>
+      </ul>
+
+      <h2>Hvad jeg ikke laver</h2>
+      <p>
+        Rent frontend-design uden udvikling, SEO-as-a-service, betalt annoncering, eller "hurtige fixes" på systemer jeg ikke har mulighed for at forstå ordentligt. Jeg tager hellere færre kunder og går dybt ind i dem.
+      </p>
+
+      <h2>Baggrund</h2>
+      <p>
+        Jeg har arbejdet tæt sammen med flere danske organisationer, herunder <strong>Danske Døves Landsforbund</strong> og <strong>Døveforeningen af 1866</strong>. Mit kerneprodukt er det ERP-system jeg siden 2022 har bygget og drevet for <a href="https://mallard.dk" target="_blank" rel="noopener"><strong>Mallard</strong></a>, en dansk tegnsprogstolknings­leverandør — og det praksisfelt hvor jeg har forfinet hvordan AI-assisteret udvikling faktisk fungerer i vedvarende produktion.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

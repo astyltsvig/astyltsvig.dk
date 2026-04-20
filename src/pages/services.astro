@@ -1,0 +1,113 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { routes, t } from '~/i18n/utils';
+const lang = 'en' as const;
+const d = t(lang);
+
+const services = [
+  {
+    n: '00',
+    title: 'AI productivity',
+    lede: 'Helping development teams move from ad-hoc ChatGPT use to a real AI-assisted workflow that survives production.',
+    stack: 'Claude Code · Cursor · Workflow design · Governance',
+    items: [
+      'AI-readiness audit of existing codebase and team practices',
+      'Setup of Claude Code or Cursor with project-specific conventions',
+      'Codebase hygiene that holds up under AI edits (structure, naming, test coverage)',
+      'Division of labour: architecture and decisions stay human, execution is AI-assisted',
+      'Workshops and pairing sessions for developer teams',
+      'Practiced daily in my own ERP work — not theory',
+    ],
+  },
+  {
+    n: '01',
+    title: 'Web applications',
+    lede: 'Full-stack development of internal systems, booking platforms, ERPs, and similar.',
+    stack: 'Laravel · Vue · MySQL / PostgreSQL',
+    items: [
+      'New systems from architecture through to production',
+      'Continued development and maintenance of existing Laravel/Vue codebases',
+      'Integrations with third-party APIs (payments, accounting, calendar)',
+      'Performance and database optimisation',
+    ],
+  },
+  {
+    n: '02',
+    title: 'Websites & CMS migrations',
+    lede: 'New sites and migrations to modern, static stacks. Default: Astro + headless CMS.',
+    stack: 'Astro · Sveltia · Decap · Cloudflare Pages',
+    items: [
+      'Migration from WordPress to Astro/Sveltia with content and URL structure preserved',
+      'New sites built from scratch in Astro',
+      'Deployment setup on Cloudflare Pages with custom domain',
+      'Editor onboarding and documentation',
+    ],
+  },
+  {
+    n: '03',
+    title: 'Infrastructure & operations',
+    lede: 'DNS, email authentication, domain administration, and server operations.',
+    stack: 'Hetzner · Cloudflare · SPF/DKIM/DMARC · Google Workspace',
+    items: [
+      'DNS migration between providers (Simply.com, GoDaddy, Cloudflare, Gigahost) without email interruption',
+      'SPF, DKIM, and DMARC configuration',
+      'Google Workspace administration, user management, and forensic investigations',
+      'Server operations on Hetzner (Laravel production, backups, SSH setup)',
+    ],
+  },
+  {
+    n: '04',
+    title: 'Technical advisory',
+    lede: 'For organisations facing larger technology decisions without an in-house technical lead.',
+    stack: 'Strategy · Architecture · Review',
+    items: [
+      'Assessment of existing systems and vendor agreements',
+      'Architecture and stack recommendations ahead of a tender or RFP',
+      'Code review and security review of external deliveries',
+    ],
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title="Services — AStyltsvig Consulting"
+  description="Web applications in Vue/Laravel, CMS migrations, DNS and email infrastructure, technical advisory."
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Services</p>
+    <h1 class="fade-in !mt-4 max-w-[22ch]">
+      Engagements that <span class="grad-text">go deep</span>.
+    </h1>
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)]">
+      Rolling engagements, not fixed-price projects — that's how I end up building the right thing instead of the agreed thing. For smaller, well-scoped tasks (a migration, a DNS handover) I'm happy with a fixed estimate up front.
+    </p>
+
+    <div class="mt-16 grid gap-6">
+      {services.map((s, i) => (
+        <div class="fade-in glass p-7 md:p-10" style={`transition-delay: ${i * 60}ms`}>
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <div>
+              <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">{s.n}</span>
+              <h2 class="!mt-2 text-3xl md:text-4xl">{s.title}</h2>
+            </div>
+            <span class="chip">{s.stack}</span>
+          </div>
+          <p class="mt-5 text-[var(--color-muted)] max-w-[64ch]">{s.lede}</p>
+          <ul class="mt-6 grid gap-2 md:grid-cols-2 text-sm">
+            {s.items.map(item => (
+              <li class="flex gap-2.5">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] flex-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 fade-in flex justify-center">
+      <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+    </div>
+  </article>
+</BaseLayout>

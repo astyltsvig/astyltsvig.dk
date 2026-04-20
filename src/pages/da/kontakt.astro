@@ -1,0 +1,73 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import { t } from '~/i18n/utils';
+const lang = 'da' as const;
+const d = t(lang);
+const email = 'hello@astyltsvig.dk';
+const formspreeId = 'YOUR_FORMSPREE_ID';
+---
+<BaseLayout
+  lang={lang}
+  title="Kontakt — AStyltsvig Consulting"
+  description="Kontakt om et nyt projekt eller teknisk rådgivning."
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Kontakt</p>
+    <h1 class="fade-in !mt-4 max-w-[16ch]">
+      Lad os <span class="grad-text">tale sammen.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[56ch] text-lg text-[var(--color-muted)]">
+      Beskriv hvad du har brug for, hvornår det skal leveres, og hvilken kontekst jeg skal kende til. Du hører tilbage inden for to hverdage.
+    </p>
+
+    <div class="mt-16 grid gap-8 md:grid-cols-[1fr_320px]">
+      <form
+        action={`https://formspree.io/f/${formspreeId}`}
+        method="POST"
+        class="fade-in glass p-8 grid gap-5"
+      >
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.name}</span>
+          <input required name="name" type="text" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.email}</span>
+          <input required name="email" type="email" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.organisation}</span>
+          <input name="organisation" type="text" class="bg-transparent border-0 border-b border-[var(--color-rule)] px-0 py-2 focus:outline-none focus:border-[var(--color-accent)] transition-colors" />
+        </label>
+        <label class="grid gap-2 text-sm">
+          <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">{d.form.message}</span>
+          <textarea required name="message" rows="6" class="bg-transparent border border-[var(--color-rule)] rounded-2xl px-4 py-3 focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-none"></textarea>
+        </label>
+        <div class="pt-2">
+          <button type="submit" class="btn-shimmer btn-primary">{d.form.send}</button>
+        </div>
+        <p class="text-xs text-[var(--color-muted)]">
+          {d.form.fallback} <a href={`mailto:${email}`} class="text-[var(--color-accent)]">{email}</a>.
+        </p>
+      </form>
+
+      <aside class="fade-in glass p-8 text-sm self-start space-y-6">
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Email</p>
+          <a href={`mailto:${email}`} class="block mt-1.5 grad-text font-[var(--font-display)] text-xl">{email}</a>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CVR</p>
+          <p class="mt-1.5">36163771</p>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Adresse</p>
+          <p class="mt-1.5">København</p>
+        </div>
+        <div>
+          <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Svartid</p>
+          <p class="mt-1.5">Inden for 2 hverdage</p>
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>

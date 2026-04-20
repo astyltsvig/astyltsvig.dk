@@ -1,0 +1,93 @@
+---
+interface Props {
+  class?: string;
+  href?: string;
+  maxTilt?: number;
+}
+
+const { class: cls = '', href, maxTilt = 8 } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const commonProps = {
+  class: `tilt-card tilt glass ${cls}`,
+  'data-max-tilt': String(maxTilt),
+  ...(href ? { href } : {}),
+};
+---
+<Tag {...commonProps}>
+  <div class="tilt-inner">
+    <slot />
+  </div>
+  <div class="tilt-sheen" aria-hidden="true"></div>
+</Tag>
+
+<style>
+  .tilt-card {
+    position: relative;
+    display: block;
+    padding: 1.75rem;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    text-decoration: none;
+    color: inherit;
+  }
+  .tilt-inner {
+    position: relative;
+    z-index: 1;
+    transform: translateZ(20px);
+    transform-style: preserve-3d;
+  }
+  .tilt-sheen {
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 255, 255, 0.35),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  :global([data-theme="dark"]) .tilt-sheen {
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      rgba(180, 155, 255, 0.15),
+      transparent 60%
+    );
+  }
+  .tilt-card:hover .tilt-sheen { opacity: 1; }
+</style>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>('.tilt-card');
+  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!isCoarse && !reduce) {
+    for (const card of cards) {
+      const max = Number(card.dataset.maxTilt ?? 8);
+      let raf = 0;
+
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        const rx = (0.5 - py) * max;
+        const ry = (px - 0.5) * max;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+          card.style.setProperty('--mx', `${px * 100}%`);
+          card.style.setProperty('--my', `${py * 100}%`);
+        });
+      });
+
+      card.addEventListener('pointerleave', () => {
+        cancelAnimationFrame(raf);
+        card.style.transform = '';
+      });
+    }
+  }
+</script>

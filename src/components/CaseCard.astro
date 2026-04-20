@@ -1,0 +1,34 @@
+---
+import TiltCard from './TiltCard.astro';
+import { t, caseUrl, type Lang } from '~/i18n/utils';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  client: string;
+  headline: string;
+  stack: string[];
+  index?: number;
+}
+
+const { lang, slug, client, headline, stack, index = 0 } = Astro.props;
+const d = t(lang);
+const href = caseUrl(lang, slug);
+const idx = String(index + 1).padStart(2, '0');
+---
+<div class="fade-in" style={`transition-delay: ${index * 80}ms`}>
+  <TiltCard href={href} maxTilt={6}>
+    <div class="flex items-center justify-between">
+      <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+        {idx} · {client}
+      </span>
+      <span class="font-[var(--font-mono)] text-[11px] grad-text">{d.cta.readMore}</span>
+    </div>
+    <h3 class="mt-5 !mt-5 text-2xl md:text-[1.85rem] font-[var(--font-display)] leading-[1.1] tracking-tight">
+      {headline}
+    </h3>
+    <div class="mt-6 flex flex-wrap gap-1.5">
+      {stack.map(tag => <span class="chip">{tag}</span>)}
+    </div>
+  </TiltCard>
+</div>
