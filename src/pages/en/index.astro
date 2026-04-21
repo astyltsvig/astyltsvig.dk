@@ -9,7 +9,7 @@ const lang = 'en' as const;
 const d = t(lang);
 
 const cases = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.data.order);
-const featuredSlugs = ['ddl-tegnsprogspakken', 'festival-sans-pression', 'mallard'];
+const featuredSlugs = ['mallard', 'ddl-tegnsprogspakken', 'festival-sans-pression'];
 const featured = featuredSlugs
   .map(slug => cases.find(c => c.slug === slug))
   .filter((c): c is NonNullable<typeof c> => c !== undefined);
@@ -114,7 +114,7 @@ const jsonLd = {
       <span class="grad-text">enterprise platforms that run businesses.</span>
     </h1>
     <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)] leading-relaxed">
-      I build and operate <strong class="text-[var(--color-text)] font-semibold">platforms that organisations actually depend on</strong> — booking, ERP, CRM. Three are currently in daily production, all built by a single developer with AI as a real part of the workflow.
+      I build and operate <strong class="text-[var(--color-text)] font-semibold">platforms that keep a business running</strong> — booking, ERP, CRM. Three are in daily production right now, all built by a single developer with AI as a real part of the workflow.
     </p>
     <div class="fade-in mt-12 flex flex-wrap gap-4">
       <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>

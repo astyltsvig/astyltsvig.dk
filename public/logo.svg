@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60" role="img" aria-label="AStyltsvig Consulting">
+  <g transform="translate(0, 6)">
+    <circle cx="24" cy="24" r="22" stroke="#4F4F8F" stroke-width="1.5" fill="none"/>
+    <path d="M13 35 L22 13 L26 13 L35 35" stroke="#4F4F8F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M17 27 L31 27" stroke="#4F4F8F" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="40" cy="40" r="2" fill="#4F4F8F"/>
+  </g>
+  <text x="62" y="35" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="28" fill="#111214" letter-spacing="-0.3">AStyltsvig</text>
+  <text x="62" y="50" font-family="ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace" font-size="9" fill="#6A6A72" letter-spacing="1.6">CONSULTING</text>
+</svg>

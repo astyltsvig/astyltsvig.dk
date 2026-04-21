@@ -8,7 +8,7 @@ import { t, routes } from '~/i18n/utils';
 const lang = 'da' as const;
 const d = t(lang);
 const cases = (await getCollection('casesDa')).sort((a, b) => a.data.order - b.data.order);
-const featuredSlugs = ['ddl-tegnsprogspakken', 'festival-sans-pression', 'mallard'];
+const featuredSlugs = ['mallard', 'ddl-tegnsprogspakken', 'festival-sans-pression'];
 const featured = featuredSlugs
   .map(slug => cases.find(c => c.slug === slug))
   .filter((c): c is NonNullable<typeof c> => c !== undefined);
@@ -112,7 +112,7 @@ const jsonLd = {
       <span class="grad-text">enterprise-platforme der driver virksomheder.</span>
     </h1>
     <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)] leading-relaxed">
-      Jeg bygger og drifter <strong class="text-[var(--color-text)] font-semibold">platforme som organisationer faktisk er afhængige af</strong> — booking, ERP, CRM. Tre er i daglig produktion lige nu, alle bygget af én udvikler med AI som reel del af arbejdet.
+      Jeg bygger og drifter <strong class="text-[var(--color-text)] font-semibold">platforme der holder en forretning kørende</strong> — booking, ERP, CRM. Tre er i daglig produktion lige nu, alle bygget af én udvikler med AI som reel del af arbejdet.
     </p>
     <div class="fade-in mt-12 flex flex-wrap gap-4">
       <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>
