@@ -13,7 +13,7 @@ description: "Et Laravel/Vue-ERP til Mallard, en dansk tegnsprogstolknings­leve
 
 ## Baggrund
 
-[Mallard](https://mallard.dk) er en dansk leverandør af tegnsprogstolkning. Det er en specialiseret branche med komplekse tildelingsregler, skarpe SLA'er over for offentlige kunder, og en økonomi hvor hver booking skal spores fra bestilling til faktura. Generiske bookingsystemer og regnskabsværktøjer dækker ikke behovet — de kan rumme bookinger, men ikke tolkedisponering, rekvirent-hierarkier eller branchens specifikke fakturakrav.
+[Mallard](https://mallard.dk) er en dansk leverandør af tegnsprogstolkning. Det er en specialiseret branche med komplekse tildelingsregler, skarpe SLA'er over for offentlige kunder, og en økonomi hvor hver booking skal spores fra bestilling til faktura. Generiske bookingsystemer og regnskabsværktøjer dækker ikke behovet — de kan rumme bookinger, men ikke tolkedisponering eller branchens specifikke fakturakrav.
 
 ## Opgave
 

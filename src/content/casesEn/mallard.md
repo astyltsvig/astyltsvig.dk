@@ -13,7 +13,7 @@ description: "A Laravel/Vue ERP for Mallard, a Danish sign-language interpreting
 
 ## Background
 
-[Mallard](https://mallard.dk) is a Danish provider of sign-language interpretation. It's a specialised industry with complex assignment rules, tight SLAs toward public-sector clients, and an economy where every booking has to be traced from request to invoice. Generic booking platforms and accounting tools don't cover it — they can handle bookings, but not interpreter scheduling, requester hierarchies, or the industry's specific invoicing requirements.
+[Mallard](https://mallard.dk) is a Danish provider of sign-language interpretation. It's a specialised industry with complex assignment rules, tight SLAs toward public-sector clients, and an economy where every booking has to be traced from request to invoice. Generic booking platforms and accounting tools don't cover it — they can handle bookings, but not interpreter scheduling or the industry's specific invoicing requirements.
 
 ## Brief
 
