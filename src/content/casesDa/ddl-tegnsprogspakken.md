@@ -1,26 +1,26 @@
 ---
 client: "Danske Døves Landsforbund (DDL)"
-headline: "Tegnsprogspakken migreret fra WordPress til en hurtig, redaktørvenlig Astro-stack."
+clientUrl: "https://tegnsprogspakken.dk"
+headline: "Tegnsprogspakken relanceret med markant designløft og en hurtig, redaktørvenlig Astro-stack."
 role: "Teknisk ansvarlig, udvikling, DNS"
 period: "2025 – 2026"
 stack: ["Astro", "Sveltia CMS", "Cloudflare Pages", "Simply.com"]
 statusKey: "delivered"
-order: 2
-description: "Migration af Danske Døves Landsforbunds tegnsprogsressource-platform fra WordPress til Astro + Sveltia CMS."
+statusSuffix: "Live på tegnsprogspakken.dk"
+screenshot: "tegnsprogspakken.png"
+screenshotAlt: "Forside af tegnsprogspakken.dk med hero: 'Tegn – vejen til kontakt og tryghed'"
+order: 4
+description: "Relancering af Danske Døves Landsforbunds tegnsprogsressource-platform med nyt design og en Astro + Sveltia CMS-stack."
 ---
 
-## Baggrund
+## Om platformen
 
-Tegnsprogspakken er DDL's indholdsplatform for tegnsprogsressourcer. Sitet kørte på WordPress med den vedligeholdelsesbyrde det indebærer: sikkerhedsopdateringer, pluginafhængigheder, langsom performance, og et redaktionelt workflow som var blevet mere besværligt end nødvendigt.
+Tegnsprogspakken er DDL's indholdsplatform for tegnsprogsressourcer.
 
-## Opgave
+## Leverance
 
-Migrere sitet til en moderne, statisk stack uden at miste indhold, URL-struktur eller den redaktionelle frihed redaktørerne var vant til — og uden at øge kompleksiteten for dem der skal vedligeholde indholdet dagligt.
-
-## Løsning
-
-Ny Astro-baseret site med **Sveltia CMS** som redaktørfladen. Sveltia giver et WordPress-lignende redigeringsinterface oven på Git-baseret indhold, så redaktører kan arbejde som de plejer mens sitet under motorhjelmen er statisk, hurtigt og næsten gratis at drive. DNS-koordination håndteret via Simply.com, og samarbejdsaftaler udarbejdet så rolle- og ansvarsfordelingen var klar fra dag ét.
+Det eksisterende site er ført videre med et designløft, der giver et mere tidssvarende visuelt udtryk, uden at ændre på indhold eller URL-struktur. Teknisk leveret på en Astro-baseret stack med **Sveltia CMS** som redaktørflade. Sveltia lægger et genkendeligt redigeringsinterface oven på Git-baseret indhold, og sitet bygges og leveres statisk. DNS koordineret via Simply.com, og en samarbejdsaftale udarbejdet, så roller og ansvarsfordeling var på plads fra start.
 
 ## Resultat
 
-Hurtigere site, lavere driftomkostninger, og et sikkerhedsbillede uden de WordPress-specifikke risici. Redaktørerne fik beholdt det workflow de kendte.
+Et friskere visuelt udtryk, hurtige indlæsningstider, lavt driftsaftryk og en redigeringsflade, redaktørerne kunne gå i gang med uden oplæring.

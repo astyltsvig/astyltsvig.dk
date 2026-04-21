@@ -29,6 +29,9 @@ const cases = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.d
           client={c.data.client}
           headline={c.data.headline}
           stack={c.data.stack}
+          screenshot={c.data.screenshot}
+          screenshotAlt={c.data.screenshotAlt}
+          icon={c.data.icon}
           index={i}
         />
       ))}

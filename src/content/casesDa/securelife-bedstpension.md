@@ -1,17 +1,18 @@
 ---
-client: "SecureLife & Bedstpension"
-headline: "En kundeportal til forsikrings- og pensionsordninger i større skala."
+client: "SecureLife / Care Pensions"
+headline: "En CRM-platform til forsikrings- og pensionsordninger i større skala."
 role: "Lead-udvikler"
 period: "2020 – 2022"
 stack: ["Vue", "Firebase", "REST API", "MailGun", "GitHub Actions"]
 statusKey: "delivered"
-order: 5
-description: "En sikker kundeportal til SecureLife og Bedstpension der dækker 2.500+ medarbejdere fordelt på over 200 virksomheder — Vue 2, Firebase BaaS, avanceret søgning og policy-dashboards."
+icon: "shield"
+order: 3
+description: "En CRM-platform til SecureLife og Care Pensions der dækker 2.500+ medarbejdere fordelt på over 200 virksomheder — Vue 2, Firebase BaaS, avanceret søgning og policy-dashboards."
 ---
 
 ## Baggrund
 
-SecureLife og Bedstpension leverer forsikrings- og pensionsprodukter til danske virksomheder som administrerer ordninger på vegne af deres medarbejdere. Ved 200+ kundevirksomheder og 2.500+ enkelte forsikringstagere holder regneark og ad-hoc-opslag op med at være en holdbar måde at drive den daglige administration på. Både HR-afdelinger og medarbejdere havde brug for et sted hvor de kunne se hvad der var dækket, af hvem og på hvilke vilkår.
+SecureLife og Care Pensions leverer forsikrings- og pensionsprodukter til danske virksomheder som administrerer ordninger på vegne af deres medarbejdere. Ved 200+ kundevirksomheder og 2.500+ enkelte forsikringstagere holder regneark og ad-hoc-opslag op med at være en holdbar måde at drive den daglige administration på. Både HR-afdelinger og medarbejdere havde brug for et sted hvor de kunne se hvad der var dækket, af hvem og på hvilke vilkår.
 
 ## Opgave
 

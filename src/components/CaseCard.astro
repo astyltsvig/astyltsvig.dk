@@ -1,6 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import TiltCard from './TiltCard.astro';
+import CaseIcon from './CaseIcon.astro';
 import { t, caseUrl, type Lang } from '~/i18n/utils';
+
+type IconName = 'bike' | 'chart' | 'shield' | 'globe' | 'database' | 'code';
 
 interface Props {
   lang: Lang;
@@ -8,16 +12,56 @@ interface Props {
   client: string;
   headline: string;
   stack: string[];
+  screenshot?: string;
+  screenshotAlt?: string;
+  icon?: IconName;
   index?: number;
 }
 
-const { lang, slug, client, headline, stack, index = 0 } = Astro.props;
+const { lang, slug, client, headline, stack, screenshot, screenshotAlt, icon, index = 0 } = Astro.props;
 const d = t(lang);
 const href = caseUrl(lang, slug);
 const idx = String(index + 1).padStart(2, '0');
+
+const screenshots = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cases/*.{png,jpg,jpeg,webp}',
+  { eager: true }
+);
+const key = screenshot ? `/src/assets/cases/${screenshot}` : null;
+const img = key ? screenshots[key]?.default : null;
+
+const initials = client
+  .replace(/[—–-].*$/, '')
+  .trim()
+  .split(/\s+/)
+  .slice(0, 2)
+  .map(w => w[0])
+  .join('')
+  .toUpperCase();
 ---
 <div class="fade-in" style={`transition-delay: ${index * 80}ms`}>
   <TiltCard href={href} maxTilt={6}>
+    <div class="-mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[inherit] border-b border-[var(--glass-border)] bg-gradient-to-br from-[var(--color-bg-deep)] to-[var(--color-bg)]">
+      {img ? (
+        <Image
+          src={img}
+          alt={screenshotAlt ?? client}
+          widths={[480, 768, 1024]}
+          sizes="(max-width: 768px) 100vw, 400px"
+          class="h-full w-full object-cover object-top"
+        />
+      ) : icon ? (
+        <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent-2)]/10">
+          <CaseIcon name={icon} class="w-20 h-20 md:w-24 md:h-24 text-[var(--color-accent)]" />
+        </div>
+      ) : (
+        <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent-2)]/10">
+          <span class="font-[var(--font-display)] text-6xl md:text-7xl tracking-tight grad-text select-none">
+            {initials}
+          </span>
+        </div>
+      )}
+    </div>
     <div class="flex items-center justify-between">
       <span class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
         {idx} · {client}

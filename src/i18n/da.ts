@@ -6,13 +6,13 @@ export const da: Dict = {
     home: 'Forside',
     about: 'Om',
     services: 'Ydelser',
-    work: 'Cases',
+    work: 'Projekter',
     contact: 'Kontakt',
   },
   cta: {
     readMore: 'Læs mere →',
     getInTouch: 'Kontakt →',
-    seeMyWork: 'Se mine cases →',
+    seeMyWork: 'Se mine projekter →',
     writeToMe: 'Skriv til mig →',
   },
   sections: {

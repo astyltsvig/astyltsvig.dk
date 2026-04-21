@@ -9,7 +9,10 @@ const lang = 'en' as const;
 const d = t(lang);
 
 const cases = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.data.order);
-const featured = cases.slice(0, 3);
+const featuredSlugs = ['ddl-tegnsprogspakken', 'festival-sans-pression', 'mallard'];
+const featured = featuredSlugs
+  .map(slug => cases.find(c => c.slug === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined);
 
 const stackStrip = [
   'Vue', 'Laravel', 'Astro', 'PHP', 'TypeScript', 'MySQL', 'PostgreSQL',
@@ -21,38 +24,97 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Person',
+      '@id': 'https://astyltsvig.dk/#andreas',
       name: 'Andreas Sørbye Styltsvig',
-      jobTitle: 'IT Consultant & Developer',
-      url: 'https://astyltsvig.dk',
-      email: 'mailto:hello@astyltsvig.dk',
-      sameAs: ['https://github.com/astyltsvig', 'https://www.linkedin.com/in/astyltsvig/'],
+      givenName: 'Andreas',
+      additionalName: 'Sørbye',
+      familyName: 'Styltsvig',
+      alternateName: ['Andreas Styltsvig', 'A. Styltsvig'],
+      jobTitle: 'IT consultant & software architect',
+      description: 'IT consultant and software architect in Copenhagen — designing, building, and operating enterprise-grade platforms organisations run their business on. Preferred stack: Laravel and Vue, always adapted to the brief.',
+      url: 'https://astyltsvig.dk/en/',
+      email: 'hello@astyltsvig.dk',
+      image: 'https://astyltsvig.dk/og-default.svg',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Vanløse',
+        addressRegion: 'Copenhagen',
+        addressCountry: 'DK',
+      },
+      nationality: 'DK',
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Copenhagen Business Academy (Cphbusiness Lyngby)',
+        url: 'https://www.cphbusiness.dk/',
+      },
+      knowsAbout: [
+        'Vue.js', 'Laravel', 'Full-stack development', 'Enterprise platform development',
+        'ERP systems', 'Booking platforms', 'CRM platforms', 'AI-assisted development',
+        'Claude Code', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+        'DNS', 'SPF', 'DKIM', 'DMARC', 'Google Workspace', 'Hetzner', 'Cloudflare Pages',
+      ],
+      knowsLanguage: ['da', 'en'],
+      worksFor: { '@id': 'https://astyltsvig.dk/#consulting' },
+      sameAs: [
+        'https://github.com/astyltsvig',
+        'https://www.linkedin.com/in/astyltsvig/',
+      ],
     },
     {
       '@type': 'ProfessionalService',
+      '@id': 'https://astyltsvig.dk/#consulting',
       name: 'AStyltsvig Consulting',
-      description: 'IT consultant and developer building software for organisations, and helping companies unlock meaningful productivity with AI.',
+      alternateName: 'AStyltsvig',
+      description: 'IT consultancy in Copenhagen specialising in enterprise platform development in Vue and Laravel — ERPs, booking platforms, and CRM systems — and AI-assisted development workflows.',
       url: 'https://astyltsvig.dk',
       email: 'hello@astyltsvig.dk',
+      image: 'https://astyltsvig.dk/og-default.svg',
+      logo: 'https://astyltsvig.dk/favicon.svg',
+      founder: { '@id': 'https://astyltsvig.dk/#andreas' },
+      employee: { '@id': 'https://astyltsvig.dk/#andreas' },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Vanløse',
+        addressRegion: 'Copenhagen',
+        addressCountry: 'DK',
+      },
       areaServed: ['DK', 'EU', 'Worldwide'],
+      priceRange: '$$$',
       identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: '36163771' },
+      sameAs: [
+        'https://github.com/astyltsvig',
+        'https://www.linkedin.com/in/astyltsvig/',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://astyltsvig.dk/#website',
+      url: 'https://astyltsvig.dk',
+      name: 'AStyltsvig Consulting',
+      description: 'Andreas Sørbye Styltsvig — IT consultant & software architect building enterprise-grade platforms in Copenhagen. End-to-end delivery from architecture to operation, preferred in Laravel and Vue.',
+      publisher: { '@id': 'https://astyltsvig.dk/#consulting' },
+      inLanguage: ['da', 'en'],
     },
   ],
 };
 ---
 <BaseLayout
   lang={lang}
-  title="AStyltsvig Consulting — IT Consultant & Developer in Copenhagen"
-  description="Freelance IT consultant and developer in Copenhagen. I help companies increase productivity with AI, build and maintain web applications, and take over technical infrastructure for organisations that depend on it."
+  title="Andreas Sørbye Styltsvig — IT consultant & software architect, AStyltsvig Consulting Copenhagen"
+  description="Andreas Sørbye Styltsvig runs AStyltsvig Consulting in Copenhagen. IT consultant and software architect building enterprise-grade platforms that organisations run their business on — Book2Go, Mallard ERP, and a SecureLife/Care Pensions CRM in daily production. Preferred stack Laravel and Vue, always adapted to the brief."
   jsonLd={jsonLd}
 >
   <!-- Hero -->
   <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-20">
-    <h1 class="fade-in max-w-[22ch]">
-      <span>IT consultant &amp; developer</span>{' '}
-      <span class="grad-text">building with AI, not around it.</span>
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
+      Andreas Sørbye Styltsvig · AStyltsvig Consulting · Copenhagen
+    </p>
+    <h1 class="fade-in !mt-4 max-w-[24ch]">
+      <span>IT consultant & software architect —</span>{' '}
+      <span class="grad-text">enterprise platforms that run businesses.</span>
     </h1>
-    <p class="fade-in mt-8 max-w-[58ch] text-lg text-[var(--color-muted)] leading-relaxed">
-      I build and maintain software for organisations that depend on it — and help <strong class="text-[var(--color-text)] font-semibold">companies unlock real productivity with AI</strong>. Same quality bar, fewer weeks to ship.
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)] leading-relaxed">
+      I build and operate <strong class="text-[var(--color-text)] font-semibold">platforms that organisations actually depend on</strong> — booking, ERP, CRM. Three are currently in daily production, all built by a single developer with AI as a real part of the workflow.
     </p>
     <div class="fade-in mt-12 flex flex-wrap gap-4">
       <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>
@@ -81,16 +143,16 @@ const jsonLd = {
     <div class="mt-12 grid gap-6 md:grid-cols-2">
       <div class="fade-in glass p-7">
         <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">00</span>
-        <h3 class="!mt-4">AI productivity</h3>
+        <h3 class="!mt-4">Enterprise platforms</h3>
         <p class="mt-3 text-[var(--color-muted)]">
-          Moving companies from ad-hoc ChatGPT use to a real AI workflow: the right tools set up properly, conventions that survive AI edits, and a division of labour where people own decisions and AI handles execution.
+          Full-stack platforms built to run businesses — booking, ERP, CRM. Architecture, build, operation. Typically in Laravel and Vue, but adapted to whatever the engagement calls for. Three in daily production right now.
         </p>
       </div>
       <div class="fade-in glass p-7" style="transition-delay: 80ms">
         <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</span>
-        <h3 class="!mt-4">Web applications</h3>
+        <h3 class="!mt-4">AI-assisted development</h3>
         <p class="mt-3 text-[var(--color-muted)]">
-          Full-stack Vue and Laravel. ERP systems and booking platforms running in daily production — not prototypes.
+          A real AI workflow in the stack I build on. Claude Code set up with conventions that hold up under production code review — the same way I use it daily on my own platforms.
         </p>
       </div>
       <div class="fade-in glass p-7" style="transition-delay: 160ms">
@@ -110,17 +172,6 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- AI practice -->
-  <section class="max-w-6xl mx-auto px-6 md:px-10 py-16">
-    <div class="fade-in glass p-8 md:p-12">
-      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">In practice</p>
-      <h2 class="!mt-4 max-w-[24ch] text-3xl md:text-4xl">I practice what I <span class="grad-text">advise on</span>.</h2>
-      <p class="mt-6 max-w-[60ch] text-[var(--color-muted)] leading-relaxed">
-        My own ERP system is built and operated with Claude Code as an integrated part of the daily development workflow. Architecture and product decisions stay with me; implementation, refactoring and debugging are handled in close collaboration with AI. The result is a sustainable tempo where a single developer can deliver what traditionally required a small team — without sprint culture or quality compromises.
-      </p>
-    </div>
-  </section>
-
   <!-- Featured work -->
   <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
     <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.selectedWork}</p>
@@ -133,12 +184,56 @@ const jsonLd = {
           client={c.data.client}
           headline={c.data.headline}
           stack={c.data.stack}
+          screenshot={c.data.screenshot}
+          screenshotAlt={c.data.screenshotAlt}
+          icon={c.data.icon}
           index={i}
         />
       ))}
     </div>
     <div class="mt-12 fade-in">
       <ShimmerCTA href={routes.work[lang]}>{d.cta.seeMyWork}</ShimmerCTA>
+    </div>
+  </section>
+
+  <!-- What you can count on -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+    <div class="fade-in text-center mb-14">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">What you can count on</p>
+      <h2 class="!mt-4">Four <span class="grad-text">standing commitments</span>.</h2>
+      <p class="mt-6 max-w-[50ch] mx-auto text-[var(--color-muted)]">
+        These don't change from engagement to engagement — it's how I work.
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="fade-in glass p-7 md:p-8">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">00</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">You own the code</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          All in your repo, on your domain. No lock-in, no vendor hostage situations.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 80ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">One point of contact</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          No sub-contractors, no white-label chains. Same person today and three years from now.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 160ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">Rolling engagements</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          Over fixed price. I build the right thing, not the agreed thing — and you can stop any time.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 240ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">Direct line</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          Email, phone, Slack — whichever suits you. No support portal.
+        </p>
+      </div>
     </div>
   </section>
 

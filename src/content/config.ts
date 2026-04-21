@@ -9,6 +9,9 @@ const caseSchema = z.object({
   stack: z.array(z.string()),
   statusKey: z.enum(['inDailyProduction', 'delivered', 'ongoing']),
   statusSuffix: z.string().optional(),
+  screenshot: z.string().optional(),
+  screenshotAlt: z.string().optional(),
+  icon: z.enum(['bike', 'chart', 'shield', 'globe', 'database', 'code']).optional(),
   order: z.number(),
   description: z.string(),
 });

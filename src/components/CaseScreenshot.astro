@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  screenshot?: string;
+  alt?: string;
+  client: string;
+  clientUrl?: string;
+}
+
+const { screenshot, alt, client, clientUrl } = Astro.props;
+
+const screenshots = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/cases/*.{png,jpg,jpeg,webp}',
+  { eager: true }
+);
+const key = screenshot ? `/src/assets/cases/${screenshot}` : null;
+const img = key ? screenshots[key]?.default : null;
+---
+{img && (
+  <figure class="fade-in mt-12 md:mt-14">
+    {clientUrl ? (
+      <a
+        href={clientUrl}
+        target="_blank"
+        rel="noopener"
+        class="group relative block overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]"
+      >
+        <Image
+          src={img}
+          alt={alt ?? `Screenshot af ${client}`}
+          widths={[640, 1024, 1440, 1920]}
+          sizes="(max-width: 768px) 100vw, min(1152px, 100vw)"
+          class="w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+        />
+        <span class="absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur px-3 py-1.5 text-[11px] font-[var(--font-mono)] uppercase tracking-[0.18em] text-white opacity-0 group-hover:opacity-100 transition-opacity">
+          {new URL(clientUrl).host} ↗
+        </span>
+      </a>
+    ) : (
+      <div class="overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]">
+        <Image
+          src={img}
+          alt={alt ?? `Screenshot af ${client}`}
+          widths={[640, 1024, 1440, 1920]}
+          sizes="(max-width: 768px) 100vw, min(1152px, 100vw)"
+          class="w-full h-auto"
+        />
+      </div>
+    )}
+  </figure>
+)}

@@ -19,16 +19,18 @@ export const routes: RouteMap = {
   home: { en: '/en/', da: '/' },
   about: { en: '/en/about', da: '/om' },
   services: { en: '/en/services', da: '/ydelser' },
-  work: { en: '/en/work', da: '/cases' },
+  work: { en: '/en/work', da: '/projekter' },
   contact: { en: '/en/contact', da: '/kontakt' },
 };
 
 const caseSlugs = [
   'mallard',
+  'book2go',
+  'securelife-bedstpension',
   'ddl-tegnsprogspakken',
   'cycling-without-age',
   'df1866',
-  'securelife-bedstpension',
+  'festival-sans-pression',
 ] as const;
 
 export function getAlternateUrl(pathname: string, target: Lang): string {
@@ -44,10 +46,10 @@ export function getAlternateUrl(pathname: string, target: Lang): string {
 
   for (const slug of caseSlugs) {
     if (clean === `/en/work/${slug}` || clean === `/en/work/${slug}/`) {
-      return target === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
+      return target === 'en' ? `/en/work/${slug}` : `/projekter/${slug}`;
     }
-    if (clean === `/cases/${slug}` || clean === `/cases/${slug}/`) {
-      return target === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
+    if (clean === `/projekter/${slug}` || clean === `/projekter/${slug}/`) {
+      return target === 'en' ? `/en/work/${slug}` : `/projekter/${slug}`;
     }
   }
 
@@ -55,7 +57,7 @@ export function getAlternateUrl(pathname: string, target: Lang): string {
 }
 
 export function caseUrl(lang: Lang, slug: string): string {
-  return lang === 'en' ? `/en/work/${slug}` : `/cases/${slug}`;
+  return lang === 'en' ? `/en/work/${slug}` : `/projekter/${slug}`;
 }
 
 export function workIndexUrl(lang: Lang): string {

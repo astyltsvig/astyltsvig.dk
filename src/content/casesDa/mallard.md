@@ -6,6 +6,7 @@ role: "Solo-udvikler, arkitekt, drift"
 period: "2022 – nu"
 stack: ["Laravel", "Vue", "MySQL", "Hetzner"]
 statusKey: "inDailyProduction"
+icon: "chart"
 order: 1
 description: "Et Laravel/Vue-ERP til Mallard, en dansk tegnsprogstolknings­leverandør — bygget fra bunden og i daglig produktion siden 2022."
 ---
