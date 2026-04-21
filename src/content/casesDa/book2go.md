@@ -8,7 +8,7 @@ stack: ["Vue", "Laravel", "MySQL", "Hetzner"]
 statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "Forside af book2go.bike med hero-billede og rickshaw"
-order: 2
+order: 8
 description: "En flersproget bookingplatform i realtid bygget til Cycling Without Age-afdelinger verden over."
 ---
 

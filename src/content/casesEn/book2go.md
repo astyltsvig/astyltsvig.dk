@@ -8,7 +8,7 @@ stack: ["Vue", "Laravel", "MySQL", "Hetzner"]
 statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "book2go.bike homepage with hero image and rickshaw"
-order: 2
+order: 8
 description: "A real-time, multilingual booking platform built for Cycling Without Age affiliates worldwide."
 ---
 
