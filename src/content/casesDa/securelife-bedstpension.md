@@ -1,13 +1,13 @@
 ---
 client: "SecureLife / Care Pensions"
-headline: "En CRM-platform til forsikrings- og pensionsordninger i større skala."
+headline: "CRM-portaler til forsikrings- og pensionsordninger — to brands på én kodebase."
 role: "Lead-udvikler"
 period: "2020 – 2022"
 stack: ["Vue", "Firebase", "REST API", "MailGun", "GitHub Actions"]
 statusKey: "delivered"
 icon: "shield"
 order: 3
-description: "En CRM-platform til SecureLife og Care Pensions der dækker 2.500+ medarbejdere fordelt på over 200 virksomheder — Vue 2, Firebase BaaS, avanceret søgning og policy-dashboards."
+description: "CRM-portaler til SecureLife og Care Pensions — to brands drevet på én Vue 2-kodebase, dækker 2.500+ medarbejdere fordelt på over 200 virksomheder med avanceret søgning og policy-dashboards."
 ---
 
 ## Baggrund
@@ -16,12 +16,12 @@ SecureLife og Care Pensions leverer forsikrings- og pensionsprodukter til danske
 
 ## Opgave
 
-Bygge en sikker kundeportal der dækkede begge brands, med ét samlet login, rolle-bestemt adgang for HR-administratorer og slutbrugere, avanceret søgning og filtrering på tværs af policy-datasættet, og dashboards der gør en stor portefølje af ordninger overskuelig ved første blik.
+Bygge sikre kundeportaler til begge brands — to separate portaler på hver sit brand og domæne, men drevet på samme kodebase for at undgå dobbeltudvikling. Rolle-bestemt adgang for HR-administratorer og slutbrugere, avanceret søgning og filtrering på tværs af policy-datasættet, og dashboards der gør en stor portefølje af ordninger overskuelig ved første blik.
 
 ## Løsning
 
-En Vue 2-SPA bygget ovenpå Firebase (autentificering og data), med REST-integrationer mod policy-systemerne og transaktionel email-levering via MailGun. Søge- og filtreringslaget blev designet omkring dataens faktiske form — koncern-hierarkier, overlappende ordningstyper og medarbejder­records der flytter sig mellem arbejdsgivere over tid. Releases gik gennem en GitHub Actions-pipeline med miljø-adskillelse så ændringer kunne verificeres før de ramte produktion.
+En Vue 2-SPA bygget ovenpå Firebase (autentificering og data), med REST-integrationer mod policy-systemerne og transaktionel email-levering via MailGun. Samme kodebase blev deployet som to brandede portaler — én til SecureLife, én til Care Pensions — så de to brands kunne driftes uafhængigt uden at duplikere udviklingsarbejdet. Søge- og filtreringslaget blev designet omkring dataens faktiske form — koncern-hierarkier, overlappende ordningstyper og medarbejder­records der flytter sig mellem arbejdsgivere over tid. Releases gik gennem en GitHub Actions-pipeline med miljø-adskillelse så ændringer kunne verificeres før de ramte produktion.
 
 ## Resultat
 
-En leveret portal der administrerer forsikrings- og pensionsordninger for mere end 2.500 medarbejdere fordelt på over 200 virksomheder, med de søge-, filtrerings- og dashboard-flader HR-afdelingerne bruger dagligt.
+To leverede portaler der tilsammen administrerer forsikrings- og pensionsordninger for mere end 2.500 medarbejdere fordelt på over 200 virksomheder, med de søge-, filtrerings- og dashboard-flader HR-afdelingerne bruger dagligt.
