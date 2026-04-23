@@ -8,11 +8,19 @@ interface Props {
   stack: string[];
   statusKey: 'inDailyProduction' | 'delivered' | 'ongoing';
   statusSuffix?: string;
+  liveUrl?: string;
 }
 
-const { lang, role, period, stack, statusKey, statusSuffix } = Astro.props;
+const { lang, role, period, stack, statusKey, statusSuffix, liveUrl } = Astro.props;
 const d = t(lang);
-const statusText = d.status[statusKey] + (statusSuffix ? ` · ${statusSuffix}` : '');
+const statusBase = d.status[statusKey];
+
+const domainMatch = statusSuffix && liveUrl
+  ? statusSuffix.match(/([a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+)/i)
+  : null;
+const suffixBefore = domainMatch ? statusSuffix!.slice(0, domainMatch.index!) : '';
+const suffixDomain = domainMatch ? domainMatch[1] : '';
+const suffixAfter = domainMatch ? statusSuffix!.slice(domainMatch.index! + suffixDomain.length) : '';
 ---
 <aside class="glass p-6 sticky top-28 self-start text-sm">
   <dl class="grid gap-5">
@@ -32,7 +40,17 @@ const statusText = d.status[statusKey] + (statusSuffix ? ` · ${statusSuffix}` :
       <dt class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.caseMeta.status}</dt>
       <dd class="mt-1.5 inline-flex items-center gap-2">
         <span class="h-2 w-2 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] animate-pulse"></span>
-        {statusText}
+        <span>
+          {statusBase}
+          {statusSuffix && <Fragment>{' · '}</Fragment>}
+          {domainMatch ? (
+            <Fragment>
+              {suffixBefore}
+              <a href={liveUrl} target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-[var(--color-accent)] transition-colors">{suffixDomain}</a>
+              {suffixAfter}
+            </Fragment>
+          ) : statusSuffix}
+        </span>
       </dd>
     </div>
   </dl>
