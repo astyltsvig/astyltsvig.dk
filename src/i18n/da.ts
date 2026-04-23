@@ -35,14 +35,6 @@ export const da: Dict = {
     delivered: 'Leveret',
     ongoing: 'Løbende',
   },
-  form: {
-    name: 'Navn',
-    email: 'Email',
-    organisation: 'Organisation',
-    message: 'Besked',
-    send: 'Send besked',
-    fallback: 'Virker formularen ikke? Skriv direkte til',
-  },
   footer: {
     copyrightLine: 'AStyltsvig Consulting · CVR 36163771 · København, Danmark',
     theme: 'Tema',

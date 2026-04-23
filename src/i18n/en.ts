@@ -33,14 +33,6 @@ export const en = {
     delivered: 'Delivered',
     ongoing: 'Ongoing',
   },
-  form: {
-    name: 'Name',
-    email: 'Email',
-    organisation: 'Organisation',
-    message: 'Message',
-    send: 'Send message',
-    fallback: 'Form not loading? Email me directly at',
-  },
   footer: {
     copyrightLine: 'AStyltsvig Consulting · CVR 36163771 · Copenhagen, Denmark',
     theme: 'Theme',
