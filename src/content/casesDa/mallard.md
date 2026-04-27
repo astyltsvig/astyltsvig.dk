@@ -21,7 +21,7 @@ Bygge et samlet system som kunne erstatte en blanding af regneark, manuelle proc
 
 ## Løsning
 
-Mallards ERP er et fullstack Laravel/Vue-system der håndterer hele forretningsdriften: kundeportal, bookingflow, tolkedisponering, kørselsregistrering, fakturering og rapportering. Jeg har bygget det fra bunden og drevet det siden 2022, med produktionsmiljø på Hetzner og en deploy-pipeline der gør det muligt at iterere hurtigt uden at gå på kompromis med stabilitet.
+Mallards ERP er et fullstack Laravel/Vue-system der håndterer hele forretningsdriften: kundeportal, bookingflow, tolkedisponering, arbejdstids- og lønregistrering med Danløn-integration, fakturering og statistik. Jeg har bygget det fra bunden og drevet det siden 2022, med produktionsmiljø på Hetzner og en deploy-pipeline der gør det muligt at iterere hurtigt uden at gå på kompromis med stabilitet.
 
 Den tætte kobling mellem udvikling og drift — at jeg både bygger systemet og kender hver eneste edge case fra supporttickets — er årsagen til at systemet er blevet det det er.
 
