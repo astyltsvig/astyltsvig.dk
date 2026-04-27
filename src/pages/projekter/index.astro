@@ -2,14 +2,34 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import CaseCard from '~/components/CaseCard.astro';
 import { getCollection } from 'astro:content';
+import { breadcrumbList, webPage, SITE_URL } from '~/lib/seo';
 
 const lang = 'da' as const;
 const cases = (await getCollection('casesDa')).sort((a, b) => a.data.order - b.data.order);
+const description = 'Udvalgte enterprise-platforme og projekter fra AStyltsvig Consulting — Mallard ERP, Book2Go, SecureLife/Care Pensions CRM og udvalgte web-engagementer.';
+const jsonLd = [
+  webPage({ lang, path: '/projekter', name: 'Projekter — AStyltsvig Consulting', description, type: 'CollectionPage' }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Projekter', path: '/projekter' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: cases.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE_URL}/projekter/${c.slug}`,
+      name: `${c.data.client} — ${c.data.headline}`,
+    })),
+  },
+];
 ---
 <BaseLayout
   lang={lang}
-  title="Udvalgte projekter — AStyltsvig Consulting"
-  description="Udvalgte enterprise-platforme og projekter fra AStyltsvig Consulting — Mallard ERP, Book2Go, SecureLife/Care Pensions CRM og udvalgte web-engagementer."
+  title="Projekter — AStyltsvig Consulting (Mallard ERP, Book2Go, SecureLife CRM)"
+  description={description}
+  jsonLd={jsonLd}
 >
   <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-10">
     <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Projekter</p>

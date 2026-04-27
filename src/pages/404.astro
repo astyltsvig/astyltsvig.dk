@@ -1,0 +1,40 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { getLangFromUrl, t, routes } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const d = t(lang);
+const isEn = lang === 'en';
+---
+<BaseLayout
+  lang={lang}
+  title={isEn ? '404 — Page not found · AStyltsvig Consulting' : '404 — Siden findes ikke · AStyltsvig Consulting'}
+  description={isEn
+    ? 'The page you are looking for could not be found on astyltsvig.dk.'
+    : 'Den side du leder efter findes ikke på astyltsvig.dk.'}
+  noindex
+>
+  <section class="max-w-3xl mx-auto px-6 md:px-10 pt-32 md:pt-40 pb-32 text-center">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">404</p>
+    <h1 class="fade-in !mt-4">
+      {isEn ? <>Page <span class="grad-text">not found</span>.</> : <>Siden <span class="grad-text">findes ikke</span>.</>}
+    </h1>
+    <p class="fade-in mt-8 max-w-[52ch] mx-auto text-lg text-[var(--color-muted)]">
+      {isEn
+        ? 'The link may be old, or the page has been moved. Try the home page or the work overview.'
+        : 'Linket er måske gammelt, eller siden er flyttet. Prøv forsiden eller projektoversigten.'}
+    </p>
+    <div class="fade-in mt-12 flex flex-wrap gap-4 justify-center">
+      <ShimmerCTA href={routes.home[lang]} variant="primary">
+        {isEn ? 'Home' : 'Forside'}
+      </ShimmerCTA>
+      <ShimmerCTA href={routes.work[lang]}>
+        {d.nav.work}
+      </ShimmerCTA>
+      <ShimmerCTA href={routes.contact[lang]}>
+        {d.nav.contact}
+      </ShimmerCTA>
+    </div>
+  </section>
+</BaseLayout>
