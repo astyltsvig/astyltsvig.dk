@@ -1,36 +1,34 @@
 ---
 client: "Mallard"
 clientUrl: "https://mallard.dk"
-headline: "An ERP system built for an industry no off-the-shelf product covers."
-role: "Solo developer, architect, operations"
+headline: "ERP system for a complex, specialised operation."
+role: "Solo developer, architecture, operations"
 period: "2022 – present"
-stack: ["Laravel", "Vue", "MySQL", "Hetzner"]
+stack: ["Laravel", "Vue", "MySQL"]
 statusKey: "inDailyProduction"
 icon: "chart"
 order: 1
-description: "A Laravel/Vue ERP for Mallard, a Danish sign-language interpreting provider — built from scratch and running in daily production since 2022."
+description: "Custom ERP system built and operated for Mallard since 2022 — core infrastructure for the business, in daily production."
 ---
 
 ## Background
 
-[Mallard](https://mallard.dk) is a Danish provider of sign-language interpretation. It's a specialised industry with complex assignment rules, tight SLAs toward public-sector clients, and an economy where every booking has to be traced from request to invoice. Generic booking platforms and accounting tools don't cover it — they can handle bookings, but not interpreter scheduling or the industry's specific invoicing requirements.
+Mallard operates in an industry with high operational complexity, where planning, coordination, and administration are tightly interlinked. Off-the-shelf tools did not adequately cover the need, and a significant portion of the operation depended on manual processes.
 
 ## Brief
 
-Build a single system to replace a patchwork of spreadsheets, manual processes, and an ageing internal tool — and operate it over time, without an in-house IT department to fall back on.
+Design and develop a unified platform to support day-to-day operations and reduce dependence on manual workflows — without compromising on flexibility.
 
 ## Approach
 
-Mallard's ERP is a full-stack Laravel/Vue system covering the entire operation: customer portal, booking flow, interpreter scheduling, time and payroll tracking with Danløn integration, invoicing, and reporting and statistics. I built it from scratch and have operated it since 2022, with a production environment on Hetzner and a deployment pipeline that lets me iterate quickly without compromising stability.
+A bespoke ERP system built from the ground up, consolidating core workflows into a single solution. The focus has been on:
 
-The tight loop between development and operations — I both build the system and know every edge case from support tickets — is the reason it's become what it is.
+- A system that reflects how the business actually runs rather than forcing the process into off-the-shelf software
+- Stable, high-reliability operation in a business where the system is mission-critical
+- A solution designed to evolve, so it can adapt to new needs over time
 
-## AI-assisted acceleration
-
-Since late 2025, Claude Code has been an integrated part of the daily development workflow. A full framework modernisation — Vue 2 to Vue 3, Webpack to Vite, mixins to a modern component architecture — was delivered by a single developer on a timeline that would traditionally require a small team. The release cadence has shifted from occasional larger drops to continuous updates, with fixes and new functionality reaching users within days rather than weeks.
-
-Architecture and product decisions stay with me; AI handles implementation, refactoring, and debugging. The arrangement is what makes a sustainable tempo possible — normal working hours, no sprint culture, and a system that keeps improving.
+I am responsible for development, architecture, and operations, which keeps a tight loop between business and technology.
 
 ## Outcome
 
-A system entering its fourth year in production, used daily by Mallard's staff. No downtime caused by architectural problems. Continued development funded directly by the value the system produces — and a working proof that AI-assisted development, done properly, is a real productivity lever and not a shortcut.
+The system is today a central part of Mallard's daily operation and has replaced previous manual processes. It supports a more efficient workflow and forms the foundation for ongoing improvement and further development.
