@@ -1,3 +1,21 @@
+# robots.txt for astyltsvig.dk
+# https://www.robotstxt.org/ — https://developers.google.com/search/docs/crawling-indexing/robots/intro
+#
+# Search engines: full site is open. We rely on per-page <meta name="robots">
+# directives (e.g. noindex on the 404 page) for any page-level control.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 User-agent: *
 Allow: /
 

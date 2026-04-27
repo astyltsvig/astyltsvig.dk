@@ -116,7 +116,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   <body class="min-h-dvh flex flex-col">
     <GradientBackground />
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:glass focus:px-3 focus:py-2 focus:z-50">
-      Skip to content
+      {lang === 'da' ? 'Spring til indhold' : 'Skip to content'}
     </a>
     <Header lang={lang} />
     <main id="main" class="flex-1">

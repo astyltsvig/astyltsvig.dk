@@ -7,12 +7,20 @@ import { routes, t } from '~/i18n/utils';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('casesEn');
-  return entries.map(entry => ({ params: { slug: entry.slug }, props: { entry } }));
+  const entries = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.data.order);
+  return entries.map((entry, i) => {
+    const prev = entries[(i - 1 + entries.length) % entries.length];
+    const next = entries[(i + 1) % entries.length];
+    return { params: { slug: entry.slug }, props: { entry, prev, next } };
+  });
 }
 
-interface Props { entry: CollectionEntry<'casesEn'>; }
-const { entry } = Astro.props;
+interface Props {
+  entry: CollectionEntry<'casesEn'>;
+  prev: CollectionEntry<'casesEn'>;
+  next: CollectionEntry<'casesEn'>;
+}
+const { entry, prev, next } = Astro.props;
 const { Content } = await entry.render();
 const lang = 'en' as const;
 const d = t(lang);
@@ -89,7 +97,20 @@ const jsonLd = [
       </div>
     </div>
 
-    <div class="mt-24 fade-in glass glass-strong p-10 md:p-14 text-center">
+    <nav class="mt-20 fade-in grid gap-4 md:grid-cols-2" aria-label="Other projects">
+      <a href={`/en/work/${prev.slug}`} class="glass p-6 md:p-7 group hover:border-[var(--color-accent)]/40 transition-colors">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">← Previous project</p>
+        <p class="mt-3 font-[var(--font-display)] text-xl md:text-2xl tracking-tight">{prev.data.client}</p>
+        <p class="mt-2 text-sm text-[var(--color-muted)] line-clamp-2">{prev.data.headline}</p>
+      </a>
+      <a href={`/en/work/${next.slug}`} class="glass p-6 md:p-7 group hover:border-[var(--color-accent)]/40 transition-colors md:text-right">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Next project →</p>
+        <p class="mt-3 font-[var(--font-display)] text-xl md:text-2xl tracking-tight">{next.data.client}</p>
+        <p class="mt-2 text-sm text-[var(--color-muted)] line-clamp-2">{next.data.headline}</p>
+      </a>
+    </nav>
+
+    <div class="mt-12 fade-in glass glass-strong p-10 md:p-14 text-center">
       <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Next</p>
       <h2 class="!mt-3 max-w-[20ch] mx-auto">A similar <span class="grad-text">project in mind?</span></h2>
       <div class="mt-8 flex justify-center">
