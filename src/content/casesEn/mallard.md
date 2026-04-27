@@ -21,7 +21,7 @@ Build a single system to replace a patchwork of spreadsheets, manual processes, 
 
 ## Approach
 
-Mallard's ERP is a full-stack Laravel/Vue system covering the entire operation: customer portal, booking flow, interpreter scheduling, mileage tracking, invoicing, and reporting. I built it from scratch and have operated it since 2022, with a production environment on Hetzner and a deployment pipeline that lets me iterate quickly without compromising stability.
+Mallard's ERP is a full-stack Laravel/Vue system covering the entire operation: customer portal, booking flow, interpreter scheduling, time and payroll tracking with Danløn integration, invoicing, and reporting and statistics. I built it from scratch and have operated it since 2022, with a production environment on Hetzner and a deployment pipeline that lets me iterate quickly without compromising stability.
 
 The tight loop between development and operations — I both build the system and know every edge case from support tickets — is the reason it's become what it is.
 
