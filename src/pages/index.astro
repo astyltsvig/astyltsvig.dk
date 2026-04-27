@@ -18,6 +18,29 @@ const stackStrip = [
   'Hetzner', 'Cloudflare', 'Google Workspace', 'SPF · DKIM · DMARC', 'Sveltia CMS',
 ];
 
+const faq = [
+  {
+    q: 'Hvad er AStyltsvig?',
+    a: 'AStyltsvig (AStyltsvig Consulting) er en dansk IT-konsulentvirksomhed med base i København, drevet af Andreas Sørbye Styltsvig. Virksomheden specialiserer sig i at bygge og drifte enterprise-platforme — booking, ERP og CRM — i Laravel og Vue.',
+  },
+  {
+    q: 'Hvem er Andreas Styltsvig?',
+    a: 'Andreas Sørbye Styltsvig er IT-konsulent og softwarearkitekt fra København. Han er professionsbachelor i softwareudvikling fra Cphbusiness (2019) og har siden 2020 arbejdet som fuldtidsfreelancer med fokus på enterprise-platformudvikling og AI-assisterede workflows.',
+  },
+  {
+    q: 'Hvor er AStyltsvig Consulting placeret?',
+    a: 'AStyltsvig Consulting er en enkeltmandsvirksomhed registreret i Danmark (CVR 36163771) med base i Vanløse, København. Kunder serviceres i hele Danmark, EU og internationalt — primært remote.',
+  },
+  {
+    q: 'Hvilken teknologi bruger AStyltsvig?',
+    a: 'Foretrukken stack er Laravel (PHP) og Vue.js til fullstack-platforme, og Astro med headless CMS som Sveltia til hjemmesider. Drift kører typisk på Hetzner og Cloudflare Pages, med SPF/DKIM/DMARC-konfigureret email via Google Workspace.',
+  },
+  {
+    q: 'Hvordan kontakter jeg AStyltsvig?',
+    a: 'Send en email til hello@astyltsvig.dk med en kort beskrivelse af opgaven. Du hører tilbage inden for to hverdage.',
+  },
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -28,10 +51,11 @@ const jsonLd = {
       givenName: 'Andreas',
       additionalName: 'Sørbye',
       familyName: 'Styltsvig',
-      alternateName: ['Andreas Styltsvig', 'A. Styltsvig'],
+      alternateName: ['Andreas Styltsvig', 'A. Styltsvig', 'Styltsvig'],
       jobTitle: 'IT-konsulent & softwarearkitekt',
       description: 'IT-konsulent og softwarearkitekt i København — designer, bygger og drifter enterprise-grade platforme som organisationer driver forretning på. Foretrukket stack: Laravel og Vue, men altid tilpasset opgaven.',
       url: 'https://astyltsvig.dk/',
+      mainEntityOfPage: 'https://astyltsvig.dk/om',
       email: 'hello@astyltsvig.dk',
       image: 'https://astyltsvig.dk/og-default.svg',
       address: {
@@ -60,15 +84,21 @@ const jsonLd = {
       ],
     },
     {
-      '@type': 'ProfessionalService',
+      '@type': ['ProfessionalService', 'Organization'],
       '@id': 'https://astyltsvig.dk/#consulting',
       name: 'AStyltsvig Consulting',
-      alternateName: 'AStyltsvig',
+      alternateName: ['AStyltsvig', 'AStyltsvig ApS', 'Styltsvig Consulting'],
+      legalName: 'AStyltsvig Consulting',
       description: 'IT-konsulentvirksomhed i København specialiseret i enterprise-platformudvikling i Vue og Laravel — ERP-systemer, bookingplatforme og CRM — samt AI-assisterede udviklingsworkflows.',
       url: 'https://astyltsvig.dk',
       email: 'hello@astyltsvig.dk',
       image: 'https://astyltsvig.dk/og-default.svg',
-      logo: 'https://astyltsvig.dk/favicon.svg',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://astyltsvig.dk/logo.png',
+        width: 560,
+        height: 120,
+      },
       founder: { '@id': 'https://astyltsvig.dk/#andreas' },
       employee: { '@id': 'https://astyltsvig.dk/#andreas' },
       address: {
@@ -78,8 +108,12 @@ const jsonLd = {
         addressCountry: 'DK',
       },
       areaServed: ['DK', 'EU', 'Worldwide'],
+      knowsLanguage: ['da', 'en'],
       priceRange: '$$$',
       identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: '36163771' },
+      taxID: '36163771',
+      vatID: 'DK36163771',
+      foundingDate: '2020',
       sameAs: [
         'https://github.com/astyltsvig',
         'https://www.linkedin.com/in/astyltsvig/',
@@ -90,9 +124,30 @@ const jsonLd = {
       '@id': 'https://astyltsvig.dk/#website',
       url: 'https://astyltsvig.dk',
       name: 'AStyltsvig Consulting',
+      alternateName: ['AStyltsvig', 'astyltsvig.dk'],
       description: 'Andreas Sørbye Styltsvig — IT-konsulent og softwarearkitekt der bygger enterprise-grade platforme i København. Leverer end-to-end fra arkitektur til drift, foretrukket i Laravel og Vue.',
       publisher: { '@id': 'https://astyltsvig.dk/#consulting' },
       inLanguage: ['da', 'en'],
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://astyltsvig.dk/#webpage',
+      url: 'https://astyltsvig.dk/',
+      name: 'AStyltsvig Consulting — Andreas Sørbye Styltsvig',
+      isPartOf: { '@id': 'https://astyltsvig.dk/#website' },
+      about: { '@id': 'https://astyltsvig.dk/#consulting' },
+      mainEntity: { '@id': 'https://astyltsvig.dk/#consulting' },
+      primaryImageOfPage: 'https://astyltsvig.dk/og-default.svg',
+      inLanguage: 'da',
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://astyltsvig.dk/#faq',
+      mainEntity: faq.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
     },
   ],
 };
@@ -229,6 +284,28 @@ const jsonLd = {
           Mail, telefon, Slack — som det passer dig. Ingen support-portal.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ — brand-disambiguation for search -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <div class="fade-in">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Ofte stillede spørgsmål</p>
+      <h2 class="!mt-4 max-w-[26ch]">Hvad er <span class="grad-text">AStyltsvig?</span></h2>
+      <p class="mt-6 max-w-[60ch] text-[var(--color-muted)]">
+        AStyltsvig (AStyltsvig Consulting) er en dansk IT-konsulentvirksomhed drevet af Andreas Sørbye Styltsvig fra København. Her er de spørgsmål jeg oftest får.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-4">
+      {faq.map((f, i) => (
+        <details class="fade-in glass p-6 md:p-7 group" style={`transition-delay: ${i * 40}ms`} open={i === 0}>
+          <summary class="cursor-pointer list-none flex items-start justify-between gap-4">
+            <h3 class="!mt-0 text-lg md:text-xl">{f.q}</h3>
+            <span class="font-[var(--font-mono)] text-[var(--color-accent)] text-xl leading-none mt-1 transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-4 text-[var(--color-muted)] leading-relaxed">{f.a}</p>
+        </details>
+      ))}
     </div>
   </section>
 

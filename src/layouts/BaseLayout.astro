@@ -83,7 +83,14 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta name="twitter:image:alt" content={`${siteName} — ${author}`} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/logo-mark.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#F7F7F5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-title" content="AStyltsvig" />
+    <meta name="application-name" content="AStyltsvig Consulting" />
+    <link rel="preconnect" href="https://astyltsvig.dk" />
 
     {jsonLdArray.map(ld => (
       <script type="application/ld+json" set:html={JSON.stringify(ld)} />
@@ -109,7 +116,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   <body class="min-h-dvh flex flex-col">
     <GradientBackground />
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:glass focus:px-3 focus:py-2 focus:z-50">
-      Skip to content
+      {lang === 'da' ? 'Spring til indhold' : 'Skip to content'}
     </a>
     <Header lang={lang} />
     <main id="main" class="flex-1">

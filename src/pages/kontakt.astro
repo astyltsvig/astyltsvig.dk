@@ -1,13 +1,23 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { breadcrumbList, webPage } from '~/lib/seo';
 const lang = 'da' as const;
 const email = 'hello@astyltsvig.dk';
+const description = 'Kontakt AStyltsvig Consulting — Andreas Sørbye Styltsvig — om et nyt projekt eller teknisk rådgivning. Skriv til hello@astyltsvig.dk; svar inden for to hverdage.';
+const jsonLd = [
+  webPage({ lang, path: '/kontakt', name: 'Kontakt — AStyltsvig Consulting', description, type: 'ContactPage' }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Kontakt', path: '/kontakt' },
+  ]),
+];
 ---
 <BaseLayout
   lang={lang}
-  title="Kontakt — AStyltsvig Consulting"
-  description="Kontakt om et nyt projekt eller teknisk rådgivning."
+  title="Kontakt AStyltsvig Consulting — Andreas Sørbye Styltsvig"
+  description={description}
+  jsonLd={jsonLd}
 >
   <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-24">
     <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Kontakt</p>

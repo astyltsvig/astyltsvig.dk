@@ -2,6 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ShimmerCTA from '~/components/ShimmerCTA.astro';
 import { routes, t } from '~/i18n/utils';
+import { breadcrumbList, webPage, SITE_URL } from '~/lib/seo';
 const lang = 'da' as const;
 const d = t(lang);
 
@@ -70,11 +71,35 @@ const services = [
     ],
   },
 ];
+const description = 'AStyltsvig Consulting leverer enterprise-platformudvikling i Laravel og Vue, AI-assisteret udvikling med Claude Code, hjemmesider og CMS-migration, samt DNS- og email-infrastruktur og teknisk rådgivning.';
+const jsonLd = [
+  webPage({ lang, path: '/ydelser', name: 'Ydelser — AStyltsvig Consulting', description }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Ydelser', path: '/ydelser' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.lede,
+        provider: { '@id': `${SITE_URL}/#consulting` },
+        areaServed: ['DK', 'EU', 'Worldwide'],
+      },
+    })),
+  },
+];
 ---
 <BaseLayout
   lang={lang}
-  title="Ydelser — AStyltsvig Consulting"
-  description="IT-rådgivning, AI-produktivitet, webapplikationer, CMS-migration, DNS og email-infrastruktur, og teknisk rådgivning."
+  title="Ydelser — AStyltsvig Consulting (Laravel, Vue, AI-assisteret udvikling)"
+  description={description}
+  jsonLd={jsonLd}
 >
   <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
     <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Ydelser</p>

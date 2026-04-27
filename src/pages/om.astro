@@ -2,12 +2,22 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import portrait from '~/assets/andreas-styltsvig.png';
+import { breadcrumbList, webPage } from '~/lib/seo';
 const lang = 'da' as const;
+const description = 'Andreas Sørbye Styltsvig driver AStyltsvig Consulting som enkeltmandsvirksomhed i København — designer, bygger og drifter enterprise-platforme end-to-end. Foretrukket stack Laravel og Vue, altid tilpasset opgaven.';
+const jsonLd = [
+  webPage({ lang, path: '/om', name: 'Om Andreas Sørbye Styltsvig — AStyltsvig Consulting', description, type: 'AboutPage' }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Om', path: '/om' },
+  ]),
+];
 ---
 <BaseLayout
   lang={lang}
-  title="Om — AStyltsvig Consulting"
-  description="Andreas Sørbye Styltsvig driver AStyltsvig Consulting som enkeltmandsvirksomhed i København — designer, bygger og drifter enterprise-platforme end-to-end. Foretrukket stack Laravel og Vue, altid tilpasset opgaven."
+  title="Om Andreas Sørbye Styltsvig — AStyltsvig Consulting København"
+  description={description}
+  jsonLd={jsonLd}
 >
   <article class="max-w-5xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-24">
 
