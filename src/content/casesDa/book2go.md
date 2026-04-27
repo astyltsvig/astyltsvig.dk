@@ -4,7 +4,7 @@ clientUrl: "https://book2go.bike"
 headline: "En flersproget bookingplatform i realtid til en international bevægelse."
 role: "Solo-udvikler, arkitekt"
 period: "Løbende"
-stack: ["Vue", "Laravel", "MySQL", "Hetzner"]
+stack: ["Vue 2", "Firebase", "Supabase"]
 statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "Forside af book2go.bike med hero-billede og rickshaw"
@@ -22,7 +22,7 @@ Bygge en dedikeret platform som afdelingerne kan drive deres arbejde på: passag
 
 ## Løsning
 
-[book2go.bike](https://book2go.bike) er en fullstack Vue- og Laravel-platform med realtidsopdateringer og integreret flersproget support. Den er designet til langsigtet drift, ikke blot lancering: roller og rettigheder der matcher hvordan en lokal afdeling faktisk ledes, flows der holder når flere afdelinger koordinerer samme weekend, og en deploy-pipeline der gør kontinuerlig forbedring mulig uden at risikere aktive bookinger.
+[book2go.bike](https://book2go.bike) er en Vue 2-baseret platform bygget på Firebase og Supabase, med realtidsopdateringer og integreret flersproget support. Den er designet til langsigtet drift, ikke blot lancering: roller og rettigheder der matcher hvordan en lokal afdeling faktisk ledes, flows der holder når flere afdelinger koordinerer samme weekend, og en deploy-pipeline der gør kontinuerlig forbedring mulig uden at risikere aktive bookinger.
 
 Bygget solo, med AI som reel del af det daglige udviklingsworkflow — arkitektur og produktbeslutninger ligger hos mig; AI håndterer implementering, refaktorering og fejlfinding.
 
