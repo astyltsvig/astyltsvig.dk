@@ -1,39 +1,35 @@
 ---
 client: "SecureLife / Care Pension og Forsikring"
-headline: "Multi-year development and operation of customer portals in the insurance and pension sector."
+headline: "Secure customer portals for the insurance and pension sector — in production since 2022, next generation on the way."
 role: "Solo developer, architecture, operations"
 period: "2021 – present"
 stack: ["Vue 2", "Firebase", "Laravel", "Vue 3", "Tailwind"]
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3
-description: "Multi-year development and operations engagement for SecureLife and Care Pension og Forsikring (CPOF) — secure customer portals with role-based access for advisors and company administrations, in daily production since 2022."
+description: "Multi-year engagement for SecureLife and Care Pension og Forsikring (CPOF) — secure customer portals with role-based access for advisors and company administrations, in daily production since 2022 with a next-generation platform in development."
 ---
 
 ## Background
 
-The insurance and pension sector needs secure digital surfaces where multiple user tiers — advisors and company administrations — can access and manage policies, each with their own angle into the data. Off-the-shelf tools did not cover the specific need, and the complexity across user types and permissions required a bespoke solution.
+The insurance and pension industry runs on data that keeps moving — employees change employers, schemes change cover, documents need updating. And two very different user types have to work with it: advisors managing schemes across many client companies, and company administrations (HR) running their own employee rosters. Each looking at the same data through their own lens.
 
 ## Brief
 
-Develop and operate secure customer portals for SecureLife and Care Pension og Forsikring (CPOF) — two brands on their own domains — with role-based access for insurance advisors and company administrations (HR leads at the client companies), where each tier has the tools relevant for managing policies, employees, and documents.
+Build secure customer portals for SecureLife and Care Pension og Forsikring (CPOF) — two brands, two domains — with role-based access for advisors and company administrations. Each user type gets exactly what they need. Nothing more, nothing less.
 
 ## Approach
 
-The first generation of the portal was developed and has been in daily production since 2022. A next-generation portal is in development on a fresh platform with a modernised architecture, ready to take over when it launches.
+The first generation has been running in daily production since 2022. A next generation is in active development — fresh platform, modernised architecture — and will take over when it's ready.
 
-For **advisors**, the portal provides oversight of their client portfolios, policy administration across client companies, and the tooling needed to service many policies efficiently from a single place.
+**Advisors** get portfolio oversight across their clients, policy administration consolidated in one place, and the tools that make it realistic to service many schemes without losing track.
 
-For **company administrations**, the portal provides management of the employee list, on- and offboarding in relation to the policies, and access to the documents HR needs to handle the scheme on behalf of their employees.
+**Company administrations** get control over their employee roster, on- and offboarding directly against the schemes, and access to the documents HR uses day-to-day.
 
-Focus has been on:
-
-- An architecture supporting multiple user tiers with cleanly separated permissions
-- Stable, high-reliability operation for a business-critical system
-- A solution that can evolve as needs change over time
+Underneath: an architecture with cleanly separated permissions between user tiers, a deploy pipeline that allows continuous improvement without disrupting live users, and a platform built to grow with the requirements over time.
 
 I am responsible for development, architecture, and operations on both platforms.
 
 ## Outcome
 
-A portal in daily production since 2022 with ongoing use by advisors and company administrations, and a next-generation platform in active development. The engagement is a multi-year relationship covering the full lifecycle — operation, maintenance, and modernisation.
+A portal in daily production since 2022, used every day by advisors and company administrations. A next-generation platform is in active development. I've built, maintained, and developed this platform over several years — and I'm taking it with me to the new stack when it lands.
