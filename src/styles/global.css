@@ -409,7 +409,7 @@
   border-bottom-color: var(--color-accent-2);
 }
 
-/* Fonts: system fallback — drop WOFF2 at public/fonts/ to activate */
+/* Fonts: served locally from public/fonts/ (latin subset, variable where applicable) */
 @font-face {
   font-family: "Instrument Serif";
   src: url("/fonts/InstrumentSerif-Regular.woff2") format("woff2");
