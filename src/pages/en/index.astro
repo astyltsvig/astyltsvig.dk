@@ -1,0 +1,267 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import CaseCard from '~/components/CaseCard.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { getCollection } from 'astro:content';
+import { t, routes } from '~/i18n/utils';
+
+const lang = 'en' as const;
+const d = t(lang);
+
+const cases = (await getCollection('casesEn')).sort((a, b) => a.data.order - b.data.order);
+const featuredSlugs = ['mallard', 'ddl-tegnsprogspakken', 'festival-sans-pression'];
+const featured = featuredSlugs
+  .map(slug => cases.find(c => c.slug === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined);
+
+const stackStrip = [
+  'Vue', 'Laravel', 'Astro', 'PHP', 'TypeScript', 'MySQL', 'PostgreSQL',
+  'Hetzner', 'Cloudflare', 'Google Workspace', 'SPF · DKIM · DMARC', 'Sveltia CMS',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://astyltsvig.dk/#andreas',
+      name: 'Andreas Sørbye Styltsvig',
+      givenName: 'Andreas',
+      additionalName: 'Sørbye',
+      familyName: 'Styltsvig',
+      alternateName: ['Andreas Styltsvig', 'A. Styltsvig', 'Styltsvig'],
+      jobTitle: 'IT consultant & software architect',
+      description: 'IT consultant and software architect in Copenhagen — designing, building, and operating enterprise-grade platforms organisations run their business on. Preferred stack: Laravel and Vue, always adapted to the brief.',
+      url: 'https://astyltsvig.dk/en/',
+      mainEntityOfPage: 'https://astyltsvig.dk/en/about',
+      email: 'hello@astyltsvig.dk',
+      image: 'https://astyltsvig.dk/og-default.svg',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Vanløse',
+        addressRegion: 'Copenhagen',
+        addressCountry: 'DK',
+      },
+      nationality: 'DK',
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: 'Copenhagen Business Academy (Cphbusiness Lyngby)',
+        url: 'https://www.cphbusiness.dk/',
+      },
+      knowsAbout: [
+        'Vue.js', 'Laravel', 'Full-stack development', 'Enterprise platform development',
+        'ERP systems', 'Booking platforms', 'CRM platforms',
+        'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+        'DNS', 'SPF', 'DKIM', 'DMARC', 'Google Workspace', 'Hetzner', 'Cloudflare Pages',
+      ],
+      knowsLanguage: ['da', 'en'],
+      worksFor: { '@id': 'https://astyltsvig.dk/#consulting' },
+      sameAs: [
+        'https://github.com/astyltsvig',
+        'https://www.linkedin.com/in/astyltsvig/',
+      ],
+    },
+    {
+      '@type': ['ProfessionalService', 'Organization'],
+      '@id': 'https://astyltsvig.dk/#consulting',
+      name: 'AStyltsvig Consulting',
+      alternateName: ['AStyltsvig', 'AStyltsvig ApS', 'Styltsvig Consulting'],
+      legalName: 'AStyltsvig Consulting',
+      description: 'IT consultancy in Copenhagen specialising in enterprise platform development in Vue and Laravel — ERPs, booking platforms, and CRM systems.',
+      url: 'https://astyltsvig.dk',
+      email: 'hello@astyltsvig.dk',
+      image: 'https://astyltsvig.dk/og-default.svg',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://astyltsvig.dk/logo.png',
+        width: 560,
+        height: 120,
+      },
+      founder: { '@id': 'https://astyltsvig.dk/#andreas' },
+      employee: { '@id': 'https://astyltsvig.dk/#andreas' },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Vanløse',
+        addressRegion: 'Copenhagen',
+        addressCountry: 'DK',
+      },
+      areaServed: ['DK', 'EU', 'Worldwide'],
+      knowsLanguage: ['da', 'en'],
+      priceRange: '$$$',
+      identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: '36163771' },
+      taxID: '36163771',
+      vatID: 'DK36163771',
+      foundingDate: '2020',
+      sameAs: [
+        'https://github.com/astyltsvig',
+        'https://www.linkedin.com/in/astyltsvig/',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://astyltsvig.dk/#website',
+      url: 'https://astyltsvig.dk',
+      name: 'AStyltsvig Consulting',
+      alternateName: ['AStyltsvig', 'astyltsvig.dk'],
+      description: 'Andreas Sørbye Styltsvig — IT consultant & software architect building enterprise-grade platforms in Copenhagen. End-to-end delivery from architecture to operation, preferred in Laravel and Vue.',
+      publisher: { '@id': 'https://astyltsvig.dk/#consulting' },
+      inLanguage: ['da', 'en'],
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://astyltsvig.dk/en/#webpage',
+      url: 'https://astyltsvig.dk/en/',
+      name: 'AStyltsvig Consulting — Andreas Sørbye Styltsvig',
+      isPartOf: { '@id': 'https://astyltsvig.dk/#website' },
+      about: { '@id': 'https://astyltsvig.dk/#consulting' },
+      mainEntity: { '@id': 'https://astyltsvig.dk/#consulting' },
+      primaryImageOfPage: 'https://astyltsvig.dk/og-default.svg',
+      inLanguage: 'en',
+    },
+  ],
+};
+---
+<BaseLayout
+  lang={lang}
+  title="Andreas Sørbye Styltsvig — IT consultant & software architect, AStyltsvig Consulting Copenhagen"
+  description="Andreas Sørbye Styltsvig runs AStyltsvig Consulting in Copenhagen. IT consultant and software architect building enterprise-grade platforms that organisations run their business on — Book2Go, Mallard ERP, and a SecureLife/Care Pensions CRM in daily production. Preferred stack Laravel and Vue, always adapted to the brief."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
+      Andreas Sørbye Styltsvig · AStyltsvig Consulting · Copenhagen
+    </p>
+    <h1 class="fade-in !mt-4 max-w-[24ch]">
+      <span>IT consultant & software architect —</span>{' '}
+      <span class="grad-text">enterprise solutions that run businesses.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)] leading-relaxed">
+      I build and operate <strong class="text-[var(--color-text)] font-semibold">platforms that keep a business running</strong> — booking, ERP, CRM. Three are in daily production right now, all built by a single developer with AI as a real part of the workflow.
+    </p>
+    <div class="fade-in mt-12 flex flex-wrap gap-4">
+      <ShimmerCTA href={routes.work[lang]} variant="primary">{d.cta.seeMyWork}</ShimmerCTA>
+      <ShimmerCTA href={routes.contact[lang]}>{d.cta.getInTouch}</ShimmerCTA>
+    </div>
+  </section>
+
+  <!-- Stack marquee -->
+  <section class="py-8">
+    <div class="marquee">
+      <div class="marquee-track font-[var(--font-mono)] text-lg md:text-xl text-[var(--color-muted)]">
+        {stackStrip.concat(stackStrip).map(s => (
+          <span class="inline-flex items-center gap-3">
+            <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>
+            {s}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What I do -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.whatIDo}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">What I <span class="grad-text">do well</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      <div class="fade-in glass p-7">
+        <h3 class="!mt-0">Enterprise platforms</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Full-stack platforms built to run businesses — booking, ERP, CRM. Architecture, build, operation. Typically in Laravel and Vue, but adapted to whatever the engagement calls for. Three in daily production right now.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 80ms">
+        <h3 class="!mt-0">Websites &amp; CMS</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          Astro, WordPress, headless CMS like Sveltia. Fast sites, low running costs, editorial workflows people actually use.
+        </p>
+      </div>
+      <div class="fade-in glass p-7" style="transition-delay: 160ms">
+        <h3 class="!mt-0">Infrastructure</h3>
+        <p class="mt-3 text-[var(--color-muted)]">
+          DNS, SPF/DKIM/DMARC, Google Workspace, Hetzner, Cloudflare Pages. Vendor handovers done right.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured work -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-20">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">{d.sections.selectedWork}</p>
+    <h2 class="fade-in !mt-4 max-w-[20ch]">Recent <span class="grad-text">engagements</span>.</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {featured.map((c, i) => (
+        <CaseCard
+          lang={lang}
+          slug={c.slug}
+          client={c.data.client}
+          headline={c.data.headline}
+          stack={c.data.stack}
+          screenshot={c.data.screenshot}
+          screenshotAlt={c.data.screenshotAlt}
+          icon={c.data.icon}
+          index={i}
+        />
+      ))}
+    </div>
+    <div class="mt-12 fade-in">
+      <ShimmerCTA href={routes.work[lang]}>{d.cta.seeMyWork}</ShimmerCTA>
+    </div>
+  </section>
+
+  <!-- What you can count on -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+    <div class="fade-in text-center mb-14">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">What you can count on</p>
+      <h2 class="!mt-4">Four <span class="grad-text">guiding principles</span>.</h2>
+      <p class="mt-6 max-w-[50ch] mx-auto text-[var(--color-muted)]">
+        These don't change from engagement to engagement — it's how I work.
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="fade-in glass p-7 md:p-8">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">00</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">You own the code</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          All in your repo, on your domain. No lock-in, no vendor hostage situations.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 80ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">One point of contact</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          No sub-contractors, no white-label chains. Same person today and three years from now.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 160ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">Rolling engagements</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          Over fixed price. I build the right thing, not the agreed thing — and you can stop any time.
+        </p>
+      </div>
+      <div class="fade-in glass p-7 md:p-8" style="transition-delay: 240ms">
+        <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</span>
+        <h3 class="!mt-4 text-xl md:text-2xl">Direct line</h3>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          Email, phone, Slack — whichever suits you. No support portal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-24">
+    <div class="fade-in glass glass-strong p-10 md:p-16 text-center">
+      <h2 class="!mt-0 max-w-[20ch] mx-auto">
+        Have a project <span class="grad-text">in mind?</span>
+      </h2>
+      <p class="mt-6 max-w-[46ch] mx-auto text-[var(--color-muted)]">
+        I take new clients on a rolling basis. Send a short brief.
+      </p>
+      <div class="mt-10 flex justify-center">
+        <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

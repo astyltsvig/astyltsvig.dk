@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'ghost';
+  class?: string;
+}
+
+const { href, variant = 'ghost', class: cls = '' } = Astro.props;
+const variantClass = variant === 'primary' ? 'btn-primary' : '';
+---
+<a href={href} class={`btn-shimmer ${variantClass} ${cls}`}>
+  <span class="relative z-[1] inline-flex items-center gap-2">
+    <slot />
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" class="arrow">
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </span>
+</a>
+
+<style>
+  .btn-shimmer .arrow {
+    transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+  .btn-shimmer:hover .arrow { transform: translateX(4px); }
+</style>

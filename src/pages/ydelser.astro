@@ -1,0 +1,118 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { routes, t } from '~/i18n/utils';
+import { breadcrumbList, webPage, SITE_URL } from '~/lib/seo';
+const lang = 'da' as const;
+const d = t(lang);
+
+const services = [
+  {
+    title: 'Enterprise-platformudvikling',
+    lede: 'Hovedopgaven: at designe, bygge og drifte fullstack-platforme der driver en forretning — booking, ERP, CRM. Tre i daglig produktion lige nu. Foretrukket i Laravel og Vue, men tilpasses altid opgaven og det eksisterende kodegrundlag.',
+    stack: 'Foretrukket: Laravel · Vue',
+    items: [
+      'Nye platforme fra arkitektur til produktion',
+      'Langsigtet drift: hosting, deploys, support og incident-håndtering',
+      'Videreudvikling af eksisterende kodebaser — også uden for Laravel/Vue',
+      'Integrationer mod eksterne API\'er (betaling, regnskab, kalender, identitet)',
+      'Performance- og databaseoptimering i skala',
+    ],
+  },
+  {
+    title: 'Hjemmesider & CMS-migration',
+    lede: 'Nye sites og migration til moderne, statiske stacks. Default: Astro + headless CMS.',
+    stack: 'Astro · Sveltia · Decap · Cloudflare Pages',
+    items: [
+      'Migration fra WordPress til Astro/Sveltia med bevaret indhold og URL-struktur',
+      'Nye sites bygget fra bunden i Astro',
+      'Deployment-opsætning på Cloudflare Pages med custom domain',
+      'Redaktøroplæring og dokumentation',
+    ],
+  },
+  {
+    title: 'Infrastruktur & drift',
+    lede: 'DNS, email-autentificering, domæneadministration og serverdrift.',
+    stack: 'Hetzner · Cloudflare · SPF/DKIM/DMARC · Google Workspace',
+    items: [
+      'DNS-migration mellem udbydere (Simply.com, GoDaddy, Cloudflare, Gigahost) uden email-afbrydelse',
+      'Opsætning af SPF, DKIM og DMARC',
+      'Google Workspace-administration, brugerstyring og forensiske undersøgelser',
+      'Serverdrift på Hetzner (Laravel-produktionsservere, backup, SSH-opsætning)',
+    ],
+  },
+  {
+    title: 'Teknisk rådgivning',
+    lede: 'For organisationer der står over for større teknologiske beslutninger uden en intern teknisk leder.',
+    stack: 'Strategi · Arkitektur · Review',
+    items: [
+      'Vurdering af eksisterende systemer og leverandøraftaler',
+      'Anbefalinger til arkitektur og stack-valg før et udbud',
+      'Code review og sikkerhedsgennemgang af eksterne leverancer',
+    ],
+  },
+];
+const description = 'AStyltsvig Consulting leverer enterprise-platformudvikling i Laravel og Vue, hjemmesider og CMS-migration, samt DNS- og email-infrastruktur og teknisk rådgivning.';
+const jsonLd = [
+  webPage({ lang, path: '/ydelser', name: 'Ydelser — AStyltsvig Consulting', description }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Ydelser', path: '/ydelser' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.lede,
+        provider: { '@id': `${SITE_URL}/#consulting` },
+        areaServed: ['DK', 'EU', 'Worldwide'],
+      },
+    })),
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title="Ydelser — AStyltsvig Consulting (Laravel, Vue, enterprise-platforme)"
+  description={description}
+  jsonLd={jsonLd}
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Ydelser</p>
+    <h1 class="fade-in !mt-4 max-w-[22ch]">
+      Fire områder. <span class="grad-text">Én hovedopgave</span>.
+    </h1>
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)]">
+      Platformudvikling og -drift er det jeg vender tilbage til. De øvrige tre områder tilpasses opgaven — løbende aftale eller fast estimat afhængigt af hvad der giver mening.
+    </p>
+
+    <div class="mt-16 grid gap-6">
+      {services.map((s, i) => (
+        <div class="fade-in glass p-7 md:p-10" style={`transition-delay: ${i * 60}ms`}>
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <h2 class="!mt-0 text-3xl md:text-4xl">{s.title}</h2>
+            <span class="chip">{s.stack}</span>
+          </div>
+          <p class="mt-5 text-[var(--color-muted)] max-w-[64ch]">{s.lede}</p>
+          <ul class="mt-6 grid gap-2 md:grid-cols-2 text-sm">
+            {s.items.map(item => (
+              <li class="flex gap-2.5">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] flex-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 fade-in flex justify-center">
+      <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+    </div>
+  </article>
+</BaseLayout>

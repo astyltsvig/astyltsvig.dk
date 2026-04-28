@@ -1,0 +1,118 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { routes, t } from '~/i18n/utils';
+import { breadcrumbList, webPage, SITE_URL } from '~/lib/seo';
+const lang = 'en' as const;
+const d = t(lang);
+
+const services = [
+  {
+    title: 'Enterprise platform development',
+    lede: 'The primary engagement: designing, building, and operating full-stack platforms that run a business — booking, ERP, CRM. Three currently in daily production. Preferred in Laravel and Vue, but always adapted to the brief and the codebase already on the table.',
+    stack: 'Preferred: Laravel · Vue',
+    items: [
+      'New platforms from architecture through to production',
+      'Long-term operation: hosting, deploys, support, incident response',
+      'Continued development on existing codebases — outside Laravel/Vue too',
+      'Integrations with third-party APIs (payments, accounting, calendar, identity)',
+      'Performance and database optimisation at scale',
+    ],
+  },
+  {
+    title: 'Websites & CMS migrations',
+    lede: 'New sites and migrations to modern, static stacks. Default: Astro + headless CMS.',
+    stack: 'Astro · Sveltia · Decap · Cloudflare Pages',
+    items: [
+      'Migration from WordPress to Astro/Sveltia with content and URL structure preserved',
+      'New sites built from scratch in Astro',
+      'Deployment setup on Cloudflare Pages with custom domain',
+      'Editor onboarding and documentation',
+    ],
+  },
+  {
+    title: 'Infrastructure & operations',
+    lede: 'DNS, email authentication, domain administration, and server operations.',
+    stack: 'Hetzner · Cloudflare · SPF/DKIM/DMARC · Google Workspace',
+    items: [
+      'DNS migration between providers (Simply.com, GoDaddy, Cloudflare, Gigahost) without email interruption',
+      'SPF, DKIM, and DMARC configuration',
+      'Google Workspace administration, user management, and forensic investigations',
+      'Server operations on Hetzner (Laravel production, backups, SSH setup)',
+    ],
+  },
+  {
+    title: 'Technical advisory',
+    lede: 'For organisations facing larger technology decisions without an in-house technical lead.',
+    stack: 'Strategy · Architecture · Review',
+    items: [
+      'Assessment of existing systems and vendor agreements',
+      'Architecture and stack recommendations ahead of a tender or RFP',
+      'Code review and security review of external deliveries',
+    ],
+  },
+];
+const description = 'AStyltsvig Consulting offers enterprise platform development in Laravel and Vue, websites and CMS migrations, plus DNS/email infrastructure and technical advisory.';
+const jsonLd = [
+  webPage({ lang, path: '/en/services', name: 'Services — AStyltsvig Consulting', description }),
+  breadcrumbList([
+    { name: 'Home', path: '/en/' },
+    { name: 'Services', path: '/en/services' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: services.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.lede,
+        provider: { '@id': `${SITE_URL}/#consulting` },
+        areaServed: ['DK', 'EU', 'Worldwide'],
+      },
+    })),
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title="Services — AStyltsvig Consulting (Laravel, Vue, enterprise platforms)"
+  description={description}
+  jsonLd={jsonLd}
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Services</p>
+    <h1 class="fade-in !mt-4 max-w-[22ch]">
+      Four areas. <span class="grad-text">One core engagement</span>.
+    </h1>
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)]">
+      Platform development and operation is what I keep coming back to. The other three areas flex around the work — rolling agreement or fixed estimate, whichever fits the task.
+    </p>
+
+    <div class="mt-16 grid gap-6">
+      {services.map((s, i) => (
+        <div class="fade-in glass p-7 md:p-10" style={`transition-delay: ${i * 60}ms`}>
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <h2 class="!mt-0 text-3xl md:text-4xl">{s.title}</h2>
+            <span class="chip">{s.stack}</span>
+          </div>
+          <p class="mt-5 text-[var(--color-muted)] max-w-[64ch]">{s.lede}</p>
+          <ul class="mt-6 grid gap-2 md:grid-cols-2 text-sm">
+            {s.items.map(item => (
+              <li class="flex gap-2.5">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)] flex-none"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-20 fade-in flex justify-center">
+      <ShimmerCTA href={routes.contact[lang]} variant="primary">{d.cta.writeToMe}</ShimmerCTA>
+    </div>
+  </article>
+</BaseLayout>

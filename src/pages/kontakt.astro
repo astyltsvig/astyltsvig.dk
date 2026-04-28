@@ -1,0 +1,48 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ShimmerCTA from '~/components/ShimmerCTA.astro';
+import { breadcrumbList, webPage } from '~/lib/seo';
+const lang = 'da' as const;
+const email = 'hello@astyltsvig.dk';
+const description = 'Kontakt AStyltsvig Consulting — Andreas Sørbye Styltsvig — om et nyt projekt eller teknisk rådgivning. Skriv til hello@astyltsvig.dk; svar inden for to hverdage.';
+const jsonLd = [
+  webPage({ lang, path: '/kontakt', name: 'Kontakt — AStyltsvig Consulting', description, type: 'ContactPage' }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Kontakt', path: '/kontakt' },
+  ]),
+];
+---
+<BaseLayout
+  lang={lang}
+  title="Kontakt AStyltsvig Consulting — Andreas Sørbye Styltsvig"
+  description={description}
+  jsonLd={jsonLd}
+>
+  <article class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-24">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Kontakt</p>
+    <h1 class="fade-in !mt-4 max-w-[16ch]">
+      Lad os <span class="grad-text">tale sammen.</span>
+    </h1>
+    <p class="fade-in mt-8 max-w-[56ch] text-lg text-[var(--color-muted)]">
+      Beskriv kort hvad du har brug for, hvornår det skal leveres, og hvilken kontekst jeg skal kende til.
+    </p>
+
+    <div class="fade-in mt-14 glass p-10 md:p-14">
+      <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Skriv til mig</p>
+      <a href={`mailto:${email}`} class="block mt-4 font-[var(--font-display)] text-3xl md:text-5xl tracking-tight grad-text break-all">
+        {email}
+      </a>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <ShimmerCTA href={`mailto:${email}`} variant="primary">Send en email</ShimmerCTA>
+      </div>
+    </div>
+
+    <div class="fade-in mt-10 text-sm">
+      <div class="glass p-6">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">CVR</p>
+        <p class="mt-2">36163771</p>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

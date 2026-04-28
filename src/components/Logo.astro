@@ -1,0 +1,91 @@
+---
+import { type Lang } from '~/i18n/utils';
+
+interface Props {
+  lang: Lang;
+  size?: 'sm' | 'lg';
+  href?: string;
+}
+
+const { lang, size = 'sm', href = lang === 'en' ? '/en/' : '/' } = Astro.props;
+const big = size === 'lg';
+---
+<a href={href} class="logo inline-flex items-center gap-3 group" aria-label="AStyltsvig Consulting">
+  <span class="logo-mark" class:list={[big ? 'h-14 w-14' : 'h-9 w-9']} aria-hidden="true">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="var(--color-accent)"/>
+          <stop offset="0.5" stop-color="var(--color-accent-2)"/>
+          <stop offset="1" stop-color="var(--grad-3)"/>
+        </linearGradient>
+      </defs>
+      <circle class="logo-ring" cx="24" cy="24" r="22" stroke="url(#logoGrad)" stroke-width="1.5" stroke-dasharray="138.23" stroke-dashoffset="138.23"/>
+      <path class="logo-a" d="M13 35 L22 13 L26 13 L35 35" stroke="url(#logoGrad)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <path class="logo-bar" d="M17 27 L31 27" stroke="url(#logoGrad)" stroke-width="2.2" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <circle class="logo-dot" cx="40" cy="40" r="2" fill="var(--color-accent-2)"/>
+    </svg>
+  </span>
+  <span class="flex flex-col leading-none">
+    <span class:list={['font-[var(--font-display)] tracking-tight', big ? 'text-3xl' : 'text-xl']}>
+      AStyltsvig
+    </span>
+    <span class:list={['font-[var(--font-mono)] uppercase tracking-[0.18em] text-[var(--color-muted)]', big ? 'text-[10px] mt-1.5' : 'text-[9px] mt-0.5']}>
+      Consulting
+    </span>
+  </span>
+</a>
+
+<style>
+  .logo { text-decoration: none; color: inherit; }
+  .logo-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+    transition: transform 500ms cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+  .logo:hover .logo-mark svg { transform: rotate(6deg) scale(1.06); }
+  .logo:hover .logo-dot { animation: dot-bounce 800ms ease-in-out; }
+
+  .logo-ring {
+    animation: draw-ring 1400ms 100ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+    transform-origin: center;
+  }
+  .logo-a {
+    animation: draw-path 900ms 600ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  }
+  .logo-bar {
+    animation: draw-path 500ms 1200ms cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  }
+  .logo-dot {
+    opacity: 0;
+    animation: pop 500ms 1500ms cubic-bezier(0.2, 1.5, 0.3, 1) forwards;
+    transform-origin: 40px 40px;
+  }
+
+  @keyframes draw-ring {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes draw-path {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes pop {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes dot-bounce {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.8); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-ring, .logo-a, .logo-bar, .logo-dot {
+      animation: none;
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    .logo:hover .logo-mark svg { transform: none; }
+  }
+</style>

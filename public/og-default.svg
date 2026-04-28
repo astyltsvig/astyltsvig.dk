@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#F7F7F5"/>
+  <text x="100" y="200" font-family="'Instrument Serif', Georgia, serif" font-weight="400" font-size="120" fill="#111214">AStyltsvig</text>
+  <text x="100" y="320" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-weight="400" font-size="120" fill="#4F4F8F">Consulting</text>
+  <rect x="100" y="370" width="180" height="2" fill="#4F4F8F"/>
+  <text x="100" y="430" font-family="'Inter', system-ui, sans-serif" font-weight="500" font-size="30" fill="#6A6A72">Vue &amp; Laravel — København</text>
+  <text x="100" y="560" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" fill="#6A6A72" letter-spacing="2">ASTYLTSVIG.DK · CVR 36163771</text>
+</svg>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import CaseCard from '~/components/CaseCard.astro';
+import { getCollection } from 'astro:content';
+import { breadcrumbList, webPage, SITE_URL } from '~/lib/seo';
+
+const lang = 'da' as const;
+const cases = (await getCollection('casesDa')).sort((a, b) => a.data.order - b.data.order);
+const description = 'Udvalgte enterprise-platforme og projekter fra AStyltsvig Consulting — Mallard ERP, Book2Go, SecureLife/Care Pensions CRM og udvalgte web-engagementer.';
+const jsonLd = [
+  webPage({ lang, path: '/projekter', name: 'Projekter — AStyltsvig Consulting', description, type: 'CollectionPage' }),
+  breadcrumbList([
+    { name: 'Forside', path: '/' },
+    { name: 'Projekter', path: '/projekter' },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: cases.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE_URL}/projekter/${c.slug}`,
+      name: `${c.data.client} — ${c.data.headline}`,
+    })),
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title="Projekter — AStyltsvig Consulting (Mallard ERP, Book2Go, SecureLife CRM)"
+  description={description}
+  jsonLd={jsonLd}
+>
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-10">
+    <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Projekter</p>
+    <h1 class="fade-in !mt-4 max-w-[18ch]">
+      Udvalgte <span class="grad-text">projekter</span>.
+    </h1>
+    <p class="fade-in mt-8 max-w-[60ch] text-lg text-[var(--color-muted)]">
+      Et udsnit af hvad jeg har bygget og drevet. Flere af projekterne er ikke offentlige, men de følgende kan deles.
+    </p>
+  </section>
+  <section class="max-w-6xl mx-auto px-6 md:px-10 pb-24">
+    <div class="grid gap-6 md:grid-cols-2">
+      {cases.map((c, i) => (
+        <CaseCard
+          lang={lang}
+          slug={c.slug}
+          client={c.data.client}
+          headline={c.data.headline}
+          stack={c.data.stack}
+          screenshot={c.data.screenshot}
+          screenshotAlt={c.data.screenshotAlt}
+          icon={c.data.icon}
+          index={i}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
