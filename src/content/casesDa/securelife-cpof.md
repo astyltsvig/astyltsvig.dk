@@ -1,35 +1,31 @@
 ---
 client: "SecureLife / Care Pension og Forsikring"
-headline: "Sikre kundeportaler til forsikrings- og pensionssektoren — i drift siden 2022, ny generation på vej."
+headline: "Digitale administrationsplatforme til forsikrings- og pensionssektoren. Drevet i produktion siden 2022."
 role: "Solo-udvikler, arkitektur, drift"
 period: "2021 – nu"
-stack: ["Vue 2", "Firebase", "Laravel", "Vue 3", "Tailwind"]
+stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3
-description: "Flerårigt engagement for SecureLife og Care Pension og Forsikring (CPOF) — sikre kundeportaler med rollebaseret adgang for rådgivere og virksomhedsadministrationer, i daglig produktion siden 2022 og næste generation under udvikling."
+description: "Digitale administrationsplatforme til SecureLife og Care Pension og Forsikring (CPOF) — i stabil daglig drift siden 2022, med igangværende arbejde på næste generation."
 ---
 
 ## Baggrund
 
-Forsikrings- og pensionsbranchen kører på data der flytter sig — medarbejdere skifter arbejdsgiver, ordninger ændrer dækning, dokumenter skal opdateres. Og to vidt forskellige brugertyper skal arbejde med det: rådgivere der håndterer ordninger på tværs af mange kundevirksomheder, og virksomhedsadministrationer (HR) der skal styre deres egne medarbejdere. Hver med deres egen vinkel ind i samme data.
+Forsikring og pension er et domæne hvor data er i konstant bevægelse, og hvor kravene til sikkerhed, sporbarhed og korrekt håndtering er høje. Mange forskellige interessenter skal kunne arbejde med det samme materiale, hver fra deres egen vinkel, uden at integriteten kompromitteres.
 
-## Opgave
+Det stiller krav til en platform der er stram i sin håndhævelse af adgang og forretningsregler — og samtidig tilstrækkeligt fleksibel til at understøtte den måde arbejdet faktisk udføres på.
 
-Bygge sikre kundeportaler til SecureLife og Care Pension og Forsikring (CPOF) — to brands, hver deres domæne — med rollebaseret adgang for rådgivere og virksomhedsadministrationer. Hver brugertype skal have præcis det de har brug for. Ikke mere, ikke mindre.
+## Platformen
 
-## Løsning
+Et samlet administrationsmiljø til håndtering af ordninger, dokumenter og tilhørende data på tværs af et større antal virksomheder. Designet med vægt på korrekthed, sporbarhed og forudsigelig adfærd i daglig drift.
 
-Den første generation kører i daglig produktion siden 2022. Næste generation er under aktiv udvikling — helt ny platform, moderniseret arkitektur — og tager over når den er klar.
+Fundamentet kombinerer et fintkornet adgangssystem, genbrugelige datamodeller på tværs af leverandører og automatiserede arbejdsgange omkring ændringer der kræver opfølgning. To brands drives på samme platform, hvilket sikrer ensartet kvalitet og effektiv videreudvikling.
 
-**Rådgivere** får portefølje-overblik på tværs af deres kunder, policy-administration samlet ét sted, og de værktøjer der gør det realistisk at servicere mange ordninger uden at miste tråden.
+## Min rolle
 
-**Virksomhedsadministrationer** får styring over deres medarbejderliste, on- og offboarding direkte mod ordningerne, og adgang til de dokumenter HR bruger i hverdagen.
-
-Bag det hele: en arkitektur med skarpt adskilte rettigheder mellem brugerniveauerne, en deploy-pipeline der gør kontinuerlig forbedring mulig uden at ramme aktive brugere, og en platform der er bygget til at vokse med behovene over tid.
-
-Jeg står for udvikling, arkitektur og drift på begge platforme.
+Ansvarlig for arkitektur, udvikling og drift gennem hele platformens levetid. Fra det første fundament til den nuværende drift og det igangværende arbejde med næste generation.
 
 ## Resultat
 
-Portal i daglig produktion siden 2022, brugt hver dag af rådgivere og virksomhedsadministrationer. Næste generation under aktiv udvikling. Jeg har bygget, vedligeholdt og videreudviklet platformen i flere år — og tager den med over på den nye stack når den er klar.
+I stabil daglig drift siden 2022. Bærer forretningskritiske processer for to brands og er løbende udviklet i takt med forretningens behov.

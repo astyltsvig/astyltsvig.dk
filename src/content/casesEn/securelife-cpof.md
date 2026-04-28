@@ -1,35 +1,31 @@
 ---
 client: "SecureLife / Care Pension og Forsikring"
-headline: "Secure customer portals for the insurance and pension sector — in production since 2022, next generation on the way."
+headline: "Digital administration platforms for the insurance and pension sector. Running in production since 2022."
 role: "Solo developer, architecture, operations"
 period: "2021 – present"
-stack: ["Vue 2", "Firebase", "Laravel", "Vue 3", "Tailwind"]
+stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3
-description: "Multi-year engagement for SecureLife and Care Pension og Forsikring (CPOF) — secure customer portals with role-based access for advisors and company administrations, in daily production since 2022 with a next-generation platform in development."
+description: "Digital administration platforms for SecureLife and Care Pension og Forsikring (CPOF) — in stable daily production since 2022, with ongoing work on the next generation."
 ---
 
 ## Background
 
-The insurance and pension industry runs on data that keeps moving — employees change employers, schemes change cover, documents need updating. And two very different user types have to work with it: advisors managing schemes across many client companies, and company administrations (HR) running their own employee rosters. Each looking at the same data through their own lens.
+Insurance and pensions is a domain where data is in constant motion, and where the requirements for security, traceability, and correct handling are high. Many different stakeholders need to work with the same material, each from their own angle, without integrity being compromised.
 
-## Brief
+It calls for a platform that is strict in enforcing access and business rules — and at the same time flexible enough to support how the work actually gets done.
 
-Build secure customer portals for SecureLife and Care Pension og Forsikring (CPOF) — two brands, two domains — with role-based access for advisors and company administrations. Each user type gets exactly what they need. Nothing more, nothing less.
+## The platform
 
-## Approach
+A unified administrative environment for managing schemes, documents, and related data across a substantial number of companies. Designed with an emphasis on correctness, traceability, and predictable behaviour in daily operation.
 
-The first generation has been running in daily production since 2022. A next generation is in active development — fresh platform, modernised architecture — and will take over when it's ready.
+The foundation combines a fine-grained access system, reusable data models across providers, and automated workflows around changes that require follow-up. Two brands run on the same platform, ensuring consistent quality and efficient ongoing development.
 
-**Advisors** get portfolio oversight across their clients, policy administration consolidated in one place, and the tools that make it realistic to service many schemes without losing track.
+## My role
 
-**Company administrations** get control over their employee roster, on- and offboarding directly against the schemes, and access to the documents HR uses day-to-day.
-
-Underneath: an architecture with cleanly separated permissions between user tiers, a deploy pipeline that allows continuous improvement without disrupting live users, and a platform built to grow with the requirements over time.
-
-I am responsible for development, architecture, and operations on both platforms.
+Responsible for architecture, development, and operations across the platform's entire lifetime — from the original foundation, through current production, and into the ongoing work on the next generation.
 
 ## Outcome
 
-A portal in daily production since 2022, used every day by advisors and company administrations. A next-generation platform is in active development. I've built, maintained, and developed this platform over several years — and I'm taking it with me to the new stack when it lands.
+In stable daily production since 2022. Carries business-critical processes for two brands and has been continuously developed in step with the business's needs.
