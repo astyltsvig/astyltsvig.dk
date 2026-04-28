@@ -26,7 +26,7 @@ export const routes: RouteMap = {
 const caseSlugs = [
   'mallard',
   'book2go',
-  'securelife-cpof',
+  'securelife',
   'ddl-tegnsprogspakken',
   'cycling-without-age',
   'df1866',

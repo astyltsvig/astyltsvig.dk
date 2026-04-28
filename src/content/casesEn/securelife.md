@@ -1,5 +1,5 @@
 ---
-client: "SecureLife / Care Pension og Forsikring"
+client: "SecureLife"
 headline: "Administration platforms for the insurance and pension sector."
 role: "Solo developer, architecture, operations"
 period: "2021 – present"
@@ -7,7 +7,7 @@ stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3
-description: "Digital administration platforms for SecureLife and Care Pension og Forsikring (CPOF) — in stable daily production since 2022, with ongoing work on the next generation."
+description: "Digital administration platforms for SecureLife — in stable daily production since 2022, with ongoing work on the next generation."
 ---
 
 ## Background

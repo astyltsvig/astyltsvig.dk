@@ -19,7 +19,7 @@ Tegnsprogspakken ("The Sign Language Pack") is DDL's content platform for Danish
 
 ## Delivery
 
-The existing site was carried forward with a design uplift that gives it a more contemporary visual expression, without changing content or URL structure. Technically delivered on an Astro-based stack with **Sveltia CMS** as the editorial surface. Sveltia layers a recognisable editing interface on top of Git-based content, and the site is built and served statically. DNS coordinated via Simply.com, and a collaboration agreement drafted so roles and responsibilities were in place from the start.
+The existing site was carried forward with a design uplift that gives it a more contemporary visual expression, without changing content or URL structure. Technically delivered on an Astro-based stack with **Sveltia CMS** as the editorial surface. Sveltia layers a recognisable editing interface on top of Git-based content, and the site is built and served statically.
 
 ## Outcome
 
