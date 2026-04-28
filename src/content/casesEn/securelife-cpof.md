@@ -18,9 +18,9 @@ It calls for a platform that is strict in enforcing access and business rules â€
 
 ## The platform
 
-A unified administrative environment for managing schemes, documents, and related data across a substantial number of companies. Designed with an emphasis on correctness, traceability, and predictable behaviour in daily operation.
+The platform administers insurance policies and pension schemes across hundreds of companies and thousands of employees. It delivers full oversight â€” who is covered by what, which documents belong to each scheme, and what changes have been made over time.
 
-The foundation combines a fine-grained access system, reusable data models across providers, and automated workflows around changes that require follow-up. Two brands run on the same platform, ensuring consistent quality and efficient ongoing development.
+Designed with an emphasis on correctness, traceability, and predictable behaviour in daily operation. The foundation combines a fine-grained access system, reusable data models across providers, and automated workflows around changes that require follow-up. Two brands run on the same platform, ensuring consistent quality and efficient ongoing development.
 
 ## My role
 

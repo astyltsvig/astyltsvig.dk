@@ -18,9 +18,9 @@ Det stiller krav til en platform der er stram i sin håndhævelse af adgang og f
 
 ## Platformen
 
-Et samlet administrationsmiljø til håndtering af ordninger, dokumenter og tilhørende data på tværs af et større antal virksomheder. Designet med vægt på korrekthed, sporbarhed og forudsigelig adfærd i daglig drift.
+Platformen administrerer forsikringspolicer og pensionsordninger på tværs af hundredvis af virksomheder og tusindvis af medarbejdere. Den leverer fuldt overblik — hvem der er dækket af hvad, hvilke dokumenter hører til den enkelte ordning, og hvilke ændringer der er sket over tid.
 
-Fundamentet kombinerer et fintkornet adgangssystem, genbrugelige datamodeller på tværs af leverandører og automatiserede arbejdsgange omkring ændringer der kræver opfølgning. To brands drives på samme platform, hvilket sikrer ensartet kvalitet og effektiv videreudvikling.
+Designet med vægt på korrekthed, sporbarhed og forudsigelig adfærd i daglig drift. Fundamentet kombinerer et fintkornet adgangssystem, genbrugelige datamodeller på tværs af leverandører og automatiserede arbejdsgange omkring ændringer der kræver opfølgning. To brands drives på samme platform, hvilket sikrer ensartet kvalitet og effektiv videreudvikling.
 
 ## Min rolle
 
