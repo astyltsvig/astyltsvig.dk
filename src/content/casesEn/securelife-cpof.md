@@ -1,6 +1,6 @@
 ---
 client: "SecureLife / Care Pension og Forsikring"
-headline: "Digital administration platforms for the insurance and pension sector. Running in production since 2022."
+headline: "Administration platforms for the insurance and pension sector."
 role: "Solo developer, architecture, operations"
 period: "2021 – present"
 stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
