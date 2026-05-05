@@ -409,23 +409,6 @@
   border-bottom-color: var(--color-accent-2);
 }
 
-/* Fonts: served locally from public/fonts/ (latin subset, variable where applicable) */
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Variable.woff2") format("woff2-variations");
-  font-weight: 100 900;
-  font-display: swap;
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2-variations");
-  font-weight: 100 800;
-  font-display: swap;
-}
+/* Typography uses system-font stacks declared on --font-display, --font-sans
+   and --font-mono. No @font-face — keeps the page lightweight and consistent
+   with each platform's native rendering. */
