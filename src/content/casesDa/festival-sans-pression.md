@@ -15,7 +15,7 @@ description: "Astro-site til Festival Sans Pression — en to-dages fransk festi
 
 ## Baggrund
 
-Festival Sans Pression er en to-dages festival i Toulouse den 3.-4. oktober 2026, arrangeret af foreningen **Association Parenthèse**. Festivalen er dedikeret til FLINTA-fællesskabet (femmes, lesbiennes, intersexes, non binaires, trans, agenres) og samler workshops, samtaler og en alkoholfri ramme — "sans codes, sans masques, sans pression".
+Festival Sans Pression er en to-dages festival i Toulouse den 3.-4. oktober 2026, arrangeret af foreningen Association Parenthèse. Festivalen er dedikeret til FLINTA-fællesskabet (femmes, lesbiennes, intersexes, non binaires, trans, agenres) og samler workshops, samtaler og en alkoholfri ramme — "sans codes, sans masques, sans pression".
 
 ## Opgave
 

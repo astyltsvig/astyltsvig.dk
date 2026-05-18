@@ -399,7 +399,6 @@
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
 }
 .prose-body ul li + li { margin-top: 0.5rem; }
-.prose-body strong { font-weight: 600; }
 .prose-body a {
   color: var(--color-accent);
   border-bottom: 1px solid color-mix(in oklab, var(--color-accent) 40%, transparent);
