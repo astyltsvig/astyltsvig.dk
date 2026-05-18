@@ -19,7 +19,7 @@ Tegnsprogspakken er DDL's indholdsplatform for tegnsprogsressourcer.
 
 ## Leverance
 
-Det eksisterende site er ført videre med et designløft, der giver et mere tidssvarende visuelt udtryk, uden at ændre på indhold eller URL-struktur. Teknisk leveret på en Astro-baseret stack med **Sveltia CMS** som redaktørflade. Sveltia lægger et genkendeligt redigeringsinterface oven på Git-baseret indhold, og sitet bygges og leveres statisk.
+Det eksisterende site er ført videre med et designløft, der giver et mere tidssvarende visuelt udtryk, uden at ændre på indhold eller URL-struktur. Teknisk leveret på en Astro-baseret stack med Sveltia CMS som redaktørflade. Sveltia lægger et genkendeligt redigeringsinterface oven på Git-baseret indhold, og sitet bygges og leveres statisk.
 
 ## Resultat
 
