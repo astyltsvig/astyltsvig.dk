@@ -36,6 +36,9 @@
   .kicker{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:12px;
     letter-spacing:.16em; text-transform:uppercase; color:var(--accent)}
   .kicker::before{content:""; width:22px; height:2px; background:var(--accent); border-radius:2px}
+  .htools{display:flex; align-items:center; gap:8px}
+  .sharebtn{display:inline-flex; align-items:center; gap:5px; border:1px solid var(--line); background:var(--surface);
+    color:var(--ink); border-radius:999px; padding:6px 13px; font-weight:700; font-size:12.5px; cursor:pointer; box-shadow:var(--sh-sm)}
   .langsel{display:inline-flex; gap:2px; background:var(--surface); border:1px solid var(--line);
     border-radius:999px; padding:3px; box-shadow:var(--sh-sm)}
   .lang{border:none; background:none; font-weight:700; font-size:12px; padding:5px 13px; border-radius:999px; cursor:pointer; color:var(--muted)}
@@ -118,6 +121,14 @@
   .minhead h2{font-family:var(--disp); font-weight:600; font-size:24px; margin:0}
   .minsub{font-size:13px; color:var(--muted)}
   .printbtn{border:none; background:var(--ink); color:#fff; border-radius:11px; padding:10px 17px; font-weight:700; font-size:13.5px; cursor:pointer; box-shadow:var(--sh-sm)}
+  .printbtn.alt{background:var(--surface); color:var(--ink); border:1px solid var(--ink)}
+  .mactions{display:flex; gap:8px; flex-wrap:wrap}
+  .minmode{display:flex; gap:6px; margin:6px 0 10px; flex-wrap:wrap}
+  .minmode .mm{border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:7px 14px; font-weight:700; font-size:12.5px; cursor:pointer; box-shadow:var(--sh-sm)}
+  .minmode .mm.on{background:var(--ink); color:#fff; border-color:var(--ink)}
+  #toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(12px); background:var(--ink); color:#fff;
+    padding:11px 18px; border-radius:12px; font-weight:600; font-size:13.5px; box-shadow:var(--sh); opacity:0; pointer-events:none; transition:.25s; z-index:60}
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
   .dayblock{margin-top:8px}
   .dayhd{font-family:var(--disp); font-weight:600; font-size:18px; margin:20px 2px 10px; padding-bottom:7px; border-bottom:2px solid var(--line)}
   .pcard{position:relative; display:flex; gap:12px; align-items:flex-start; background:var(--surface);
@@ -164,7 +175,7 @@
     .card{padding:11px 30px 11px 12px; gap:11px}
   }
   @media print{
-    .hero-top,.views,#view-tl,#view-cat,footer,.printbtn,.premove{display:none !important}
+    .hero-top,.views,#view-tl,#view-cat,footer,.printbtn,.premove,.minmode{display:none !important}
     #view-min{display:block !important}
     body{background:#fff; color:#000; background-image:none}
     .wrap{max-width:none; padding:0 4px 10px}
@@ -182,10 +193,13 @@
   <header class="hero">
     <div class="hero-top">
       <div class="kicker" id="kicker">Festival · Reims</div>
-      <div class="langsel" id="langsel">
-        <button class="lang active" data-l="da">DA</button>
-        <button class="lang" data-l="en">EN</button>
-        <button class="lang" data-l="fr">FR</button>
+      <div class="htools">
+        <button class="sharebtn" id="sharePageBtn" onclick="sharePage()">⤴ Del</button>
+        <div class="langsel" id="langsel">
+          <button class="lang active" data-l="da">DA</button>
+          <button class="lang" data-l="en">EN</button>
+          <button class="lang" data-l="fr">FR</button>
+        </div>
       </div>
     </div>
     <h1>Clin d'Oeil 2026</h1>
@@ -239,6 +253,10 @@ const UI = {
       "Tryk <b>★</b> på et punkt for at gemme det i <b>Min plan</b> — som du kan printe eller gemme som PDF.",
       "Tryk på et kort for beskrivelse. Skift sprog med <b>DA / EN</b>."],
     hide:"Skjul",
+    share:"Del", sharePlan:"📤 Del min plan", copied:"Link kopieret ✓",
+    addToPlan:"➕ Tilføj til min plan", sharedPlan:"Delt plan",
+    namePrompt:"Dit navn (valgfrit) — vises for dem du deler med:", added:"Tilføjet til din plan ✓",
+    emptyShared:"Den delte plan er tom.",
     footer:`<b>Uofficiel fan-oversigt.</b> Jeg tager ikke ansvar for fejl eller ændringer i informationen — tjek altid det officielle program. Fuldt program er hentet fra festivalens officielle program-PDF (2026).<br><br>Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.`,
   },
   en:{
@@ -263,6 +281,10 @@ const UI = {
       "Tap <b>★</b> on an item to save it to <b>My plan</b> — which you can print or save as PDF.",
       "Tap a card for its description. Switch language with <b>DA / EN</b>."],
     hide:"Hide",
+    share:"Share", sharePlan:"📤 Share my plan", copied:"Link copied ✓",
+    addToPlan:"➕ Add to my plan", sharedPlan:"Shared plan",
+    namePrompt:"Your name (optional) — shown to people you share with:", added:"Added to your plan ✓",
+    emptyShared:"The shared plan is empty.",
     footer:`<b>Unofficial fan overview.</b> I take no responsibility for errors or changes — always check the official program. The full program is taken from the festival's official program PDF (2026).<br><br>Passes: IN requires a Festival Pass; OFF, Village, conferences and the Deaf Party are also covered by a Village Pass.`,
   },
   fr:{
@@ -287,6 +309,10 @@ const UI = {
       "Appuyez sur <b>★</b> pour enregistrer un élément dans <b>Mon plan</b> — que vous pouvez imprimer ou enregistrer en PDF.",
       "Appuyez sur une carte pour sa description. Changez de langue avec <b>DA / EN / FR</b>."],
     hide:"Masquer",
+    share:"Partager", sharePlan:"📤 Partager mon plan", copied:"Lien copié ✓",
+    addToPlan:"➕ Ajouter à mon plan", sharedPlan:"Plan partagé",
+    namePrompt:"Votre nom (facultatif) — visible par ceux avec qui vous partagez :", added:"Ajouté à votre plan ✓",
+    emptyShared:"Le plan partagé est vide.",
     footer:`<b>Aperçu non officiel réalisé par un fan.</b> Je ne suis pas responsable des erreurs ou des changements — vérifiez toujours le programme officiel. Programme complet issu du PDF officiel du festival (2026).<br><br>Pass : IN nécessite le Pass Festival ; OFF, Village, conférences et Deaf Party sont aussi couverts par le Pass Village.`,
   },
 };
@@ -671,6 +697,44 @@ function toggleFav(key,el){
   if(curView==="min")renderMin();
 }
 
+/* ---------- deling ---------- */
+let SHARED=null, sharedBy="", minMode="own";
+(function(){
+  try{
+    const q=new URLSearchParams(location.search), pl=q.get("plan");
+    if(pl){ SHARED=new Set(decodeURIComponent(escape(atob(pl))).split(",").filter(Boolean)); sharedBy=(q.get("by")||"").slice(0,40); minMode="shared"; }
+  }catch(e){ SHARED=null; }
+})();
+const pageUrl=()=>location.origin+location.pathname;
+function planUrl(name){
+  const data=[...FAVS].join(",");
+  let u=pageUrl()+"?plan="+encodeURIComponent(btoa(unescape(encodeURIComponent(data))));
+  if(name)u+="&by="+encodeURIComponent(name);
+  return u;
+}
+function toast(msg){
+  let t=document.getElementById("toast");
+  if(!t){t=document.createElement("div");t.id="toast";document.body.appendChild(t);}
+  t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2400);
+}
+async function shareUrl(url,title){
+  if(navigator.share){ try{ await navigator.share({title,url}); return; }catch(e){ if(e&&e.name==="AbortError")return; } }
+  try{ await navigator.clipboard.writeText(url); toast(UI[curLang].copied); }
+  catch(e){ prompt(UI[curLang].copied, url); }
+}
+function sharePage(){ shareUrl(pageUrl(), UI[curLang].title); }
+function sharePlan(){
+  if(!FAVS.size){ toast(UI[curLang].noFav); return; }
+  let name=""; try{ name=localStorage.getItem("cdo2026_name")||""; }catch(e){}
+  if(!name){ name=(prompt(UI[curLang].namePrompt,"")||"").trim(); if(name){ try{localStorage.setItem("cdo2026_name",name);}catch(e){} } }
+  shareUrl(planUrl(name), UI[curLang].myPlan);
+}
+function setMinMode(m){ minMode=m; renderMin(); }
+function addSharedToPlan(){
+  if(!SHARED)return;
+  SHARED.forEach(k=>FAVS.add(k)); saveFavs(); minMode="own"; updateMinTab(); renderMin(); toast(UI[curLang].added);
+}
+
 function buildGroup(){
   const el=document.getElementById("grpsel");
   const opts=[["all",UI[curLang].all],["Hold A","Hold A"],["Hold B","Hold B"]];
@@ -743,25 +807,40 @@ function renderTL(){
 
 function renderMin(){
   const el=document.getElementById("view-min");
+  const u=UI[curLang];
+  const shared=(minMode==="shared" && SHARED);
+  const useSet=shared ? SHARED : FAVS;
   let total=0;
   const blocks=DAYS.map(d=>{
     const items=[];
     for(let ei=0;ei<EV.length;ei++){
       const e=EV[ei],slots=e.slots[d.k]; if(!slots)continue;
-      for(const s of slots){const key=`${ei}@${d.k}@${s[0]}`; if(FAVS.has(key))items.push(mkItem(e,ei,s,d.k));}
+      for(const s of slots){const key=`${ei}@${d.k}@${s[0]}`; if(useSet.has(key))items.push(mkItem(e,ei,s,d.k));}
     }
     if(!items.length)return "";
     items.sort((a,b)=>toMin(a.start)-toMin(b.start)||a.cat.localeCompare(b.cat));
     total+=items.length;
-    return `<div class="dayblock"><div class="dayhd">${L(d.full)}</div>`+items.map(planCardHTML).join("")+`</div>`;
+    return `<div class="dayblock"><div class="dayhd">${L(d.full)}</div>`+items.map(it=>planCardHTML(it,!shared)).join("")+`</div>`;
   }).join("");
-  let html=`<div class="minhead"><div><h2>${UI[curLang].myPlan}</h2><div class="minsub">${UI[curLang].planSub(total)}</div></div>`;
-  if(total)html+=`<button class="printbtn" onclick="window.print()">${UI[curLang].printPDF}</button>`;
-  html+=`</div>`;
-  html+= total ? blocks : `<div class="empty">${UI[curLang].noFav}</div>`;
+  const h2=shared ? `${u.sharedPlan}${sharedBy?` · ${sharedBy}`:''}` : u.myPlan;
+  let html="";
+  if(SHARED){
+    html+=`<div class="minmode">`+
+      `<span class="mm ${!shared?'on':''}" onclick="setMinMode('own')">${u.myPlan}</span>`+
+      `<span class="mm ${shared?'on':''}" onclick="setMinMode('shared')">${u.sharedPlan}${sharedBy?` · ${sharedBy}`:''}</span>`+
+    `</div>`;
+  }
+  html+=`<div class="minhead"><div><h2>${h2}</h2><div class="minsub">${u.planSub(total)}</div></div><div class="mactions">`;
+  if(total){
+    if(shared) html+=`<button class="printbtn alt" onclick="addSharedToPlan()">${u.addToPlan}</button>`;
+    else html+=`<button class="printbtn alt" onclick="sharePlan()">${u.sharePlan}</button>`;
+    html+=`<button class="printbtn" onclick="window.print()">${u.printPDF}</button>`;
+  }
+  html+=`</div></div>`;
+  html+= total ? blocks : `<div class="empty">${shared?u.emptyShared:u.noFav}</div>`;
   el.innerHTML=html;
 }
-function planCardHTML(it){
+function planCardHTML(it,editable){
   const c=CATS[it.cat],night=isNight(it.start);
   return `<div class="pcard" style="--cc:${c.color}">
     <div class="ptime">${it.start}<span>${it.end}${night?' +1':''}</span></div>
@@ -774,7 +853,7 @@ function planCardHTML(it){
       ${it.desc?`<div class="pd">${it.desc}</div>`:''}
       ${it.note?`<div class="pn">${it.note}</div>`:''}
     </div>
-    <button class="premove" title="Fjern" onclick="toggleFav('${it.fav}')">★</button>
+    ${editable?`<button class="premove" title="Fjern" onclick="toggleFav('${it.fav}')">★</button>`:''}
   </div>`;
 }
 
@@ -894,6 +973,7 @@ function applyLang(){
   document.querySelector('.vbtn[data-v="tl"]').textContent=u.vTL;
   document.querySelector('.vbtn[data-v="cat"]').textContent=u.vCat;
   updateMinTab();
+  document.getElementById("sharePageBtn").innerHTML="⤴ "+u.share;
   document.getElementById("footer").innerHTML=u.footer;
   document.querySelectorAll("#langsel .lang").forEach(b=>b.classList.toggle("active",b.dataset.l===curLang));
   renderGuide();
@@ -902,6 +982,7 @@ function applyLang(){
 document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.dataset.l;applyLang();});
 
 applyLang();
+if(SHARED) setView("min");
 </script>
 </body>
 </html>
