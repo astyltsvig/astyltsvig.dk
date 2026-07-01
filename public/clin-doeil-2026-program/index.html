@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clin d'Oeil 2026 · Program & tidslinje</title>
+<meta name="description" content="Overskuelig dag-for-dag tidslinje og fuldt program for tegnsprogsfestivalen Clin d'Oeil 2026 i Reims (2.–5. juli): IN-teater, OFF, konferencer, film og Deaf Party — med Hold A/B-filter og kort.">
+<meta name="theme-color" content="#ea580c">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clin d'Oeil 2026 · Program & tidslinje">
+<meta property="og:description" content="Dag-for-dag oversigt over Clin d'Oeil 2026 i Reims — forestillinger, talks, film og Deaf Party.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23ea580c'/><circle cx='16' cy='16' r='6.5' fill='none' stroke='white' stroke-width='2.4'/><circle cx='16' cy='16' r='2.2' fill='white'/></svg>">
+<style>
+  :root{
+    --bg:#f7f4ee; --ink:#191921; --muted:#6d6d75; --line:#e5dfd4; --card:#fff;
+    --in:#7c3aed; --off:#0d9488; --vil:#ea580c; --conf:#2563eb; --cine:#dc2626; --dp:#db2777;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.42}
+  .wrap{max-width:780px; margin:0 auto; padding:0 14px 70px}
+  header{padding:20px 0 8px}
+  .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--vil); font-weight:700}
+  h1{font-size:25px; margin:4px 0 2px; letter-spacing:-.01em}
+  .sub{color:var(--muted); font-size:14px}
+  .note{background:#fff8ef; border:1px solid #f0d9b8; border-radius:12px; padding:11px 13px;
+    font-size:12.5px; color:#5a4a30; margin:12px 0}
+  .note b{color:#3d3120}
+  .note button{margin-top:7px; background:none; border:1px solid #e0c79a; color:#6b5a3a;
+    border-radius:8px; padding:3px 10px; font-size:12px; cursor:pointer}
+  /* top view toggle */
+  .views{display:flex; gap:6px; margin:6px 0 2px}
+  .vbtn{flex:1; text-align:center; padding:9px; border:1px solid var(--line); background:var(--card);
+    border-radius:11px; font-weight:700; font-size:14px; cursor:pointer}
+  .vbtn.active{background:var(--ink); color:#fff; border-color:var(--ink)}
+  /* day tabs */
+  .days{display:flex; gap:6px; position:sticky; top:0; z-index:20; background:var(--bg);
+    padding:9px 0; overflow-x:auto}
+  .day{flex:1 0 auto; min-width:76px; text-align:center; border:1px solid var(--line);
+    background:var(--card); border-radius:12px; padding:7px 6px; cursor:pointer; user-select:none}
+  .day .dn{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.07em}
+  .day .dd{font-size:19px; font-weight:700}
+  .day.active{background:var(--ink); border-color:var(--ink); color:#fff}
+  .day.active .dn{color:#c9c4bc}
+  .filters{display:flex; flex-wrap:wrap; gap:6px; margin:11px 0 2px}
+  .chip{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+    border:1px solid var(--line); background:var(--card); border-radius:999px; padding:6px 11px;
+    cursor:pointer; user-select:none}
+  .chip .dot{width:9px; height:9px; border-radius:50%}
+  .chip.off{opacity:.36}
+  .chip.off .dot{background:#bbb !important}
+  .daymeta{font-size:12.5px; color:var(--muted); margin:13px 2px 6px}
+  .grpsel{display:flex; align-items:center; gap:6px; margin:9px 0 2px; flex-wrap:wrap}
+  .grpsel .gl{color:var(--muted); font-weight:600; font-size:12.5px; margin-right:2px}
+  .grpsel .gb{border:1px solid var(--line); background:var(--card); border-radius:999px; padding:5px 13px;
+    font-weight:700; font-size:12.5px; cursor:pointer; user-select:none}
+  .grpsel .gb.on{background:var(--in); color:#fff; border-color:var(--in)}
+  /* timeline */
+  .row{display:grid; grid-template-columns:60px 1fr; gap:10px; margin-bottom:8px}
+  .time{text-align:right; padding-top:11px; font-variant-numeric:tabular-nums; font-size:13px;
+    font-weight:700; white-space:nowrap}
+  .time .to{display:block; font-size:11px; font-weight:500; color:var(--muted)}
+  .card{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc,#ccc);
+    border-radius:11px; padding:9px 12px}
+  .card.exp{cursor:pointer}
+  .ctag{font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--cc)}
+  .title{font-size:14.5px; font-weight:650; margin:1px 0 3px; letter-spacing:-.01em}
+  .meta{display:flex; flex-wrap:wrap; gap:5px 8px; font-size:12px; color:var(--muted); align-items:center}
+  .pill{background:#f2eee6; border-radius:6px; padding:2px 7px; font-weight:600; color:#544}
+  .maplink{display:inline-flex; align-items:center; gap:3px; text-decoration:none; background:#eef2ff;
+    color:#3049c4; border-radius:6px; padding:2px 8px; font-weight:600; font-size:12px}
+  .maplink:active{opacity:.65}
+  .grp{background:#efeafd; color:#6d28d9; border-radius:6px; padding:2px 7px; font-weight:700}
+  .night{background:#1e1b2e; color:#c4b5fd; border-radius:6px; padding:2px 7px; font-weight:700}
+  .opt{background:#fff4d6; color:#8a6d10; border-radius:6px; padding:2px 7px; font-weight:700}
+  .warn{background:#fdeaea; color:#b23838; border-radius:6px; padding:2px 7px; font-weight:700}
+  .desc{margin-top:7px; font-size:12.5px; color:#3a3a42; border-top:1px dashed var(--line); padding-top:7px; display:none}
+  .card.open .desc{display:block}
+  .desc .dl{color:var(--muted)}
+  .more{font-size:11px; color:var(--cc); font-weight:700; margin-top:5px}
+  .sechead{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:700; margin:16px 2px 7px}
+  .amb{display:flex; gap:11px; align-items:flex-start; background:var(--card); border:1px dashed var(--line);
+    border-left:5px solid var(--cc,#ccc); border-radius:11px; padding:9px 12px; margin-bottom:7px}
+  .amb .rng{font-variant-numeric:tabular-nums; font-weight:700; font-size:12.5px; white-space:nowrap; color:#3a3a42; padding-top:1px}
+  .amb .lbl{font-size:14px; font-weight:650}
+  .amb .sm{font-size:12px; color:var(--muted); margin-top:1px}
+  .empty{text-align:center; color:var(--muted); padding:40px 0}
+  /* catalog */
+  .cat h2{font-size:15px; margin:22px 0 4px; display:flex; align-items:center; gap:8px}
+  .cat h2 .dot{width:11px;height:11px;border-radius:50%}
+  .cat .lead{font-size:12.5px; color:var(--muted); margin:0 0 8px}
+  .item{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc);
+    border-radius:11px; padding:10px 12px; margin-bottom:8px}
+  .item .t{font-size:14.5px; font-weight:650}
+  .item .fr{font-size:12px; color:var(--muted); font-style:italic}
+  .item .m{font-size:11.5px; color:var(--muted); margin:3px 0 5px; display:flex; flex-wrap:wrap; gap:4px 8px}
+  .item .m b{color:#444; font-weight:600}
+  .item .d{font-size:12.5px; color:#3a3a42}
+  footer{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--muted)}
+  footer a{color:#3049c4; text-decoration:none; font-weight:600}
+  footer b{color:#3d3120}
+  @media(max-width:420px){h1{font-size:22px} .row{grid-template-columns:52px 1fr; gap:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Festival · Reims</div>
+    <h1>Clin d'Oeil 2026</h1>
+    <div class="sub">Torsdag 2. – søndag 5. juli · international tegnsprogsfestival</div>
+  </header>
+
+  <div class="views">
+    <div class="vbtn active" data-v="tl">Tidslinje</div>
+    <div class="vbtn" data-v="cat">Fuldt program</div>
+  </div>
+
+  <div class="note" id="note">
+    <b>Navnene er nu de rigtige, hentet fra festivalens tekst-program.</b>
+    <b>Konferencer</b> matcher 1:1 på dag+tid. <b>IN-forestillinger</b> er koblet via varighed.
+    For <b>OFF, film og Deaf Party</b> oplyser programmet ikke hvilken titel der spiller i hvilket
+    konkret tidsrum — så dem finder du fuldt navngivet under “Fuldt program”. Alt usikkert er
+    markeret med <span class="warn">⚠</span>. Tryk på et kort i tidslinjen for beskrivelse.
+    <br><button onclick="document.getElementById('note').remove()">Skjul</button>
+  </div>
+
+  <!-- TIMELINE VIEW -->
+  <div id="view-tl">
+    <div class="days" id="days"></div>
+    <div class="filters" id="filters"></div>
+    <div class="grpsel" id="grpsel"></div>
+    <div class="daymeta" id="daymeta"></div>
+    <div id="tl"></div>
+  </div>
+
+  <!-- CATALOG VIEW -->
+  <div id="view-cat" style="display:none"></div>
+
+  <footer>
+    <b>Uofficiel oversigt</b> – lavet som et overskueligt supplement til det officielle program og kan indeholde fejl.
+    Tider kan ændres; tjek altid det officielle program på selve festivalen.
+    Officielt: <a href="https://www.clin-doeil.eu/en/" target="_blank" rel="noopener">clin-doeil.eu</a> ·
+    <a href="https://www.clin-doeil.eu/wa_res/files/Programme_Festival_2026.pdf" target="_blank" rel="noopener">program-PDF</a> ·
+    <a href="https://www.billetweb.fr/festival-clin-doeil-2026" target="_blank" rel="noopener">billetter</a>.
+    <br><br>
+    Kilder: festivalens tidsplan- og program-PDF (2026). Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.
+    Navne på IN-forestillinger er koblet via varighed; OFF, film og Deaf Party er ikke tidsfæstet pr. titel i det officielle program.
+  </footer>
+</div>
+
+<script>
+const CATS = {
+  in:  {name:"IN-teater",   venue:"La Comédie / Le Manège", ven:"comedie", pass:"Pass Festival",            color:"#7c3aed"},
+  off: {name:"OFF · L'Atelier", venue:"L'Atelier",          ven:"atelier", pass:"Pass Festival / Village",  color:"#0d9488"},
+  vil: {name:"Village",     venue:"Village (Stade Delaune)",ven:"village", pass:"Pass Festival / Village",  color:"#ea580c"},
+  conf:{name:"Konference",  venue:"Village – konference",   ven:"village", pass:"Pass Festival / Village",  color:"#2563eb"},
+  cine:{name:"Cinema",      venue:"Saint-Ex",               ven:"saintex", pass:"Pass Festival",            color:"#dc2626"},
+  dp:  {name:"Deaf Party",  venue:"Village – scene",        ven:"village", pass:"Pass Festival / Village / Deaf Party", color:"#db2777"},
+};
+const VEN = {
+  comedie:{n:"La Comédie – CDN de Reims",              a:"3 Chaussée Bocquaine, 51100 Reims"},
+  manege: {n:"Le Manège / Cirque de Reims",            a:"2 Bd du Général Leclerc, 51100 Reims"},
+  atelier:{n:"L'Atelier de la Comédie",                a:"13 Rue du Moulin Brûlé, 51100 Reims"},
+  village:{n:"Clin d'Oeil Village – Stade Auguste Delaune", a:"33 Chaussée Bocquaine, 51100 Reims"},
+  saintex:{n:"Saint-Ex – Centre culturel numérique",   a:"Esplanade André Malraux, 51100 Reims"},
+};
+const gmaps=v=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.n+', '+v.a)}`;
+const DAYS=[
+  {k:"thu",dn:"Tor",dd:"2",full:"Torsdag 2. juli"},
+  {k:"fri",dn:"Fre",dd:"3",full:"Fredag 3. juli"},
+  {k:"sat",dn:"Lør",dd:"4",full:"Lørdag 4. juli"},
+  {k:"sun",dn:"Søn",dd:"5",full:"Søndag 5. juli"},
+];
+
+/* ---------- CATALOG (rigtige navne + beskrivelser) ---------- */
+const C = {
+  /* IN */
+  canterville:{cat:"in",t:"The Canterville Ghost",fr:"Le Fantôme de Canterville",m:["Sverige","75 min","Riksteatern Crea","Instr. Joel Kankkonen & Lars Otterstedt"],
+    d:"Familie-spøgelseskomedie efter Oscar Wilde. Spøgelset er en verdensunik, live 3D-animeret avatar der tegner på international tegnsprog og talt svensk — og har svært ved at skræmme en familie der ikke er bange for noget. Med Jamila Ouahid (animerer spøgelset), Robert Fransson, Johan Kankkonen & Mette Marqvardsen."},
+  lastones:{cat:"in",t:"The Last Ones",fr:"Les Derniers",m:["Norge","55 min","Teater Manu","Instr. Josette Bushell-Mingo"],
+    d:"Nær-fremtidsdystopi: en ny verdensorden tilbyder en “kur” der udrydder handicap. Fire unge døve flygter fra tvangsmedicinering der vil fratage dem sprog, kultur og identitet. Med Ronny Patrick Jacobsen, Dawn Jani Birley m.fl."},
+  window:{cat:"in",t:"I Prefer Looking Out the Window",fr:"Je préfère regarder par la fenêtre",m:["Frankrig","65 min","Théâtre de la Cité","Instr. Lucie Lataste"],
+    d:"Poetisk stykke om erindring og rødder: en pige opdager at hendes far måske ikke er hendes biologiske ophav. Kan kroppen og stederne huske det vi har glemt? Med Aleksi Bernheim, Lisa Martin m.fl."},
+  sleep:{cat:"in",t:"A Hundred Years of Sleep",fr:"100 ans de sommeil",m:["Japan","60 min","Japanese Theatre of the Deaf + Hitomi + Company Derashinera","Instr. Shuji Onodera"],
+    d:"Ordløst dværk mellem drøm og virkelighed, bygget på mime og bevægelse over et 6-årigt projekt. Udforsker kroppen på tværs af dans, mime og tegnsprog — også med døve skoleelever på scenen."},
+  mercury:{cat:"in",t:"Mercury Rising",fr:"Mercure monte",m:["Belgien / Tyskland","60 min","Art Happens","Instr. Jefta van Dinther"],
+    d:"Kroppen som ustabilt sprogrum, hvor mening skabes og opløses gennem bevægelse. Skabt med og spillet af Dawn Jani Birley, Rita Mazza & Lukas Malkowski; flettet af flere tegnsprog, for både døve og hørende."},
+  opening:{cat:"in",t:"Åbningsceremoni",fr:"Cérémonie d'ouverture",m:["Torsdag 18:15–19:30","Instr. Anthony Guyon & Amina Ouahid"],
+    d:"Festivalens officielle åbning. Bl.a. med AI-skaberen Calvin Young."},
+  awards:{cat:"in",t:"Filmpris-ceremoni",fr:"Cérémonie Awards Film",m:["Lørdag 18:15–19:30","Instr. Michael Kaufer & Amina Ouahid, med Rene Visco"],
+    d:"Prisoverrækkelse i 12 kategorier (bedste spillefilm, kortfilm, dokumentar, animation, ungdomsfilm, instruktør, skuespiller m.fl.)."},
+
+  /* OFF */
+  offrails:{cat:"off",t:"Off the Rails!",fr:"Hors des rails !",m:["USA","40 min","Gallaudet University – Go Ahead Collective"],
+    d:"Højenergisk ensemble-stykke af 14 studenterkunstnere: hverdagskaos i en metrovogn i dristige, sjove og overraskende dybe vignetter."},
+  resonance:{cat:"off",t:"Resonance",fr:"Résonance",m:["Holland","40 min","20Hertz","Instr. Sharon Wesseling"],
+    d:"Dans der smelter hiphop og tegnsprog sammen med lys og visuelle effekter — musik der kan mærkes og ses, ikke kun høres."},
+  listening:{cat:"off",t:"Listening Movement",fr:"Mouvement d'écoute",m:["Brasilien","45 min","SOM Dance Company","Instr. Clara Kutner & Aline Carrocino"],
+    d:"Dans og døvekunst på LIBRAS (brasiliansk tegnsprog), blandet med funk/Passinho. Handler om manglende lytten og kommunikation i storbyen."},
+  elevator:{cat:"off",t:"Elevator 2, Apartment 4",fr:"Ascenseur 2, Appartement 4",m:["Italien","40 min","Laboratorio Zero","Instr. Lorenzo Laudo"],
+    d:"To kvinder fanges i en elevator i Milano en søndag aften. Komedie der rører ved kønsidentitet, ensomhed og behovet for kontakt. Med Paola Severi & Daniele Latagliata."},
+  turbulence:{cat:"off",t:"Turbulence",fr:"Turbulence",m:["USA","40 min","Med John Maucere & Alek Lev"],
+    d:"Kraftfuld solo på ASL: John Maucere væver sin vej gennem afhængighed og ædruelighed sammen med en nær-dødsoplevelse på et voldsomt rystende fly. Drama og humor."},
+  legend:{cat:"off",t:"The Legend",fr:"La Légende",m:["Japan","20 min","Med Satoshi Ezoe & Atom Sunada"],
+    d:"To fremmede i et tog opdager at de begge er døve og deler historier fra døvehistorien — en stille meditation over en “døve-utopi”."},
+
+  /* Deaf Party line-up */
+  dp_hcr:{cat:"dp",t:"Heat. Chill. Repeat.",fr:"",m:["USA","DJ / musik"],d:""},
+  dp_aloss:{cat:"dp",t:"DJ Aloss",fr:"",m:["Brasilien","DJ"],d:""},
+  dp_signmark:{cat:"dp",t:"Signmark – Farewell",fr:"",m:["Finland","Koncert (afsked)"],d:"Den kendte døve rapper Signmark giver afskedskoncert."},
+  dp_fila:{cat:"dp",t:"Fila del Fia",fr:"",m:["USA / Grækenland","Dans / musik"],d:""},
+  dp_vinz:{cat:"dp",t:"VinzSlam",fr:"",m:["Frankrig","Slam / performance"],d:""},
+  dp_maxx:{cat:"dp",t:"DJ Maxxstvl",fr:"",m:["Frankrig","DJ"],d:""},
+  dp_slobo:{cat:"dp",t:"DJ Slobo",fr:"",m:["Argentina","DJ"],d:""},
+  dp_nuvis:{cat:"dp",t:"Nuvis",fr:"",m:["Sydkorea","Performance"],d:""},
+  dp_poster:{cat:"dp",t:"Poster Kids",fr:"by OrangePoster Productions",m:["USA","Show / dans"],d:""},
+  dp_elements:{cat:"dp",t:"The Elements",fr:"",m:["Storbritannien","Show / dans"],d:""},
+};
+
+/* ---------- FILM-oversigt (konkurrence, Pass Festival) ---------- */
+const FILMS = [
+  {sec:"Spillefilm", items:[
+    ["Lacrimosa","Austin Chapman","USA","80 min"],
+    ["Milano","Christina Vandekerckhove","Belgien","80 min"],
+    ["Passengers","Dickie Drew Hearts","Storbritannien","55 min"],
+    ["Salt & Pepper","Con Mehlum","Norge","80 min"],
+    ["Que peut-on y faire? / What Can Be Done?","Léa Damian","Frankrig","60 min"],
+  ]},
+  {sec:"Dokumentar (lang)", items:[
+    ["The Way We Move","Vanessa Joo Dumont & Nicolas Davenel","Frankrig","94 min"],
+    ["SHINJI: Listening with the Heart","Shugo Fujii","Japan","69 min"],
+    ["Marsha's Story","Gaelle Thibaudat","Canada / Frankrig","68 min"],
+    ["A Quiet Love","Garry Keane","Irland","95 min"],
+    ["Gary Malkowski: A Deaf Legacy in Ontario","Alvin Witcher","Canada","81 min"],
+  ]},
+  {sec:"Kortfilm", items:[
+    ["Familiar Stranger","Ace Mahbaz","Storbritannien","14 min"],
+    ["Joyeux anniversaire / Happy Birthday","Julien Bourges","Frankrig","19 min"],
+    ["Remember Me","Lisa Kelly","Storbritannien","14 min"],
+    ["La lueur de l'Adieu","Audrey Sangla","Frankrig","22 min"],
+    ["Strawberry Cheesecake","Sean L. McParland","Australien","9 min"],
+  ]},
+  {sec:"Kort dokumentar", items:[
+    ["Anaëlle, Rock & Roller","Sandrine Herman","Frankrig","26 min"],
+    ["Deaf Jams: Dance With Me","Bim Ajadi","Storbritannien","13 min"],
+    ["Deaf Nomads","Itgel Byambadorj","Mongoliet","30 min"],
+    ["Unmasking","Clare Johns","Storbritannien","27 min"],
+  ]},
+  {sec:"Animation", items:[
+    ["Eye of the Game","Ramas McRae","Australien","13 min"],
+    ["The Tales of Victor / The Misfits Creator","Paul Miller","Storbritannien","13 min"],
+    ["In Four Stops","Elizaveta Khlomova","Rusland","18 min"],
+    ["Ghost Sandwich","Lymon Thorn","USA","3 min"],
+  ]},
+  {sec:"Ungdomsfilm", items:[
+    ["Medal Chase","Kevin Shiva","Sverige","9 min"],
+    ["Karma","Francisco Javier Peña Rodrigo","Spanien","5 min"],
+    ["Beautiful","Léa Damian","Canada","20 min"],
+    ["Inverse","David Goyette","USA","5 min"],
+  ]},
+];
+
+/* ---------- KONFERENCER (matchet 1:1 på dag+tid) ---------- */
+const CONF = [
+  {day:"thu",s:"12:30",e:"13:15",t:"Eugenics Threat, AI, and the Power of Deaf Arts",who:"Ryan Commerson",co:"USA"},
+  {day:"thu",s:"13:30",e:"14:15",t:"Art + Being",who:"Carolina Sperb",co:"Brasilien"},
+  {day:"thu",s:"15:30",e:"16:15",t:"Deaf Music as Embodied Storytelling",who:"Lily Goh",co:"Singapore"},
+  {day:"thu",s:"16:30",e:"17:15",t:"Music is My Life",who:"Jegor Andrejev",co:"Estland"},
+  {day:"fri",s:"11:00",e:"11:45",t:"Building a Theatre",who:"Mira Zuckermann",co:"Norge"},
+  {day:"fri",s:"12:00",e:"12:45",t:"On the Edge: Theatre Beyond the Written Script",who:"Bo Hårdell",co:"Danmark"},
+  {day:"fri",s:"13:00",e:"13:45",t:"Sign Language Arts: Identity, Collaboration & the Future",who:"Atiyah Asmal & Mindy Drapsa",co:"Sydafrika / Sverige"},
+  {day:"fri",s:"14:00",e:"14:45",t:"Deaf Film Festival Alliance",who:"MJ Kiego",co:"USA"},
+  {day:"fri",s:"15:00",e:"15:45",t:"From an Idea to a Film",who:"Audrey Sangla",co:"Frankrig"},
+  {day:"fri",s:"16:00",e:"16:45",t:"Taking Deaf Creatives' Films to the Next Level",who:"Nikki Stratton",co:"Storbritannien"},
+  {day:"fri",s:"17:00",e:"17:45",t:"Do Not Translate My Gaze — Sign Language as a Cinematic Language",who:"Margot Navas",co:"Spanien"},
+  {day:"fri",s:"18:00",e:"18:30",t:"Empowering the Next Generation of Deaf Talent",who:"Camilla Arnold & Sam Calder-Bray",co:"Storbritannien"},
+  {day:"sat",s:"11:00",e:"11:45",t:"Deaf Culture Is a Human Right",who:"Dr. Joseph J. Murray",co:"International"},
+  {day:"sat",s:"12:00",e:"12:45",t:"Our World Flag: For Whom? Why?",who:"Arnaud Balard",co:"Frankrig"},
+  {day:"sat",s:"13:00",e:"13:45",t:"Sleepwalking into Extinction? Artivism as Resistance",who:"Aino Laiho & Noora Karjalainen",co:"Finland"},
+  {day:"sat",s:"14:00",e:"14:45",t:"From Margin to Mainstream: The Edinburgh Deaf Festival Model",who:"Philip Gerrard MBE",co:"Skotland"},
+  {day:"sat",s:"15:00",e:"15:45",t:"Deaf Digital Creators, the New Storytellers",who:"Marta Morgado",co:"Portugal"},
+  {day:"sat",s:"16:00",e:"16:45",t:"Can the Global Signing Ecosystem Thrive Without Clin d'Oeil?",who:"Ayesha Ramjugernath & Atiyah Asmal",co:"Sydafrika"},
+];
+
+/* ---------- TIDSLINJE-events ---------- */
+const EV=[];
+const add=(cat,slots,o={})=>EV.push({cat,slots,ref:o.ref,label:o.label,note:o.note,dur:o.dur,opt:o.opt,warn:o.warn});
+
+/* IN – koblet via varighed */
+add("in",{thu:[["11:00","12:15","Hold A"],["15:00","16:15","Hold B"]]},{ref:"canterville",dur:"75 min"});
+add("in",{fri:[["11:00","11:55","Hold B"],["15:00","15:55","Hold A"]]},{ref:"lastones",dur:"55 min"});
+add("in",{sat:[["13:00","14:05","Hold B"],["15:00","16:05","Hold A"]]},{ref:"window",dur:"65 min"});
+add("in",{fri:[["13:30","14:30","Hold A"],["17:00","18:00","Hold B"]]},{ref:"sleep",dur:"60 min",warn:"Dag ombyttelig med Mercury Rising"});
+add("in",{sun:[["12:00","13:00","Hold A"],["15:30","16:30","Hold B"]]},{ref:"mercury",dur:"60 min",warn:"Dag ombyttelig med A Hundred Years of Sleep",note:"Bogsignering med Mira Zuckerman i tilknytning til forestillingen."});
+add("in",{fri:[["12:00","12:40","Hold B"],["16:00","16:40","Hold A"]]},{label:"IN-programpunkt (40 min)",dur:"40 min",warn:"Titel ikke navngivet i programmet — sandsynligvis film-/dokumentarvisning i La Comédie"});
+add("in",{thu:[["18:15","19:30"]]},{ref:"opening",opt:true});
+add("in",{sat:[["18:15","19:30"]]},{ref:"awards",opt:true});
+
+/* OFF – kun Listening Movement kan tidsfæstes sikkert (45 min) */
+add("off",{
+  thu:[["12:00","12:45"],["17:25","18:10"]], fri:[["11:10","11:55"],["16:35","17:20"]],
+  sat:[["11:10","11:55"],["16:35","17:20"]], sun:[["11:10","11:55"],["16:35","17:20"]]},{ref:"listening",dur:"45 min"});
+const offRotate={
+  thu:[["10:00","10:40"],["11:00","11:40"],["13:05","13:45"],["14:05","15:05"],["15:25","16:05"],["16:25","17:05"],["18:30","19:10"],["19:30","20:30"]],
+  fri:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"],["20:00","21:00"]],
+  sat:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"],["20:00","21:00"]],
+  sun:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"]]};
+add("off",offRotate,{label:"OFF-forestilling",warn:"Én af: Off the Rails, Resonance, Elevator 2/Apt 4, Turbulence, The Legend — se Fuldt program"});
+
+/* VILLAGE (street/kort) */
+const everyday=s=>({thu:s,fri:s,sat:s,sun:s});
+add("vil",everyday([["12:00","12:30"],["15:00","15:30"]]),{label:"Village – street/scene"});
+add("vil",everyday([["12:40","12:50"],["15:40","15:50"]]),{label:"Village – street/scene"});
+add("vil",everyday([["13:00","13:20"],["16:00","16:20"]]),{label:"Village – street/scene"});
+add("vil",everyday([["13:30","13:50"],["16:30","16:50"]]),{label:"Village – street/scene"});
+add("vil",everyday([["14:00","14:20"],["17:00","17:20"]]),{label:"Village – street/scene"});
+add("vil",everyday([["14:30","14:50"],["17:30","17:50"]]),{label:"Village – street/scene"});
+
+/* KONFERENCER (fra CONF-listen) */
+CONF.forEach(c=>{
+  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:`${c.who} · ${c.co}`,dur:(c.s==="18:00"?"30 min":"45 min")});
+});
+/* 2 unavngivne konference-slots */
+add("conf",{thu:[["12:15","12:30"]]},{label:"Konference (kort intro)",dur:"15 min",warn:"Ikke navngivet i programmet"});
+add("conf",{thu:[["14:30","15:15"]]},{label:"Konference",dur:"45 min",warn:"Ikke navngivet i programmet"});
+
+/* CINEMA */
+add("cine",{thu:[["09:15","10:16"]],fri:[["09:15","10:16"],["17:00","18:01"]],sat:[["09:15","10:16"]],sun:[["09:15","10:16"]]},{label:"Cinema · blok 1 (kortfilm)"});
+add("cine",{thu:[["10:25","11:52"]],fri:[["10:25","11:52"]],sat:[["10:25","11:52"],["19:20","20:47"]],sun:[["10:25","11:52"]]},{label:"Cinema · blok 2 (kortfilm)"});
+add("cine",{thu:[["12:00","13:21"],["17:55","19:16"]],fri:[["12:00","13:21"]],sat:[["12:00","13:21"]],sun:[["12:00","13:21"]]},{label:"Cinema · blok 3 (kortfilm)"});
+add("cine",everyday([["13:30","14:25"]]),{label:"Cinema · blok 4"});
+add("cine",everyday([["14:35","15:31"]]),{label:"Cinema · blok 5"});
+add("cine",{thu:[["09:20","10:29"]],fri:[["09:20","10:29"]],sun:[["13:10","14:19"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["10:50","12:00"]],fri:[["10:45","11:55"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["12:20","13:40"]],fri:[["12:10","13:30"]],sat:[["17:10","18:30"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["14:00","15:20"]],fri:[["13:45","15:05"]],sat:[["15:30","16:50"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["15:40","17:00"]],fri:[["15:20","16:40"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",everyday([["15:40","16:40"]]),{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["16:50","17:46"]],fri:[["16:50","17:46"]],sat:[["16:50","17:46"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{thu:[["17:20","18:41"],["19:30","20:51"]]},{label:"Cinema · film",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{sat:[["09:20","10:55"]],sun:[["09:20","10:55"]]},{label:"Cinema · film (lang)",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{sat:[["11:15","12:50"]],sun:[["11:15","12:50"]]},{label:"Cinema · film (lang)",warn:"Titel ikke tidsfæstet — se filmoversigt"});
+add("cine",{sat:[["13:10","15:10"]],sun:[["14:40","16:40"]]},{label:"Cinema · film + Q&A",note:"Efterfølgende samtale med instruktør Sho Stern."});
+
+/* DEAF PARTY (aften) – slots ikke navngivet; se line-up i Fuldt program */
+add("dp",{thu:[["19:00","20:30"]],fri:[["23:30","00:25"]],sat:[["19:00","20:15"]]},{label:"Deaf Party"});
+add("dp",{thu:[["20:45","21:50"]],fri:[["20:30","21:15"],["22:15","23:10"]],sat:[["23:30","00:15"]],sun:[["18:00","19:15"]]},{label:"Deaf Party"});
+add("dp",{thu:[["22:45","23:35"]],fri:[["19:00","20:10"]],sat:[["20:55","21:55"]],sun:[["19:45","20:45"]]},{label:"Deaf Party"});
+add("dp",{thu:[["23:45","00:00"]],fri:[["21:45","22:00"],["00:45","01:00"]],sat:[["00:15","00:40"]],sun:[["20:45","21:00"]]},{label:"Deaf Party"});
+add("dp",{thu:[["22:15","22:30"]],fri:[["20:15","20:30"],["23:15","23:30"]],sat:[["20:15","20:30"]],sun:[["19:30","19:45"]]},{label:"Deaf Party"});
+add("dp",{thu:[["20:30","20:35"],["21:55","22:00"],["23:40","23:45"]],fri:[["20:10","20:15"],["23:10","23:15"],["00:25","00:30"]],sat:[["20:45","20:50"],["21:55","22:00"],["00:40","00:45"]]},{label:"Deaf Party"});
+add("dp",{thu:[["22:00","22:15"]],fri:[["22:00","22:15"]],sat:[["22:00","22:15"]]},{label:"Deaf Party"});
+add("dp",{thu:[["22:30","22:45"]],fri:[["21:30","21:45"]],sat:[["20:30","20:45"]],sun:[["19:15","19:30"]]},{label:"Deaf Party"});
+add("dp",{thu:[["00:00","00:15"]],fri:[["21:15","21:30"],["00:30","00:45"]],sat:[["00:45","01:15"]],sun:[["21:00","21:15"]]},{label:"Deaf Party"});
+add("dp",{sat:[["22:15","23:30"]]},{label:"Deaf Party"});
+add("dp",{fri:[["01:00","02:00"]]},{label:"Deaf Party · Del 1"});
+add("dp",{sat:[["01:15","02:15"]]},{label:"Deaf Party · Finale"});
+
+/* ---------- render ---------- */
+let curDay="thu", curView="tl", curGroup="all";
+const activeCats=new Set(Object.keys(CATS));
+const toMin=t=>{const[h,m]=t.split(":").map(Number);let v=h*60+m;if(h<6)v+=1440;return v;};
+const isNight=t=>Number(t.split(":")[0])<6;
+
+function buildGroup(){
+  const el=document.getElementById("grpsel");
+  const opts=[["all","Alle"],["Hold A","Hold A"],["Hold B","Hold B"]];
+  el.innerHTML=`<span class="gl">IN-hold:</span>`+opts.map(o=>`<span class="gb ${curGroup===o[0]?'on':''}" data-g="${o[0]}">${o[1]}</span>`).join("");
+  el.querySelectorAll(".gb").forEach(n=>n.onclick=()=>{curGroup=n.dataset.g;buildGroup();renderTL();});
+}
+
+function buildDays(){
+  const el=document.getElementById("days");
+  el.innerHTML=DAYS.map(d=>`<div class="day ${d.k===curDay?'active':''}" data-k="${d.k}"><div class="dn">${d.dn}</div><div class="dd">${d.dd}</div></div>`).join("");
+  el.querySelectorAll(".day").forEach(n=>n.onclick=()=>{curDay=n.dataset.k;buildDays();renderTL();});
+}
+function buildFilters(){
+  const el=document.getElementById("filters");
+  el.innerHTML=Object.entries(CATS).map(([k,c])=>`<span class="chip ${activeCats.has(k)?'':'off'}" data-k="${k}"><span class="dot" style="background:${c.color}"></span>${c.name}</span>`).join("");
+  el.querySelectorAll(".chip").forEach(n=>n.onclick=()=>{const k=n.dataset.k;activeCats.has(k)?activeCats.delete(k):activeCats.add(k);buildFilters();renderTL();});
+}
+function renderTL(){
+  const anchored=[], ambient={};
+  for(const e of EV){
+    if(!activeCats.has(e.cat))continue;
+    const slots=e.slots[curDay]; if(!slots)continue;
+    const isAmb=(e.cat==='vil'||e.cat==='dp')||(e.cat==='cine'&&!e.note)||(e.cat==='off'&&!e.ref);
+    if(isAmb){
+      const a=ambient[e.cat]||(ambient[e.cat]={s:null,e:null,ss:'',ee:'',n:0});
+      for(const s of slots){const sm=toMin(s[0]),em=toMin(s[1]);
+        if(a.s===null||sm<a.s){a.s=sm;a.ss=s[0];}
+        if(a.e===null||em>a.e){a.e=em;a.ee=s[1];}
+        a.n++;}
+    }else{
+      const cd=e.ref?C[e.ref]:null;
+      for(const s of slots){
+        if(curGroup!=="all" && s[2] && s[2]!==curGroup) continue;
+        anchored.push({cat:e.cat,start:s[0],end:s[1],tag:s[2],
+        title:e.ref?cd.t:e.label,sub:e.ref?cd.fr:"",desc:e.ref?cd.d:"",meta:e.ref?cd.m:null,
+        note:e.note,dur:e.dur,opt:e.opt,warn:e.warn});}
+    }
+  }
+  anchored.sort((a,b)=>toMin(a.start)-toMin(b.start)||a.cat.localeCompare(b.cat));
+  const di=DAYS.find(d=>d.k===curDay);
+  const ambLabels={
+    off:["OFF-forestillinger","6 stykker roterer gennem dagen — se Fuldt program"],
+    cine:["Cinema","kortfilmsblokke & film løbende — se filmoversigt"],
+    vil:["Street & scene i Village","korte optrædener løbende hele dagen"],
+    dp:["Deaf Party","koncerter, DJs & dans om aftenen — se line-up"],
+  };
+  let html="";
+  const ambOrder=["off","cine","vil","dp"].filter(k=>ambient[k]);
+  if(ambOrder.length){
+    html+=`<div class="sechead">Løbende programmer</div>`;
+    html+=ambOrder.map(k=>{const a=ambient[k],c=CATS[k];
+      return `<div class="amb" style="--cc:${c.color}"><div class="rng">${a.ss}–${a.ee}</div>
+        <div><div class="lbl">${ambLabels[k][0]}</div><div class="sm">${ambLabels[k][1]}</div>
+        <a class="maplink" style="margin-top:5px" href="${gmaps(VEN[c.ven])}" target="_blank" rel="noopener">📍 ${c.venue}</a></div></div>`;}).join("");
+  }
+  html+=`<div class="sechead">Forestillinger &amp; talks · ${di.full}</div>`;
+  if(!anchored.length){
+    html+=`<div class="empty">Ingen planlagte punkter med de valgte filtre.</div>`;
+  }else{
+    html+=anchored.map(it=>{
+      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta);
+      return `<div class="row"><div class="time">${it.start}<span class="to">${it.end}${night?' +1':''}</span></div>
+      <div class="card ${hasDesc?'exp':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
+        <div class="ctag">${c.name}</div>
+        <div class="title">${it.title}${it.sub?` <span style="font-weight:400;color:var(--muted);font-size:12px">· ${it.sub}</span>`:''}</div>
+        <div class="meta">
+          <a class="maplink" href="${gmaps(VEN[c.ven])}" target="_blank" rel="noopener">📍 ${c.venue}</a>
+          ${it.dur?`<span>${it.dur}</span>`:''}
+          ${it.tag?`<span class="grp">${it.tag}</span>`:''}
+          ${it.opt?`<span class="opt">Valgfri</span>`:''}
+          ${night?`<span class="night">efter midnat</span>`:''}
+          ${it.warn?`<span class="warn">⚠ ${it.warn}</span>`:''}
+          <span>${c.pass}</span>
+        </div>
+        ${it.note?`<div class="meta" style="margin-top:4px"><span>${it.note}</span></div>`:''}
+        ${hasDesc?`<div class="more">Tryk for beskrivelse ▾</div>
+          <div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
+      </div></div>`;
+    }).join("");
+  }
+  document.getElementById("daymeta").textContent=`${di.full} · ${anchored.length} planlagte forestillinger & talks + løbende program`;
+  document.getElementById("tl").innerHTML=html;
+}
+
+function renderCat(){
+  const el=document.getElementById("view-cat");
+  const group=(cat)=>Object.values(C).filter(x=>x.cat===cat);
+  const itemHTML=x=>`<div class="item" style="--cc:${CATS[x.cat].color}">
+      <div class="t">${x.t}${x.fr?` <span class="fr">· ${x.fr}</span>`:''}</div>
+      <div class="m">${x.m.map(m=>`<span>${m}</span>`).join("")}</div>
+      ${x.d?`<div class="d">${x.d}</div>`:''}</div>`;
+  const dot=k=>`<span class="dot" style="background:${CATS[k].color}"></span>`;
+
+  let html=`<div class="cat">`;
+
+  html+=`<h2>${dot('in')}IN-teater</h2><p class="lead">La Comédie / Le Manège · Pass Festival. Hver forestilling spilles for Hold A og Hold B — du skal kun til ét tidspunkt.</p>`;
+  html+=["canterville","lastones","window","sleep","mercury","opening","awards"].map(id=>itemHTML(C[id])).join("");
+
+  html+=`<h2>${dot('off')}OFF · L'Atelier</h2><p class="lead">L'Atelier · Pass Festival / Village. Programmet oplyser ikke hvilken der spiller hvornår; de roterer gennem dagens OFF-slots.</p>`;
+  html+=["offrails","resonance","listening","elevator","turbulence","legend"].map(id=>itemHTML(C[id])).join("");
+
+  html+=`<h2>${dot('conf')}Konferencer</h2><p class="lead">Konferenceområdet · Pass Festival / Village · 45 min (medmindre andet). Alle med dag+tid.</p>`;
+  html+=CONF.map(c=>`<div class="item" style="--cc:${CATS.conf.color}">
+      <div class="t">${c.t}</div>
+      <div class="m"><span><b>${DAYS.find(d=>d.k===c.day).dn} ${c.s}–${c.e}</b></span><span>${c.who}</span><span>${c.co}</span></div></div>`).join("");
+
+  html+=`<h2>${dot('cine')}Film (konkurrence)</h2><p class="lead">Cinema · Pass Festival. Visningstider pr. film er ikke angivet i programmet — her er hele udvalget.</p>`;
+  html+=FILMS.map(g=>`<div style="margin:6px 0 2px;font-weight:700;font-size:13px">${g.sec}</div>`+
+     g.items.map(f=>`<div class="item" style="--cc:${CATS.cine.color}">
+        <div class="t">${f[0]}</div>
+        <div class="m"><span>${f[1]}</span><span>${f[2]}</span><span>${f[3]}</span></div></div>`).join("")).join("");
+
+  html+=`<h2>${dot('dp')}Deaf Party</h2><p class="lead">Village · Pass Festival / Village / Deaf Party. Line-up (spiller hver aften; konkrete tider ikke navngivet).</p>`;
+  html+=["dp_signmark","dp_hcr","dp_aloss","dp_fila","dp_vinz","dp_maxx","dp_slobo","dp_nuvis","dp_poster","dp_elements"].map(id=>itemHTML(C[id])).join("");
+  html+=`<div class="item" style="--cc:${CATS.dp.color}"><div class="t">Sign Slam / SLAM Battle</div><div class="m"><span>~30 deltagere fra flere lande</span><span>over to dage</span></div></div>`;
+
+  html+=`<h2>📍 Steder i Reims</h2><p class="lead">Alle spillesteder ligger tæt samlet ved Chaussée Bocquaine — kun Le Manège ligger lidt nordpå. Tryk for at åbne i Google Maps.</p>`;
+  const venueList=[["comedie","IN-teater · film · ceremonier"],["manege","IN-teater (enkelte forestillinger)"],["atelier","OFF-forestillinger"],["village","Village: konferencer · street · Deaf Party"],["saintex","Cinema"]];
+  html+=venueList.map(([id,use])=>{const v=VEN[id];return `<div class="item" style="--cc:#334155">
+      <div class="t">${v.n}</div>
+      <div class="m"><span>${v.a}</span><span>${use}</span></div>
+      <a class="maplink" style="margin-top:5px" href="${gmaps(v)}" target="_blank" rel="noopener">📍 Åbn i Google Maps</a></div>`;}).join("");
+
+  html+=`</div>`;
+  el.innerHTML=html;
+}
+
+function setView(v){
+  curView=v;
+  document.querySelectorAll(".vbtn").forEach(b=>b.classList.toggle("active",b.dataset.v===v));
+  document.getElementById("view-tl").style.display = v==="tl"?"":"none";
+  document.getElementById("view-cat").style.display = v==="cat"?"":"none";
+}
+document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>setView(b.dataset.v));
+
+buildDays();buildFilters();buildGroup();renderTL();renderCat();
+</script>
+</body>
+</html>
