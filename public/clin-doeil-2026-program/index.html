@@ -134,9 +134,26 @@
   .pd{font-size:12.5px; color:#413f49; margin-top:5px; line-height:1.45}
   .pn{font-size:12px; color:var(--muted); margin-top:3px}
   .premove{position:absolute; top:8px; right:9px; border:none; background:none; font-size:22px; line-height:1; color:#e8a900; cursor:pointer}
+  /* smooth touch */
+  .card,.item,.pcard{transition:box-shadow .3s cubic-bezier(.2,.7,.2,1), transform .3s cubic-bezier(.2,.7,.2,1)}
+  .thumb,.ithumb,.pthumb{box-shadow:inset 0 0 0 1px rgba(20,15,10,.06); transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .card,.item,.pcard{will-change:transform}
+  .card:active,.item:active,.pcard:active{transform:translateY(0) scale(.997)}
+  .day,.chip,.vbtn,.lang,.printbtn{transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease}
+  /* guide */
+  .guide{position:relative; background:linear-gradient(135deg,#ffffff,#fdf4ea); border:1px solid var(--line);
+    border-radius:16px; padding:14px 16px; margin:10px 0 2px; box-shadow:var(--sh-sm); font-size:13px; color:#4b4753}
+  .guide h3{font-family:var(--disp); font-weight:600; font-size:17px; margin:0 0 7px; letter-spacing:-.01em}
+  .guide ul{margin:0; padding-left:19px; line-height:1.65}
+  .guide li+li{margin-top:3px}
+  .guide b{color:var(--ink)}
+  .gclose{position:absolute; top:10px; right:12px; border:none; background:none; font-size:15px; color:var(--muted); cursor:pointer; line-height:1; padding:4px}
   @media(hover:hover){
-    .card:hover,.item:hover,.pcard:hover{box-shadow:0 4px 10px rgba(30,25,20,.06), 0 20px 38px -18px rgba(30,25,20,.30)}
+    .card:hover,.item:hover,.pcard:hover{transform:translateY(-2px); box-shadow:0 6px 14px rgba(30,25,20,.07), 0 26px 46px -20px rgba(30,25,20,.32)}
+    .card:hover .thumb,.item:hover .ithumb,.pcard:hover .pthumb{transform:scale(1.06)}
     .day:hover,.chip:hover{transform:translateY(-1px)}
+    .vbtn:hover{color:var(--ink)}
+    .printbtn:hover{transform:translateY(-1px)}
   }
   @media(max-width:480px){
     h1{font-size:32px}
@@ -181,6 +198,7 @@
   </div>
 
   <div id="view-tl">
+    <div class="guide" id="guide"></div>
     <div class="days" id="days"></div>
     <div class="filters" id="filters"></div>
     <div class="grpsel" id="grpsel"></div>
@@ -214,8 +232,13 @@ const UI = {
     planSub:(n)=>`${n} valgte punkter · gemt i din browser`,
     printPDF:"🖨 Print / Gem som PDF",
     noFav:"Du har ingen favoritter endnu. Tryk på ★ ved et programpunkt i tidslinjen for at føje det til din plan.",
-    footer:`Fuldt program hentet fra festivalens officielle program-PDF (2026).
-      <br><br>Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.`,
+    guideTitle:"Sådan bruger du siden",
+    guide:["Skift mellem <b>Tidslinje</b>, <b>Fuldt program</b> og <b>Min plan</b> øverst.",
+      "Vælg en dag, og filtrér på kategori — tryk én for kun den, tilføj flere, eller tryk <b>↺ Nulstil</b>.",
+      "Tryk <b>★</b> på et punkt for at gemme det i <b>Min plan</b> — som du kan printe eller gemme som PDF.",
+      "Tryk på et kort for beskrivelse. Skift sprog med <b>DA / EN</b>."],
+    hide:"Skjul",
+    footer:`<b>Uofficiel fan-oversigt.</b> Jeg tager ikke ansvar for fejl eller ændringer i informationen — tjek altid det officielle program. Fuldt program er hentet fra festivalens officielle program-PDF (2026).<br><br>Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.`,
   },
   en:{
     title:"Clin d'Oeil 2026 · Program & timeline",
@@ -233,8 +256,13 @@ const UI = {
     planSub:(n)=>`${n} selected items · saved in your browser`,
     printPDF:"🖨 Print / Save as PDF",
     noFav:"You haven't picked any favourites yet. Tap ★ on a program item in the timeline to add it to your plan.",
-    footer:`Full program taken from the festival's official program PDF (2026).
-      <br><br>Passes: IN requires a Festival Pass; OFF, Village, conferences and the Deaf Party are also covered by a Village Pass.`,
+    guideTitle:"How to use this page",
+    guide:["Switch between <b>Timeline</b>, <b>Full program</b> and <b>My plan</b> at the top.",
+      "Pick a day and filter by category — tap one for just that, add more, or tap <b>↺ Reset</b>.",
+      "Tap <b>★</b> on an item to save it to <b>My plan</b> — which you can print or save as PDF.",
+      "Tap a card for its description. Switch language with <b>DA / EN</b>."],
+    hide:"Hide",
+    footer:`<b>Unofficial fan overview.</b> I take no responsibility for errors or changes — always check the official program. The full program is taken from the festival's official program PDF (2026).<br><br>Passes: IN requires a Festival Pass; OFF, Village, conferences and the Deaf Party are also covered by a Village Pass.`,
   },
 };
 
@@ -367,6 +395,22 @@ const C = {
   cine_quietlove:{cat:"cine",t:"A Quiet Love",fr:"",m:["Irland","95 min","Garry Keane"],me:["Ireland","95 min","Garry Keane"],d:"",de:""},
   cine_notalone:{cat:"cine",t:"Not Alone Anymore",fr:"",m:["USA","Instr. Sho Stern"],me:["USA","Dir. Sho Stern"],
     d:"Efterfølgende samtale med instruktør Sho Stern.",de:"Followed by a conversation with director Sho Stern."},
+  /* Cinema — kortfilmsblokke (Part 1-5), hver med flere film */
+  cine_p1:{cat:"cine",t:{da:"Kortfilmsblok 1",en:"Short-film block 1"},fr:"",m:["Comédie 3","4 film"],me:["Comédie 3","4 films"],
+    d:"Beyond Silence (Holland) · L'Ordre & le désordre (Frankrig) · [BLEEP] 'Em! (USA) · Glass Cage (USA).",
+    de:"Beyond Silence (Netherlands) · L'Ordre & le désordre (France) · [BLEEP] 'Em! (USA) · Glass Cage (USA)."},
+  cine_p2:{cat:"cine",t:{da:"Kortfilmsblok 2",en:"Short-film block 2"},fr:"",m:["Comédie 3","8 film"],me:["Comédie 3","8 films"],
+    d:"Beautiful (Canada) · Inverse (USA) · Medal Chase (Sverige) · Karma (Spanien) · Reconnection (Storbritannien) · Ghost Sandwich (USA) · In Four Stops (Rusland) · The Tales of Victor the Misfits Creator (Storbritannien).",
+    de:"Beautiful (Canada) · Inverse (USA) · Medal Chase (Sweden) · Karma (Spain) · Reconnection (UK) · Ghost Sandwich (USA) · In Four Stops (Russia) · The Tales of Victor the Misfits Creator (UK)."},
+  cine_p3:{cat:"cine",t:{da:"Kortfilmsblok 3",en:"Short-film block 3"},fr:"",m:["Comédie 3","5 film"],me:["Comédie 3","5 films"],
+    d:"Remember Me (Storbritannien) · Strawberry Cheesecake (Australien) · The Power of Goodbye (Frankrig) · Familiar Stranger (Storbritannien) · Joyeux Anniversaire (Frankrig).",
+    de:"Remember Me (UK) · Strawberry Cheesecake (Australia) · The Power of Goodbye (France) · Familiar Stranger (UK) · Joyeux Anniversaire (France)."},
+  cine_p4:{cat:"cine",t:{da:"Kortfilmsblok 4",en:"Short-film block 4"},fr:"",m:["Comédie 3","3 film"],me:["Comédie 3","3 films"],
+    d:"Deaf Jams: Dance With Me (Storbritannien) · Eye of the Game (Australien) · Unmasking (Storbritannien).",
+    de:"Deaf Jams: Dance With Me (UK) · Eye of the Game (Australia) · Unmasking (UK)."},
+  cine_p5:{cat:"cine",t:{da:"Kortfilmsblok 5",en:"Short-film block 5"},fr:"",m:["Comédie 3","2 film"],me:["Comédie 3","2 films"],
+    d:"Annëlle, Rock & Roller (Frankrig) · Deaf Nomads (Mongoliet).",
+    de:"Annëlle, Rock & Roller (France) · Deaf Nomads (Mongolia)."},
 
   /* DEAF PARTY line-up */
   dp_slobo:{cat:"dp",t:"DJ Slobo",fr:"",m:["Argentina","DJ"],me:["Argentina","DJ"],d:"",de:""},
@@ -451,7 +495,8 @@ const CONF = [
 ];
 
 /* ---------- billeder pr. show (fra program-PDF) ---------- */
-Object.keys(C).forEach(k=>{C[k].img=`img/${k}.jpg`;});
+const NOIMG=new Set(["cine_p1","cine_p2","cine_p3","cine_p4","cine_p5"]);
+Object.keys(C).forEach(k=>{C[k].img=NOIMG.has(k)?null:`img/${k}.jpg`;});
 CONF.forEach((c,i)=>{c.img=`img/conf${i}.jpg`;});
 
 /* ---------- TIDSLINJE-events ---------- */
@@ -503,11 +548,11 @@ add("cine",{thu:[["16:50","17:46"]],fri:[["16:50","17:46"]],sat:[["16:50","17:46
 add("cine",{sat:[["09:20","10:55"]],sun:[["09:20","10:55"]]},{ref:"cine_waymove"});
 add("cine",{sat:[["11:15","12:50"]],sun:[["11:15","12:50"]]},{ref:"cine_quietlove"});
 add("cine",{sat:[["13:10","15:10"]],sun:[["14:40","16:40"]]},{ref:"cine_notalone"});
-add("cine",{thu:[["09:15","10:16"]],fri:[["09:15","10:16"],["17:00","18:01"]],sat:[["09:15","10:16"]],sun:[["09:15","10:16"]]},{label:{da:"Kortfilm · blok 1",en:"Short films · block 1"}});
-add("cine",{thu:[["10:25","11:52"]],fri:[["10:25","11:52"]],sat:[["10:25","11:52"],["19:20","20:47"]],sun:[["10:25","11:52"]]},{label:{da:"Kortfilm · blok 2",en:"Short films · block 2"}});
-add("cine",{thu:[["12:00","13:21"],["17:55","19:16"]],fri:[["12:00","13:21"]],sat:[["12:00","13:21"]],sun:[["12:00","13:21"]]},{label:{da:"Kortfilm · blok 3",en:"Short films · block 3"}});
-add("cine",everyday([["13:30","14:25"]]),{label:{da:"Kortfilm · blok 4",en:"Short films · block 4"}});
-add("cine",everyday([["14:35","15:31"]]),{label:{da:"Kortfilm · blok 5",en:"Short films · block 5"}});
+add("cine",{thu:[["09:15","10:16"]],fri:[["09:15","10:16"],["17:00","18:01"]],sat:[["09:15","10:16"]],sun:[["09:15","10:16"]]},{ref:"cine_p1"});
+add("cine",{thu:[["10:25","11:52"]],fri:[["10:25","11:52"]],sat:[["10:25","11:52"],["19:20","20:47"]],sun:[["10:25","11:52"]]},{ref:"cine_p2"});
+add("cine",{thu:[["12:00","13:21"],["17:55","19:16"]],fri:[["12:00","13:21"]],sat:[["12:00","13:21"]],sun:[["12:00","13:21"]]},{ref:"cine_p3"});
+add("cine",everyday([["13:30","14:25"]]),{ref:"cine_p4"});
+add("cine",everyday([["14:35","15:31"]]),{ref:"cine_p5"});
 
 /* DEAF PARTY (Village-scene) — line-up med tider */
 add("dp",{thu:[["19:00","20:30"]],fri:[["23:30","00:25"]],sat:[["19:00","20:15"]]},{ref:"dp_slobo"});
@@ -746,6 +791,17 @@ function setView(v){
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>setView(b.dataset.v));
 
+let guideHidden=false;
+try{guideHidden=localStorage.getItem("cdo2026_guide")==="1";}catch(e){}
+function renderGuide(){
+  const el=document.getElementById("guide"); if(!el)return;
+  if(guideHidden){el.style.display="none"; el.innerHTML=""; return;}
+  el.style.display="";
+  const u=UI[curLang];
+  el.innerHTML=`<button class="gclose" title="${u.hide}" onclick="hideGuide()">✕</button><h3>${u.guideTitle}</h3><ul>${u.guide.map(g=>`<li>${g}</li>`).join("")}</ul>`;
+}
+function hideGuide(){guideHidden=true; try{localStorage.setItem("cdo2026_guide","1");}catch(e){} renderGuide();}
+
 function applyLang(){
   const u=UI[curLang];
   document.documentElement.lang=curLang;
@@ -757,6 +813,7 @@ function applyLang(){
   updateMinTab();
   document.getElementById("footer").innerHTML=u.footer;
   document.querySelectorAll("#langsel .lang").forEach(b=>b.classList.toggle("active",b.dataset.l===curLang));
+  renderGuide();
   buildDays();buildFilters();buildGroup();renderTL();renderCat();renderMin();
 }
 document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.dataset.l;applyLang();});
