@@ -59,8 +59,10 @@
   .time{text-align:right; padding-top:11px; font-variant-numeric:tabular-nums; font-size:13px;
     font-weight:700; white-space:nowrap}
   .time .to{display:block; font-size:11px; font-weight:500; color:var(--muted)}
-  .card{position:relative; background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc,#ccc);
+  .card{position:relative; display:flex; gap:10px; background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc,#ccc);
     border-radius:11px; padding:9px 30px 9px 12px}
+  .thumb{width:52px; height:52px; object-fit:cover; border-radius:8px; flex:0 0 auto; background:#eee}
+  .cbody{flex:1; min-width:0}
   .card.exp{cursor:pointer}
   .ctag{font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--cc)}
   .title{font-size:14.5px; font-weight:650; margin:1px 0 3px; letter-spacing:-.01em}
@@ -82,6 +84,10 @@
   .cat .lead{font-size:12.5px; color:var(--muted); margin:0 0 8px}
   .item{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc);
     border-radius:11px; padding:10px 12px; margin-bottom:8px}
+  .item.imgitem{display:flex; gap:11px; align-items:flex-start}
+  .ithumb{width:60px; height:60px; object-fit:cover; border-radius:8px; flex:0 0 auto; background:#eee}
+  .ibody{flex:1; min-width:0}
+  .chip.reset{border-color:var(--ink); color:var(--ink); font-weight:700}
   .item .t{font-size:14.5px; font-weight:650}
   .item .fr{font-size:12px; color:var(--muted); font-style:italic}
   .item .m{font-size:11.5px; color:var(--muted); margin:3px 0 5px; display:flex; flex-wrap:wrap; gap:4px 8px}
@@ -99,9 +105,11 @@
   .printbtn{border:1px solid var(--ink); background:var(--ink); color:#fff; border-radius:10px; padding:8px 15px; font-weight:700; font-size:13px; cursor:pointer}
   .dayblock{margin-top:6px}
   .dayhd{font-size:13px; font-weight:800; letter-spacing:.02em; margin:16px 2px 8px; padding-bottom:5px; border-bottom:2px solid var(--line)}
-  .pcard{position:relative; display:grid; grid-template-columns:60px 1fr; gap:10px; background:var(--card);
+  .pcard{position:relative; display:flex; gap:10px; align-items:flex-start; background:var(--card);
     border:1px solid var(--line); border-left:5px solid var(--cc,#ccc); border-radius:10px; padding:9px 30px 9px 12px; margin-bottom:7px}
-  .pcard .ptime{text-align:right; padding-top:2px; font-variant-numeric:tabular-nums; font-weight:700; font-size:13px; white-space:nowrap}
+  .pcard .ptime{flex:0 0 50px; text-align:right; padding-top:2px; font-variant-numeric:tabular-nums; font-weight:700; font-size:13px; white-space:nowrap}
+  .pthumb{width:50px; height:50px; object-fit:cover; border-radius:8px; flex:0 0 auto; background:#eee}
+  .pbody{flex:1; min-width:0}
   .pcard .ptime span{display:block; font-size:11px; font-weight:500; color:var(--muted)}
   .pcat{font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--cc)}
   .ptitle{font-size:14px; font-weight:650; margin:1px 0 2px; letter-spacing:-.01em}
@@ -167,7 +175,7 @@ const UI = {
     kicker:"Festival · Reims",
     sub:"Torsdag 2. – søndag 5. juli · international tegnsprogsfestival",
     vTL:"Tidslinje", vCat:"Fuldt program", vMin:"Min plan",
-    inTeam:"IN-hold:", all:"Alle",
+    inTeam:"IN-hold:", all:"Alle", reset:"Nulstil",
     dayProgram:"Dagens program",
     empty:"Ingen programpunkter med de valgte filtre.",
     daymeta:(n,day)=>`${day} · ${n} programpunkter`,
@@ -189,7 +197,7 @@ const UI = {
     kicker:"Festival · Reims",
     sub:"Thursday 2 – Sunday 5 July · international sign language festival",
     vTL:"Timeline", vCat:"Full program", vMin:"My plan",
-    inTeam:"IN team:", all:"All",
+    inTeam:"IN team:", all:"All", reset:"Reset",
     dayProgram:"Day's program",
     empty:"No program items with the selected filters.",
     daymeta:(n,day)=>`${day} · ${n} program items`,
@@ -420,9 +428,13 @@ const CONF = [
   {day:"sat",s:"16:00",e:"16:45",t:"Can the Global Signing Ecosystem Thrive Without Clin d'Oeil?",who:"Ayesha Ramjugernath & Atiyah Asmal",co:"Sydafrika",coEn:"South Africa"},
 ];
 
+/* ---------- billeder pr. show (fra program-PDF) ---------- */
+Object.keys(C).forEach(k=>{C[k].img=`img/${k}.jpg`;});
+CONF.forEach((c,i)=>{c.img=`img/conf${i}.jpg`;});
+
 /* ---------- TIDSLINJE-events ---------- */
 const EV=[];
-const add=(cat,slots,o={})=>EV.push({cat,slots,ref:o.ref,label:o.label,note:o.note,dur:o.dur,opt:o.opt});
+const add=(cat,slots,o={})=>EV.push({cat,slots,ref:o.ref,label:o.label,note:o.note,dur:o.dur,opt:o.opt,img:o.img});
 const everyday=s=>({thu:s,fri:s,sat:s,sun:s});
 
 /* IN (Comédie 1) */
@@ -452,10 +464,10 @@ add("vil",everyday([["14:30","14:50"],["17:30","17:50"]]),{ref:"flowtv"});
 
 /* KONFERENCER */
 CONF.forEach(c=>{
-  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`},dur:(c.s==="18:00"?"30 min":"45 min")});
+  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`},dur:(c.s==="18:00"?"30 min":"45 min"),img:c.img});
 });
-add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference"},dur:"15 min"});
-add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden"},dur:"45 min"});
+add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference"},dur:"15 min",img:"img/conf_open.jpg"});
+add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden"},dur:"45 min",img:"img/conf_bap.jpg"});
 
 /* CINEMA — navngivne film + kortfilmsblokke */
 add("cine",{thu:[["09:20","10:29"]],fri:[["09:20","10:29"]],sun:[["13:10","14:19"]]},{ref:"cine_marsha"});
@@ -489,8 +501,8 @@ add("dp",{sat:[["22:15","23:30"]]},{ref:"dp_signmark"});
 add("dp",{fri:[["01:00","02:00"]],sat:[["01:15","02:15"]]},{ref:"dp_signslam"});
 
 /* ---------- render ---------- */
-let curDay="thu", curView="tl", curGroup="all", curLang="da";
-const activeCats=new Set(Object.keys(CATS));
+let curDay="thu", curView="tl", curGroup="all", curLang="da", allMode=true;
+let activeCats=new Set(Object.keys(CATS));
 const toMin=t=>{const[h,m]=t.split(":").map(Number);let v=h*60+m;if(h<6)v+=1440;return v;};
 const isNight=t=>Number(t.split(":")[0])<6;
 const L=v=>(v && typeof v==="object" && !Array.isArray(v) && ("da" in v || "en" in v)) ? (v[curLang] ?? v.da ?? v.en) : v;
@@ -505,7 +517,7 @@ function mkItem(e,ei,s,day){
   const cd=e.ref?C[e.ref]:null;
   return {cat:e.cat,start:s[0],end:s[1],tag:s[2],
     title:e.ref?L(cd.t):L(e.label),sub:e.ref?cd.fr:"",desc:e.ref?cDesc(cd):"",meta:e.ref?cMeta(cd):null,
-    note:L(e.note),dur:e.dur,opt:e.opt,fav:`${ei}@${day}@${s[0]}`};
+    note:L(e.note),dur:e.dur,opt:e.opt,img:e.ref?cd.img:e.img,fav:`${ei}@${day}@${s[0]}`};
 }
 function updateMinTab(){
   const b=document.querySelector('.vbtn[data-v="min"]');
@@ -532,14 +544,23 @@ function buildDays(){
 }
 function buildFilters(){
   const el=document.getElementById("filters");
-  el.innerHTML=Object.entries(CATS).map(([k,c])=>`<span class="chip ${activeCats.has(k)?'':'off'}" data-k="${k}"><span class="dot" style="background:${c.color}"></span>${L(c.name)}</span>`).join("");
-  el.querySelectorAll(".chip").forEach(n=>n.onclick=()=>{const k=n.dataset.k;activeCats.has(k)?activeCats.delete(k):activeCats.add(k);buildFilters();renderTL();});
+  let h=Object.entries(CATS).map(([k,c])=>`<span class="chip ${(allMode||activeCats.has(k))?'':'off'}" data-k="${k}"><span class="dot" style="background:${c.color}"></span>${L(c.name)}</span>`).join("");
+  if(!allMode)h+=`<span class="chip reset" data-reset="1">↺ ${UI[curLang].reset}</span>`;
+  el.innerHTML=h;
+  el.querySelectorAll(".chip").forEach(n=>n.onclick=()=>{
+    if(n.dataset.reset){allMode=true;activeCats=new Set(Object.keys(CATS));}
+    else{const k=n.dataset.k;
+      if(allMode){allMode=false;activeCats=new Set([k]);}
+      else{activeCats.has(k)?activeCats.delete(k):activeCats.add(k); if(activeCats.size===0)allMode=true;}
+    }
+    buildFilters();renderTL();
+  });
 }
 function renderTL(){
   const items=[];
   for(let ei=0;ei<EV.length;ei++){
     const e=EV[ei];
-    if(!activeCats.has(e.cat))continue;
+    if(!(allMode||activeCats.has(e.cat)))continue;
     const slots=e.slots[curDay]; if(!slots)continue;
     for(const s of slots){
       if(curGroup!=="all" && s[2] && s[2]!==curGroup) continue;
@@ -557,6 +578,8 @@ function renderTL(){
       return `<div class="row"><div class="time">${it.start}<span class="to">${it.end}${night?' +1':''}</span></div>
       <div class="card ${hasDesc?'exp':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
         <span class="star ${on?'on':''}" title="Favorit" onclick="event.stopPropagation();toggleFav('${it.fav}',this)">${on?'★':'☆'}</span>
+        ${it.img?`<img class="thumb" src="${it.img}" alt="" loading="lazy">`:''}
+        <div class="cbody">
         <div class="ctag">${L(c.name)}</div>
         <div class="title">${it.title}${it.sub?` <span style="font-weight:400;color:var(--muted);font-size:12px">· ${it.sub}</span>`:''}</div>
         <div class="meta">
@@ -570,6 +593,7 @@ function renderTL(){
         ${it.note?`<div class="meta" style="margin-top:4px"><span>${it.note}</span></div>`:''}
         ${hasDesc?`<div class="more">${UI[curLang].tapDesc}</div>
           <div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
+        </div>
       </div></div>`;
     }).join("");
   }
@@ -601,7 +625,8 @@ function planCardHTML(it){
   const c=CATS[it.cat],night=isNight(it.start);
   return `<div class="pcard" style="--cc:${c.color}">
     <div class="ptime">${it.start}<span>${it.end}${night?' +1':''}</span></div>
-    <div>
+    ${it.img?`<img class="pthumb" src="${it.img}" alt="" loading="lazy">`:''}
+    <div class="pbody">
       <div class="pcat">${L(c.name)}${it.tag?` · ${it.tag}`:''}${it.opt?` · ${UI[curLang].optional}`:''}${night?` · ${UI[curLang].afterMid}`:''}</div>
       <div class="ptitle">${it.title}${it.sub?` <span class="fr">· ${it.sub}</span>`:''}</div>
       <div class="pv">📍 ${L(c.venue)}${it.dur?` · ${it.dur}`:''} · ${c.pass}</div>
@@ -639,10 +664,12 @@ const CAT_TEXT={
 function renderCat(){
   const el=document.getElementById("view-cat");
   const T=CAT_TEXT[curLang];
-  const itemHTML=x=>`<div class="item" style="--cc:${CATS[x.cat].color}">
+  const itemHTML=x=>`<div class="item imgitem" style="--cc:${CATS[x.cat].color}">
+      ${x.img?`<img class="ithumb" src="${x.img}" alt="" loading="lazy">`:''}
+      <div class="ibody">
       <div class="t">${L(x.t)}${x.fr?` <span class="fr">· ${x.fr}</span>`:''}</div>
       <div class="m">${cMeta(x).map(m=>`<span>${m}</span>`).join("")}</div>
-      ${cDesc(x)?`<div class="d">${cDesc(x)}</div>`:''}</div>`;
+      ${cDesc(x)?`<div class="d">${cDesc(x)}</div>`:''}</div></div>`;
   const dot=k=>`<span class="dot" style="background:${CATS[k].color}"></span>`;
 
   let html=`<div class="cat">`;
@@ -657,9 +684,11 @@ function renderCat(){
   html+=["vv_group","followsigns","clownmara","jaymagic","johnsmith","flowtv","schoolcart"].map(id=>itemHTML(C[id])).join("");
 
   html+=`<h2>${dot('conf')}${T.confH}</h2><p class="lead">${T.confLead}</p>`;
-  html+=CONF.map(c=>`<div class="item" style="--cc:${CATS.conf.color}">
+  html+=CONF.map(c=>`<div class="item imgitem" style="--cc:${CATS.conf.color}">
+      <img class="ithumb" src="${c.img}" alt="" loading="lazy">
+      <div class="ibody">
       <div class="t">${c.t}</div>
-      <div class="m"><span><b>${L(DAYS.find(d=>d.k===c.day).dn)} ${c.s}–${c.e}</b></span><span>${c.who}</span><span>${curLang==="en"?c.coEn:c.co}</span></div></div>`).join("");
+      <div class="m"><span><b>${L(DAYS.find(d=>d.k===c.day).dn)} ${c.s}–${c.e}</b></span><span>${c.who}</span><span>${curLang==="en"?c.coEn:c.co}</span></div></div></div>`).join("");
 
   html+=`<h2>${dot('cine')}${T.cineH}</h2><p class="lead">${T.cineLead}</p>`;
   html+=FILMS.map(g=>`<div style="margin:6px 0 2px;font-weight:700;font-size:13px">${L(g.sec)}</div>`+
