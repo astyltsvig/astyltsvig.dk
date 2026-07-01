@@ -185,6 +185,7 @@
       <div class="langsel" id="langsel">
         <button class="lang active" data-l="da">DA</button>
         <button class="lang" data-l="en">EN</button>
+        <button class="lang" data-l="fr">FR</button>
       </div>
     </div>
     <h1>Clin d'Oeil 2026</h1>
@@ -264,15 +265,39 @@ const UI = {
     hide:"Hide",
     footer:`<b>Unofficial fan overview.</b> I take no responsibility for errors or changes — always check the official program. The full program is taken from the festival's official program PDF (2026).<br><br>Passes: IN requires a Festival Pass; OFF, Village, conferences and the Deaf Party are also covered by a Village Pass.`,
   },
+  fr:{
+    title:"Clin d'Oeil 2026 · Programme & horaires",
+    kicker:"Festival · Reims",
+    sub:"Jeudi 2 – dimanche 5 juillet · festival international de langue des signes",
+    vTL:"Horaires", vCat:"Programme complet", vMin:"Mon plan",
+    inTeam:"Groupe IN :", all:"Tous", reset:"Réinitialiser",
+    dayProgram:"Programme du jour",
+    empty:"Aucun élément avec les filtres sélectionnés.",
+    daymeta:(n,day)=>`${day} · ${n} éléments au programme`,
+    tapDesc:"Appuyez pour les détails ▾",
+    optional:"Optionnel",
+    afterMid:"après minuit",
+    myPlan:"Mon plan",
+    planSub:(n)=>`${n} éléments sélectionnés · enregistrés dans votre navigateur`,
+    printPDF:"🖨 Imprimer / Enregistrer en PDF",
+    noFav:"Vous n'avez pas encore de favoris. Appuyez sur ★ sur un élément des horaires pour l'ajouter à votre plan.",
+    guideTitle:"Comment utiliser cette page",
+    guide:["Basculez entre <b>Horaires</b>, <b>Programme complet</b> et <b>Mon plan</b> en haut.",
+      "Choisissez un jour et filtrez par catégorie — appuyez sur une pour n'afficher qu'elle, ajoutez-en d'autres, ou appuyez sur <b>↺ Réinitialiser</b>.",
+      "Appuyez sur <b>★</b> pour enregistrer un élément dans <b>Mon plan</b> — que vous pouvez imprimer ou enregistrer en PDF.",
+      "Appuyez sur une carte pour sa description. Changez de langue avec <b>DA / EN / FR</b>."],
+    hide:"Masquer",
+    footer:`<b>Aperçu non officiel réalisé par un fan.</b> Je ne suis pas responsable des erreurs ou des changements — vérifiez toujours le programme officiel. Programme complet issu du PDF officiel du festival (2026).<br><br>Pass : IN nécessite le Pass Festival ; OFF, Village, conférences et Deaf Party sont aussi couverts par le Pass Village.`,
+  },
 };
 
 const CATS = {
-  in:  {name:{da:"IN-teater",en:"IN Theatre"},   venue:{da:"La Comédie (salle 1)",en:"La Comédie (hall 1)"}, ven:"comedie", pass:"Pass Festival",            color:"#7c3aed"},
-  off: {name:{da:"OFF · L'Atelier",en:"OFF · L'Atelier"}, venue:"L'Atelier",      ven:"atelier", pass:"Pass Festival / Village",  color:"#0d9488"},
-  vil: {name:{da:"Village",en:"Village"},     venue:"Village (Stade Delaune)",ven:"village", pass:"Pass Festival / Village",  color:"#ea580c"},
-  conf:{name:{da:"Konference",en:"Conference"},  venue:{da:"Village – konference",en:"Village – conference"},   ven:"village", pass:"Pass Festival / Village",  color:"#2563eb"},
-  cine:{name:{da:"Cinema",en:"Cinema"},      venue:{da:"La Comédie (salle 2 & 3)",en:"La Comédie (halls 2 & 3)"}, ven:"comedie", pass:"Pass Festival",            color:"#dc2626"},
-  dp:  {name:{da:"Deaf Party",en:"Deaf Party"},  venue:{da:"Village – scene",en:"Village – stage"},        ven:"village", pass:"Pass Festival / Village / Deaf Party", color:"#db2777"},
+  in:  {name:{da:"IN-teater",en:"IN Theatre",fr:"Théâtre IN"},   venue:{da:"La Comédie (salle 1)",en:"La Comédie (hall 1)",fr:"La Comédie (salle 1)"}, ven:"comedie", pass:"Pass Festival",            color:"#7c3aed"},
+  off: {name:{da:"OFF · L'Atelier",en:"OFF · L'Atelier",fr:"OFF · L'Atelier"}, venue:"L'Atelier",      ven:"atelier", pass:"Pass Festival / Village",  color:"#0d9488"},
+  vil: {name:{da:"Village",en:"Village",fr:"Village"},     venue:"Village (Stade Delaune)",ven:"village", pass:"Pass Festival / Village",  color:"#ea580c"},
+  conf:{name:{da:"Konference",en:"Conference",fr:"Conférence"},  venue:{da:"Village – konference",en:"Village – conference",fr:"Village – conférence"},   ven:"village", pass:"Pass Festival / Village",  color:"#2563eb"},
+  cine:{name:{da:"Cinema",en:"Cinema",fr:"Cinéma"},      venue:{da:"La Comédie (salle 2 & 3)",en:"La Comédie (halls 2 & 3)",fr:"La Comédie (salles 2 & 3)"}, ven:"comedie", pass:"Pass Festival",            color:"#dc2626"},
+  dp:  {name:{da:"Deaf Party",en:"Deaf Party",fr:"Deaf Party"},  venue:{da:"Village – scene",en:"Village – stage",fr:"Village – scène"},        ven:"village", pass:"Pass Festival / Village / Deaf Party", color:"#db2777"},
 };
 const VEN = {
   comedie:{n:"La Comédie – CDN de Reims",              a:"3 Chaussée Bocquaine, 51100 Reims"},
@@ -281,10 +306,10 @@ const VEN = {
 };
 const gmaps=v=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.n+', '+v.a)}`;
 const DAYS=[
-  {k:"thu",dn:{da:"Tor",en:"Thu"},dd:"2",full:{da:"Torsdag 2. juli",en:"Thursday 2 July"}},
-  {k:"fri",dn:{da:"Fre",en:"Fri"},dd:"3",full:{da:"Fredag 3. juli",en:"Friday 3 July"}},
-  {k:"sat",dn:{da:"Lør",en:"Sat"},dd:"4",full:{da:"Lørdag 4. juli",en:"Saturday 4 July"}},
-  {k:"sun",dn:{da:"Søn",en:"Sun"},dd:"5",full:{da:"Søndag 5. juli",en:"Sunday 5 July"}},
+  {k:"thu",dn:{da:"Tor",en:"Thu",fr:"Jeu"},dd:"2",full:{da:"Torsdag 2. juli",en:"Thursday 2 July",fr:"Jeudi 2 juillet"}},
+  {k:"fri",dn:{da:"Fre",en:"Fri",fr:"Ven"},dd:"3",full:{da:"Fredag 3. juli",en:"Friday 3 July",fr:"Vendredi 3 juillet"}},
+  {k:"sat",dn:{da:"Lør",en:"Sat",fr:"Sam"},dd:"4",full:{da:"Lørdag 4. juli",en:"Saturday 4 July",fr:"Samedi 4 juillet"}},
+  {k:"sun",dn:{da:"Søn",en:"Sun",fr:"Dim"},dd:"5",full:{da:"Søndag 5. juli",en:"Sunday 5 July",fr:"Dimanche 5 juillet"}},
 ];
 
 const COUNTRY={"Sverige":"Sweden","Norge":"Norway","Frankrig":"France","Belgien":"Belgium","Tyskland":"Germany",
@@ -293,7 +318,27 @@ const COUNTRY={"Sverige":"Sweden","Norge":"Norway","Frankrig":"France","Belgien"
   "Irland":"Ireland","Australien":"Australia","Mongoliet":"Mongolia","Rusland":"Russia","Spanien":"Spain",
   "Singapore":"Singapore","Estland":"Estonia","Danmark":"Denmark","Portugal":"Portugal","Skotland":"Scotland",
   "Sydafrika":"South Africa","International":"International"};
-const trCo=s=>s.split(" / ").map(p=>COUNTRY[p]||p).join(" / ");
+/* engelsk landenavn -> fransk */
+const COUNTRY_FR={"Sweden":"Suède","Norway":"Norvège","France":"France","Belgium":"Belgique","Germany":"Allemagne",
+  "Netherlands":"Pays-Bas","Brazil":"Brésil","Italy":"Italie","China":"Chine","UK":"Royaume-Uni","Finland":"Finlande",
+  "Argentina":"Argentine","South Korea":"Corée du Sud","Greece":"Grèce","Japan":"Japon","USA":"États-Unis","Canada":"Canada",
+  "Ireland":"Irlande","Australia":"Australie","Mongolia":"Mongolie","Russia":"Russie","Spain":"Espagne",
+  "Singapore":"Singapour","Estonia":"Estonie","Denmark":"Danemark","Portugal":"Portugal","Scotland":"Écosse",
+  "South Africa":"Afrique du Sud","International":"International"};
+/* dansk landenavn (i FILMS/CONF) -> fransk, via engelsk */
+const trCo=(s,lang)=>s.split(" / ").map(p=>{
+  const en=COUNTRY[p]||p;
+  return lang==="fr" ? (COUNTRY_FR[en]||en) : lang==="en" ? en : p;
+}).join(" / ");
+/* oversæt en engelsk meta-liste (me) til fransk */
+const FRWORDS=[[/^Dir\. /,"Mise en scène : "],[/^With /,"Avec "],[/\bmusic\b/g,"musique"],[/\bdance\b/g,"danse"],
+  [/\bfarewell\b/g,"adieu"],[/\bmagic\b/g,"magie"],[/\bstreet\b/g,"rue"],[/\ball day \/ roaming\b/g,"toute la journée"],
+  [/~30 participants from several countries/,"~30 participants de plusieurs pays"],[/\bfilms?\b/g,"films"]];
+const metaFr=me=>me.map(x=>{
+  let s=x.split(" / ").map(p=>COUNTRY_FR[p]||p).join(" / ");
+  FRWORDS.forEach(([re,rep])=>s=s.replace(re,rep));
+  return s;
+});
 
 /* ---------- KATALOG: navne + beskrivelser ---------- */
 const C = {
@@ -396,19 +441,19 @@ const C = {
   cine_notalone:{cat:"cine",t:"Not Alone Anymore",fr:"",m:["USA","Instr. Sho Stern"],me:["USA","Dir. Sho Stern"],
     d:"Efterfølgende samtale med instruktør Sho Stern.",de:"Followed by a conversation with director Sho Stern."},
   /* Cinema — kortfilmsblokke (Part 1-5), hver med flere film */
-  cine_p1:{cat:"cine",t:{da:"Kortfilmsblok 1",en:"Short-film block 1"},fr:"",m:["Comédie 3","4 film"],me:["Comédie 3","4 films"],
+  cine_p1:{cat:"cine",t:{da:"Kortfilmsblok 1",en:"Short-film block 1",fr:"Bloc courts-métrages 1"},fr:"",m:["Comédie 3","4 film"],me:["Comédie 3","4 films"],
     d:"Beyond Silence (Holland) · L'Ordre & le désordre (Frankrig) · [BLEEP] 'Em! (USA) · Glass Cage (USA).",
     de:"Beyond Silence (Netherlands) · L'Ordre & le désordre (France) · [BLEEP] 'Em! (USA) · Glass Cage (USA)."},
-  cine_p2:{cat:"cine",t:{da:"Kortfilmsblok 2",en:"Short-film block 2"},fr:"",m:["Comédie 3","8 film"],me:["Comédie 3","8 films"],
+  cine_p2:{cat:"cine",t:{da:"Kortfilmsblok 2",en:"Short-film block 2",fr:"Bloc courts-métrages 2"},fr:"",m:["Comédie 3","8 film"],me:["Comédie 3","8 films"],
     d:"Beautiful (Canada) · Inverse (USA) · Medal Chase (Sverige) · Karma (Spanien) · Reconnection (Storbritannien) · Ghost Sandwich (USA) · In Four Stops (Rusland) · The Tales of Victor the Misfits Creator (Storbritannien).",
     de:"Beautiful (Canada) · Inverse (USA) · Medal Chase (Sweden) · Karma (Spain) · Reconnection (UK) · Ghost Sandwich (USA) · In Four Stops (Russia) · The Tales of Victor the Misfits Creator (UK)."},
-  cine_p3:{cat:"cine",t:{da:"Kortfilmsblok 3",en:"Short-film block 3"},fr:"",m:["Comédie 3","5 film"],me:["Comédie 3","5 films"],
+  cine_p3:{cat:"cine",t:{da:"Kortfilmsblok 3",en:"Short-film block 3",fr:"Bloc courts-métrages 3"},fr:"",m:["Comédie 3","5 film"],me:["Comédie 3","5 films"],
     d:"Remember Me (Storbritannien) · Strawberry Cheesecake (Australien) · The Power of Goodbye (Frankrig) · Familiar Stranger (Storbritannien) · Joyeux Anniversaire (Frankrig).",
     de:"Remember Me (UK) · Strawberry Cheesecake (Australia) · The Power of Goodbye (France) · Familiar Stranger (UK) · Joyeux Anniversaire (France)."},
-  cine_p4:{cat:"cine",t:{da:"Kortfilmsblok 4",en:"Short-film block 4"},fr:"",m:["Comédie 3","3 film"],me:["Comédie 3","3 films"],
+  cine_p4:{cat:"cine",t:{da:"Kortfilmsblok 4",en:"Short-film block 4",fr:"Bloc courts-métrages 4"},fr:"",m:["Comédie 3","3 film"],me:["Comédie 3","3 films"],
     d:"Deaf Jams: Dance With Me (Storbritannien) · Eye of the Game (Australien) · Unmasking (Storbritannien).",
     de:"Deaf Jams: Dance With Me (UK) · Eye of the Game (Australia) · Unmasking (UK)."},
-  cine_p5:{cat:"cine",t:{da:"Kortfilmsblok 5",en:"Short-film block 5"},fr:"",m:["Comédie 3","2 film"],me:["Comédie 3","2 films"],
+  cine_p5:{cat:"cine",t:{da:"Kortfilmsblok 5",en:"Short-film block 5",fr:"Bloc courts-métrages 5"},fr:"",m:["Comédie 3","2 film"],me:["Comédie 3","2 films"],
     d:"Annëlle, Rock & Roller (Frankrig) · Deaf Nomads (Mongoliet).",
     de:"Annëlle, Rock & Roller (France) · Deaf Nomads (Mongolia)."},
 
@@ -430,14 +475,14 @@ const C = {
 
 /* ---------- FILM-oversigt (konkurrence) ---------- */
 const FILMS = [
-  {sec:{da:"Spillefilm",en:"Feature films"}, items:[
+  {sec:{da:"Spillefilm",en:"Feature films",fr:"Longs métrages"}, items:[
     ["Lacrimosa","Austin Chapman","USA","80 min"],
     ["Milano","Christina Vandekerckhove","Belgien","80 min"],
     ["Passengers","Dickie Drew Hearts","USA","55 min"],
     ["Salt & Pepper","Con Mehlum","Norge","80 min"],
     ["Que peut-on y faire? / What Can Be Done?","Léa Damian","Frankrig","60 min"],
   ]},
-  {sec:{da:"Dokumentar (lang)",en:"Documentary (feature-length)"}, items:[
+  {sec:{da:"Dokumentar (lang)",en:"Documentary (feature-length)",fr:"Documentaire (long)"}, items:[
     ["The Way We Move","Vanessa Joo Dumont & Nicolas Davenel","Frankrig","94 min"],
     ["SHINJI: Listening with the Heart","Shugo Fujii","Japan","69 min"],
     ["Marsha's Story","Gaelle Thibaudat","Canada / Frankrig","68 min"],
@@ -445,26 +490,26 @@ const FILMS = [
     ["Gary Malkowski: A Deaf Legacy in Ontario","Alvin Witcher","Canada","81 min"],
     ["Not Alone Anymore","Sho Stern","USA","—"],
   ]},
-  {sec:{da:"Kortfilm",en:"Short films"}, items:[
+  {sec:{da:"Kortfilm",en:"Short films",fr:"Courts métrages"}, items:[
     ["Familiar Stranger","Ace Mahbaz","Storbritannien","14 min"],
     ["Joyeux anniversaire / Happy Birthday","Julien Bourges","Frankrig","19 min"],
     ["Remember Me","Lisa Kelly","Storbritannien","14 min"],
     ["La lueur de l'Adieu","Audrey Sangla","Frankrig","22 min"],
     ["Strawberry Cheesecake","Sean L. McParland","Australien","9 min"],
   ]},
-  {sec:{da:"Kort dokumentar",en:"Short documentary"}, items:[
+  {sec:{da:"Kort dokumentar",en:"Short documentary",fr:"Court documentaire"}, items:[
     ["Anaëlle, Rock & Roller","Sandrine Herman","Frankrig","26 min"],
     ["Deaf Jams: Dance With Me","Bim Ajadi","Storbritannien","13 min"],
     ["Deaf Nomads","Itgel Byambadorj","Mongoliet","30 min"],
     ["Unmasking","Clare Johns","Storbritannien","27 min"],
   ]},
-  {sec:{da:"Animation",en:"Animation"}, items:[
+  {sec:{da:"Animation",en:"Animation",fr:"Animation"}, items:[
     ["Eye of the Game","Ramas McRae","Australien","13 min"],
     ["The Tales of Victor / The Misfits Creator","Paul Miller","Storbritannien","13 min"],
     ["In Four Stops","Elizaveta Khlomova","Rusland","18 min"],
     ["Ghost Sandwich","Lymon Thorn","USA","3 min"],
   ]},
-  {sec:{da:"Ungdomsfilm",en:"Youth films"}, items:[
+  {sec:{da:"Ungdomsfilm",en:"Youth films",fr:"Films jeunesse"}, items:[
     ["Medal Chase","Kevin Shiva","Sverige","9 min"],
     ["Karma","Francisco Javier Peña Rodrigo","Spanien","5 min"],
     ["Beautiful","Léa Damian","Canada","20 min"],
@@ -497,7 +542,35 @@ const CONF = [
 /* ---------- billeder pr. show (fra program-PDF) ---------- */
 const NOIMG=new Set(["cine_p1","cine_p2","cine_p3","cine_p4","cine_p5"]);
 Object.keys(C).forEach(k=>{C[k].img=NOIMG.has(k)?null:`img/${k}.jpg`;});
-CONF.forEach((c,i)=>{c.img=`img/conf${i}.jpg`;});
+CONF.forEach((c,i)=>{c.img=`img/conf${i}.jpg`; c.coFr=trCo(c.co,"fr");});
+
+/* ---------- franske beskrivelser ---------- */
+const DFR={
+  canterville:"Comédie familiale de fantômes d'après Oscar Wilde. Le fantôme est un avatar animé en 3D en direct, unique au monde, qui signe en langue des signes internationale et en suédois parlé — et peine à effrayer une famille qui n'a peur de rien. Avec Jamila Ouahid (qui anime le fantôme), Robert Fransson, Johan Kankkonen & Mette Marqvardsen.",
+  lastones:"Dystopie du futur proche : un nouvel ordre mondial propose un « remède » qui éradique le handicap. Quatre jeunes sourds fuient un traitement forcé qui les priverait de langue, de culture et d'identité. Avec Ronny Patrick Jacobsen, Dawn Jani Birley et d'autres.",
+  fifthwall:"Spectacle avec Mira Zuckermann (Teater Manu). Mira Zuckermann anime aussi la conférence « Building a Theatre » (vendredi 11h00), et une séance de dédicace de son livre a lieu en lien avec le spectacle.",
+  sleep:"Œuvre sans paroles entre rêve et réalité, construite sur le mime et le mouvement au fil d'un projet de 6 ans. Elle explore le corps à travers la danse, le mime et la langue des signes — avec aussi des élèves sourds sur scène.",
+  window:"Pièce poétique sur la mémoire et les racines : une fille découvre que son père n'est peut-être pas son parent biologique. Le corps et les lieux peuvent-ils se souvenir de ce que nous avons oublié ? Avec Aleksi Bernheim, Lisa Martin et d'autres.",
+  mercury:"Le corps comme espace de langage instable, où le sens se crée et se dissout par le mouvement. Créé avec et interprété par Dawn Jani Birley, Rita Mazza & Lukas Malkowski ; tissé de plusieurs langues des signes, pour sourds et entendants.",
+  opening:"Ouverture officielle du festival. Avec entre autres le créateur d'IA Calvin Young.",
+  awards:"Remise de prix dans 12 catégories (meilleur long métrage, court métrage, documentaire, animation, film jeunesse, réalisateur, acteur, etc.).",
+  offrails:"Spectacle d'ensemble plein d'énergie par 14 artistes étudiants : le chaos du quotidien dans une rame de métro, en vignettes audacieuses, drôles et étonnamment profondes.",
+  elevator:"Deux femmes se retrouvent bloquées dans un ascenseur à Milan un dimanche soir. Une comédie qui aborde l'identité de genre, la solitude et le besoin de contact. Avec Paola Severi & Daniele Latagliata.",
+  listening:"Danse et art sourd en LIBRAS (langue des signes brésilienne), mêlés de funk/Passinho. Sur le manque d'écoute et de communication dans la grande ville.",
+  resonance:"Une danse qui fond le hip-hop et la langue des signes avec la lumière et des effets visuels — une musique qui se ressent et se voit, pas seulement qui s'entend.",
+  turbulence:"Puissant solo en ASL : John Maucere se fraie un chemin à travers l'addiction et la sobriété, aux côtés d'une expérience de mort imminente dans un avion violemment secoué. Joué avec The Legend (Japon, 20 min) dans le même créneau.",
+  legend:"Deux inconnus dans un train découvrent qu'ils sont tous deux sourds et partagent des récits de l'histoire sourde — une méditation tranquille sur une « utopie sourde ». Joué dans le même créneau que Turbulence.",
+  vv_group:"Six courtes pièces de rue : Detour (Brésil), Glass of Disco (France), Seed (Italie), Tears (Chine), Unexpected (Italie) et Without Title (Italie).",
+  dp_signmark:"Le célèbre rappeur sourd Signmark donne un concert d'adieu.",
+  dp_signslam:"Battle de slam en langue des signes sur deux nuits.",
+  cine_notalone:"Suivi d'un échange avec la réalisatrice Sho Stern.",
+  cine_p1:"Beyond Silence (Pays-Bas) · L'Ordre & le désordre (France) · [BLEEP] 'Em! (États-Unis) · Glass Cage (États-Unis).",
+  cine_p2:"Beautiful (Canada) · Inverse (États-Unis) · Medal Chase (Suède) · Karma (Espagne) · Reconnection (Royaume-Uni) · Ghost Sandwich (États-Unis) · In Four Stops (Russie) · The Tales of Victor the Misfits Creator (Royaume-Uni).",
+  cine_p3:"Remember Me (Royaume-Uni) · Strawberry Cheesecake (Australie) · The Power of Goodbye (France) · Familiar Stranger (Royaume-Uni) · Joyeux Anniversaire (France).",
+  cine_p4:"Deaf Jams: Dance With Me (Royaume-Uni) · Eye of the Game (Australie) · Unmasking (Royaume-Uni).",
+  cine_p5:"Annëlle, Rock & Roller (France) · Deaf Nomads (Mongolie).",
+};
+Object.keys(DFR).forEach(k=>{if(C[k])C[k].dfr=DFR[k];});
 
 /* ---------- TIDSLINJE-events ---------- */
 const EV=[];
@@ -507,7 +580,7 @@ const everyday=s=>({thu:s,fri:s,sat:s,sun:s});
 /* IN (Comédie 1) */
 add("in",{thu:[["11:00","12:15","Hold A"],["15:00","16:15","Hold B"]]},{ref:"canterville",dur:"75 min"});
 add("in",{fri:[["11:00","11:55","Hold B"],["15:00","15:55","Hold A"]]},{ref:"lastones",dur:"55 min"});
-add("in",{fri:[["12:00","12:40","Hold B"],["16:00","16:40","Hold A"]]},{ref:"fifthwall",dur:"40 min",note:{da:"Bogsignering med Mira Zuckerman i tilknytning til forestillingen.",en:"Book signing with Mira Zuckerman in connection with the performance."}});
+add("in",{fri:[["12:00","12:40","Hold B"],["16:00","16:40","Hold A"]]},{ref:"fifthwall",dur:"40 min",note:{da:"Bogsignering med Mira Zuckerman i tilknytning til forestillingen.",en:"Book signing with Mira Zuckerman in connection with the performance.",fr:"Séance de dédicace du livre de Mira Zuckerman en lien avec le spectacle."}});
 add("in",{fri:[["13:30","14:30","Hold A"],["17:00","18:00","Hold B"]]},{ref:"sleep",dur:"60 min"});
 add("in",{sat:[["13:00","14:05","Hold B"],["15:00","16:05","Hold A"]]},{ref:"window",dur:"65 min"});
 add("in",{sun:[["12:00","13:00","Hold A"],["15:30","16:30","Hold B"]]},{ref:"mercury",dur:"60 min"});
@@ -519,7 +592,7 @@ add("off",{thu:[["10:00","10:40"],["15:25","16:05"]],fri:[["09:10","09:50"],["14
 add("off",{thu:[["11:00","11:40"],["16:25","17:05"]],fri:[["10:10","10:50"],["15:35","16:15"]],sat:[["10:10","10:50"],["15:35","16:15"]],sun:[["10:10","10:50"],["15:35","16:15"]]},{ref:"elevator",dur:"40 min"});
 add("off",{thu:[["12:00","12:45"],["17:25","18:10"]],fri:[["11:10","11:55"],["16:35","17:20"]],sat:[["11:10","11:55"],["16:35","17:20"]],sun:[["11:10","11:55"],["16:35","17:20"]]},{ref:"listening",dur:"45 min"});
 add("off",{thu:[["13:05","13:45"],["18:30","19:10"]],fri:[["12:15","12:55"],["19:00","19:40"]],sat:[["12:15","12:55"],["19:00","19:40"]],sun:[["12:15","12:55"],["19:00","19:40"]]},{ref:"resonance",dur:"40 min"});
-add("off",{thu:[["14:05","15:05"],["19:30","20:30"]],fri:[["13:15","14:15"],["17:40","18:40"],["20:00","21:00"]],sat:[["13:15","14:15"],["17:40","18:40"],["20:00","21:00"]],sun:[["13:15","14:15"],["17:40","18:40"]]},{ref:"turbulence",dur:"40 min + 20 min",note:{da:"Dobbelt-forestilling med The Legend (Japan, 20 min).",en:"Double bill with The Legend (Japan, 20 min)."}});
+add("off",{thu:[["14:05","15:05"],["19:30","20:30"]],fri:[["13:15","14:15"],["17:40","18:40"],["20:00","21:00"]],sat:[["13:15","14:15"],["17:40","18:40"],["20:00","21:00"]],sun:[["13:15","14:15"],["17:40","18:40"]]},{ref:"turbulence",dur:"40 min + 20 min",note:{da:"Dobbelt-forestilling med The Legend (Japan, 20 min).",en:"Double bill with The Legend (Japan, 20 min).",fr:"Double programme avec The Legend (Japon, 20 min)."}});
 
 /* VILLAGE (street/scene) — navngivne acts */
 add("vil",everyday([["12:00","12:30"],["15:00","15:30"]]),{ref:"vv_group"});
@@ -531,10 +604,10 @@ add("vil",everyday([["14:30","14:50"],["17:30","17:50"]]),{ref:"flowtv"});
 
 /* KONFERENCER */
 CONF.forEach(c=>{
-  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`},dur:(c.s==="18:00"?"30 min":"45 min"),img:c.img});
+  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`,fr:`${c.who} · ${c.coFr}`},dur:(c.s==="18:00"?"30 min":"45 min"),img:c.img});
 });
-add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference"},dur:"15 min",img:"img/conf_open.jpg"});
-add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden"},dur:"45 min",img:"img/conf_bap.jpg"});
+add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference",fr:"Conférence d'ouverture"},dur:"15 min",img:"img/conf_open.jpg"});
+add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden",fr:"Suède"},dur:"45 min",img:"img/conf_bap.jpg"});
 
 /* CINEMA — navngivne film + kortfilmsblokke */
 add("cine",{thu:[["09:20","10:29"]],fri:[["09:20","10:29"]],sun:[["13:10","14:19"]]},{ref:"cine_marsha"});
@@ -572,9 +645,9 @@ let curDay="thu", curView="tl", curGroup="all", curLang="da", allMode=true;
 let activeCats=new Set(Object.keys(CATS));
 const toMin=t=>{const[h,m]=t.split(":").map(Number);let v=h*60+m;if(h<6)v+=1440;return v;};
 const isNight=t=>Number(t.split(":")[0])<6;
-const L=v=>(v && typeof v==="object" && !Array.isArray(v) && ("da" in v || "en" in v)) ? (v[curLang] ?? v.da ?? v.en) : v;
-const cMeta=x=>curLang==="en" ? (x.me||x.m) : x.m;
-const cDesc=x=>curLang==="en" ? (x.de||x.d) : x.d;
+const L=v=>(v && typeof v==="object" && !Array.isArray(v) && ("da" in v || "en" in v || "fr" in v)) ? (v[curLang] ?? v.en ?? v.da) : v;
+const cMeta=x=>curLang==="fr" ? metaFr(x.me||x.m) : curLang==="en" ? (x.me||x.m) : x.m;
+const cDesc=x=>curLang==="fr" ? (x.dfr||x.de||x.d) : curLang==="en" ? (x.de||x.d) : x.d;
 
 /* ---------- favoritter (gemt i browseren) ---------- */
 let FAVS=new Set();
@@ -726,6 +799,16 @@ const CAT_TEXT={
     venuesH:"📍 Venues in Reims", venuesLead:"All venues are clustered close together by Chaussée Bocquaine. Tap to open in Google Maps.",
     openMaps:"Open in Google Maps",
   },
+  fr:{
+    inH:"Théâtre IN", inLead:"La Comédie (salle 1) · Pass Festival. Chaque spectacle est joué pour le Groupe A et le Groupe B — vous n'assistez qu'à un seul créneau.",
+    offH:"OFF · L'Atelier", offLead:"L'Atelier · Pass Festival / Village. Chaque pièce est jouée plusieurs fois par jour — voir les horaires.",
+    vilH:"Village – rue & scène", vilLead:"Stade Delaune · Pass Festival / Village. Courtes représentations tout au long de la journée.",
+    confH:"Conférences", confLead:"Espace conférences · Pass Festival / Village · 45 min (sauf indication).",
+    cineH:"Films (compétition)", cineLead:"La Comédie (salles 2 & 3) · Pass Festival. Voir les horaires pour les séances.",
+    dpH:"Deaf Party", dpLead:"Scène du Village · Pass Festival / Village / Deaf Party. Programmation avec horaires dans les horaires.",
+    venuesH:"📍 Lieux à Reims", venuesLead:"Tous les lieux sont regroupés près de la Chaussée Bocquaine. Appuyez pour ouvrir dans Google Maps.",
+    openMaps:"Ouvrir dans Google Maps",
+  },
 };
 
 function renderCat(){
@@ -755,22 +838,22 @@ function renderCat(){
       <img class="ithumb" src="${c.img}" alt="" loading="lazy">
       <div class="ibody">
       <div class="t">${c.t}</div>
-      <div class="m"><span><b>${L(DAYS.find(d=>d.k===c.day).dn)} ${c.s}–${c.e}</b></span><span>${c.who}</span><span>${curLang==="en"?c.coEn:c.co}</span></div></div></div>`).join("");
+      <div class="m"><span><b>${L(DAYS.find(d=>d.k===c.day).dn)} ${c.s}–${c.e}</b></span><span>${c.who}</span><span>${curLang==="fr"?c.coFr:curLang==="en"?c.coEn:c.co}</span></div></div></div>`).join("");
 
   html+=`<h2>${dot('cine')}${T.cineH}</h2><p class="lead">${T.cineLead}</p>`;
   html+=FILMS.map(g=>`<div style="margin:6px 0 2px;font-weight:700;font-size:13px">${L(g.sec)}</div>`+
      g.items.map(f=>`<div class="item" style="--cc:${CATS.cine.color}">
         <div class="t">${f[0]}</div>
-        <div class="m"><span>${f[1]}</span><span>${curLang==="en"?trCo(f[2]):f[2]}</span><span>${f[3]}</span></div></div>`).join("")).join("");
+        <div class="m"><span>${f[1]}</span><span>${trCo(f[2],curLang)}</span><span>${f[3]}</span></div></div>`).join("")).join("");
 
   html+=`<h2>${dot('dp')}${T.dpH}</h2><p class="lead">${T.dpLead}</p>`;
   html+=["dp_signmark","dp_slobo","dp_aloss","dp_maxx","dp_vinz","dp_nuvis","dp_elements","dp_poster","dp_fila","dp_hcr","dp_signslam"].map(id=>itemHTML(C[id])).join("");
 
   html+=`<h2>${T.venuesH}</h2><p class="lead">${T.venuesLead}</p>`;
   const venueUse={
-    comedie:{da:"IN-teater · cinema · ceremonier",en:"IN theatre · cinema · ceremonies"},
-    atelier:{da:"OFF-forestillinger",en:"OFF performances"},
-    village:{da:"Village: konferencer · street · Deaf Party",en:"Village: conferences · street · Deaf Party"},
+    comedie:{da:"IN-teater · cinema · ceremonier",en:"IN theatre · cinema · ceremonies",fr:"Théâtre IN · cinéma · cérémonies"},
+    atelier:{da:"OFF-forestillinger",en:"OFF performances",fr:"Spectacles OFF"},
+    village:{da:"Village: konferencer · street · Deaf Party",en:"Village: conferences · street · Deaf Party",fr:"Village : conférences · rue · Deaf Party"},
   };
   html+=["comedie","atelier","village"].map(id=>{const v=VEN[id];return `<div class="item" style="--cc:#334155">
       <div class="t">${v.n}</div>
