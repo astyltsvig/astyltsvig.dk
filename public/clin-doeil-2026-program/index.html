@@ -59,8 +59,8 @@
   .time{text-align:right; padding-top:11px; font-variant-numeric:tabular-nums; font-size:13px;
     font-weight:700; white-space:nowrap}
   .time .to{display:block; font-size:11px; font-weight:500; color:var(--muted)}
-  .card{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc,#ccc);
-    border-radius:11px; padding:9px 12px}
+  .card{position:relative; background:var(--card); border:1px solid var(--line); border-left:5px solid var(--cc,#ccc);
+    border-radius:11px; padding:9px 30px 9px 12px}
   .card.exp{cursor:pointer}
   .ctag{font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--cc)}
   .title{font-size:14.5px; font-weight:650; margin:1px 0 3px; letter-spacing:-.01em}
@@ -89,7 +89,39 @@
   .item .d{font-size:12.5px; color:#3a3a42}
   footer{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:12px; color:var(--muted)}
   footer a{color:#3049c4; text-decoration:none; font-weight:600}
-  @media(max-width:420px){h1{font-size:22px} .row{grid-template-columns:52px 1fr; gap:8px}}
+  /* favorites */
+  .star{position:absolute; top:6px; right:8px; font-size:19px; line-height:1; color:#d9b400; cursor:pointer; user-select:none; opacity:.5}
+  .star.on{opacity:1}
+  /* min plan */
+  .minhead{display:flex; justify-content:space-between; align-items:center; gap:10px; margin:14px 0 4px; flex-wrap:wrap}
+  .minhead h2{font-size:17px; margin:0}
+  .minsub{font-size:12.5px; color:var(--muted)}
+  .printbtn{border:1px solid var(--ink); background:var(--ink); color:#fff; border-radius:10px; padding:8px 15px; font-weight:700; font-size:13px; cursor:pointer}
+  .dayblock{margin-top:6px}
+  .dayhd{font-size:13px; font-weight:800; letter-spacing:.02em; margin:16px 2px 8px; padding-bottom:5px; border-bottom:2px solid var(--line)}
+  .pcard{position:relative; display:grid; grid-template-columns:60px 1fr; gap:10px; background:var(--card);
+    border:1px solid var(--line); border-left:5px solid var(--cc,#ccc); border-radius:10px; padding:9px 30px 9px 12px; margin-bottom:7px}
+  .pcard .ptime{text-align:right; padding-top:2px; font-variant-numeric:tabular-nums; font-weight:700; font-size:13px; white-space:nowrap}
+  .pcard .ptime span{display:block; font-size:11px; font-weight:500; color:var(--muted)}
+  .pcat{font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--cc)}
+  .ptitle{font-size:14px; font-weight:650; margin:1px 0 2px; letter-spacing:-.01em}
+  .pv{font-size:12px; color:var(--muted)}
+  .pm{font-size:11.5px; color:var(--muted); margin-top:2px}
+  .pd{font-size:12.5px; color:#3a3a42; margin-top:4px}
+  .pn{font-size:12px; color:var(--muted); margin-top:3px}
+  .premove{position:absolute; top:5px; right:7px; border:none; background:none; font-size:19px; line-height:1; color:#d9b400; cursor:pointer}
+  @media(max-width:420px){h1{font-size:22px} .row{grid-template-columns:52px 1fr; gap:8px} .pcard{grid-template-columns:52px 1fr; gap:8px}}
+  @media print{
+    .topbar,.views,#view-tl,#view-cat,footer,.printbtn,.premove,.kicker{display:none !important}
+    #view-min{display:block !important}
+    body{background:#fff; color:#000}
+    .wrap{max-width:none; padding:0 4px 10px}
+    h1{font-size:19px; margin:0}
+    .minhead{margin:2px 0 6px}
+    .minsub{display:none}
+    .pcard{break-inside:avoid; page-break-inside:avoid; border:1px solid #ccc; border-left:5px solid var(--cc,#ccc); box-shadow:none}
+    .dayhd{break-after:avoid; page-break-after:avoid}
+  }
 </style>
 </head>
 <body>
@@ -109,6 +141,7 @@
   <div class="views">
     <div class="vbtn active" data-v="tl">Tidslinje</div>
     <div class="vbtn" data-v="cat">Fuldt program</div>
+    <div class="vbtn" data-v="min">Min plan</div>
   </div>
 
   <div id="view-tl">
@@ -121,6 +154,8 @@
 
   <div id="view-cat" style="display:none"></div>
 
+  <div id="view-min" style="display:none"></div>
+
   <footer id="footer"></footer>
 </div>
 
@@ -131,7 +166,7 @@ const UI = {
     title:"Clin d'Oeil 2026 · Program & tidslinje",
     kicker:"Festival · Reims",
     sub:"Torsdag 2. – søndag 5. juli · international tegnsprogsfestival",
-    vTL:"Tidslinje", vCat:"Fuldt program",
+    vTL:"Tidslinje", vCat:"Fuldt program", vMin:"Min plan",
     inTeam:"IN-hold:", all:"Alle",
     dayProgram:"Dagens program",
     empty:"Ingen programpunkter med de valgte filtre.",
@@ -139,6 +174,10 @@ const UI = {
     tapDesc:"Tryk for detaljer ▾",
     optional:"Valgfri",
     afterMid:"efter midnat",
+    myPlan:"Min plan",
+    planSub:(n)=>`${n} valgte punkter · gemt i din browser`,
+    printPDF:"🖨 Print / Gem som PDF",
+    noFav:"Du har ingen favoritter endnu. Tryk på ★ ved et programpunkt i tidslinjen for at føje det til din plan.",
     footer:`Fuldt program hentet fra festivalens officielle program-PDF (2026). Officielt:
       <a href="https://www.clin-doeil.eu/en/" target="_blank" rel="noopener">clin-doeil.eu</a> ·
       <a href="https://www.clin-doeil.eu/wa_res/files/Programme_Festival_2026.pdf" target="_blank" rel="noopener">program-PDF</a> ·
@@ -149,7 +188,7 @@ const UI = {
     title:"Clin d'Oeil 2026 · Program & timeline",
     kicker:"Festival · Reims",
     sub:"Thursday 2 – Sunday 5 July · international sign language festival",
-    vTL:"Timeline", vCat:"Full program",
+    vTL:"Timeline", vCat:"Full program", vMin:"My plan",
     inTeam:"IN team:", all:"All",
     dayProgram:"Day's program",
     empty:"No program items with the selected filters.",
@@ -157,6 +196,10 @@ const UI = {
     tapDesc:"Tap for details ▾",
     optional:"Optional",
     afterMid:"after midnight",
+    myPlan:"My plan",
+    planSub:(n)=>`${n} selected items · saved in your browser`,
+    printPDF:"🖨 Print / Save as PDF",
+    noFav:"You haven't picked any favourites yet. Tap ★ on a program item in the timeline to add it to your plan.",
     footer:`Full program taken from the festival's official program PDF (2026). Official:
       <a href="https://www.clin-doeil.eu/en/" target="_blank" rel="noopener">clin-doeil.eu</a> ·
       <a href="https://www.clin-doeil.eu/wa_res/files/Programme_Festival_2026.pdf" target="_blank" rel="noopener">program PDF</a> ·
@@ -454,6 +497,28 @@ const L=v=>(v && typeof v==="object" && !Array.isArray(v) && ("da" in v || "en" 
 const cMeta=x=>curLang==="en" ? (x.me||x.m) : x.m;
 const cDesc=x=>curLang==="en" ? (x.de||x.d) : x.d;
 
+/* ---------- favoritter (gemt i browseren) ---------- */
+let FAVS=new Set();
+try{FAVS=new Set(JSON.parse(localStorage.getItem("cdo2026_favs")||"[]"));}catch(e){}
+const saveFavs=()=>{try{localStorage.setItem("cdo2026_favs",JSON.stringify([...FAVS]));}catch(e){}};
+function mkItem(e,ei,s,day){
+  const cd=e.ref?C[e.ref]:null;
+  return {cat:e.cat,start:s[0],end:s[1],tag:s[2],
+    title:e.ref?L(cd.t):L(e.label),sub:e.ref?cd.fr:"",desc:e.ref?cDesc(cd):"",meta:e.ref?cMeta(cd):null,
+    note:L(e.note),dur:e.dur,opt:e.opt,fav:`${ei}@${day}@${s[0]}`};
+}
+function updateMinTab(){
+  const b=document.querySelector('.vbtn[data-v="min"]');
+  if(b)b.textContent=`${UI[curLang].vMin}`+(FAVS.size?` (${FAVS.size})`:"");
+}
+function toggleFav(key,el){
+  if(FAVS.has(key))FAVS.delete(key); else FAVS.add(key);
+  saveFavs();
+  if(el){const on=FAVS.has(key); el.classList.toggle("on",on); el.textContent=on?"★":"☆";}
+  updateMinTab();
+  if(curView==="min")renderMin();
+}
+
 function buildGroup(){
   const el=document.getElementById("grpsel");
   const opts=[["all",UI[curLang].all],["Hold A","Hold A"],["Hold B","Hold B"]];
@@ -472,15 +537,13 @@ function buildFilters(){
 }
 function renderTL(){
   const items=[];
-  for(const e of EV){
+  for(let ei=0;ei<EV.length;ei++){
+    const e=EV[ei];
     if(!activeCats.has(e.cat))continue;
     const slots=e.slots[curDay]; if(!slots)continue;
-    const cd=e.ref?C[e.ref]:null;
     for(const s of slots){
       if(curGroup!=="all" && s[2] && s[2]!==curGroup) continue;
-      items.push({cat:e.cat,start:s[0],end:s[1],tag:s[2],
-        title:e.ref?L(cd.t):L(e.label),sub:e.ref?cd.fr:"",desc:e.ref?cDesc(cd):"",meta:e.ref?cMeta(cd):null,
-        note:L(e.note),dur:e.dur,opt:e.opt});
+      items.push(mkItem(e,ei,s,curDay));
     }
   }
   items.sort((a,b)=>toMin(a.start)-toMin(b.start)||a.cat.localeCompare(b.cat));
@@ -490,9 +553,10 @@ function renderTL(){
     html+=`<div class="empty">${UI[curLang].empty}</div>`;
   }else{
     html+=items.map(it=>{
-      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta);
+      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta),on=FAVS.has(it.fav);
       return `<div class="row"><div class="time">${it.start}<span class="to">${it.end}${night?' +1':''}</span></div>
       <div class="card ${hasDesc?'exp':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
+        <span class="star ${on?'on':''}" title="Favorit" onclick="event.stopPropagation();toggleFav('${it.fav}',this)">${on?'★':'☆'}</span>
         <div class="ctag">${L(c.name)}</div>
         <div class="title">${it.title}${it.sub?` <span style="font-weight:400;color:var(--muted);font-size:12px">· ${it.sub}</span>`:''}</div>
         <div class="meta">
@@ -511,6 +575,42 @@ function renderTL(){
   }
   document.getElementById("daymeta").textContent=UI[curLang].daymeta(items.length,L(di.full));
   document.getElementById("tl").innerHTML=html;
+}
+
+function renderMin(){
+  const el=document.getElementById("view-min");
+  let total=0;
+  const blocks=DAYS.map(d=>{
+    const items=[];
+    for(let ei=0;ei<EV.length;ei++){
+      const e=EV[ei],slots=e.slots[d.k]; if(!slots)continue;
+      for(const s of slots){const key=`${ei}@${d.k}@${s[0]}`; if(FAVS.has(key))items.push(mkItem(e,ei,s,d.k));}
+    }
+    if(!items.length)return "";
+    items.sort((a,b)=>toMin(a.start)-toMin(b.start)||a.cat.localeCompare(b.cat));
+    total+=items.length;
+    return `<div class="dayblock"><div class="dayhd">${L(d.full)}</div>`+items.map(planCardHTML).join("")+`</div>`;
+  }).join("");
+  let html=`<div class="minhead"><div><h2>${UI[curLang].myPlan}</h2><div class="minsub">${UI[curLang].planSub(total)}</div></div>`;
+  if(total)html+=`<button class="printbtn" onclick="window.print()">${UI[curLang].printPDF}</button>`;
+  html+=`</div>`;
+  html+= total ? blocks : `<div class="empty">${UI[curLang].noFav}</div>`;
+  el.innerHTML=html;
+}
+function planCardHTML(it){
+  const c=CATS[it.cat],night=isNight(it.start);
+  return `<div class="pcard" style="--cc:${c.color}">
+    <div class="ptime">${it.start}<span>${it.end}${night?' +1':''}</span></div>
+    <div>
+      <div class="pcat">${L(c.name)}${it.tag?` · ${it.tag}`:''}${it.opt?` · ${UI[curLang].optional}`:''}${night?` · ${UI[curLang].afterMid}`:''}</div>
+      <div class="ptitle">${it.title}${it.sub?` <span class="fr">· ${it.sub}</span>`:''}</div>
+      <div class="pv">📍 ${L(c.venue)}${it.dur?` · ${it.dur}`:''} · ${c.pass}</div>
+      ${it.meta?`<div class="pm">${it.meta.join(" · ")}</div>`:''}
+      ${it.desc?`<div class="pd">${it.desc}</div>`:''}
+      ${it.note?`<div class="pn">${it.note}</div>`:''}
+    </div>
+    <button class="premove" title="Fjern" onclick="toggleFav('${it.fav}')">★</button>
+  </div>`;
 }
 
 const CAT_TEXT={
@@ -590,6 +690,8 @@ function setView(v){
   document.querySelectorAll(".vbtn").forEach(b=>b.classList.toggle("active",b.dataset.v===v));
   document.getElementById("view-tl").style.display = v==="tl"?"":"none";
   document.getElementById("view-cat").style.display = v==="cat"?"":"none";
+  document.getElementById("view-min").style.display = v==="min"?"":"none";
+  if(v==="min")renderMin();
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>setView(b.dataset.v));
 
@@ -601,9 +703,10 @@ function applyLang(){
   document.getElementById("sub").textContent=u.sub;
   document.querySelector('.vbtn[data-v="tl"]').textContent=u.vTL;
   document.querySelector('.vbtn[data-v="cat"]').textContent=u.vCat;
+  updateMinTab();
   document.getElementById("footer").innerHTML=u.footer;
   document.querySelectorAll("#langsel .lang").forEach(b=>b.classList.toggle("active",b.dataset.l===curLang));
-  buildDays();buildFilters();buildGroup();renderTL();renderCat();
+  buildDays();buildFilters();buildGroup();renderTL();renderCat();renderMin();
 }
 document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.dataset.l;applyLang();});
 
