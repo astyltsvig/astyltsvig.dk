@@ -120,8 +120,8 @@
 
   <div class="note" id="note">
     <b>Navnene er nu de rigtige, hentet fra festivalens tekst-program.</b>
-    <b>Konferencer</b> matcher 1:1 på dag+tid. <b>IN-forestillinger</b> er koblet via varighed.
-    For <b>OFF, film og Deaf Party</b> oplyser programmet ikke hvilken titel der spiller i hvilket
+    <b>Konferencer</b> matcher 1:1 på dag+tid. <b>IN- og OFF-forestillinger</b> følger deltager-oversigten med navn og tid.
+    For <b>film og Deaf Party</b> oplyser programmet ikke hvilken titel der spiller i hvilket
     konkret tidsrum — så dem finder du fuldt navngivet under “Fuldt program”. Alt usikkert er
     markeret med <span class="warn">⚠</span>. Tryk på et kort i tidslinjen for beskrivelse.
     <br><button onclick="document.getElementById('note').remove()">Skjul</button>
@@ -147,7 +147,7 @@
     <a href="https://www.billetweb.fr/festival-clin-doeil-2026" target="_blank" rel="noopener">billetter</a>.
     <br><br>
     Kilder: festivalens tidsplan- og program-PDF (2026). Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.
-    Navne på IN-forestillinger er koblet via varighed; OFF, film og Deaf Party er ikke tidsfæstet pr. titel i det officielle program.
+    Navne og tider på IN- og OFF-forestillinger følger deltager-oversigten; film og Deaf Party er ikke tidsfæstet pr. titel i det officielle program.
   </footer>
 </div>
 
@@ -299,16 +299,13 @@ add("in",{fri:[["12:00","12:40","Hold B"],["16:00","16:40","Hold A"]]},{label:"I
 add("in",{thu:[["18:15","19:30"]]},{ref:"opening",opt:true});
 add("in",{sat:[["18:15","19:30"]]},{ref:"awards",opt:true});
 
-/* OFF – kun Listening Movement kan tidsfæstes sikkert (45 min) */
-add("off",{
-  thu:[["12:00","12:45"],["17:25","18:10"]], fri:[["11:10","11:55"],["16:35","17:20"]],
-  sat:[["11:10","11:55"],["16:35","17:20"]], sun:[["11:10","11:55"],["16:35","17:20"]]},{ref:"listening",dur:"45 min"});
-const offRotate={
-  thu:[["10:00","10:40"],["11:00","11:40"],["13:05","13:45"],["14:05","15:05"],["15:25","16:05"],["16:25","17:05"],["18:30","19:10"],["19:30","20:30"]],
-  fri:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"],["20:00","21:00"]],
-  sat:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"],["20:00","21:00"]],
-  sun:[["09:10","09:50"],["10:10","10:50"],["12:15","12:55"],["13:15","14:15"],["14:35","15:15"],["15:35","16:15"],["17:40","18:40"],["19:00","19:40"]]};
-add("off",offRotate,{label:"OFF-forestilling",warn:"Én af: Off the Rails, Resonance, Elevator 2/Apt 4, Turbulence, The Legend — se Fuldt program"});
+/* OFF · L'Atelier — navne og tider jf. deltager-oversigten */
+add("off",{thu:[["18:30","19:10"]],fri:[["12:15","12:55"]]},{ref:"resonance",dur:"40 min",note:"Alternativ fredag-tid: 19:00–19:40."});
+add("off",{thu:[["19:30","20:30"]],fri:[["13:15","14:15"]]},{ref:"turbulence",dur:"60 min",note:"Alternativ fredag-tid: 20:00–21:00."});
+add("off",{thu:[["20:30","20:50"]],fri:[["14:15","14:35"]]},{ref:"legend",dur:"20 min",warn:"Tidspunkt ikke fast oplyst — spiller i forlængelse af Turbulence"});
+add("off",{sat:[["14:35","15:15"]]},{ref:"offrails",dur:"40 min"});
+add("off",{sat:[["15:35","16:15"]]},{ref:"elevator",dur:"40 min"});
+add("off",{sat:[["16:35","17:20"]]},{ref:"listening",dur:"45 min"});
 
 /* VILLAGE (street/kort) */
 const everyday=s=>({thu:s,fri:s,sat:s,sun:s});
@@ -325,7 +322,7 @@ CONF.forEach(c=>{
 });
 /* 2 unavngivne konference-slots */
 add("conf",{thu:[["12:15","12:30"]]},{label:"Konference (kort intro)",dur:"15 min",warn:"Ikke navngivet i programmet"});
-add("conf",{thu:[["14:30","15:15"]]},{label:"Konference",dur:"45 min",warn:"Ikke navngivet i programmet"});
+add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics",dur:"45 min"});
 
 /* CINEMA */
 add("cine",{thu:[["09:15","10:16"]],fri:[["09:15","10:16"],["17:00","18:01"]],sat:[["09:15","10:16"]],sun:[["09:15","10:16"]]},{label:"Cinema · blok 1 (kortfilm)"});
@@ -463,7 +460,7 @@ function renderCat(){
   html+=`<h2>${dot('in')}IN-teater</h2><p class="lead">La Comédie / Le Manège · Pass Festival. Hver forestilling spilles for Hold A og Hold B — du skal kun til ét tidspunkt.</p>`;
   html+=["canterville","lastones","window","sleep","mercury","opening","awards"].map(id=>itemHTML(C[id])).join("");
 
-  html+=`<h2>${dot('off')}OFF · L'Atelier</h2><p class="lead">L'Atelier · Pass Festival / Village. Programmet oplyser ikke hvilken der spiller hvornår; de roterer gennem dagens OFF-slots.</p>`;
+  html+=`<h2>${dot('off')}OFF · L'Atelier</h2><p class="lead">L'Atelier · Pass Festival / Village. Navne og tider følger deltager-oversigten — se tidslinjen for hvornår hver forestilling spiller.</p>`;
   html+=["offrails","resonance","listening","elevator","turbulence","legend"].map(id=>itemHTML(C[id])).join("");
 
   html+=`<h2>${dot('conf')}Konferencer</h2><p class="lead">Konferenceområdet · Pass Festival / Village · 45 min (medmindre andet). Alle med dag+tid.</p>`;
