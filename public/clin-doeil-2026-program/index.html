@@ -76,7 +76,7 @@
   .row{display:grid; grid-template-columns:54px minmax(0,1fr); gap:12px; margin-bottom:11px}
   .time{text-align:right; padding-top:15px; font-variant-numeric:tabular-nums; font-size:13px; font-weight:700; white-space:nowrap}
   .time .to{display:block; font-size:11px; font-weight:500; color:var(--muted)}
-  .card{position:relative; display:flex; gap:13px; background:var(--surface); border:1px solid var(--line);
+  .card{position:relative; display:flex; flex-wrap:wrap; gap:13px; background:var(--surface); border:1px solid var(--line);
     border-radius:16px; padding:12px 36px 12px 15px; box-shadow:var(--sh); transition:.15s}
   .card::before{content:""; position:absolute; left:0; top:14px; bottom:14px; width:4px; border-radius:0 4px 4px 0; background:var(--cc,#ccc)}
   .thumb{width:88px; height:88px; object-fit:cover; border-radius:12px; flex:0 0 auto; background:#eee}
@@ -98,7 +98,7 @@
   .cmt-toggle{cursor:pointer}
   .ratechip{display:inline-flex; align-items:center; gap:3px; background:#fff7e0; color:#996c00; border-radius:7px;
     padding:3px 8px; font-weight:800; font-size:11.5px}
-  .cmts{margin-top:9px; border-top:1px dashed var(--line); padding-top:10px}
+  .cmts{flex-basis:100%; min-width:0; margin-top:-2px; border-top:1px dashed var(--line); padding-top:10px}
   .ratebox{display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:linear-gradient(135deg,#fffbef,#fff4d8);
     border:1px solid #f0e0b0; border-radius:12px; padding:9px 13px; margin-bottom:9px}
   .ratebox .rl{font-weight:700; font-size:13px; color:#6b5a20}
@@ -136,7 +136,7 @@
   .pinfo .pb{font-size:13px; color:#413f49; line-height:1.55}
   .pinfo a{color:#3a4bd0; font-weight:600; text-decoration:none}
   .opt{background:#fff2d1; color:#8a6d10; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
-  .desc{margin-top:9px; font-size:13px; color:#413f49; border-top:1px dashed var(--line); padding-top:9px; display:none; line-height:1.5}
+  .desc{flex-basis:100%; min-width:0; margin-top:-2px; font-size:13px; color:#413f49; border-top:1px dashed var(--line); padding-top:10px; display:none; line-height:1.5}
   .card.open .desc{display:block}
   .desc .dl{color:var(--muted)}
   .more{font-size:11px; color:var(--cc); font-weight:700; margin-top:6px}
@@ -220,6 +220,8 @@
     .card{padding:11px 30px 11px 12px; gap:11px}
     .rstar{font-size:24px; padding:3px 3px}
     .ratebox{gap:7px; padding:9px 11px}
+    .day{min-width:64px; padding:7px 4px}
+    .day .dd{font-size:18px}
   }
   .cmt-form textarea,.cmt-form input[type=text]{width:100%; min-width:0}
   .cmt .cb,.pd,.desc{overflow-wrap:anywhere}
@@ -942,11 +944,11 @@ function renderTL(){
           <span>${c.pass}</span>
         </div>
         ${it.note?`<div class="meta" style="margin-top:4px"><span>${it.note}</span></div>`:''}
-        ${hasDesc?`<div class="more">${UI[curLang].tapDesc}</div>
-          <div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
-        ${it.cid?`<div class="more cmt-toggle" onclick="event.stopPropagation();openComments('${it.cid}',this)">💬 ${UI[curLang].comments}${rg&&rg.cc?` (${rg.cc})`:''} · ⭐</div>
-          <div class="cmts" style="display:none" onclick="event.stopPropagation()"></div>`:''}
+        ${hasDesc?`<div class="more">${UI[curLang].tapDesc}</div>`:''}
+        ${it.cid?`<div class="more cmt-toggle" onclick="event.stopPropagation();openComments('${it.cid}',this)">💬 ${UI[curLang].comments}${rg&&rg.cc?` (${rg.cc})`:''} · ⭐</div>`:''}
         </div>
+        ${hasDesc?`<div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
+        ${it.cid?`<div class="cmts" style="display:none" onclick="event.stopPropagation()"></div>`:''}
       </div></div>`;
     }).join("");
   }
@@ -1137,7 +1139,7 @@ function rateBoxHTML(cid){
   return `<div class="ratebox"><span class="rl">${mine?u.rated:u.rate}</span><span class="rstars ${mine?'done':''}">${stars}</span>${agg&&agg.avg?`<span class="rmeta">Ø ${agg.avg} · ${u.ratings(agg.rc)}</span>`:''}</div>`;
 }
 function openComments(cid,btn){
-  const panel=btn.nextElementSibling;
+  const panel=btn.closest(".card").querySelector(".cmts");
   if(panel.dataset.loaded){panel.style.display=panel.style.display==="none"?"":"none";return;}
   panel.dataset.loaded="1"; panel.style.display="";
   panel.innerHTML=`<div class="cmt-load">${UI[curLang].cmtLoading}</div>`;
