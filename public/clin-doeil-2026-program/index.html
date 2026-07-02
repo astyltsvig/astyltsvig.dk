@@ -73,7 +73,7 @@
     font-weight:700; font-size:12.5px; cursor:pointer; user-select:none; box-shadow:var(--sh-sm)}
   .grpsel .gb.on{background:var(--in); color:#fff; border-color:var(--in)}
   /* timeline */
-  .row{display:grid; grid-template-columns:54px 1fr; gap:12px; margin-bottom:11px}
+  .row{display:grid; grid-template-columns:54px minmax(0,1fr); gap:12px; margin-bottom:11px}
   .time{text-align:right; padding-top:15px; font-variant-numeric:tabular-nums; font-size:13px; font-weight:700; white-space:nowrap}
   .time .to{display:block; font-size:11px; font-weight:500; color:var(--muted)}
   .card{position:relative; display:flex; gap:13px; background:var(--surface); border:1px solid var(--line);
@@ -213,12 +213,16 @@
   }
   @media(max-width:480px){
     h1{font-size:32px}
-    .row{grid-template-columns:46px 1fr; gap:9px}
+    .row{grid-template-columns:46px minmax(0,1fr); gap:9px}
     .time{padding-top:13px; font-size:12.5px}
     .thumb{width:72px; height:72px}
     .ithumb{width:88px; height:88px}
     .card{padding:11px 30px 11px 12px; gap:11px}
+    .rstar{font-size:24px; padding:3px 3px}
+    .ratebox{gap:7px; padding:9px 11px}
   }
+  .cmt-form textarea,.cmt-form input[type=text]{width:100%; min-width:0}
+  .cmt .cb,.pd,.desc{overflow-wrap:anywhere}
   @media print{
     .hero-top,.views,#view-tl,#view-cat,footer,.printbtn,.premove,.minmode{display:none !important}
     #view-min{display:block !important}
