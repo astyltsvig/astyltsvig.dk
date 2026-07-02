@@ -91,6 +91,9 @@
   .grp{background:#efeafd; color:#6d28d9; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
   .night{background:#211d33; color:#c4b5fd; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
   .nowb{background:#16a34a; color:#fff; border-radius:7px; padding:3px 8px; font-weight:800; font-size:11px; letter-spacing:.03em}
+  .warnb{display:inline-block; background:#fdeaea; color:#b23838; border-radius:7px; padding:3px 9px; font-weight:700; font-size:11.5px; margin-top:5px}
+  .pcard.warn{border-color:#e7b9b9}
+  .plan-warn{background:#fdeaea; color:#b23838; border:1px solid #f2caca; border-radius:11px; padding:8px 13px; font-weight:700; font-size:12.5px; margin:0 0 10px}
   .card.live{border-color:#16a34a; box-shadow:0 0 0 1px #16a34a33, var(--sh)}
   /* praktisk info */
   .pinfo{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--line);
@@ -267,6 +270,9 @@ const UI = {
     namePrompt:"Dit navn (valgfrit) — vises for dem du deler med:", added:"Tilføjet til din plan ✓",
     emptyShared:"Den delte plan er tom.",
     now:"● NU", fav:"Favorit", remove:"Fjern",
+    conflict:"⚠ Tidskonflikt", conflictWith:t=>`⚠ Overlapper med “${t}”`,
+    dup:"⚠ Samme forestilling valgt flere gange", dupShort:"⚠ Valgt flere gange",
+    conflictSummary:n=>`⚠ ${n} tidskonflikt${n>1?"er":""} i planen`,
     practicalH:"ℹ️ Praktisk info", practicalLead:"Det vigtigste fra festivalens officielle side.",
     practical:[
       ["🎟️","Pass-typer","<b>Pass Festival</b> giver adgang til alt: IN-forestillinger, film, OFF, konferencer, Village og Deaf Party. <b>Pass Village</b> dækker OFF, konferencer, Village, mad og Deaf Party — men ikke IN-programmet. Billetter købes via festivalens officielle side."],
@@ -304,6 +310,9 @@ const UI = {
     namePrompt:"Your name (optional) — shown to people you share with:", added:"Added to your plan ✓",
     emptyShared:"The shared plan is empty.",
     now:"● NOW", fav:"Favourite", remove:"Remove",
+    conflict:"⚠ Time conflict", conflictWith:t=>`⚠ Overlaps with “${t}”`,
+    dup:"⚠ Same show picked more than once", dupShort:"⚠ Picked more than once",
+    conflictSummary:n=>`⚠ ${n} time conflict${n>1?"s":""} in your plan`,
     practicalH:"ℹ️ Practical info", practicalLead:"The essentials from the festival's official site.",
     practical:[
       ["🎟️","Pass types","The <b>Festival Pass</b> gives access to everything: IN shows, films, OFF, conferences, the Village and the Deaf Party. The <b>Village Pass</b> covers OFF, conferences, the Village, food and the Deaf Party — but not the IN program. Tickets are sold via the festival's official site."],
@@ -341,6 +350,9 @@ const UI = {
     namePrompt:"Votre nom (facultatif) — visible par ceux avec qui vous partagez :", added:"Ajouté à votre plan ✓",
     emptyShared:"Le plan partagé est vide.",
     now:"● MAINTENANT", fav:"Favori", remove:"Retirer",
+    conflict:"⚠ Conflit d'horaire", conflictWith:t=>`⚠ Chevauche « ${t} »`,
+    dup:"⚠ Même spectacle choisi plusieurs fois", dupShort:"⚠ Choisi plusieurs fois",
+    conflictSummary:n=>`⚠ ${n} conflit${n>1?"s":""} d'horaire dans le plan`,
     practicalH:"ℹ️ Infos pratiques", practicalLead:"L'essentiel depuis le site officiel du festival.",
     practical:[
       ["🎟️","Types de pass","Le <b>Pass Festival</b> donne accès à tout : spectacles IN, films, OFF, conférences, Village et Deaf Party. Le <b>Pass Village</b> couvre OFF, conférences, Village, restauration et Deaf Party — mais pas le programme IN. Billets en vente sur le site officiel du festival."],
@@ -739,11 +751,38 @@ function updateMinTab(){
   const b=document.querySelector('.vbtn[data-v="min"]');
   if(b)b.textContent=`${UI[curLang].vMin}`+(FAVS.size?` (${FAVS.size})`:"");
 }
+/* ---------- konflikt-tjek ---------- */
+const favParse=key=>{const[ei,day,start]=key.split("@");return{ei:+ei,day,start};};
+function favSlot(key){
+  const f=favParse(key), slots=(EV[f.ei]&&EV[f.ei].slots[f.day])||[];
+  const s=slots.find(x=>x[0]===f.start);
+  return s?{...f,end:s[1]}:null;
+}
+const evTitle=ei=>{const e=EV[ei]; if(!e)return""; return e.ref?L(C[e.ref].t):L(e.label);};
+const overlaps=(a,b)=>a.day===b.day && toMin(a.start)<toMin(b.end) && toMin(b.start)<toMin(a.end);
+function favIssues(key,set){
+  const me=favSlot(key); if(!me)return{dup:false,conflicts:[]};
+  let dup=false; const conflicts=[];
+  for(const k of set){
+    if(k===key)continue;
+    const o=favSlot(k); if(!o)continue;
+    if(o.ei===me.ei)dup=true;
+    else if(overlaps(me,o))conflicts.push(evTitle(o.ei));
+  }
+  return{dup,conflicts};
+}
+
 function toggleFav(key,el){
-  if(FAVS.has(key))FAVS.delete(key); else FAVS.add(key);
+  const adding=!FAVS.has(key);
+  if(adding)FAVS.add(key); else FAVS.delete(key);
   saveFavs();
   if(el){const on=FAVS.has(key); el.classList.toggle("on",on); el.textContent=on?"★":"☆";}
   updateMinTab();
+  if(adding){
+    const iss=favIssues(key,FAVS);
+    if(iss.dup)toast(UI[curLang].dup);
+    else if(iss.conflicts.length)toast(UI[curLang].conflictWith(iss.conflicts[0]));
+  }
   if(curView==="min")renderMin();
 }
 
@@ -861,7 +900,7 @@ function renderMin(){
   const u=UI[curLang];
   const shared=(minMode==="shared" && SHARED);
   const useSet=shared ? SHARED : FAVS;
-  let total=0;
+  let total=0, conflictSum=0;
   const blocks=DAYS.map(d=>{
     const items=[];
     for(let ei=0;ei<EV.length;ei++){
@@ -871,8 +910,10 @@ function renderMin(){
     if(!items.length)return "";
     items.sort((a,b)=>toMin(a.start)-toMin(b.start)||a.cat.localeCompare(b.cat));
     total+=items.length;
+    items.forEach(it=>{const iss=favIssues(it.fav,useSet); it.dup=iss.dup; it.conflicts=iss.conflicts; conflictSum+=iss.conflicts.length;});
     return `<div class="dayblock"><div class="dayhd">${L(d.full)}</div>`+items.map(it=>planCardHTML(it,!shared)).join("")+`</div>`;
   }).join("");
+  const conflictPairs=Math.round(conflictSum/2);
   const h2=shared ? `${u.sharedPlan}${sharedBy?` · ${sharedBy}`:''}` : u.myPlan;
   let html="";
   if(SHARED){
@@ -888,12 +929,13 @@ function renderMin(){
     html+=`<button class="printbtn" onclick="window.print()">${u.printPDF}</button>`;
   }
   html+=`</div></div>`;
+  if(conflictPairs>0)html+=`<div class="plan-warn">${u.conflictSummary(conflictPairs)}</div>`;
   html+= total ? blocks : `<div class="empty">${shared?u.emptyShared:u.noFav}</div>`;
   el.innerHTML=html;
 }
 function planCardHTML(it,editable){
-  const c=CATS[it.cat],night=isNight(it.start);
-  return `<div class="pcard" style="--cc:${c.color}">
+  const c=CATS[it.cat],night=isNight(it.start),hasWarn=it.dup||(it.conflicts&&it.conflicts.length);
+  return `<div class="pcard ${hasWarn?'warn':''}" style="--cc:${c.color}">
     <div class="ptime">${it.start}<span>${it.end}${night?' +1':''}</span></div>
     ${it.img?`<img class="pthumb" src="${it.img}" alt="" loading="lazy">`:''}
     <div class="pbody">
@@ -901,6 +943,8 @@ function planCardHTML(it,editable){
       <div class="ptitle">${it.title}${it.sub?` <span class="fr">· ${it.sub}</span>`:''}</div>
       <div class="pv">📍 ${L(c.venue)}${it.dur?` · ${it.dur}`:''} · ${c.pass}</div>
       ${it.meta?`<div class="pm">${it.meta.join(" · ")}</div>`:''}
+      ${it.dup?`<div class="warnb">${UI[curLang].dupShort}</div>`:''}
+      ${it.conflicts&&it.conflicts.length?`<div class="warnb">${UI[curLang].conflictWith(it.conflicts[0])}</div>`:''}
       ${it.desc?`<div class="pd">${it.desc}</div>`:''}
       ${it.note?`<div class="pn">${it.note}</div>`:''}
     </div>
