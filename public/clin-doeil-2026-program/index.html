@@ -185,7 +185,7 @@
   .pcard .ptime span{display:block; font-size:11px; font-weight:500; color:var(--muted)}
   .pcat{font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--cc)}
   .ptitle{font-size:15px; font-weight:600; margin:2px 0 3px; letter-spacing:-.01em}
-  .pv{font-size:12px; color:var(--muted)}
+  .pv{font-size:12px; color:var(--muted); display:flex; flex-wrap:wrap; align-items:center; gap:4px 6px; margin-top:2px}
   .pm{font-size:11.5px; color:var(--muted); margin-top:3px}
   .pd{font-size:12.5px; color:#413f49; margin-top:5px; line-height:1.45}
   .pn{font-size:12px; color:var(--muted); margin-top:3px}
@@ -233,6 +233,7 @@
     .minsub{display:none}
     .pcard{break-inside:avoid; page-break-inside:avoid; box-shadow:none}
     .pthumb{width:64px; height:64px}
+    .pcard .maplink{background:none; padding:0; color:#000; font-weight:600}
     .dayhd{break-after:avoid; page-break-after:avoid}
   }
 </style>
@@ -999,7 +1000,8 @@ function planCardHTML(it,editable){
     <div class="pbody">
       <div class="pcat">${L(c.name)}${it.tag?` · ${it.tag}`:''}${it.opt?` · ${UI[curLang].optional}`:''}${night?` · ${UI[curLang].afterMid}`:''}</div>
       <div class="ptitle">${it.title}${it.sub?` <span class="fr">· ${it.sub}</span>`:''}</div>
-      <div class="pv">📍 ${L(c.venue)}${it.dur?` · ${it.dur}`:''} · ${c.pass}</div>
+      <div class="pv"><a class="maplink" href="${gmaps(VEN[c.ven])}" target="_blank" rel="noopener">📍 ${L(c.venue)}</a>${it.dur?` <span>${it.dur}</span> ·`:' ·'} ${c.pass}</div>
+      <div class="pm">${VEN[c.ven].n} · ${VEN[c.ven].a}</div>
       ${it.meta?`<div class="pm">${it.meta.join(" · ")}</div>`:''}
       ${it.dup?`<div class="warnb">${UI[curLang].dupShort}</div>`:''}
       ${it.conflicts&&it.conflicts.length?`<div class="warnb">${UI[curLang].conflictWith(it.conflicts[0])}</div>`:''}
