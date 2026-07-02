@@ -94,6 +94,21 @@
   .warnb{display:inline-block; background:#fdeaea; color:#b23838; border-radius:7px; padding:3px 9px; font-weight:700; font-size:11.5px; margin-top:5px}
   .pcard.warn{border-color:#e7b9b9}
   .plan-warn{background:#fdeaea; color:#b23838; border:1px solid #f2caca; border-radius:11px; padding:8px 13px; font-weight:700; font-size:12.5px; margin:0 0 10px}
+  /* kommentarer */
+  .cmt-toggle{cursor:pointer}
+  .cmts{margin-top:9px; border-top:1px dashed var(--line); padding-top:9px}
+  .cmt{background:#faf7f1; border:1px solid var(--line); border-radius:10px; padding:8px 11px; margin-bottom:6px; font-size:12.5px; line-height:1.5}
+  .cmt b{font-size:12px}
+  .cmt-at{color:var(--muted); font-size:11px; margin-left:5px}
+  .cmt-empty,.cmt-load,.cmt-err{color:var(--muted); font-size:12.5px; padding:4px 0 6px}
+  .cmt-form{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+  .cmt-form input[type=text],.cmt-form textarea{border:1px solid var(--line); border-radius:9px; padding:8px 11px;
+    font-family:var(--font); font-size:13px; background:#fff; color:var(--ink); resize:vertical}
+  .cmt-form textarea{min-height:56px}
+  .cmt-form button{align-self:flex-end; border:none; background:var(--ink); color:#fff; border-radius:9px;
+    padding:7px 16px; font-weight:700; font-size:12.5px; cursor:pointer}
+  .cmt-form button:disabled{opacity:.5}
+  .cmt-hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
   .card.live{border-color:#16a34a; box-shadow:0 0 0 1px #16a34a33, var(--sh)}
   /* praktisk info */
   .pinfo{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--line);
@@ -273,6 +288,10 @@ const UI = {
     conflict:"⚠ Tidskonflikt", conflictWith:t=>`⚠ Overlapper med “${t}”`,
     dup:"⚠ Samme forestilling valgt flere gange", dupShort:"⚠ Valgt flere gange",
     conflictSummary:n=>`⚠ ${n} tidskonflikt${n>1?"er":""} i planen`,
+    comments:"Kommentarer", cmtLoading:"Indlæser…", cmtUnavailable:"Kommentarer er ikke tilgængelige lige nu.",
+    cmtEmpty:"Ingen kommentarer endnu — vær den første! 🤟", cmtAnon:"Anonym",
+    cmtName:"Navn (valgfrit)", cmtPlaceholder:"Skriv en kommentar…", cmtSend:"Send",
+    cmtSent:"Kommentar sendt ✓", cmtFail:"Kunne ikke sende — prøv igen",
     practicalH:"ℹ️ Praktisk info", practicalLead:"Det vigtigste fra festivalens officielle side.",
     practical:[
       ["🎟️","Pass-typer","<b>Pass Festival</b> giver adgang til alt: IN-forestillinger, film, OFF, konferencer, Village og Deaf Party. <b>Pass Village</b> dækker OFF, konferencer, Village, mad og Deaf Party — men ikke IN-programmet. Billetter købes via festivalens officielle side."],
@@ -313,6 +332,10 @@ const UI = {
     conflict:"⚠ Time conflict", conflictWith:t=>`⚠ Overlaps with “${t}”`,
     dup:"⚠ Same show picked more than once", dupShort:"⚠ Picked more than once",
     conflictSummary:n=>`⚠ ${n} time conflict${n>1?"s":""} in your plan`,
+    comments:"Comments", cmtLoading:"Loading…", cmtUnavailable:"Comments aren't available right now.",
+    cmtEmpty:"No comments yet — be the first! 🤟", cmtAnon:"Anonymous",
+    cmtName:"Name (optional)", cmtPlaceholder:"Write a comment…", cmtSend:"Send",
+    cmtSent:"Comment posted ✓", cmtFail:"Couldn't send — try again",
     practicalH:"ℹ️ Practical info", practicalLead:"The essentials from the festival's official site.",
     practical:[
       ["🎟️","Pass types","The <b>Festival Pass</b> gives access to everything: IN shows, films, OFF, conferences, the Village and the Deaf Party. The <b>Village Pass</b> covers OFF, conferences, the Village, food and the Deaf Party — but not the IN program. Tickets are sold via the festival's official site."],
@@ -353,6 +376,10 @@ const UI = {
     conflict:"⚠ Conflit d'horaire", conflictWith:t=>`⚠ Chevauche « ${t} »`,
     dup:"⚠ Même spectacle choisi plusieurs fois", dupShort:"⚠ Choisi plusieurs fois",
     conflictSummary:n=>`⚠ ${n} conflit${n>1?"s":""} d'horaire dans le plan`,
+    comments:"Commentaires", cmtLoading:"Chargement…", cmtUnavailable:"Les commentaires ne sont pas disponibles pour le moment.",
+    cmtEmpty:"Pas encore de commentaires — soyez le premier ! 🤟", cmtAnon:"Anonyme",
+    cmtName:"Nom (facultatif)", cmtPlaceholder:"Écrivez un commentaire…", cmtSend:"Envoyer",
+    cmtSent:"Commentaire envoyé ✓", cmtFail:"Échec de l'envoi — réessayez",
     practicalH:"ℹ️ Infos pratiques", practicalLead:"L'essentiel depuis le site officiel du festival.",
     practical:[
       ["🎟️","Types de pass","Le <b>Pass Festival</b> donne accès à tout : spectacles IN, films, OFF, conférences, Village et Deaf Party. Le <b>Pass Village</b> couvre OFF, conférences, Village, restauration et Deaf Party — mais pas le programme IN. Billets en vente sur le site officiel du festival."],
@@ -648,7 +675,7 @@ Object.keys(DFR).forEach(k=>{if(C[k])C[k].dfr=DFR[k];});
 
 /* ---------- TIDSLINJE-events ---------- */
 const EV=[];
-const add=(cat,slots,o={})=>EV.push({cat,slots,ref:o.ref,label:o.label,note:o.note,dur:o.dur,opt:o.opt,img:o.img});
+const add=(cat,slots,o={})=>EV.push({cat,slots,ref:o.ref,label:o.label,note:o.note,dur:o.dur,opt:o.opt,img:o.img,cid:o.cid});
 const everyday=s=>({thu:s,fri:s,sat:s,sun:s});
 
 /* IN (Comédie 1) */
@@ -678,10 +705,10 @@ add("vil",everyday([["14:30","14:50"],["17:30","17:50"]]),{ref:"flowtv"});
 
 /* KONFERENCER */
 CONF.forEach(c=>{
-  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`,fr:`${c.who} · ${c.coFr}`},dur:(c.s==="18:00"?"30 min":"45 min"),img:c.img});
+  add("conf",{[c.day]:[[c.s,c.e]]},{label:c.t,note:{da:`${c.who} · ${c.co}`,en:`${c.who} · ${c.coEn}`,fr:`${c.who} · ${c.coFr}`},dur:(c.s==="18:00"?"30 min":"45 min"),img:c.img,cid:c.img.match(/conf\d+/)[0]});
 });
-add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference",fr:"Conférence d'ouverture"},dur:"15 min",img:"img/conf_open.jpg"});
-add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden",fr:"Suède"},dur:"45 min",img:"img/conf_bap.jpg"});
+add("conf",{thu:[["12:15","12:30"]]},{label:{da:"Åbningskonference",en:"Opening Conference",fr:"Conférence d'ouverture"},dur:"15 min",img:"img/conf_open.jpg",cid:"conf_open"});
+add("conf",{thu:[["14:30","15:15"]]},{label:"Bringing Art into Politics: A Deaf-led Perspective",note:{da:"Sverige",en:"Sweden",fr:"Suède"},dur:"45 min",img:"img/conf_bap.jpg",cid:"conf_bap"});
 
 /* CINEMA — navngivne film + kortfilmsblokke */
 add("cine",{thu:[["09:20","10:29"]],fri:[["09:20","10:29"]],sun:[["13:10","14:19"]]},{ref:"cine_marsha"});
@@ -745,7 +772,7 @@ function mkItem(e,ei,s,day){
   const cd=e.ref?C[e.ref]:null;
   return {cat:e.cat,start:s[0],end:s[1],tag:s[2],
     title:e.ref?L(cd.t):L(e.label),sub:e.ref?cd.fr:"",desc:e.ref?cDesc(cd):"",meta:e.ref?cMeta(cd):null,
-    note:L(e.note),dur:e.dur,opt:e.opt,img:e.ref?cd.img:e.img,fav:`${ei}@${day}@${s[0]}`};
+    note:L(e.note),dur:e.dur,opt:e.opt,img:e.ref?cd.img:e.img,cid:e.ref||e.cid||null,fav:`${ei}@${day}@${s[0]}`};
 }
 function updateMinTab(){
   const b=document.querySelector('.vbtn[data-v="min"]');
@@ -887,6 +914,8 @@ function renderTL(){
         ${it.note?`<div class="meta" style="margin-top:4px"><span>${it.note}</span></div>`:''}
         ${hasDesc?`<div class="more">${UI[curLang].tapDesc}</div>
           <div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
+        ${it.cid?`<div class="more cmt-toggle" onclick="event.stopPropagation();openComments('${it.cid}',this)">💬 ${UI[curLang].comments}</div>
+          <div class="cmts" style="display:none" onclick="event.stopPropagation()"></div>`:''}
         </div>
       </div></div>`;
     }).join("");
@@ -1040,6 +1069,51 @@ function renderCat(){
 
   html+=`</div>`;
   el.innerHTML=html;
+}
+
+/* ---------- kommentarer ---------- */
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtAt=iso=>{try{const d=new Date(iso);return `${d.getDate()}/${d.getMonth()+1} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;}catch(e){return"";}};
+function openComments(cid,btn){
+  const panel=btn.nextElementSibling;
+  if(panel.dataset.loaded){panel.style.display=panel.style.display==="none"?"":"none";return;}
+  panel.dataset.loaded="1"; panel.style.display="";
+  panel.innerHTML=`<div class="cmt-load">${UI[curLang].cmtLoading}</div>`;
+  renderCmtPanel(panel,cid);
+}
+async function renderCmtPanel(panel,cid){
+  const u=UI[curLang];
+  let list;
+  try{
+    const r=await fetch(`/api/comments?show=${encodeURIComponent(cid)}`);
+    if(!r.ok)throw 0;
+    list=(await r.json()).comments||[];
+  }catch(e){panel.innerHTML=`<div class="cmt-err">${u.cmtUnavailable}</div>`;return;}
+  let name=""; try{name=localStorage.getItem("cdo2026_name")||"";}catch(e){}
+  panel.innerHTML=
+    (list.length
+      ? list.map(c=>`<div class="cmt"><b>${esc(c.name)||u.cmtAnon}</b><span class="cmt-at">${fmtAt(c.created_at)}</span><div>${esc(c.text)}</div></div>`).join("")
+      : `<div class="cmt-empty">${u.cmtEmpty}</div>`)
+    +`<form class="cmt-form" onsubmit="submitCmt(event,'${cid}')">
+        <input type="text" name="name" maxlength="40" placeholder="${u.cmtName}" value="${esc(name)}">
+        <textarea name="text" maxlength="500" required placeholder="${u.cmtPlaceholder}"></textarea>
+        <input class="cmt-hp" type="text" name="hp" tabindex="-1" autocomplete="off">
+        <button type="submit">${u.cmtSend}</button>
+      </form>`;
+}
+async function submitCmt(ev,cid){
+  ev.preventDefault(); ev.stopPropagation();
+  const f=ev.target, btn=f.querySelector("button");
+  const text=f.text.value.trim(); if(text.length<2)return;
+  btn.disabled=true;
+  try{
+    const r=await fetch("/api/comments",{method:"POST",headers:{"content-type":"application/json"},
+      body:JSON.stringify({show:cid,name:f.name.value.trim(),text,hp:f.hp.value})});
+    if(!r.ok)throw 0;
+    try{if(f.name.value.trim())localStorage.setItem("cdo2026_name",f.name.value.trim());}catch(e){}
+    toast(UI[curLang].cmtSent);
+    renderCmtPanel(f.closest(".cmts"),cid);
+  }catch(e){toast(UI[curLang].cmtFail); btn.disabled=false;}
 }
 
 function setView(v){
