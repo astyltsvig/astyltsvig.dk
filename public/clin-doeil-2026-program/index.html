@@ -90,6 +90,15 @@
   .maplink:active{opacity:.65}
   .grp{background:#efeafd; color:#6d28d9; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
   .night{background:#211d33; color:#c4b5fd; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
+  .nowb{background:#16a34a; color:#fff; border-radius:7px; padding:3px 8px; font-weight:800; font-size:11px; letter-spacing:.03em}
+  .card.live{border-color:#16a34a; box-shadow:0 0 0 1px #16a34a33, var(--sh)}
+  /* praktisk info */
+  .pinfo{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:13px 15px; margin-bottom:9px; box-shadow:var(--sh)}
+  .pinfo .pic{font-size:22px; line-height:1.2; flex:0 0 auto}
+  .pinfo .pt{font-size:14px; font-weight:700; margin-bottom:2px}
+  .pinfo .pb{font-size:13px; color:#413f49; line-height:1.55}
+  .pinfo a{color:#3a4bd0; font-weight:600; text-decoration:none}
   .opt{background:#fff2d1; color:#8a6d10; border-radius:7px; padding:3px 8px; font-weight:700; font-size:11.5px}
   .desc{margin-top:9px; font-size:13px; color:#413f49; border-top:1px dashed var(--line); padding-top:9px; display:none; line-height:1.5}
   .card.open .desc{display:block}
@@ -251,12 +260,21 @@ const UI = {
     guide:["Skift mellem <b>Tidslinje</b>, <b>Fuldt program</b> og <b>Min plan</b> øverst.",
       "Vælg en dag, og filtrér på kategori — tryk én for kun den, tilføj flere, eller tryk <b>↺ Nulstil</b>.",
       "Tryk <b>★</b> på et punkt for at gemme det i <b>Min plan</b> — som du kan printe eller gemme som PDF.",
-      "Tryk på et kort for beskrivelse. Skift sprog med <b>DA / EN</b>."],
+      "Tryk på et kort for beskrivelse. Skift sprog med <b>DA / EN / FR</b>."],
     hide:"Skjul",
     share:"Del", sharePlan:"📤 Del min plan", copied:"Link kopieret ✓",
     addToPlan:"➕ Tilføj til min plan", sharedPlan:"Delt plan",
     namePrompt:"Dit navn (valgfrit) — vises for dem du deler med:", added:"Tilføjet til din plan ✓",
     emptyShared:"Den delte plan er tom.",
+    now:"● NU", fav:"Favorit", remove:"Fjern",
+    practicalH:"ℹ️ Praktisk info", practicalLead:"Det vigtigste fra festivalens officielle side.",
+    practical:[
+      ["🎟️","Pass-typer","<b>Pass Festival</b> giver adgang til alt: IN-forestillinger, film, OFF, konferencer, Village og Deaf Party. <b>Pass Village</b> dækker OFF, konferencer, Village, mad og Deaf Party — men ikke IN-programmet. Billetter købes via festivalens officielle side."],
+      ["🤟","Tilgængelighed","Hele festivalen foregår på fransk tegnsprog (LSF) og International Sign. Byens turistkontor tilbyder også kulturelle rundvisninger på LSF/IS."],
+      ["🍔","Mad & Village","Food trucks og boder på festivalpladsen (Stade Delaune, 7.000 m²) — åben hele dagen til sen aften."],
+      ["⚽","Fan Zone","Storskærm i Village viser VM i fodbold: 1/8- og kvartfinaler under festivalen."],
+      ["🌐","Officielt","Officiel side & billetter: <a href='https://www.clin-doeil.eu/en/' target='_blank' rel='noopener'>clin-doeil.eu</a> · <a href='https://www.billetweb.fr/festival-clin-doeil-2026' target='_blank' rel='noopener'>billetsalg</a>."],
+    ],
     footer:`<b>Uofficiel fan-oversigt.</b> Jeg tager ikke ansvar for fejl eller ændringer i informationen — tjek altid det officielle program. Fuldt program er hentet fra festivalens officielle program-PDF (2026).<br><br>Pass: IN kræver Pass Festival; OFF, Village, konference og Deaf Party dækkes også af Pass Village.`,
   },
   en:{
@@ -279,12 +297,21 @@ const UI = {
     guide:["Switch between <b>Timeline</b>, <b>Full program</b> and <b>My plan</b> at the top.",
       "Pick a day and filter by category — tap one for just that, add more, or tap <b>↺ Reset</b>.",
       "Tap <b>★</b> on an item to save it to <b>My plan</b> — which you can print or save as PDF.",
-      "Tap a card for its description. Switch language with <b>DA / EN</b>."],
+      "Tap a card for its description. Switch language with <b>DA / EN / FR</b>."],
     hide:"Hide",
     share:"Share", sharePlan:"📤 Share my plan", copied:"Link copied ✓",
     addToPlan:"➕ Add to my plan", sharedPlan:"Shared plan",
     namePrompt:"Your name (optional) — shown to people you share with:", added:"Added to your plan ✓",
     emptyShared:"The shared plan is empty.",
+    now:"● NOW", fav:"Favourite", remove:"Remove",
+    practicalH:"ℹ️ Practical info", practicalLead:"The essentials from the festival's official site.",
+    practical:[
+      ["🎟️","Pass types","The <b>Festival Pass</b> gives access to everything: IN shows, films, OFF, conferences, the Village and the Deaf Party. The <b>Village Pass</b> covers OFF, conferences, the Village, food and the Deaf Party — but not the IN program. Tickets are sold via the festival's official site."],
+      ["🤟","Accessibility","The whole festival runs in French Sign Language (LSF) and International Sign. The Reims tourist office also offers cultural tours in LSF/IS."],
+      ["🍔","Food & Village","Food trucks and stands on the festival grounds (Stade Delaune, 7,000 m²) — open all day until late evening."],
+      ["⚽","Fan Zone","A giant screen in the Village shows the FIFA World Cup: Round of 16 and Quarter-Finals during the festival."],
+      ["🌐","Official","Official site & tickets: <a href='https://www.clin-doeil.eu/en/' target='_blank' rel='noopener'>clin-doeil.eu</a> · <a href='https://www.billetweb.fr/festival-clin-doeil-2026' target='_blank' rel='noopener'>ticket shop</a>."],
+    ],
     footer:`<b>Unofficial fan overview.</b> I take no responsibility for errors or changes — always check the official program. The full program is taken from the festival's official program PDF (2026).<br><br>Passes: IN requires a Festival Pass; OFF, Village, conferences and the Deaf Party are also covered by a Village Pass.`,
   },
   fr:{
@@ -313,6 +340,15 @@ const UI = {
     addToPlan:"➕ Ajouter à mon plan", sharedPlan:"Plan partagé",
     namePrompt:"Votre nom (facultatif) — visible par ceux avec qui vous partagez :", added:"Ajouté à votre plan ✓",
     emptyShared:"Le plan partagé est vide.",
+    now:"● MAINTENANT", fav:"Favori", remove:"Retirer",
+    practicalH:"ℹ️ Infos pratiques", practicalLead:"L'essentiel depuis le site officiel du festival.",
+    practical:[
+      ["🎟️","Types de pass","Le <b>Pass Festival</b> donne accès à tout : spectacles IN, films, OFF, conférences, Village et Deaf Party. Le <b>Pass Village</b> couvre OFF, conférences, Village, restauration et Deaf Party — mais pas le programme IN. Billets en vente sur le site officiel du festival."],
+      ["🤟","Accessibilité","Tout le festival se déroule en langue des signes française (LSF) et en signes internationaux. L'office de tourisme de Reims propose aussi des visites culturelles en LSF/IS."],
+      ["🍔","Restauration & Village","Food trucks et stands sur le site du festival (Stade Delaune, 7 000 m²) — ouvert toute la journée jusque tard le soir."],
+      ["⚽","Fan Zone","Écran géant au Village pour la Coupe du monde : 8es et quarts de finale pendant le festival."],
+      ["🌐","Officiel","Site officiel & billets : <a href='https://www.clin-doeil.eu/' target='_blank' rel='noopener'>clin-doeil.eu</a> · <a href='https://www.billetweb.fr/festival-clin-doeil-2026' target='_blank' rel='noopener'>billetterie</a>."],
+    ],
     footer:`<b>Aperçu non officiel réalisé par un fan.</b> Je ne suis pas responsable des erreurs ou des changements — vérifiez toujours le programme officiel. Programme complet issu du PDF officiel du festival (2026).<br><br>Pass : IN nécessite le Pass Festival ; OFF, Village, conférences et Deaf Party sont aussi couverts par le Pass Village.`,
   },
 };
@@ -668,6 +704,13 @@ add("dp",{fri:[["01:00","02:00"]],sat:[["01:15","02:15"]]},{ref:"dp_signslam"});
 
 /* ---------- render ---------- */
 let curDay="thu", curView="tl", curGroup="all", curLang="da", allMode=true;
+/* under festivalen: åbn automatisk på dagens dato */
+const FESTDATES={ "2026-07-02":"thu","2026-07-03":"fri","2026-07-04":"sat","2026-07-05":"sun" };
+const _today=new Date(), _iso=`${_today.getFullYear()}-${String(_today.getMonth()+1).padStart(2,"0")}-${String(_today.getDate()).padStart(2,"0")}`;
+const todayKey=FESTDATES[_iso]||null;
+if(todayKey)curDay=todayKey;
+const nowMin=()=>{const n=new Date();let v=n.getHours()*60+n.getMinutes();if(n.getHours()<6)v+=1440;return v;};
+const isLive=it=>todayKey===curDay && toMin(it.start)<=nowMin() && nowMin()<toMin(it.end);
 let activeCats=new Set(Object.keys(CATS));
 const toMin=t=>{const[h,m]=t.split(":").map(Number);let v=h*60+m;if(h<6)v+=1440;return v;};
 const isNight=t=>Number(t.split(":")[0])<6;
@@ -778,15 +821,16 @@ function renderTL(){
     html+=`<div class="empty">${UI[curLang].empty}</div>`;
   }else{
     html+=items.map(it=>{
-      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta),on=FAVS.has(it.fav);
+      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta),on=FAVS.has(it.fav),live=isLive(it);
       return `<div class="row"><div class="time">${it.start}<span class="to">${it.end}${night?' +1':''}</span></div>
-      <div class="card ${hasDesc?'exp':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
-        <span class="star ${on?'on':''}" title="Favorit" onclick="event.stopPropagation();toggleFav('${it.fav}',this)">${on?'★':'☆'}</span>
+      <div class="card ${hasDesc?'exp':''} ${live?'live':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
+        <span class="star ${on?'on':''}" title="${UI[curLang].fav}" onclick="event.stopPropagation();toggleFav('${it.fav}',this)">${on?'★':'☆'}</span>
         ${it.img?`<img class="thumb" src="${it.img}" alt="" loading="lazy">`:''}
         <div class="cbody">
         <div class="ctag">${L(c.name)}</div>
         <div class="title">${it.title}${it.sub?` <span style="font-weight:400;color:var(--muted);font-size:12px">· ${it.sub}</span>`:''}</div>
         <div class="meta">
+          ${live?`<span class="nowb">${UI[curLang].now}</span>`:''}
           <a class="maplink" href="${gmaps(VEN[c.ven])}" target="_blank" rel="noopener">📍 ${L(c.venue)}</a>
           ${it.dur?`<span>${it.dur}</span>`:''}
           ${it.tag?`<span class="grp">${it.tag}</span>`:''}
@@ -853,7 +897,7 @@ function planCardHTML(it,editable){
       ${it.desc?`<div class="pd">${it.desc}</div>`:''}
       ${it.note?`<div class="pn">${it.note}</div>`:''}
     </div>
-    ${editable?`<button class="premove" title="Fjern" onclick="toggleFav('${it.fav}')">★</button>`:''}
+    ${editable?`<button class="premove" title="${UI[curLang].remove}" onclick="toggleFav('${it.fav}')">★</button>`:''}
   </div>`;
 }
 
@@ -902,6 +946,10 @@ function renderCat(){
   const dot=k=>`<span class="dot" style="background:${CATS[k].color}"></span>`;
 
   let html=`<div class="cat">`;
+
+  const u=UI[curLang];
+  html+=`<h2>${u.practicalH}</h2><p class="lead">${u.practicalLead}</p>`;
+  html+=u.practical.map(([ic,pt,pb])=>`<div class="pinfo"><div class="pic">${ic}</div><div><div class="pt">${pt}</div><div class="pb">${pb}</div></div></div>`).join("");
 
   html+=`<h2>${dot('in')}${T.inH}</h2><p class="lead">${T.inLead}</p>`;
   html+=["canterville","lastones","fifthwall","sleep","window","mercury","opening","awards"].map(id=>itemHTML(C[id])).join("");
