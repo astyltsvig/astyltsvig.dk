@@ -704,6 +704,13 @@ add("dp",{fri:[["01:00","02:00"]],sat:[["01:15","02:15"]]},{ref:"dp_signslam"});
 
 /* ---------- render ---------- */
 let curDay="thu", curView="tl", curGroup="all", curLang="da", allMode=true;
+/* sprog: husk brugerens valg; ellers følg browserens sprog (da/fr → da/fr, andet → en) */
+(function(){
+  let saved=null; try{saved=localStorage.getItem("cdo2026_lang");}catch(e){}
+  if(saved && UI[saved]){ curLang=saved; return; }
+  const nav=(navigator.language||"en").slice(0,2).toLowerCase();
+  curLang = nav==="da" ? "da" : nav==="fr" ? "fr" : "en";
+})();
 /* under festivalen: åbn automatisk på dagens dato */
 const FESTDATES={ "2026-07-02":"thu","2026-07-03":"fri","2026-07-04":"sat","2026-07-05":"sun" };
 const _today=new Date(), _iso=`${_today.getFullYear()}-${String(_today.getMonth()+1).padStart(2,"0")}-${String(_today.getDate()).padStart(2,"0")}`;
@@ -1027,7 +1034,7 @@ function applyLang(){
   renderGuide();
   buildDays();buildFilters();buildGroup();renderTL();renderCat();renderMin();
 }
-document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.dataset.l;applyLang();});
+document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.dataset.l;try{localStorage.setItem("cdo2026_lang",curLang);}catch(e){} applyLang();});
 
 applyLang();
 if(SHARED) setView("min");
