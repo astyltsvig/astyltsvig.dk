@@ -94,19 +94,37 @@
   .warnb{display:inline-block; background:#fdeaea; color:#b23838; border-radius:7px; padding:3px 9px; font-weight:700; font-size:11.5px; margin-top:5px}
   .pcard.warn{border-color:#e7b9b9}
   .plan-warn{background:#fdeaea; color:#b23838; border:1px solid #f2caca; border-radius:11px; padding:8px 13px; font-weight:700; font-size:12.5px; margin:0 0 10px}
-  /* kommentarer */
+  /* kommentarer & stjerner */
   .cmt-toggle{cursor:pointer}
-  .cmts{margin-top:9px; border-top:1px dashed var(--line); padding-top:9px}
-  .cmt{background:#faf7f1; border:1px solid var(--line); border-radius:10px; padding:8px 11px; margin-bottom:6px; font-size:12.5px; line-height:1.5}
-  .cmt b{font-size:12px}
-  .cmt-at{color:var(--muted); font-size:11px; margin-left:5px}
+  .ratechip{display:inline-flex; align-items:center; gap:3px; background:#fff7e0; color:#996c00; border-radius:7px;
+    padding:3px 8px; font-weight:800; font-size:11.5px}
+  .cmts{margin-top:9px; border-top:1px dashed var(--line); padding-top:10px}
+  .ratebox{display:flex; align-items:center; gap:10px; flex-wrap:wrap; background:linear-gradient(135deg,#fffbef,#fff4d8);
+    border:1px solid #f0e0b0; border-radius:12px; padding:9px 13px; margin-bottom:9px}
+  .ratebox .rl{font-weight:700; font-size:13px; color:#6b5a20}
+  .rstars{display:inline-flex; gap:2px}
+  .rstar{font-size:28px; line-height:1; color:#d8cfae; cursor:pointer; user-select:none; padding:3px 4px; transition:transform .12s, color .12s}
+  .rstar.on{color:#f5a623}
+  .rstars:not(.done) .rstar:hover{transform:scale(1.2)}
+  .rstars.done .rstar{cursor:default}
+  .ratebox .rmeta{font-size:12px; color:#8a793e; font-weight:600}
+  .cmt{display:flex; gap:9px; background:#faf7f1; border:1px solid var(--line); border-radius:12px; padding:9px 12px; margin-bottom:7px; font-size:13px; line-height:1.5}
+  .cmt .av{flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--cc,#ea580c); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px}
+  .cmt .cb{flex:1; min-width:0}
+  .cmt b{font-size:12.5px}
+  .cmt-at{color:var(--muted); font-size:11px; margin-left:6px}
+  .cmt .cstars{color:#f5a623; font-size:12px; letter-spacing:1px; margin-left:6px}
   .cmt-empty,.cmt-load,.cmt-err{color:var(--muted); font-size:12.5px; padding:4px 0 6px}
-  .cmt-form{display:flex; flex-direction:column; gap:6px; margin-top:8px}
-  .cmt-form input[type=text],.cmt-form textarea{border:1px solid var(--line); border-radius:9px; padding:8px 11px;
+  .cmt-form{display:flex; flex-direction:column; gap:7px; margin-top:9px}
+  .cmt-form input[type=text],.cmt-form textarea{border:1px solid var(--line); border-radius:10px; padding:9px 12px;
     font-family:var(--font); font-size:13px; background:#fff; color:var(--ink); resize:vertical}
-  .cmt-form textarea{min-height:56px}
-  .cmt-form button{align-self:flex-end; border:none; background:var(--ink); color:#fff; border-radius:9px;
-    padding:7px 16px; font-weight:700; font-size:12.5px; cursor:pointer}
+  .cmt-form input[type=text]:focus,.cmt-form textarea:focus{outline:2px solid #d9c9f5; border-color:#b79ce8}
+  .cmt-form textarea{min-height:58px}
+  .cmt-frow{display:flex; gap:7px}
+  .cmt-frow input{flex:1; min-width:0}
+  .cmt-form button{border:none; background:var(--ink); color:#fff; border-radius:10px;
+    padding:9px 20px; font-weight:700; font-size:13px; cursor:pointer; white-space:nowrap}
   .cmt-form button:disabled{opacity:.5}
   .cmt-hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
   .card.live{border-color:#16a34a; box-shadow:0 0 0 1px #16a34a33, var(--sh)}
@@ -141,7 +159,7 @@
   .item .d{font-size:13px; color:#413f49; line-height:1.5}
   footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); line-height:1.6}
   /* favorites */
-  .star{position:absolute; top:9px; right:10px; font-size:22px; line-height:1; color:#e8a900; cursor:pointer; user-select:none; opacity:.42}
+  .star{position:absolute; top:3px; right:3px; font-size:24px; line-height:1; color:#e8a900; cursor:pointer; user-select:none; opacity:.42; padding:7px 9px}
   .star.on{opacity:1}
   /* min plan */
   .minhead{display:flex; justify-content:space-between; align-items:center; gap:12px; margin:16px 0 6px; flex-wrap:wrap}
@@ -292,6 +310,8 @@ const UI = {
     cmtEmpty:"Ingen kommentarer endnu — vær den første! 🤟", cmtAnon:"Anonym",
     cmtName:"Navn (valgfrit)", cmtPlaceholder:"Skriv en kommentar…", cmtSend:"Send",
     cmtSent:"Kommentar sendt ✓", cmtFail:"Kunne ikke sende — prøv igen",
+    rate:"Giv stjerner:", rated:"Din bedømmelse:", thanksRating:"Tak for dine stjerner ✓",
+    ratings:n=>`${n} bedømmelse${n>1?"r":""}`,
     practicalH:"ℹ️ Praktisk info", practicalLead:"Det vigtigste fra festivalens officielle side.",
     practical:[
       ["🎟️","Pass-typer","<b>Pass Festival</b> giver adgang til alt: IN-forestillinger, film, OFF, konferencer, Village og Deaf Party. <b>Pass Village</b> dækker OFF, konferencer, Village, mad og Deaf Party — men ikke IN-programmet. Billetter købes via festivalens officielle side."],
@@ -336,6 +356,8 @@ const UI = {
     cmtEmpty:"No comments yet — be the first! 🤟", cmtAnon:"Anonymous",
     cmtName:"Name (optional)", cmtPlaceholder:"Write a comment…", cmtSend:"Send",
     cmtSent:"Comment posted ✓", cmtFail:"Couldn't send — try again",
+    rate:"Rate it:", rated:"Your rating:", thanksRating:"Thanks for your stars ✓",
+    ratings:n=>`${n} rating${n>1?"s":""}`,
     practicalH:"ℹ️ Practical info", practicalLead:"The essentials from the festival's official site.",
     practical:[
       ["🎟️","Pass types","The <b>Festival Pass</b> gives access to everything: IN shows, films, OFF, conferences, the Village and the Deaf Party. The <b>Village Pass</b> covers OFF, conferences, the Village, food and the Deaf Party — but not the IN program. Tickets are sold via the festival's official site."],
@@ -380,6 +402,8 @@ const UI = {
     cmtEmpty:"Pas encore de commentaires — soyez le premier ! 🤟", cmtAnon:"Anonyme",
     cmtName:"Nom (facultatif)", cmtPlaceholder:"Écrivez un commentaire…", cmtSend:"Envoyer",
     cmtSent:"Commentaire envoyé ✓", cmtFail:"Échec de l'envoi — réessayez",
+    rate:"Notez :", rated:"Votre note :", thanksRating:"Merci pour vos étoiles ✓",
+    ratings:n=>`${n} note${n>1?"s":""}`,
     practicalH:"ℹ️ Infos pratiques", practicalLead:"L'essentiel depuis le site officiel du festival.",
     practical:[
       ["🎟️","Types de pass","Le <b>Pass Festival</b> donne accès à tout : spectacles IN, films, OFF, conférences, Village et Deaf Party. Le <b>Pass Village</b> couvre OFF, conférences, Village, restauration et Deaf Party — mais pas le programme IN. Billets en vente sur le site officiel du festival."],
@@ -894,7 +918,7 @@ function renderTL(){
     html+=`<div class="empty">${UI[curLang].empty}</div>`;
   }else{
     html+=items.map(it=>{
-      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta),on=FAVS.has(it.fav),live=isLive(it);
+      const c=CATS[it.cat],night=isNight(it.start),hasDesc=!!(it.desc||it.meta),on=FAVS.has(it.fav),live=isLive(it),rg=it.cid?RATINGS[it.cid]:null;
       return `<div class="row"><div class="time">${it.start}<span class="to">${it.end}${night?' +1':''}</span></div>
       <div class="card ${hasDesc?'exp':''} ${live?'live':''}" style="--cc:${c.color}" ${hasDesc?'onclick="this.classList.toggle(\'open\')"':''}>
         <span class="star ${on?'on':''}" title="${UI[curLang].fav}" onclick="event.stopPropagation();toggleFav('${it.fav}',this)">${on?'★':'☆'}</span>
@@ -904,6 +928,7 @@ function renderTL(){
         <div class="title">${it.title}${it.sub?` <span style="font-weight:400;color:var(--muted);font-size:12px">· ${it.sub}</span>`:''}</div>
         <div class="meta">
           ${live?`<span class="nowb">${UI[curLang].now}</span>`:''}
+          ${rg&&rg.avg?`<span class="ratechip">★ ${rg.avg}${rg.rc>1?` (${rg.rc})`:''}</span>`:''}
           <a class="maplink" href="${gmaps(VEN[c.ven])}" target="_blank" rel="noopener">📍 ${L(c.venue)}</a>
           ${it.dur?`<span>${it.dur}</span>`:''}
           ${it.tag?`<span class="grp">${it.tag}</span>`:''}
@@ -914,7 +939,7 @@ function renderTL(){
         ${it.note?`<div class="meta" style="margin-top:4px"><span>${it.note}</span></div>`:''}
         ${hasDesc?`<div class="more">${UI[curLang].tapDesc}</div>
           <div class="desc">${it.meta?`<div class="dl" style="margin-bottom:4px">${it.meta.join(" · ")}</div>`:''}${it.desc||''}</div>`:''}
-        ${it.cid?`<div class="more cmt-toggle" onclick="event.stopPropagation();openComments('${it.cid}',this)">💬 ${UI[curLang].comments}</div>
+        ${it.cid?`<div class="more cmt-toggle" onclick="event.stopPropagation();openComments('${it.cid}',this)">💬 ${UI[curLang].comments}${rg&&rg.cc?` (${rg.cc})`:''} · ⭐</div>
           <div class="cmts" style="display:none" onclick="event.stopPropagation()"></div>`:''}
         </div>
       </div></div>`;
@@ -1071,9 +1096,40 @@ function renderCat(){
   el.innerHTML=html;
 }
 
-/* ---------- kommentarer ---------- */
+/* ---------- kommentarer & stjerner ---------- */
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fmtAt=iso=>{try{const d=new Date(iso);return `${d.getDate()}/${d.getMonth()+1} ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`;}catch(e){return"";}};
+let RATINGS={};
+let MYRATES={}; try{MYRATES=JSON.parse(localStorage.getItem("cdo2026_ratings")||"{}");}catch(e){}
+const panelOpen=()=>!!document.querySelector('.cmts[data-loaded]:not([style*="none"])');
+async function loadSummary(render=true){
+  try{
+    const r=await fetch("/api/comments?summary=1");
+    if(!r.ok)return;
+    RATINGS=(await r.json()).shows||{};
+    if(render && curView==="tl" && !panelOpen())renderTL();
+  }catch(e){}
+}
+const starsTxt=n=>"★".repeat(n)+"☆".repeat(5-n);
+async function rate(cid,v,box){
+  if(MYRATES[cid])return;
+  try{
+    const r=await fetch("/api/comments",{method:"POST",headers:{"content-type":"application/json"},
+      body:JSON.stringify({show:cid,rating:v,text:"",hp:""})});
+    if(!r.ok)throw 0;
+    MYRATES[cid]=v; try{localStorage.setItem("cdo2026_ratings",JSON.stringify(MYRATES));}catch(e){}
+    const a=RATINGS[cid]||(RATINGS[cid]={cc:0,rc:0,avg:null});
+    a.avg=a.rc?Math.round(((a.avg*a.rc+v)/(a.rc+1))*10)/10:v; a.rc++;
+    toast(UI[curLang].thanksRating);
+    if(box)box.outerHTML=rateBoxHTML(cid);
+    loadSummary(false);
+  }catch(e){toast(UI[curLang].cmtFail);}
+}
+function rateBoxHTML(cid){
+  const u=UI[curLang], mine=MYRATES[cid]||0, agg=RATINGS[cid];
+  const stars=[1,2,3,4,5].map(v=>`<span class="rstar ${v<=mine?'on':''}" ${mine?'':`onclick="event.stopPropagation();rate('${cid}',${v},this.closest('.ratebox'))"`}>${v<=mine?'★':'☆'}</span>`).join("");
+  return `<div class="ratebox"><span class="rl">${mine?u.rated:u.rate}</span><span class="rstars ${mine?'done':''}">${stars}</span>${agg&&agg.avg?`<span class="rmeta">Ø ${agg.avg} · ${u.ratings(agg.rc)}</span>`:''}</div>`;
+}
 function openComments(cid,btn){
   const panel=btn.nextElementSibling;
   if(panel.dataset.loaded){panel.style.display=panel.style.display==="none"?"":"none";return;}
@@ -1083,22 +1139,31 @@ function openComments(cid,btn){
 }
 async function renderCmtPanel(panel,cid){
   const u=UI[curLang];
-  let list;
+  let data;
   try{
     const r=await fetch(`/api/comments?show=${encodeURIComponent(cid)}`);
     if(!r.ok)throw 0;
-    list=(await r.json()).comments||[];
+    data=await r.json();
   }catch(e){panel.innerHTML=`<div class="cmt-err">${u.cmtUnavailable}</div>`;return;}
+  const list=data.comments||[];
+  if(data.rating)RATINGS[cid]={cc:list.length,rc:data.rating.rc,avg:data.rating.avg};
   let name=""; try{name=localStorage.getItem("cdo2026_name")||"";}catch(e){}
+  const cmtHTML=c=>{
+    const nm=esc(c.name)||u.cmtAnon;
+    return `<div class="cmt"><div class="av">${esc((c.name||"?").trim().charAt(0).toUpperCase()||"?")}</div><div class="cb">
+      <b>${nm}</b><span class="cmt-at">${fmtAt(c.created_at)}</span>${c.rating>0?`<span class="cstars">${starsTxt(c.rating)}</span>`:''}
+      <div>${esc(c.text)}</div></div></div>`;
+  };
   panel.innerHTML=
-    (list.length
-      ? list.map(c=>`<div class="cmt"><b>${esc(c.name)||u.cmtAnon}</b><span class="cmt-at">${fmtAt(c.created_at)}</span><div>${esc(c.text)}</div></div>`).join("")
-      : `<div class="cmt-empty">${u.cmtEmpty}</div>`)
+    rateBoxHTML(cid)
+    +(list.length ? list.map(cmtHTML).join("") : `<div class="cmt-empty">${u.cmtEmpty}</div>`)
     +`<form class="cmt-form" onsubmit="submitCmt(event,'${cid}')">
-        <input type="text" name="name" maxlength="40" placeholder="${u.cmtName}" value="${esc(name)}">
         <textarea name="text" maxlength="500" required placeholder="${u.cmtPlaceholder}"></textarea>
         <input class="cmt-hp" type="text" name="hp" tabindex="-1" autocomplete="off">
-        <button type="submit">${u.cmtSend}</button>
+        <div class="cmt-frow">
+          <input type="text" name="name" maxlength="40" placeholder="${u.cmtName}" value="${esc(name)}">
+          <button type="submit">${u.cmtSend}</button>
+        </div>
       </form>`;
 }
 async function submitCmt(ev,cid){
@@ -1156,6 +1221,7 @@ document.querySelectorAll("#langsel .lang").forEach(b=>b.onclick=()=>{curLang=b.
 
 applyLang();
 if(SHARED) setView("min");
+loadSummary();
 </script>
 </body>
 </html>
