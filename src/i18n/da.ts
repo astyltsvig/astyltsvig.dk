@@ -17,7 +17,7 @@ export const da: Dict = {
   },
   sections: {
     selectedWork: 'Udvalgte projekter',
-    whatIDo: 'Hvad jeg laver',
+    whatIDo: 'Fokusområder',
     haveAProject: 'Har du et projekt?',
   },
   caseMeta: {

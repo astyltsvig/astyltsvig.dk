@@ -15,7 +15,7 @@ export const en = {
   },
   sections: {
     selectedWork: 'Selected work',
-    whatIDo: 'What I do',
+    whatIDo: 'Focus areas',
     haveAProject: 'Have a project in mind?',
   },
   caseMeta: {
