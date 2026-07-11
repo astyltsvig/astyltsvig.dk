@@ -24,7 +24,7 @@ Build a dedicated platform that affiliates can run their operation on: passenger
 
 [book2go.bike](https://book2go.bike) is a Vue 2 platform built on Firebase and Supabase, with real-time updates and first-class multilingual support. It's designed for long-term operation, not just launch: roles and permissions that map to how a local chapter is actually run, flows that hold up when several affiliates are coordinating the same weekend, and a deploy pipeline that makes continuous improvement possible without risking live bookings.
 
-Built solo, with AI as a real part of the daily development workflow — architecture and product decisions stay with me; AI handles implementation, refactoring, and debugging.
+Built solo, with AI as an integrated part of the daily development workflow — architecture and product decisions stay with me; AI handles implementation, refactoring, and debugging.
 
 ## Outcome
 

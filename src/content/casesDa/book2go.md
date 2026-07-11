@@ -18,13 +18,13 @@ description: "En flersproget bookingplatform i realtid bygget til Cycling Withou
 
 ## Opgave
 
-Bygge en dedikeret platform som afdelingerne kan drive deres arbejde på: passagerhåndtering, tureplanlægning, frivilligkoordinering og den rapportering samarbejdspartnere forventer — på de sprog de lokale afdelinger faktisk bruger.
+Bygge en dedikeret platform som afdelingerne kan drive deres arbejde på: passagerhåndtering, turplanlægning, frivilligkoordinering og den rapportering samarbejdspartnere forventer — på de sprog de lokale afdelinger faktisk bruger.
 
 ## Løsning
 
 [book2go.bike](https://book2go.bike) er en Vue 2-baseret platform bygget på Firebase og Supabase, med realtidsopdateringer og integreret flersproget support. Den er designet til langsigtet drift, ikke blot lancering: roller og rettigheder der matcher hvordan en lokal afdeling faktisk ledes, flows der holder når flere afdelinger koordinerer samme weekend, og en deploy-pipeline der gør kontinuerlig forbedring mulig uden at risikere aktive bookinger.
 
-Bygget solo, med AI som reel del af det daglige udviklingsworkflow — arkitektur og produktbeslutninger ligger hos mig; AI håndterer implementering, refaktorering og fejlfinding.
+Bygget solo, med AI som en integreret del af det daglige udviklingsworkflow — arkitektur og produktbeslutninger ligger hos mig; AI håndterer implementering, refaktorering og fejlfinding.
 
 ## Resultat
 

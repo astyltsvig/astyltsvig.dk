@@ -17,7 +17,7 @@ const linkedin = 'https://www.linkedin.com/in/astyltsvig/';
       <Logo lang={lang} />
       <div class="grid gap-6 md:grid-cols-3 text-sm">
         <div>
-          <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">Contact</p>
+          <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.footer.contact}</p>
           <ul class="mt-3 space-y-1.5">
             <li><a href={`mailto:${email}`}>{email}</a></li>
             <li><a href={github} rel="me noopener" target="_blank">GitHub ↗</a></li>
@@ -25,7 +25,7 @@ const linkedin = 'https://www.linkedin.com/in/astyltsvig/';
           </ul>
         </div>
         <div>
-          <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">Legal</p>
+          <p class="text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] font-[var(--font-mono)]">{d.footer.legal}</p>
           <ul class="mt-3 space-y-1.5 text-[var(--color-muted)]">
             <li>CVR 36163771</li>
             <li>{lang === 'da' ? 'København, Danmark' : 'Copenhagen, Denmark'}</li>

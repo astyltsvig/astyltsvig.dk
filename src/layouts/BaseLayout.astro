@@ -39,7 +39,7 @@ const path = canonicalPath ?? Astro.url.pathname;
 const canonical = new URL(path, siteUrl).toString();
 const enUrl = new URL(getAlternateUrl(path, 'en'), siteUrl).toString();
 const daUrl = new URL(getAlternateUrl(path, 'da'), siteUrl).toString();
-const ogImage = new URL(image ?? '/og-default.svg', siteUrl).toString();
+const ogImage = new URL(image ?? '/og-default.png', siteUrl).toString();
 const ogLocale = lang === 'da' ? 'da_DK' : 'en_GB';
 const ogLocaleAlt = lang === 'da' ? 'en_GB' : 'da_DK';
 const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
@@ -83,7 +83,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta name="twitter:image:alt" content={`${siteName} — ${author}`} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/logo-mark.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#F7F7F5" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)" />
@@ -112,6 +112,11 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     </script>
 
     <ClientRouter />
+    <noscript>
+      <style>
+        .fade-in { opacity: 1; transform: none; }
+      </style>
+    </noscript>
   </head>
   <body class="min-h-dvh flex flex-col">
     <GradientBackground />
@@ -135,7 +140,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
               }
             }
           },
-          { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
+          { rootMargin: '0px 0px -40px 0px', threshold: 0.01 }
         );
         for (const el of document.querySelectorAll('.fade-in:not(.is-visible)')) io.observe(el);
       };

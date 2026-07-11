@@ -306,6 +306,11 @@
 
 .btn-shimmer:hover::before { transform: translateX(120%); }
 
+.btn-shimmer:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 80ms;
+}
+
 .btn-primary {
   background: var(--color-text);
   color: var(--color-bg);
@@ -368,9 +373,11 @@
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* The track holds two copies of the strip; shifting by half its width plus
+   half the flex gap lands copy two exactly where copy one started. */
 @keyframes scroll-x {
   from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+  to   { transform: translateX(calc(-50% - 1.5rem)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
