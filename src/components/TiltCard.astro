@@ -61,12 +61,13 @@ const commonProps = {
 </style>
 
 <script>
-  const cards = document.querySelectorAll<HTMLElement>('.tilt-card');
-  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const init = () => {
+    const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isCoarse || reduce) return;
 
-  if (!isCoarse && !reduce) {
-    for (const card of cards) {
+    for (const card of document.querySelectorAll<HTMLElement>('.tilt-card:not([data-tilt-bound])')) {
+      card.dataset.tiltBound = '';
       const max = Number(card.dataset.maxTilt ?? 8);
       let raf = 0;
 
@@ -89,5 +90,7 @@ const commonProps = {
         card.style.transform = '';
       });
     }
-  }
+  };
+  init();
+  document.addEventListener('astro:after-swap', init);
 </script>

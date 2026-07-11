@@ -39,7 +39,7 @@ export function webPage({
     ...(description ? { description } : {}),
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#consulting` },
-    primaryImageOfPage: `${SITE_URL}/og-default.svg`,
+    primaryImageOfPage: `${SITE_URL}/og-default.png`,
     inLanguage: lang,
   };
 }

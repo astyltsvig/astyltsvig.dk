@@ -11,9 +11,9 @@ export const da: Dict = {
   },
   cta: {
     readMore: 'Læs mere →',
-    getInTouch: 'Kontakt →',
-    seeMyWork: 'Se mine projekter →',
-    writeToMe: 'Skriv til mig →',
+    getInTouch: 'Kontakt',
+    seeMyWork: 'Se mine projekter',
+    writeToMe: 'Skriv til mig',
   },
   sections: {
     selectedWork: 'Udvalgte projekter',
@@ -37,6 +37,8 @@ export const da: Dict = {
   },
   footer: {
     copyrightLine: 'AStyltsvig Consulting · CVR 36163771 · København, Danmark',
+    contact: 'Kontakt',
+    legal: 'Juridisk',
     theme: 'Tema',
     themeLight: 'Lys',
     themeDark: 'Mørk',

@@ -9,9 +9,9 @@ export const en = {
   },
   cta: {
     readMore: 'Read more →',
-    getInTouch: 'Get in touch →',
-    seeMyWork: 'See my work →',
-    writeToMe: 'Write to me →',
+    getInTouch: 'Get in touch',
+    seeMyWork: 'See my work',
+    writeToMe: 'Write to me',
   },
   sections: {
     selectedWork: 'Selected work',
@@ -35,6 +35,8 @@ export const en = {
   },
   footer: {
     copyrightLine: 'AStyltsvig Consulting · CVR 36163771 · Copenhagen, Denmark',
+    contact: 'Contact',
+    legal: 'Legal',
     theme: 'Theme',
     themeLight: 'Light',
     themeDark: 'Dark',
