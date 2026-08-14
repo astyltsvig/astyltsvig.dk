@@ -1,0 +1,23 @@
+---
+import type { Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+
+interface Props {
+  lang: Lang;
+  heading?: string;
+}
+
+const { lang, heading } = Astro.props;
+const s = shared[lang];
+---
+<section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+  <p class="eyebrow">{s.cta.eyebrow}</p>
+  <h2 class="mt-4 max-w-[24ch] text-[clamp(1.75rem,4vw,2.75rem)]">{heading ?? s.cta.heading}</h2>
+  <p class="mt-5 max-w-[56ch] text-muted">{s.cta.body}</p>
+  <a
+    href={`mailto:${s.cta.email}`}
+    class="mt-8 inline-block text-[clamp(1.25rem,3vw,2rem)] font-semibold tracking-tight text-accent underline underline-offset-8 decoration-1 hover:text-accent-strong transition-colors duration-150"
+  >
+    {s.cta.email}
+  </a>
+</section>

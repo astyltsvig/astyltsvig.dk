@@ -1,0 +1,54 @@
+---
+import Screenshot from '~/components/Screenshot.astro';
+import { caseUrl, type Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import type { Case } from '~/lib/cases';
+
+interface Props {
+  entry: Case;
+  lang: Lang;
+  showThumb?: boolean;
+  showCategory?: boolean;
+}
+
+const { entry, lang, showThumb = false, showCategory = true } = Astro.props;
+const s = shared[lang];
+const { data } = entry;
+const meta = [
+  ...(showCategory ? [s.categories[data.categoryKey]] : []),
+  data.period,
+  s.status[data.statusKey],
+].join(' · ');
+---
+<li class="border-t border-line">
+  <a
+    href={caseUrl(lang, entry.slug)}
+    class="group grid gap-x-8 gap-y-3 py-6 md:py-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
+  >
+    <div class="min-w-0">
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <h3 class="text-xl md:text-2xl font-semibold tracking-tight group-hover:text-accent transition-colors duration-150">
+          {data.client}
+        </h3>
+        <span class="font-mono text-xs uppercase tracking-[0.1em] text-muted">{meta}</span>
+      </div>
+      <p class="mt-2 max-w-[62ch] text-[0.9375rem] text-muted">{data.description}</p>
+    </div>
+    {showThumb && data.screenshot ? (
+      <Screenshot
+        file={data.screenshot}
+        alt={data.screenshotAlt ?? data.client}
+        widths={[320, 480, 640]}
+        sizes="(min-width: 768px) 208px, 100vw"
+        class="w-full md:w-52 shrink-0"
+      />
+    ) : (
+      <span
+        aria-hidden="true"
+        class="hidden md:block text-muted group-hover:text-accent group-hover:translate-x-1 transition-all duration-150"
+      >
+        →
+      </span>
+    )}
+  </a>
+</li>

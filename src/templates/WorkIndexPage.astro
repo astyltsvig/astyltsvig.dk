@@ -1,0 +1,53 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import PageIntro from '~/components/PageIntro.astro';
+import ProjectRow from '~/components/ProjectRow.astro';
+import ContactCta from '~/components/ContactCta.astro';
+import { routes, type Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import { work } from '~/copy/work';
+import { getCases, groupByCategory } from '~/lib/cases';
+import { breadcrumbList, webPage } from '~/lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = work[lang];
+const s = shared[lang];
+const cases = await getCases(lang);
+const groups = groupByCategory(cases);
+const path = routes.work[lang];
+
+const jsonLd = [
+  webPage({ lang, path, name: c.meta.title, description: c.meta.description, type: 'CollectionPage' }),
+  breadcrumbList([
+    { name: s.nav.home, path: routes.home[lang] },
+    { name: s.nav.work, path },
+  ]),
+];
+---
+<BaseLayout
+  lang={lang}
+  title={c.meta.title}
+  description={c.meta.description}
+  altPaths={{ da: routes.work.da, en: routes.work.en }}
+  jsonLd={jsonLd}
+>
+  <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
+
+  {[...groups.entries()].map(([categoryKey, members]) => (
+    <section class="mx-auto max-w-6xl px-6 md:px-10 pb-14 md:pb-20">
+      <p class="eyebrow">{s.categories[categoryKey]}</p>
+      <p class="mt-2 max-w-[60ch] text-[0.9375rem] text-muted">{s.categoryLede[categoryKey]}</p>
+      <ul class="mt-6">
+        {members.map(entry => (
+          <ProjectRow entry={entry} lang={lang} showThumb={true} showCategory={false} />
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <ContactCta lang={lang} />
+</BaseLayout>

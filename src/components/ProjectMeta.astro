@@ -1,0 +1,48 @@
+---
+import type { Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import type { Case } from '~/lib/cases';
+
+interface Props {
+  entry: Case;
+  lang: Lang;
+}
+
+const { entry, lang } = Astro.props;
+const s = shared[lang];
+const { data } = entry;
+
+const rows: { label: string; value: string; href?: string }[] = [
+  { label: s.caseMeta.client, value: data.client, href: data.clientUrl },
+  { label: s.caseMeta.category, value: s.categories[data.categoryKey] },
+  { label: s.caseMeta.role, value: data.role },
+  { label: s.caseMeta.period, value: data.period },
+  { label: s.caseMeta.stack, value: data.stack.join(' · ') },
+  {
+    label: s.caseMeta.status,
+    value: data.statusSuffix
+      ? `${s.status[data.statusKey]} · ${data.statusSuffix}`
+      : s.status[data.statusKey],
+  },
+];
+---
+<dl class="border-t border-line">
+  {rows.map(row => (
+    <div class="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 py-3 border-b border-line">
+      <dt class="eyebrow pt-0.5">{row.label}</dt>
+      <dd class="text-[0.9375rem]">
+        {row.href ? (
+          <a
+            href={row.href}
+            rel="noopener"
+            class="text-accent underline underline-offset-4 decoration-1 hover:text-accent-strong transition-colors duration-150"
+          >
+            {row.value}
+          </a>
+        ) : (
+          row.value
+        )}
+      </dd>
+    </div>
+  ))}
+</dl>

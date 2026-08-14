@@ -1,0 +1,82 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import PageIntro from '~/components/PageIntro.astro';
+import { routes, type Lang } from '~/i18n/routes';
+import { contact } from '~/copy/contact';
+import { shared } from '~/copy/shared';
+import { breadcrumbList, webPage } from '~/lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = contact[lang];
+const s = shared[lang];
+const path = routes.contact[lang];
+
+const jsonLd = [
+  webPage({ lang, path, name: c.meta.title, description: c.meta.description, type: 'ContactPage' }),
+  breadcrumbList([
+    { name: s.nav.home, path: routes.home[lang] },
+    { name: s.nav.contact, path },
+  ]),
+];
+---
+<BaseLayout
+  lang={lang}
+  title={c.meta.title}
+  description={c.meta.description}
+  altPaths={{ da: routes.contact.da, en: routes.contact.en }}
+  jsonLd={jsonLd}
+>
+  <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 pb-16 md:pb-24">
+    <a
+      href={`mailto:${c.email}`}
+      class="inline-block text-[clamp(1.5rem,5vw,3.25rem)] font-semibold tracking-tight text-accent underline underline-offset-8 decoration-1 hover:text-accent-strong transition-colors duration-150 break-all"
+    >
+      {c.email}
+    </a>
+    <p class="mt-6 max-w-[56ch] text-muted">{c.response}</p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+    <div class="grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <p class="eyebrow">{c.guide.eyebrow}</p>
+        <ul class="mt-6 max-w-[56ch]">
+          {c.guide.items.map(item => (
+            <li class="relative pl-6 py-2 text-[0.9375rem] text-muted before:content-['—'] before:absolute before:left-0">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">{c.facts.eyebrow}</p>
+        <dl class="mt-6 border-t border-line">
+          {c.facts.items.map(item => (
+            <div class="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 py-3 border-b border-line">
+              <dt class="eyebrow pt-0.5">{item.label}</dt>
+              <dd class="text-[0.9375rem]">
+                {item.value.startsWith('github.com') || item.value.startsWith('linkedin.com') ? (
+                  <a
+                    href={`https://${item.value}`}
+                    rel="me noopener"
+                    class="text-accent underline underline-offset-4 decoration-1 hover:text-accent-strong transition-colors duration-150"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  item.value
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

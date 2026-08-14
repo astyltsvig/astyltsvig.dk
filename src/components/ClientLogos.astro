@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import type { Lang } from '~/i18n/routes';
+import { home } from '~/copy/home';
+import mallard from '~/assets/clients/mallard.png';
+import ddl from '~/assets/clients/ddl-tegnsprogspakken.png';
+import df1866 from '~/assets/clients/df1866.png';
+import fsp from '~/assets/clients/festival-sans-pression.webp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = home[lang].clients;
+
+const logos = [
+  { image: mallard, name: 'Mallard' },
+  { image: ddl, name: 'Danske Døves Landsforbund — Tegnsprogspakken' },
+  { image: df1866, name: 'Døveforeningen af 1866' },
+  { image: fsp, name: 'Festival Sans Pression' },
+];
+
+const wordmarks = ['SecureLife', 'Cycling Without Age'];
+---
+<section class="mx-auto max-w-6xl px-6 md:px-10 py-12 md:py-16">
+  <p class="eyebrow">{c.eyebrow}</p>
+  <ul class="mt-8 flex flex-wrap items-center gap-x-12 gap-y-8">
+    {logos.map(logo => (
+      <li>
+        <Image
+          src={logo.image}
+          alt={logo.name}
+          height={44}
+          densities={[1, 2]}
+          format="webp"
+          quality={85}
+          loading="lazy"
+          class="h-9 md:h-11 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-150"
+        />
+      </li>
+    ))}
+    {wordmarks.map(name => (
+      <li class="text-lg font-semibold tracking-tight text-muted/80 hover:text-ink transition-colors duration-150">
+        {name}
+      </li>
+    ))}
+  </ul>
+</section>

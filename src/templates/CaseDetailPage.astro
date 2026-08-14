@@ -1,0 +1,120 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ProjectMeta from '~/components/ProjectMeta.astro';
+import Screenshot from '~/components/Screenshot.astro';
+import ContactCta from '~/components/ContactCta.astro';
+import { casePaths, caseUrl, routes, type Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import { work } from '~/copy/work';
+import { getCases, type Case } from '~/lib/cases';
+import { breadcrumbList, SITE_URL, webPage } from '~/lib/seo';
+
+interface Props {
+  lang: Lang;
+  entry: Case;
+}
+
+const { lang, entry } = Astro.props;
+const s = shared[lang];
+const { data } = entry;
+const { Content } = await render(entry);
+
+const cases = await getCases(lang);
+const index = cases.findIndex(c => c.slug === entry.slug);
+const prev = cases[(index - 1 + cases.length) % cases.length];
+const next = cases[(index + 1) % cases.length];
+
+const path = caseUrl(lang, entry.slug);
+const title = `${data.client} — ${data.headline}`;
+
+const jsonLd = [
+  webPage({ lang, path, name: title, description: data.description }),
+  breadcrumbList([
+    { name: s.nav.home, path: routes.home[lang] },
+    { name: s.nav.work, path: routes.work[lang] },
+    { name: data.client, path },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: data.client,
+    headline: data.headline,
+    description: data.description,
+    url: `${SITE_URL}${path}`,
+    author: { '@id': `${SITE_URL}/#andreas` },
+    inLanguage: lang,
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title={title}
+  description={data.description}
+  altPaths={casePaths(entry.slug)}
+  jsonLd={jsonLd}
+  ogType="article"
+>
+  <article class="mx-auto max-w-6xl px-6 md:px-10 pt-14 md:pt-20">
+    <a
+      href={routes.work[lang]}
+      class="font-mono text-xs uppercase tracking-[0.14em] text-muted hover:text-accent transition-colors duration-150"
+    >
+      ← {s.caseNav.back}
+    </a>
+
+    <header class="mt-8">
+      <p class="eyebrow">{s.categories[data.categoryKey]}</p>
+      <h1 class="mt-4 max-w-[20ch] text-[clamp(2.25rem,5.5vw,4rem)]">{data.client}</h1>
+      <p class="mt-6 max-w-[58ch] text-lg text-muted">{data.headline}</p>
+    </header>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
+      <div class="min-w-0">
+        {data.screenshot && (
+          <Screenshot
+            file={data.screenshot}
+            alt={data.screenshotAlt ?? data.client}
+            loading="eager"
+            class="mb-12"
+          />
+        )}
+        <div class="prose-case">
+          <Content />
+        </div>
+      </div>
+
+      <aside class="lg:sticky lg:top-10 lg:self-start">
+        <ProjectMeta entry={entry} lang={lang} />
+        {data.clientUrl && (
+          <a
+            href={data.clientUrl}
+            rel="noopener"
+            class="mt-6 inline-block bg-ink text-paper px-5 py-2.5 text-[0.875rem] font-medium hover:bg-accent transition-colors duration-150"
+          >
+            {s.caseMeta.visitSite} ↗
+          </a>
+        )}
+      </aside>
+    </div>
+
+    <nav class="mt-16 md:mt-24 border-t border-line grid sm:grid-cols-2" aria-label={s.caseNav.back}>
+      <a
+        href={caseUrl(lang, prev.slug)}
+        class="group py-6 pr-6 sm:border-r border-line hover:text-accent transition-colors duration-150"
+      >
+        <span class="eyebrow">← {s.caseNav.prev}</span>
+        <span class="mt-2 block text-lg font-semibold tracking-tight">{prev.data.client}</span>
+      </a>
+      <a
+        href={caseUrl(lang, next.slug)}
+        class="group py-6 sm:pl-6 sm:text-right border-t sm:border-t-0 border-line hover:text-accent transition-colors duration-150"
+      >
+        <span class="eyebrow">{s.caseNav.next} →</span>
+        <span class="mt-2 block text-lg font-semibold tracking-tight">{next.data.client}</span>
+      </a>
+    </nav>
+  </article>
+
+  <ContactCta lang={lang} heading={work[lang].caseCta.heading} />
+</BaseLayout>
