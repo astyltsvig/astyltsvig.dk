@@ -24,7 +24,7 @@ const img = key ? screenshots[key]?.default : null;
         href={clientUrl}
         target="_blank"
         rel="noopener"
-        class="group relative block overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]"
+        class="group relative block overflow-hidden rounded-xl border border-[var(--color-rule)] shadow-[0_14px_40px_-24px_rgba(15,16,20,0.25)]"
       >
         <Image
           src={img}
@@ -38,7 +38,7 @@ const img = key ? screenshots[key]?.default : null;
         </span>
       </a>
     ) : (
-      <div class="overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]">
+      <div class="overflow-hidden rounded-xl border border-[var(--color-rule)] shadow-[0_14px_40px_-24px_rgba(15,16,20,0.25)]">
         <Image
           src={img}
           alt={alt ?? `Screenshot af ${client}`}

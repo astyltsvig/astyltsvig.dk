@@ -40,7 +40,7 @@ const initials = client
 ---
 <div class="fade-in" style={`transition-delay: ${index * 80}ms`}>
   <TiltCard href={href} maxTilt={6}>
-    <div class="-mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[inherit] border-b border-[var(--glass-border)] bg-gradient-to-br from-[var(--color-bg-deep)] to-[var(--color-bg)]">
+    <div class="-mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[inherit] border-b border-[var(--color-rule)] bg-[var(--color-bg-subtle)]">
       {img ? (
         <Image
           src={img}
@@ -50,11 +50,11 @@ const initials = client
           class="h-full w-full object-cover object-top"
         />
       ) : icon ? (
-        <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent-2)]/10">
+        <div class="flex h-full w-full items-center justify-center bg-[var(--color-bg-subtle)]">
           <CaseIcon name={icon} class="w-20 h-20 md:w-24 md:h-24 text-[var(--color-accent)]" />
         </div>
       ) : (
-        <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent-2)]/10">
+        <div class="flex h-full w-full items-center justify-center bg-[var(--color-bg-subtle)]">
           <span class="font-[var(--font-display)] text-6xl md:text-7xl tracking-tight grad-text select-none">
             {initials}
           </span>

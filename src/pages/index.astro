@@ -143,16 +143,11 @@ const jsonLd = {
     </div>
   </section>
 
-  <section class="py-8">
-    <div class="marquee">
-      <div class="marquee-track font-[var(--font-mono)] text-lg md:text-xl text-[var(--color-muted)]">
-        {stackStrip.concat(stackStrip).map(s => (
-          <span class="inline-flex items-center gap-3">
-            <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>
-            {s}
-          </span>
-        ))}
-      </div>
+  <section class="border-y border-[var(--color-rule)] py-6">
+    <div class="max-w-6xl mx-auto px-6 md:px-10">
+      <ul class="stack-strip font-[var(--font-mono)] text-xs md:text-sm text-[var(--color-muted)]">
+        {stackStrip.map(s => <li>{s}</li>)}
+      </ul>
     </div>
   </section>
 
