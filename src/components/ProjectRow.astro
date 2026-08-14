@@ -9,9 +9,10 @@ interface Props {
   lang: Lang;
   showThumb?: boolean;
   showCategory?: boolean;
+  revealDelay?: number;
 }
 
-const { entry, lang, showThumb = false, showCategory = true } = Astro.props;
+const { entry, lang, showThumb = false, showCategory = true, revealDelay = 0 } = Astro.props;
 const s = shared[lang];
 const { data } = entry;
 const metaParts = [
@@ -23,7 +24,7 @@ const meta = metaParts
   .filter((part, i) => metaParts.findIndex(p => p.toLowerCase() === part.toLowerCase()) === i)
   .join(' · ');
 ---
-<li class="border-t border-line">
+<li class="border-t border-line reveal" style={`--reveal-delay: ${revealDelay}ms`}>
   <a
     href={caseUrl(lang, entry.slug)}
     class="group grid gap-x-8 gap-y-3 py-6 md:py-7 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"

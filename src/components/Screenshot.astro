@@ -25,7 +25,7 @@ const importer = images[`/src/assets/cases/${file}`];
 const image = importer ? (await importer()).default : undefined;
 ---
 {image && (
-  <div class:list={['border border-line bg-surface', className]}>
+  <div class:list={['border border-line bg-surface overflow-hidden', className]}>
     <Image
       src={image}
       alt={alt}
@@ -34,7 +34,7 @@ const image = importer ? (await importer()).default : undefined;
       format="webp"
       quality={82}
       loading={loading}
-      class="block w-full h-auto"
+      class="block w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.03]"
     />
   </div>
 )}

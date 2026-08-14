@@ -58,7 +58,66 @@
   }
 }
 
+@layer base {
+  :root {
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Slightly slower, softer cross-fade between pages (view transitions). */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.28s;
+    animation-timing-function: var(--ease-out);
+  }
+}
+
 @layer components {
+  /* Scroll-reveal: elements start hidden and rise into place when they enter the viewport.
+     Stagger siblings with --reveal-delay. No-JS and reduced-motion users see everything immediately. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+    }
+  }
+
+  /* Underline that sweeps in from the left on hover. */
+  .link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition:
+      background-size 0.3s var(--ease-out),
+      color 150ms ease;
+    padding-bottom: 2px;
+  }
+
+  .link-sweep:hover,
+  .link-sweep:focus-visible {
+    background-size: 100% 1px;
+  }
+
   /* Mono uppercase micro-label — the site's single typographic flourish. */
   .eyebrow {
     font-family: var(--font-mono);

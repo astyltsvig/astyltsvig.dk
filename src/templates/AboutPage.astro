@@ -52,20 +52,20 @@ const linkFor = (value: string): string | undefined => {
         format="webp"
         quality={82}
         loading="eager"
-        class="w-48 md:w-full h-auto border border-line bg-surface"
+        class="w-48 md:w-full h-auto border border-line bg-surface reveal"
       />
       <div class="max-w-[62ch] space-y-5">
-        {c.bio.map(paragraph => <p>{paragraph}</p>)}
+        {c.bio.map((paragraph, i) => <p class="reveal" style={`--reveal-delay: ${80 + i * 80}ms`}>{paragraph}</p>)}
       </div>
     </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
-    <p class="eyebrow">{c.path.eyebrow}</p>
-    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)]">{c.path.heading}</h2>
+    <p class="eyebrow reveal">{c.path.eyebrow}</p>
+    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.path.heading}</h2>
     <ol class="mt-10 border-t border-line">
-      {c.path.steps.map(step => (
-        <li class="grid gap-2 py-5 border-b border-line sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8">
+      {c.path.steps.map((step, i) => (
+        <li class="grid gap-2 py-5 border-b border-line sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8 reveal" style={`--reveal-delay: ${Math.min(i * 70, 280)}ms`}>
           <span class="font-mono text-sm text-muted">{step.year}</span>
           <p class="max-w-[62ch]">{step.text}</p>
         </li>
@@ -74,11 +74,11 @@ const linkFor = (value: string): string | undefined => {
   </section>
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
-    <p class="eyebrow">{c.principles.eyebrow}</p>
-    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)]">{c.principles.heading}</h2>
+    <p class="eyebrow reveal">{c.principles.eyebrow}</p>
+    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.principles.heading}</h2>
     <ul class="mt-10 grid gap-x-16 gap-y-10 sm:grid-cols-2">
-      {c.principles.items.map(item => (
-        <li>
+      {c.principles.items.map((item, i) => (
+        <li class="reveal" style={`--reveal-delay: ${i * 80}ms`}>
           <h3 class="text-lg font-semibold tracking-tight">{item.title}</h3>
           <p class="mt-2 text-[0.9375rem] text-muted max-w-[52ch]">{item.text}</p>
         </li>
@@ -87,8 +87,8 @@ const linkFor = (value: string): string | undefined => {
   </section>
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
-    <p class="eyebrow">{c.facts.eyebrow}</p>
-    <dl class="mt-8 max-w-xl border-t border-line">
+    <p class="eyebrow reveal">{c.facts.eyebrow}</p>
+    <dl class="mt-8 max-w-xl border-t border-line reveal" style="--reveal-delay: 80ms">
       {c.facts.items.map(item => {
         const href = linkFor(item.value);
         return (

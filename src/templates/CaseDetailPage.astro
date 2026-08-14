@@ -64,9 +64,9 @@ const jsonLd = [
     </a>
 
     <header class="mt-8">
-      <p class="eyebrow">{s.categories[data.categoryKey]}</p>
-      <h1 class="mt-4 max-w-[20ch] text-[clamp(2.25rem,5.5vw,4rem)]">{data.client}</h1>
-      <p class="mt-6 max-w-[58ch] text-lg text-muted">{data.headline}</p>
+      <p class="eyebrow reveal">{s.categories[data.categoryKey]}</p>
+      <h1 class="mt-4 max-w-[20ch] text-[clamp(2.25rem,5.5vw,4rem)] reveal" style="--reveal-delay: 80ms">{data.client}</h1>
+      <p class="mt-6 max-w-[58ch] text-lg text-muted reveal" style="--reveal-delay: 160ms">{data.headline}</p>
     </header>
 
     <div class="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
@@ -76,15 +76,15 @@ const jsonLd = [
             file={data.screenshot}
             alt={data.screenshotAlt ?? data.client}
             loading="eager"
-            class="mb-12"
+            class="mb-12 reveal"
           />
         )}
-        <div class="prose-case">
+        <div class="prose-case reveal" style="--reveal-delay: 80ms">
           <Content />
         </div>
       </div>
 
-      <aside class="lg:sticky lg:top-10 lg:self-start">
+      <aside class="lg:sticky lg:top-10 lg:self-start reveal" style="--reveal-delay: 160ms">
         <ProjectMeta entry={entry} lang={lang} />
         {data.clientUrl && (
           <a

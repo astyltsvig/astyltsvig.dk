@@ -51,12 +51,12 @@ const jsonLd = [
   {c.services.map((service, i) => (
     <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
       <div class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-16">
-        <div>
+        <div class="reveal">
           <span class="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
           <h2 class="mt-2 text-[clamp(1.5rem,3vw,2.25rem)]">{service.title}</h2>
           <p class="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-muted">{service.stack}</p>
         </div>
-        <div class="min-w-0">
+        <div class="min-w-0 reveal" style="--reveal-delay: 100ms">
           <p class="text-lg max-w-[56ch]">{service.lede}</p>
           <ul class="mt-6 max-w-[62ch]">
             {service.items.map(item => (
@@ -71,9 +71,9 @@ const jsonLd = [
   ))}
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
-    <p class="eyebrow">{c.process.eyebrow}</p>
-    <h2 class="mt-4 text-[clamp(1.5rem,3vw,2.25rem)]">{c.process.heading}</h2>
-    <p class="mt-5 max-w-[62ch] text-muted">{c.process.text}</p>
+    <p class="eyebrow reveal">{c.process.eyebrow}</p>
+    <h2 class="mt-4 text-[clamp(1.5rem,3vw,2.25rem)] reveal" style="--reveal-delay: 80ms">{c.process.heading}</h2>
+    <p class="mt-5 max-w-[62ch] text-muted reveal" style="--reveal-delay: 160ms">{c.process.text}</p>
   </section>
 
   <ContactCta lang={lang} />
