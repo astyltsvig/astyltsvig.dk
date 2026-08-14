@@ -5,6 +5,7 @@ headline: "Telefonopkald for døve og hørehæmmede — dansk tale til tekst i r
 role: "Eget produkt — idé, udvikling, drift"
 period: "2026 – nu"
 stack: ["Realtids-transskription", "Dansk talesyntese", "AI-hurtigsvar"]
+categoryKey: "ownProduct"
 statusKey: "ongoing"
 statusSuffix: "Fungerende prototype · smartlinjen.dk"
 screenshot: "smartlinjen.png"

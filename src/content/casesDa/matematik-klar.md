@@ -5,6 +5,7 @@ headline: "Gratis dansk matematiktræning fra 1. klasse til studentereksamen —
 role: "Eget produkt — idé, udvikling, drift"
 period: "2026 – nu"
 stack: ["Vue 3", "Vite", "Cloudflare Pages"]
+categoryKey: "ownProduct"
 statusKey: "inDailyProduction"
 statusSuffix: "Live på matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"

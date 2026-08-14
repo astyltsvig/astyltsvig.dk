@@ -7,6 +7,7 @@ const caseSchema = z.object({
   role: z.string(),
   period: z.string(),
   stack: z.array(z.string()),
+  categoryKey: z.enum(['platform', 'web', 'ownProduct', 'operations']),
   statusKey: z.enum(['inDailyProduction', 'delivered', 'ongoing']),
   statusSuffix: z.string().optional(),
   screenshot: z.string().optional(),

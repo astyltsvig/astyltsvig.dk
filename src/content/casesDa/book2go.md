@@ -5,6 +5,7 @@ headline: "En flersproget bookingplatform i realtid til en international bevæge
 role: "Solo-udvikler, arkitekt"
 period: "Løbende"
 stack: ["Vue 2", "Firebase", "Supabase"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "Forside af book2go.bike med hero-billede og rickshaw"

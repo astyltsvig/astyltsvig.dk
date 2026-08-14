@@ -5,6 +5,7 @@ headline: "Phone calls for deaf and hard-of-hearing users — Danish speech to t
 role: "Own product — concept, development, operations"
 period: "2026 – present"
 stack: ["Real-time transcription", "Danish speech synthesis", "AI quick replies"]
+categoryKey: "ownProduct"
 statusKey: "ongoing"
 statusSuffix: "Working prototype · smartlinjen.dk"
 screenshot: "smartlinjen.png"

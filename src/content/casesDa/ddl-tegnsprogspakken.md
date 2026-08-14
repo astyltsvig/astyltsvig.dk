@@ -5,6 +5,7 @@ headline: "Tegnsprogspakken relanceret med markant designløft og en hurtig, red
 role: "Teknisk ansvarlig, udvikling, DNS"
 period: "2025 – 2026"
 stack: ["Astro", "Sveltia CMS", "Cloudflare Pages", "Simply.com"]
+categoryKey: "web"
 statusKey: "delivered"
 statusSuffix: "Live på tegnsprogspakken.dk"
 screenshot: "tegnsprogspakken.png"

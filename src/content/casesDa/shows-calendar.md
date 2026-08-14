@@ -5,6 +5,7 @@ headline: "Følg dine tv-serier, se hvornår næste afsnit lander — og få det
 role: "Eget produkt — idé, udvikling, drift"
 period: "2026 – nu"
 stack: ["Next.js", "Cloudflare Pages", "TVmaze API", "iCal"]
+categoryKey: "ownProduct"
 statusKey: "inDailyProduction"
 statusSuffix: "Live på shows-calendar.pages.dev"
 screenshot: "shows-calendar.png"

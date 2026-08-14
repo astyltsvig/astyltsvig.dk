@@ -20,7 +20,32 @@ export const da: Dict = {
     whatIDo: 'Fokusområder',
     haveAProject: 'Har du et projekt?',
   },
+  categories: {
+    platform: 'Forretningsplatform',
+    web: 'Hjemmeside',
+    ownProduct: 'Eget produkt',
+    operations: 'Drift & infrastruktur',
+  },
+  categorySections: {
+    platform: {
+      heading: 'Forretningsplatforme',
+      description: 'Skræddersyede systemer — ERP, CRM og booking — bygget og driftet som kerneinfrastruktur for forretningen.',
+    },
+    web: {
+      heading: 'Hjemmesider & web',
+      description: 'Hurtige, tilgængelige websites for organisationer og events — fra design-implementering til DNS og drift.',
+    },
+    ownProduct: {
+      heading: 'Egne produkter',
+      description: 'Interne projekter i AStyltsvig Consulting — produkter jeg selv har fået idéen til, bygget og driver.',
+    },
+    operations: {
+      heading: 'Drift & infrastruktur',
+      description: 'Teknisk ejerskab og løbende administration — systemer, DNS og email-autentificering.',
+    },
+  },
   caseMeta: {
+    category: 'Kategori',
     role: 'Rolle',
     period: 'Periode',
     stack: 'Stack',

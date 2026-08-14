@@ -5,6 +5,7 @@ headline: "Track your TV shows, see when the next episode lands — and get it s
 role: "Own product — concept, development, operations"
 period: "2026 – present"
 stack: ["Next.js", "Cloudflare Pages", "TVmaze API", "iCal"]
+categoryKey: "ownProduct"
 statusKey: "inDailyProduction"
 statusSuffix: "Live at shows-calendar.pages.dev"
 screenshot: "shows-calendar.png"

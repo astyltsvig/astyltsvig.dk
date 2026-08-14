@@ -5,6 +5,7 @@ headline: "Free Danish maths training from 1st grade to the upper-secondary exam
 role: "Own product — concept, development, operations"
 period: "2026 – present"
 stack: ["Vue 3", "Vite", "Cloudflare Pages"]
+categoryKey: "ownProduct"
 statusKey: "inDailyProduction"
 statusSuffix: "Live at matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"

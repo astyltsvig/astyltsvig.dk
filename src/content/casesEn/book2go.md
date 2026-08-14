@@ -5,6 +5,7 @@ headline: "A real-time, multilingual booking platform for an international movem
 role: "Solo developer, architect"
 period: "Ongoing"
 stack: ["Vue 2", "Firebase", "Supabase"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "book2go.bike homepage with hero image and rickshaw"
