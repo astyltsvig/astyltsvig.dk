@@ -47,7 +47,7 @@ const initials = client
           alt={screenshotAlt ?? `${client} — ${headline}`}
           widths={[480, 768, 1024]}
           sizes="(max-width: 768px) 100vw, 400px"
-          class="h-full w-full object-cover object-top"
+          class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
       ) : icon ? (
         <div class="flex h-full w-full items-center justify-center bg-[var(--color-bg-subtle)]">
@@ -67,7 +67,7 @@ const initials = client
       </span>
       <span class="font-[var(--font-mono)] text-[11px] grad-text flex-none whitespace-nowrap">{d.cta.readMore}</span>
     </div>
-    <h3 class="mt-5 !mt-5 text-2xl md:text-[1.85rem] font-[var(--font-display)] leading-[1.1] tracking-tight">
+    <h3 class="mt-5 !mt-5 text-xl md:text-[1.35rem] font-semibold leading-snug tracking-tight">
       {headline}
     </h3>
     <div class="mt-6 flex flex-wrap gap-1.5">

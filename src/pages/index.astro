@@ -6,8 +6,9 @@ import CaseIcon from '~/components/CaseIcon.astro';
 import { Image } from 'astro:assets';
 import heroShotMain from '~/assets/cases/tegnsprogspakken.png';
 import heroShotSmall from '~/assets/cases/df1866.png';
+import portrait from '~/assets/andreas-styltsvig.png';
 import { getCollection } from 'astro:content';
-import { t, routes } from '~/i18n/utils';
+import { t, routes, caseUrl } from '~/i18n/utils';
 
 const lang = 'da' as const;
 const d = t(lang);
@@ -134,11 +135,9 @@ const jsonLd = {
   <section class="max-w-6xl mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
     <div class="grid md:grid-cols-[1.15fr_1fr] gap-12 md:gap-16 items-center">
       <div>
-        <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
-          Andreas Sørbye Styltsvig · AStyltsvig Consulting · København
-        </p>
-        <h1 class="fade-in !mt-3 max-w-[22ch]">
-          Enterprise-platforme der <span class="grad-text">driver forretning</span>.
+        <p class="fade-in"><span class="badge"><span class="dot"></span>3 platforme i daglig produktion</span></p>
+        <h1 class="fade-in !mt-5 max-w-[20ch]">
+          Digitale platforme, bygget til at <span class="grad-text">drive din forretning</span>.
         </h1>
         <p class="fade-in mt-5 max-w-[54ch] text-[var(--color-muted)] leading-relaxed">
           IT-konsulent &amp; softwarearkitekt. Rådgivning og udvikling formet efter din forretning — booking, ERP og CRM, bygget og driftet af én udvikler med AI som en integreret del af arbejdet.
@@ -175,19 +174,19 @@ const jsonLd = {
   <section class="border-y border-[var(--color-rule)] bg-[var(--color-bg-subtle)]">
     <div class="max-w-6xl mx-auto px-6 md:px-10 py-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
       <div class="fade-in">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">3</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">3</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Platforme i daglig produktion</p>
       </div>
       <div class="fade-in" style="transition-delay: 60ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">10+</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">10+</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">År med IT og webudvikling</p>
       </div>
       <div class="fade-in" style="transition-delay: 120ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">2020</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">2020</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Selvstændig siden</p>
       </div>
       <div class="fade-in" style="transition-delay: 180ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">1.000+</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">1.000+</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Slutbrugere betjent dagligt</p>
       </div>
     </div>
@@ -219,7 +218,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Focus areas: joined grid -->
+  <!-- Competencies: tile grid -->
   <section class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
@@ -228,82 +227,99 @@ const jsonLd = {
       </div>
       <a href={routes.services[lang]} class="fade-in text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)]">Se alle ydelser →</a>
     </div>
-    <div class="fade-in mt-8 grid md:grid-cols-3 gap-px rounded-xl border border-[var(--color-rule)] bg-[var(--color-rule)] overflow-hidden">
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="chart" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Enterprise-platforme</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Skræddersyet til forretningen frem for standardsoftware. Mallards ERP har båret den daglige drift siden 2022 — SecureLifes platform administrerer ordninger for hundredvis af virksomheder.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Laravel</span><span class="chip">Vue</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="code" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Hjemmesider &amp; CMS</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Løsninger valgt efter behov — ikke efter vane. Døveforeningen af 1866 fik nyt site og DNS-flytning uden ét minuts mailnedbrud; Tegnsprogspakken blev relanceret uden at miste en eneste URL.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Astro</span><span class="chip">Sveltia CMS</span><span class="chip">Cloudflare Pages</span>
-        </div>
-      </div>
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="globe" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Infrastruktur &amp; rådgivning</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Sparring om arkitektur og leverandørvalg — og et fundament der bare virker. Cycling Without Age fik samlet Google Workspace, DNS og email-autentificering på tværs af snesevis af lande.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Hetzner</span><span class="chip">Google Workspace</span><span class="chip">SPF · DKIM · DMARC</span>
-        </div>
-      </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <a href={caseUrl(lang, 'mallard')} class="fade-in glass card-link flex flex-col p-5">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">ERP &amp; forretningssystemer</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Skræddersyede systemer der bærer den daglige drift — som Mallards ERP siden 2022.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={caseUrl(lang, 'book2go')} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 60ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Booking &amp; realtidsplatforme</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Flersprogede bookingflows i realtid — som Book2Go for Cycling Without Age.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={caseUrl(lang, 'securelife')} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 120ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">CRM &amp; administration</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Ordninger for hundredvis af virksomheder — som SecureLifes platform.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={routes.about[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 180ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">AI-assisteret udvikling<span class="ml-2 inline-flex items-center rounded-full bg-[var(--color-accent)] px-2 py-0.5 text-[9px] font-[var(--font-mono)] uppercase tracking-[0.12em] text-white align-middle">I daglig brug</span></h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">AI er en integreret del af det daglige arbejde — brugt åbent og transparent.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Web &amp; CMS</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Hurtige, statiske sites med redaktørvenligt CMS — Astro og Sveltia.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 60ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">WordPress-migrering</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Fra tungt WordPress til moderne stack — uden at miste indhold eller URL’er.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 120ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Infrastruktur &amp; DNS</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">DNS, email-autentificering og serverdrift — flytninger uden nedbrud.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 180ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Teknisk rådgivning</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Sparring om arkitektur og leverandørvalg — når der ikke er en CTO i huset.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Læs mere →</span>
+      </a>
     </div>
   </section>
 
-  <!-- Principles: band with joined grid -->
+  <!-- Principles: statement + line list -->
   <section class="border-y border-[var(--color-rule)] bg-[var(--color-bg-subtle)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
-      <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Det du kan regne med</p>
-      <h2 class="fade-in !mt-3 max-w-[26ch]">Derfor bliver kunderne <span class="grad-text">i årevis</span>.</h2>
-      <div class="fade-in mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl border border-[var(--color-rule)] bg-[var(--color-rule)] overflow-hidden">
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">Koden er din fra dag ét</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Alt ligger i dit repo og på dit domæne. Går du, tager du det hele med.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">Du taler med den der har bygget det</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Ingen mellemled — den der svarer, er den der har skrevet koden.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">Løbende aftaler, ingen binding</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Jeg bygger det rigtige, ikke kun det aftalte — og du kan stoppe når som helst.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">04</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">Svar inden for to hverdage</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Mail, telefon eller Slack. Ingen ticketsystem, ingen kø.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA: inverted band -->
-  <section class="bg-[var(--color-text)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-16 md:flex items-center justify-between gap-10">
-      <div>
-        <h2 class="!mt-0 text-[var(--color-bg)]">Har du et projekt?</h2>
-        <p class="mt-3 max-w-[52ch] text-sm text-[var(--color-bg)]/70">
-          Jeg tager løbende nye kunder ind. Send en kort beskrivelse af opgaven — jeg svarer inden for to hverdage.
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20 grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-20 items-center">
+      <div class="fade-in">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Det du kan regne med</p>
+        <h2 class="!mt-3 max-w-[18ch]">Derfor bliver kunderne <span class="grad-text">i årevis</span>.</h2>
+        <p class="mt-4 max-w-[38ch] text-sm text-[var(--color-muted)] leading-relaxed">
+          Samarbejdet er bygget til at holde — de fleste af mine kunderelationer løber i år, ikke måneder.
         </p>
       </div>
-      <div class="mt-7 md:mt-0 flex-none">
-        <a href={routes.contact[lang]} class="cta-invert inline-flex items-center gap-2 rounded-[10px] bg-[var(--color-bg)] px-5 py-3 text-sm font-medium text-[var(--color-text)]">
-          {d.cta.writeToMe}
+      <ul class="fade-in border-t border-[var(--color-rule)]" style="transition-delay: 80ms">
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">01</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">Koden er din fra dag ét.</span> <span class="text-[var(--color-muted)]">Alt ligger i dit repo og på dit domæne — går du, tager du det hele med.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">02</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">Du taler med den der har bygget det.</span> <span class="text-[var(--color-muted)]">Ingen mellemled — den der svarer, er den der har skrevet koden.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">03</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">Løbende aftaler, ingen binding.</span> <span class="text-[var(--color-muted)]">Jeg bygger det rigtige, ikke kun det aftalte — og du kan stoppe når som helst.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">04</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">Svar inden for to hverdage.</span> <span class="text-[var(--color-muted)]">Mail, telefon eller Slack — ingen ticketsystem, ingen kø.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
+    <div class="fade-in glass overflow-hidden md:grid md:grid-cols-[auto_1fr] items-center">
+      <Image
+        src={portrait}
+        alt="Portræt af Andreas Sørbye Styltsvig"
+        widths={[320, 480, 640]}
+        sizes="(min-width: 768px) 260px, 100vw"
+        class="h-56 w-full md:h-full md:w-64 object-cover object-top"
+      />
+      <div class="p-7 md:p-10">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">Manden bag</p>
+        <h2 class="!mt-3 max-w-[24ch]">Én udvikler. <span class="grad-text">Dybt fokus.</span></h2>
+        <p class="mt-4 max-w-[58ch] text-sm text-[var(--color-muted)] leading-relaxed">
+          Jeg hedder Andreas Sørbye Styltsvig og driver AStyltsvig Consulting fra København. Mere end et årti med IT og webudvikling — og en praksis bygget på få, langvarige kunderelationer.
+        </p>
+        <a href={routes.about[lang]} class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-2)]">
+          Mød Andreas
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>

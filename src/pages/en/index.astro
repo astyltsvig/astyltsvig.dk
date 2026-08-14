@@ -6,8 +6,9 @@ import CaseIcon from '~/components/CaseIcon.astro';
 import { Image } from 'astro:assets';
 import heroShotMain from '~/assets/cases/tegnsprogspakken.png';
 import heroShotSmall from '~/assets/cases/df1866.png';
+import portrait from '~/assets/andreas-styltsvig.png';
 import { getCollection } from 'astro:content';
-import { t, routes } from '~/i18n/utils';
+import { t, routes, caseUrl } from '~/i18n/utils';
 
 const lang = 'en' as const;
 const d = t(lang);
@@ -135,11 +136,9 @@ const jsonLd = {
   <section class="max-w-6xl mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-14 md:pb-20">
     <div class="grid md:grid-cols-[1.15fr_1fr] gap-12 md:gap-16 items-center">
       <div>
-        <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
-          Andreas Sørbye Styltsvig · AStyltsvig Consulting · Copenhagen
-        </p>
-        <h1 class="fade-in !mt-3 max-w-[22ch]">
-          Enterprise platforms that <span class="grad-text">run businesses</span>.
+        <p class="fade-in"><span class="badge"><span class="dot"></span>3 platforms in daily production</span></p>
+        <h1 class="fade-in !mt-5 max-w-[20ch]">
+          Digital platforms, built to <span class="grad-text">run your business</span>.
         </h1>
         <p class="fade-in mt-5 max-w-[54ch] text-[var(--color-muted)] leading-relaxed">
           IT consultant &amp; software architect. Consultation and development shaped around your business — booking, ERP, and CRM, built and operated by one developer with AI as an integrated part of the workflow.
@@ -176,19 +175,19 @@ const jsonLd = {
   <section class="border-y border-[var(--color-rule)] bg-[var(--color-bg-subtle)]">
     <div class="max-w-6xl mx-auto px-6 md:px-10 py-8 md:py-10 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
       <div class="fade-in">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">3</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">3</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Platforms in daily production</p>
       </div>
       <div class="fade-in" style="transition-delay: 60ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">10+</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">10+</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Years in IT and web development</p>
       </div>
       <div class="fade-in" style="transition-delay: 120ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">2020</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">2020</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Independent since</p>
       </div>
       <div class="fade-in" style="transition-delay: 180ms">
-        <p class="font-[var(--font-display)] text-4xl md:text-5xl leading-none">1,000+</p>
+        <p class="text-4xl md:text-5xl font-bold tracking-tight leading-none text-[var(--color-accent)]">1,000+</p>
         <p class="mt-2 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">End users served daily</p>
       </div>
     </div>
@@ -220,7 +219,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- Focus areas: joined grid -->
+  <!-- Competencies: tile grid -->
   <section class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
@@ -229,82 +228,99 @@ const jsonLd = {
       </div>
       <a href={routes.services[lang]} class="fade-in text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)]">See all services →</a>
     </div>
-    <div class="fade-in mt-8 grid md:grid-cols-3 gap-px rounded-xl border border-[var(--color-rule)] bg-[var(--color-rule)] overflow-hidden">
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="chart" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Enterprise platforms</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Tailored to the business rather than standard software. Mallard's ERP has carried daily operations since 2022 — SecureLife's platform administers schemes across hundreds of companies.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Laravel</span><span class="chip">Vue</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span>
-        </div>
-      </div>
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="code" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Websites &amp; CMS</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Solutions chosen by need — not by habit. Døveforeningen af 1866 got a new site and a DNS move without a minute of mail downtime; Tegnsprogspakken was relaunched without losing a single URL.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Astro</span><span class="chip">Sveltia CMS</span><span class="chip">Cloudflare Pages</span>
-        </div>
-      </div>
-      <div class="bg-[var(--color-bg)] p-7">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-bg-subtle)] text-[var(--color-accent)]">
-          <CaseIcon name="globe" class="h-5 w-5" />
-        </span>
-        <h3 class="!mt-4">Infrastructure &amp; advisory</h3>
-        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Sparring on architecture and vendor choices — and a foundation that simply works. Cycling Without Age had Google Workspace, DNS, and email authentication consolidated across dozens of countries.</p>
-        <div class="mt-5 flex flex-wrap gap-1.5">
-          <span class="chip">Hetzner</span><span class="chip">Google Workspace</span><span class="chip">SPF · DKIM · DMARC</span>
-        </div>
-      </div>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <a href={caseUrl(lang, 'mallard')} class="fade-in glass card-link flex flex-col p-5">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">ERP &amp; business systems</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Tailored systems that carry daily operations — like Mallard's ERP since 2022.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={caseUrl(lang, 'book2go')} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 60ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Booking &amp; real-time platforms</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Multilingual booking flows in real time — like Book2Go for Cycling Without Age.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={caseUrl(lang, 'securelife')} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 120ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">CRM &amp; administration</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Schemes across hundreds of companies — like SecureLife's platform.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={routes.about[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 180ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">AI-assisted development<span class="ml-2 inline-flex items-center rounded-full bg-[var(--color-accent)] px-2 py-0.5 text-[9px] font-[var(--font-mono)] uppercase tracking-[0.12em] text-white align-middle">In daily use</span></h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">AI is an integrated part of the daily work — used openly and transparently.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Web &amp; CMS</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Fast, static sites with an editor-friendly CMS — Astro and Sveltia.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 60ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">WordPress migration</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">From heavy WordPress to a modern stack — without losing content or URLs.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 120ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Infrastructure &amp; DNS</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">DNS, email authentication, and server operations — moves without downtime.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
+      <a href={routes.services[lang]} class="fade-in glass card-link flex flex-col p-5" style="transition-delay: 180ms">
+        <h3 class="!mt-0 text-[15px] font-medium font-[var(--font-sans)]">Technical advisory</h3>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Sparring on architecture and vendor choices — when there is no CTO in the building.</p>
+        <span class="mt-auto pt-4 font-[var(--font-mono)] text-[11px] text-[var(--color-accent)]">Read more →</span>
+      </a>
     </div>
   </section>
 
-  <!-- Principles: band with joined grid -->
+  <!-- Principles: statement + line list -->
   <section class="border-y border-[var(--color-rule)] bg-[var(--color-bg-subtle)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
-      <p class="fade-in font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">What you can count on</p>
-      <h2 class="fade-in !mt-3 max-w-[26ch]">Why clients stay <span class="grad-text">for years</span>.</h2>
-      <div class="fade-in mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-xl border border-[var(--color-rule)] bg-[var(--color-rule)] overflow-hidden">
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">01</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">The code is yours from day one</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Everything lives in your repo and on your domain. If you leave, it all goes with you.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">02</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">You talk to the person who built it</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">No middlemen — whoever answers is whoever wrote the code.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">03</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">Rolling agreements, no lock-in</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">I build the right thing, not just the agreed thing — and you can stop at any time.</p>
-        </div>
-        <div class="bg-[var(--color-bg)] p-6">
-          <p class="font-[var(--font-mono)] text-xs text-[var(--color-accent)]">04</p>
-          <h3 class="!mt-2 text-base font-medium font-[var(--font-sans)]">A reply within two business days</h3>
-          <p class="mt-1.5 text-sm text-[var(--color-muted)]">Email, phone, or Slack. No ticket system, no queue.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA: inverted band -->
-  <section class="bg-[var(--color-text)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-16 md:flex items-center justify-between gap-10">
-      <div>
-        <h2 class="!mt-0 text-[var(--color-bg)]">Have a project in mind?</h2>
-        <p class="mt-3 max-w-[52ch] text-sm text-[var(--color-bg)]/70">
-          I take on new clients on a rolling basis. Send a short description of the project — I'll reply within two business days.
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20 grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-20 items-center">
+      <div class="fade-in">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">What you can count on</p>
+        <h2 class="!mt-3 max-w-[18ch]">Why clients stay <span class="grad-text">for years</span>.</h2>
+        <p class="mt-4 max-w-[38ch] text-sm text-[var(--color-muted)] leading-relaxed">
+          The engagement is built to last — most of my client relationships run for years, not months.
         </p>
       </div>
-      <div class="mt-7 md:mt-0 flex-none">
-        <a href={routes.contact[lang]} class="cta-invert inline-flex items-center gap-2 rounded-[10px] bg-[var(--color-bg)] px-5 py-3 text-sm font-medium text-[var(--color-text)]">
-          {d.cta.writeToMe}
+      <ul class="fade-in border-t border-[var(--color-rule)]" style="transition-delay: 80ms">
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">01</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">The code is yours from day one.</span> <span class="text-[var(--color-muted)]">Everything lives in your repo and on your domain — if you leave, it all goes with you.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">02</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">You talk to the person who built it.</span> <span class="text-[var(--color-muted)]">No middlemen — whoever answers is whoever wrote the code.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">03</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">Rolling agreements, no lock-in.</span> <span class="text-[var(--color-muted)]">I build the right thing, not just the agreed thing — and you can stop at any time.</span></p>
+        </li>
+        <li class="flex items-baseline gap-5 py-5 border-b border-[var(--color-rule)]">
+          <span class="font-[var(--font-mono)] text-xs text-[var(--color-accent)] flex-none">04</span>
+          <p class="text-sm leading-relaxed"><span class="font-medium">A reply within two business days.</span> <span class="text-[var(--color-muted)]">Email, phone, or Slack — no ticket system, no queue.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="max-w-6xl mx-auto px-6 md:px-10 py-14 md:py-20">
+    <div class="fade-in glass overflow-hidden md:grid md:grid-cols-[auto_1fr] items-center">
+      <Image
+        src={portrait}
+        alt="Portrait of Andreas Sørbye Styltsvig"
+        widths={[320, 480, 640]}
+        sizes="(min-width: 768px) 260px, 100vw"
+        class="h-56 w-full md:h-full md:w-64 object-cover object-top"
+      />
+      <div class="p-7 md:p-10">
+        <p class="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">The person behind</p>
+        <h2 class="!mt-3 max-w-[24ch]">One developer. <span class="grad-text">Deep focus.</span></h2>
+        <p class="mt-4 max-w-[58ch] text-sm text-[var(--color-muted)] leading-relaxed">
+          I'm Andreas Sørbye Styltsvig, and I run AStyltsvig Consulting from Copenhagen. More than a decade in IT and web development — and a practice built on a few long-standing client relationships.
+        </p>
+        <a href={routes.about[lang]} class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:text-[var(--color-accent-2)]">
+          Meet Andreas
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>

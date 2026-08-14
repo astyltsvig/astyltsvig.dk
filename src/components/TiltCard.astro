@@ -8,7 +8,7 @@ interface Props {
 const { class: cls = '', href } = Astro.props;
 const Tag = href ? 'a' : 'div';
 const commonProps = {
-  class: `card ${href ? 'card-link' : ''} glass ${cls}`,
+  class: `card group ${href ? 'card-link' : ''} glass ${cls}`,
   ...(href ? { href } : {}),
 };
 ---
