@@ -4,6 +4,7 @@ headline: "Teknisk administration for CUA."
 role: "Teknisk administrator"
 period: "Løbende"
 stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMARC"]
+categoryKey: "operations"
 statusKey: "ongoing"
 icon: "globe"
 order: 5

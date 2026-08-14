@@ -5,6 +5,7 @@ import CaseIcon from './CaseIcon.astro';
 import { t, caseUrl, type Lang } from '~/i18n/utils';
 
 type IconName = 'bike' | 'chart' | 'shield' | 'globe' | 'database' | 'code';
+type CategoryKey = 'platform' | 'web' | 'ownProduct' | 'operations';
 
 interface Props {
   lang: Lang;
@@ -12,15 +13,17 @@ interface Props {
   client: string;
   headline: string;
   stack: string[];
+  categoryKey?: CategoryKey;
   screenshot?: string;
   screenshotAlt?: string;
   icon?: IconName;
   index?: number;
 }
 
-const { lang, slug, client, headline, stack, screenshot, screenshotAlt, icon, index = 0 } = Astro.props;
+const { lang, slug, client, headline, stack, categoryKey, screenshot, screenshotAlt, icon, index = 0 } = Astro.props;
 const d = t(lang);
 const href = caseUrl(lang, slug);
+const category = categoryKey ? d.categories[categoryKey] : null;
 
 const screenshots = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/cases/*.{png,jpg,jpeg,webp}',
@@ -40,7 +43,10 @@ const initials = client
 ---
 <div class="fade-in" style={`transition-delay: ${index * 80}ms`}>
   <TiltCard href={href} maxTilt={6}>
-    <div class="-mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[inherit] border-b border-[var(--glass-border)] bg-gradient-to-br from-[var(--color-bg-deep)] to-[var(--color-bg)]">
+    <div class="relative -mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[inherit] border-b border-[var(--glass-border)] bg-gradient-to-br from-[var(--color-bg-deep)] to-[var(--color-bg)]">
+      {category && (
+        <span class="chip !absolute left-4 top-4 z-10 !text-[var(--color-text)]">{category}</span>
+      )}
       {img ? (
         <Image
           src={img}

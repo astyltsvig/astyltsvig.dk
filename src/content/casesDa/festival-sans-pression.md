@@ -5,6 +5,7 @@ headline: "En festivalhjemmeside med skarp pop-art-identitet og tilgængelighed 
 role: "Udvikling, design-implementering"
 period: "2026"
 stack: ["Astro", "Cloudflare Pages"]
+categoryKey: "web"
 statusKey: "delivered"
 statusSuffix: "Live på festival-sans-pression.pages.dev"
 screenshot: "festival-sans-pression.png"

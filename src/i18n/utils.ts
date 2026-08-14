@@ -31,6 +31,9 @@ const caseSlugs = [
   'cycling-without-age',
   'df1866',
   'festival-sans-pression',
+  'smartlinjen',
+  'matematik-klar',
+  'shows-calendar',
 ] as const;
 
 export function getAlternateUrl(pathname: string, target: Lang): string {

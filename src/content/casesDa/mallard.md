@@ -5,6 +5,7 @@ headline: "ERP-system til en kompleks og specialiseret drift."
 role: "Solo-udvikler, arkitektur, drift"
 period: "2022 – nu"
 stack: ["Laravel", "Vue", "MySQL"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 icon: "chart"
 order: 1

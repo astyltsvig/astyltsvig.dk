@@ -4,6 +4,7 @@ headline: "Administration platforms for the insurance and pension sector."
 role: "Solo developer, architecture, operations"
 period: "2021 – present"
 stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3

@@ -5,6 +5,7 @@ headline: "ERP system for a complex, specialised operation."
 role: "Solo developer, architecture, operations"
 period: "2022 – present"
 stack: ["Laravel", "Vue", "MySQL"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 icon: "chart"
 order: 1

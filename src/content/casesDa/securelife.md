@@ -4,6 +4,7 @@ headline: "Administrationsplatforme til forsikrings- og pensionssektoren."
 role: "Solo-udvikler, arkitektur, drift"
 period: "2021 – nu"
 stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
+categoryKey: "platform"
 statusKey: "inDailyProduction"
 icon: "shield"
 order: 3

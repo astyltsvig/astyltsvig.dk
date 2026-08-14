@@ -5,6 +5,7 @@ headline: "A festival website with a bold pop-art identity and accessibility bui
 role: "Development, design implementation"
 period: "2026"
 stack: ["Astro", "Cloudflare Pages"]
+categoryKey: "web"
 statusKey: "delivered"
 statusSuffix: "Live at festival-sans-pression.pages.dev"
 screenshot: "festival-sans-pression.png"

@@ -18,7 +18,32 @@ export const en = {
     whatIDo: 'Focus areas',
     haveAProject: 'Have a project in mind?',
   },
+  categories: {
+    platform: 'Business platform',
+    web: 'Website',
+    ownProduct: 'Own product',
+    operations: 'Operations & infrastructure',
+  },
+  categorySections: {
+    platform: {
+      heading: 'Business platforms',
+      description: 'Custom systems — ERP, CRM, and booking — built and operated as core infrastructure for the business.',
+    },
+    web: {
+      heading: 'Websites & web',
+      description: 'Fast, accessible websites for organisations and events — from design implementation to DNS and operations.',
+    },
+    ownProduct: {
+      heading: 'Own products',
+      description: 'Internal projects at AStyltsvig Consulting — products I have conceived, built, and run myself.',
+    },
+    operations: {
+      heading: 'Operations & infrastructure',
+      description: 'Technical ownership and ongoing administration — systems, DNS, and email authentication.',
+    },
+  },
   caseMeta: {
+    category: 'Category',
     role: 'Role',
     period: 'Period',
     stack: 'Stack',
@@ -49,4 +74,5 @@ export const en = {
   },
 } as const;
 
-export type Dict = typeof en;
+type DeepString<T> = { [K in keyof T]: T[K] extends string ? string : DeepString<T[K]> };
+export type Dict = DeepString<typeof en>;
