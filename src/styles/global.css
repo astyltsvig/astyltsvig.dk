@@ -183,6 +183,13 @@ a.glass:hover,
   border-color: color-mix(in oklab, var(--color-text) 86%, var(--color-bg));
 }
 
+/* ----------------- inverted CTA band button ----------------- */
+.cta-invert {
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.cta-invert:hover { opacity: 0.88; color: var(--color-text); }
+.cta-invert:active { transform: translateY(1px); }
+
 /* ----------------- reveal ----------------- */
 .fade-in {
   opacity: 0;
