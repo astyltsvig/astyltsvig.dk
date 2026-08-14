@@ -1,7 +1,7 @@
 ---
 client: "Danske Døves Landsforbund (DDL)"
 clientUrl: "https://tegnsprogspakken.dk"
-headline: "Tegnsprogspakken relaunched with a major design uplift and a fast, editor-friendly Astro stack."
+headline: "A design uplift and a new technical foundation for DDL's sign-language resources — without moving a single URL."
 role: "Technical lead, development, DNS"
 period: "2025 – 2026"
 stack: ["Astro", "Sveltia CMS", "Cloudflare Pages", "Simply.com"]
@@ -11,17 +11,19 @@ statusSuffix: "Live at tegnsprogspakken.dk"
 screenshot: "tegnsprogspakken.png"
 screenshotAlt: "tegnsprogspakken.dk homepage hero: 'Tegn – vejen til kontakt og tryghed'"
 order: 4
-description: "Relaunch of the Danish Deaf Association's sign-language content platform with a new design and an Astro + Sveltia CMS stack."
+description: "Relaunch of Tegnsprogspakken for the Danish Deaf Association: a distinct design uplift, a static Astro stack, and a Git-based CMS the editors could use from day one."
 ---
 
-## About the platform
+## Background
 
-Tegnsprogspakken ("The Sign Language Pack") is DDL's content platform for Danish sign language resources.
+Tegnsprogspakken ("The Sign Language Pack") is the Danish Deaf Association's platform for sign-language resources. The content was strong — but the expression needed a lift, and the technical foundation had to be fast and cheap to run.
 
 ## Delivery
 
-The existing site was carried forward with a design uplift that gives it a more contemporary visual expression, without changing content or URL structure. Technically delivered on an Astro-based stack with Sveltia CMS as the editorial surface. Sveltia layers a recognisable editing interface on top of Git-based content, and the site is built and served statically.
+The site was relaunched with a distinct design uplift and a more contemporary expression — without touching the content or the URL structure, so no links or search rankings were lost.
+
+Technically: a static Astro site on Cloudflare Pages with Sveltia CMS as the editorial surface. Sveltia layers a familiar editing interface on top of Git-based content — editors work as in a classic CMS, and everything is versioned automatically.
 
 ## Outcome
 
-A fresher visual expression, fast load times, a light operational footprint, and an editing surface the editors could pick up without training.
+A fresher expression, instant load times, and an operational footprint close to zero. The editors were productive without any training — and the platform can evolve without vendor lock-in.

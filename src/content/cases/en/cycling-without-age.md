@@ -1,28 +1,27 @@
 ---
 client: "Cycling Without Age"
-headline: "Technical administration for CUA."
+headline: "A single point of technical ownership for a global movement."
 role: "Technical administrator"
 period: "Ongoing"
 stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMARC"]
 categoryKey: "operations"
 statusKey: "ongoing"
-icon: "globe"
 order: 5
-description: "Technical ownership, DNS and email authentication for a Danish-founded global movement."
+description: "Ongoing technical ownership for Cycling Without Age: Google Workspace, DNS, and email authentication across the organisation's domains."
 ---
 
 ## Background
 
-Cycling Without Age is a Danish-founded global movement with affiliates in dozens of countries. Over time the organisation had accumulated an international IT setup spanning Google Workspace, Zendesk, Looker Studio, and a broad domain portfolio.
+Cycling Without Age is a Danish-founded movement with affiliates in dozens of countries. Over the years an international IT setup had grown — Google Workspace, Zendesk, Looker Studio, and a broad domain portfolio — without a single point of technical ownership.
 
 ## Brief
 
-Establish a single point of technical ownership, create a clear view of the systems in use, and bring DNS and email authentication up to a consistent standard.
+Gather the technical responsibility in one place: map the systems in use, clean up access, and bring DNS and email authentication up to one consistent standard.
 
 ## Approach
 
-Review and consolidation of Google Workspace administration and access rights. Configuration of SPF, DKIM, and DMARC across the organisation's domains. Technical handover of the Book2Go platform (Zendesk, Looker Studio) with supporting documentation.
+Review and consolidation of Google Workspace administration and access rights. SPF, DKIM, and DMARC configured across the organisation's domains, so mail arrives and the domains cannot be abused. Technical takeover of the systems surrounding the Book2Go platform (Zendesk, Looker Studio) — documented, so the knowledge doesn't live in one head.
 
 ## Outcome
 
-The organisation now has a single point of contact for technical administration, a documented infrastructure, and email authentication that protects against spoofing.
+The organisation now has one technical point of contact, a documented infrastructure, and email authentication that protects against spoofing. The role is ongoing — because infrastructure is not a project, it's a responsibility.

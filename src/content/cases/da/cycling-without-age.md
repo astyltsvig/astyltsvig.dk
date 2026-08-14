@@ -1,28 +1,27 @@
 ---
 client: "Cycling Without Age / Cykling uden alder"
-headline: "Teknisk administration for CUA."
+headline: "Ét teknisk kontaktpunkt for en global bevægelse."
 role: "Teknisk administrator"
 period: "Løbende"
 stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMARC"]
 categoryKey: "operations"
 statusKey: "ongoing"
-icon: "globe"
 order: 5
-description: "Teknisk ejerskab, DNS og email-autentificering for en dansk-grundlagt global bevægelse."
+description: "Løbende teknisk ejerskab for Cycling Without Age: Google Workspace, DNS og email-autentificering på tværs af organisationens domæner."
 ---
 
 ## Baggrund
 
-Cycling Without Age er en dansk-grundlagt global bevægelse med afdelinger i snesevis af lande. Med tiden er der opbygget en international IT-opsætning på tværs af Google Workspace, Zendesk, Looker Studio og et bredt domæneportfolio.
+Cycling Without Age er en dansk-grundlagt bevægelse med afdelinger i snesevis af lande. Gennem årene var der vokset en international IT-opsætning frem — Google Workspace, Zendesk, Looker Studio og et bredt domæneportfolio — uden ét samlet teknisk ejerskab.
 
 ## Opgave
 
-Etablere et samlet teknisk kontaktpunkt, skabe overblik over de anvendte systemer og bringe DNS og email-autentificering op på en ensartet standard.
+Saml det tekniske ansvar ét sted: skab overblik over systemerne, ryd op i adgange, og bring DNS og email-autentificering op på en ensartet standard.
 
 ## Løsning
 
-Gennemgang og konsolidering af Google Workspace-administration og adgangsrettigheder. Opsætning af SPF, DKIM og DMARC på organisationens domæner. Teknisk overtagelse af Book2Go-platformen (Zendesk, Looker Studio) med tilhørende dokumentation.
+Gennemgang og konsolidering af Google Workspace-administration og adgangsrettigheder. SPF, DKIM og DMARC sat op på organisationens domæner, så mails når frem og domænerne ikke kan misbruges. Teknisk overtagelse af Book2Go-platformens omkringliggende systemer (Zendesk, Looker Studio) — dokumenteret, så viden ikke bor i ét hoved.
 
 ## Resultat
 
-Organisationen har nu ét kontaktpunkt for teknisk administration, en dokumenteret infrastruktur og email-autentificering der beskytter mod spoofing.
+Organisationen har i dag ét teknisk kontaktpunkt, en dokumenteret infrastruktur og email-autentificering, der beskytter mod spoofing. Rollen er løbende — fordi infrastruktur ikke er et projekt, men et ansvar.

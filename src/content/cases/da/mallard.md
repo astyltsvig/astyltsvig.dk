@@ -1,35 +1,34 @@
 ---
 client: "Mallard"
 clientUrl: "https://mallard.dk"
-headline: "ERP-system til en kompleks og specialiseret drift."
+headline: "Skræddersyet ERP — bygget efter forretningen, ikke omvendt."
 role: "Solo-udvikler, arkitektur, drift"
 period: "2022 – nu"
 stack: ["Laravel", "Vue", "MySQL"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
-icon: "chart"
 order: 1
-description: "Skræddersyet ERP-system udviklet og driftet for Mallard siden 2022 — kerneinfrastruktur for forretningen i daglig produktion."
+description: "Forretningskritisk ERP-system for Mallard — udviklet fra bunden i 2022 og siden da i uafbrudt daglig drift."
 ---
 
 ## Baggrund
 
-Mallard opererer i en branche med høj operationel kompleksitet, hvor planlægning, koordinering og administration hænger tæt sammen. Standardværktøjer dækkede ikke behovet tilfredsstillende, og en stor del af forretningen var afhængig af manuelle processer.
+Mallards drift er kompleks og specialiseret: planlægning, koordinering og administration griber ind i hinanden, og standardsoftware passede aldrig helt. Konsekvensen var manuelle processer dér, hvor forretningen mindst kunne tåle dem.
 
 ## Opgave
 
-At designe og udvikle en samlet platform, der kunne understøtte den daglige drift og reducere afhængigheden af manuelle arbejdsgange — uden at gå på kompromis med fleksibiliteten.
+Ét samlet system, der afspejler den måde Mallard faktisk arbejder på — og som fjerner de manuelle arbejdsgange uden at fjerne fleksibiliteten.
 
 ## Løsning
 
-Et skræddersyet ERP-system bygget fra bunden, der samler centrale arbejdsgange i én løsning. Fokus har været på:
+Et ERP-system bygget fra bunden med tre bærende krav:
 
-- At skabe et system der afspejler den faktiske forretning frem for at tvinge processen ind i standardsoftware
-- Stabil drift og høj pålidelighed i en virksomhed, hvor systemet er forretningskritisk
-- At designe løsningen så den kan tilpasses nye behov over tid
+- Forretningens egne processer som udgangspunkt — ikke en standardskabelon, virkeligheden skal mases ned i
+- Driftsstabilitet som førsteprioritet, fordi systemet er forretningskritisk fra morgen til aften
+- En arkitektur, der kan udvides i takt med at behovene ændrer sig
 
-Jeg står for både udvikling, arkitektur og drift, hvilket giver en tæt kobling mellem forretning og teknologi.
+Arkitektur, udvikling og drift ligger samme sted. Det betyder korte beslutningsveje: fra idé eller fejlmelding til ændring i produktion uden mellemled.
 
 ## Resultat
 
-Systemet er i dag en central del af Mallards daglige drift og har erstattet tidligere manuelle processer. Det understøtter en mere effektiv arbejdsgang og danner fundament for løbende forbedringer og videreudvikling.
+Systemet har været kerneinfrastruktur i Mallards daglige drift siden 2022. De manuelle processer er væk, arbejdsgangene er hurtigere — og platformen videreudvikles løbende, efterhånden som forretningen flytter sig.

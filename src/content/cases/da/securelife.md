@@ -1,32 +1,31 @@
 ---
 client: "SecureLife"
-headline: "Administrationsplatforme til forsikrings- og pensionssektoren."
+headline: "Forsikring og pension administreret ét sted — for hundredvis af virksomheder."
 role: "Solo-udvikler, arkitektur, drift"
 period: "2021 – nu"
 stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
-icon: "shield"
 order: 3
-description: "Digitale administrationsplatforme til SecureLife — i stabil daglig drift siden 2022, med igangværende arbejde på næste generation."
+description: "Administrationsplatform for forsikringspolicer og pensionsordninger — i stabil daglig drift siden 2022, med næste generation undervejs."
 ---
 
 ## Baggrund
 
-Forsikring og pension er et domæne hvor data er i konstant bevægelse, og hvor kravene til sikkerhed, sporbarhed og korrekt håndtering er høje. Mange forskellige interessenter skal kunne arbejde med det samme materiale, hver fra deres egen vinkel, uden at integriteten kompromitteres.
+I forsikring og pension er data i konstant bevægelse, og kravene til sikkerhed, sporbarhed og korrekt håndtering er kompromisløse. Mange interessenter arbejder i det samme materiale fra hver deres vinkel — og intet må gå tabt eller ændres uden spor.
 
-Det stiller krav til en platform der er stram i sin håndhævelse af adgang og forretningsregler — og samtidig tilstrækkeligt fleksibel til at understøtte den måde arbejdet faktisk udføres på.
+Det kræver en platform, der er stram i sin håndhævelse af adgang og forretningsregler, men smidig nok til at følge det virkelige arbejde.
 
 ## Platformen
 
-Platformen administrerer forsikringspolicer og pensionsordninger på tværs af hundredvis af virksomheder og tusindvis af medarbejdere. Den leverer fuldt overblik — hvem der er dækket af hvad, hvilke dokumenter hører til den enkelte ordning, og hvilke ændringer der er sket over tid.
+Platformen administrerer forsikringspolicer og pensionsordninger på tværs af hundredvis af virksomheder og tusindvis af medarbejdere: hvem der er dækket af hvad, hvilke dokumenter der hører til hvilken ordning, og hvad der er ændret hvornår.
 
-Designet med vægt på korrekthed, sporbarhed og forudsigelig adfærd i daglig drift. Fundamentet kombinerer et fintkornet adgangssystem, genbrugelige datamodeller på tværs af leverandører og automatiserede arbejdsgange omkring ændringer der kræver opfølgning. To brands drives på samme platform, hvilket sikrer ensartet kvalitet og effektiv videreudvikling.
+Fundamentet er et fintkornet adgangssystem, genbrugelige datamodeller på tværs af leverandører og automatiserede arbejdsgange omkring ændringer, der kræver opfølgning. To brands kører på samme platform — én kodebase, ensartet kvalitet, dobbelt effekt af hver forbedring.
 
 ## Min rolle
 
-Ansvarlig for arkitektur, udvikling og drift gennem hele platformens levetid. Fra det første fundament til den nuværende drift og det igangværende arbejde med næste generation.
+Arkitektur, udvikling og drift gennem hele platformens levetid — fra det første fundament i 2021 over den nuværende daglige drift til det igangværende arbejde på næste generation.
 
 ## Resultat
 
-I stabil daglig drift siden 2022. Bærer forretningskritiske processer for to brands og er løbende udviklet i takt med forretningens behov.
+I stabil daglig drift siden 2022 med forretningskritiske processer for to brands. Videreudviklet løbende — i takt med forretningen, ikke bagefter den.

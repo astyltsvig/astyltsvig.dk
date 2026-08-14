@@ -14,11 +14,14 @@ interface Props {
 const { entry, lang, showThumb = false, showCategory = true } = Astro.props;
 const s = shared[lang];
 const { data } = entry;
-const meta = [
+const metaParts = [
   ...(showCategory ? [s.categories[data.categoryKey]] : []),
   data.period,
   s.status[data.statusKey],
-].join(' · ');
+];
+const meta = metaParts
+  .filter((part, i) => metaParts.findIndex(p => p.toLowerCase() === part.toLowerCase()) === i)
+  .join(' · ');
 ---
 <li class="border-t border-line">
   <a

@@ -1,35 +1,34 @@
 ---
 client: "Mallard"
 clientUrl: "https://mallard.dk"
-headline: "ERP system for a complex, specialised operation."
+headline: "Bespoke ERP — shaped by the business, not the other way around."
 role: "Solo developer, architecture, operations"
 period: "2022 – present"
 stack: ["Laravel", "Vue", "MySQL"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
-icon: "chart"
 order: 1
-description: "Custom ERP system built and operated for Mallard since 2022 — core infrastructure for the business, in daily production."
+description: "Business-critical ERP system for Mallard — built from scratch in 2022 and in uninterrupted daily production ever since."
 ---
 
 ## Background
 
-Mallard operates in an industry with high operational complexity, where planning, coordination, and administration are tightly interlinked. Off-the-shelf tools did not adequately cover the need, and a significant portion of the operation depended on manual processes.
+Mallard runs a complex, specialised operation where planning, coordination, and administration are tightly interlinked. Off-the-shelf software never quite fit — and the gap was filled with manual processes exactly where the business could least afford them.
 
 ## Brief
 
-Design and develop a unified platform to support day-to-day operations and reduce dependence on manual workflows — without compromising on flexibility.
+One unified system that mirrors how Mallard actually works — removing the manual workflows without removing the flexibility.
 
 ## Approach
 
-A bespoke ERP system built from the ground up, consolidating core workflows into a single solution. The focus has been on:
+An ERP system built from the ground up around three non-negotiables:
 
-- A system that reflects how the business actually runs rather than forcing the process into off-the-shelf software
-- Stable, high-reliability operation in a business where the system is mission-critical
-- A solution designed to evolve, so it can adapt to new needs over time
+- The business's own processes as the starting point — not a template reality has to be squeezed into
+- Operational stability first, because the system is mission-critical from morning to night
+- An architecture that grows as the needs change
 
-I am responsible for development, architecture, and operations, which keeps a tight loop between business and technology.
+Architecture, development, and operations sit in the same hands. That means short decision paths: from idea or bug report to a change in production, with no intermediaries.
 
 ## Outcome
 
-The system is today a central part of Mallard's daily operation and has replaced previous manual processes. It supports a more efficient workflow and forms the foundation for ongoing improvement and further development.
+The system has been core infrastructure in Mallard's daily operation since 2022. The manual processes are gone, workflows are faster — and the platform keeps evolving as the business moves.
