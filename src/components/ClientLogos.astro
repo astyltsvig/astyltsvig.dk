@@ -23,30 +23,87 @@ const logos = [
 
 const wordmarks = ['SecureLife', 'Cycling Without Age'];
 ---
-<section class="mx-auto max-w-6xl px-6 md:px-10 py-12 md:py-16">
-  <p class="eyebrow reveal">{c.eyebrow}</p>
-  <ul class="mt-8 flex flex-wrap items-center gap-x-12 gap-y-8">
-    {logos.map((logo, i) => (
-      <li class="reveal" style={`--reveal-delay: ${i * 70}ms`}>
-        <Image
-          src={logo.image}
-          alt={logo.name}
-          height={44}
-          densities={[1, 2]}
-          format="webp"
-          quality={85}
-          loading="lazy"
-          class="h-9 md:h-11 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-150"
-        />
-      </li>
-    ))}
-    {wordmarks.map((name, i) => (
-      <li
-        class="text-lg font-semibold tracking-tight text-muted/80 hover:text-ink transition-colors duration-150 reveal"
-        style={`--reveal-delay: ${(logos.length + i) * 70}ms`}
-      >
-        {name}
-      </li>
-    ))}
-  </ul>
+<section class="py-10 md:py-14 reveal">
+  <p class="eyebrow mx-auto max-w-6xl px-6 md:px-10">{c.eyebrow}</p>
+  <div class="marquee mt-8">
+    <div class="marquee-track">
+      {[false, true].map(isClone => (
+        <ul class="marquee-group" aria-hidden={isClone ? 'true' : undefined}>
+          {logos.map(logo => (
+            <li>
+              <Image
+                src={logo.image}
+                alt={isClone ? '' : logo.name}
+                height={48}
+                densities={[1, 2]}
+                format="webp"
+                quality={85}
+                loading="eager"
+                class="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-150"
+              />
+            </li>
+          ))}
+          {wordmarks.map(name => (
+            <li class="text-xl font-semibold tracking-tight text-muted/80 hover:text-ink transition-colors duration-150 whitespace-nowrap">
+              {name}
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  </div>
 </section>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 35s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-group {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding-right: 5rem;
+  }
+
+  @keyframes marquee-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      mask-image: none;
+    }
+
+    .marquee-track {
+      animation: none;
+      width: auto;
+      margin-inline: auto;
+      max-width: 72rem;
+      padding-inline: 1.5rem;
+    }
+
+    .marquee-group {
+      flex-wrap: wrap;
+      padding-right: 0;
+      gap: 3rem;
+    }
+
+    .marquee-group[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>

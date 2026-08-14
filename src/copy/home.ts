@@ -16,7 +16,6 @@ const da = {
   facts: [
     'Uafhængig konsulent siden 2020',
     '3+ platforme i daglig produktion',
-    'Laravel · Vue · Astro',
     'Vanløse, København',
   ],
   clients: {
@@ -64,7 +63,6 @@ const en: DeepString<typeof da> = {
   facts: [
     'Independent consultant since 2020',
     '3+ platforms in daily production',
-    'Laravel · Vue · Astro',
     'Vanløse, Copenhagen',
   ],
   clients: {
