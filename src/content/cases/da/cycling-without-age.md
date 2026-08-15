@@ -1,5 +1,5 @@
 ---
-client: "Cycling Without Age / Cykling uden alder"
+client: "Cycling Without Age"
 headline: "Ét teknisk kontaktpunkt for en global bevægelse."
 role: "Teknisk administrator"
 period: "Løbende"
