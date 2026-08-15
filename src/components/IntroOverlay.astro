@@ -1,0 +1,157 @@
+---
+// One-time entrance intro: the A-mark draws itself, the name rises in
+// letter by letter, then the overlay lifts to reveal the page.
+// Plays once per browser session; skipped entirely for reduced-motion and no-JS.
+const chars = [...'AStyltsvig'];
+---
+<div id="intro" class="intro-overlay" aria-hidden="true">
+  <div class="intro-inner">
+    <svg viewBox="0 0 48 48" class="intro-mark" fill="none" aria-hidden="true">
+      <circle class="intro-stroke intro-stroke-circle" cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1.5" />
+      <path class="intro-stroke intro-stroke-a" d="M13 35 L22 13 L26 13 L35 35" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path class="intro-stroke intro-stroke-bar" d="M17 27 L31 27" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+      <circle class="intro-dot" cx="40" cy="40" r="2" fill="currentColor" stroke="none" />
+    </svg>
+    <p class="intro-name" aria-hidden="true">
+      {chars.map((ch, i) => <span class="intro-char" style={`--i:${i}`}>{ch}</span>)}
+    </p>
+    <p class="intro-kicker">Consulting · København</p>
+    <div class="intro-line"></div>
+  </div>
+</div>
+
+<script is:inline>
+  (() => {
+    try {
+      const el = document.getElementById('intro');
+      if (!el) return;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || sessionStorage.getItem('introSeen')) {
+        el.remove();
+        return;
+      }
+      sessionStorage.setItem('introSeen', '1');
+      document.documentElement.classList.add('intro-play');
+      document.body.style.overflow = 'hidden';
+      // Fire intro:done as the curtain starts lifting so the page's own
+      // entrance plays underneath it; remove the overlay once it is gone.
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('intro-play');
+        el.classList.add('intro-exiting');
+        document.dispatchEvent(new CustomEvent('intro:done'));
+      }, 1900);
+      window.setTimeout(() => {
+        el.remove();
+        document.body.style.overflow = '';
+      }, 2650);
+    } catch (_) {
+      document.getElementById('intro')?.remove();
+    }
+  })();
+</script>
+
+<noscript>
+  <style>
+    .intro-overlay { display: none !important; }
+  </style>
+</noscript>
+
+<style>
+  /* Hidden unless the gate script opts in — no-JS and repeat visitors never see it. */
+  .intro-overlay {
+    display: none;
+  }
+
+  :global(html.intro-play) .intro-overlay,
+  .intro-overlay.intro-exiting {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    animation: intro-exit 0.7s var(--ease-out) 1.9s forwards;
+  }
+
+  .intro-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .intro-mark {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .intro-stroke {
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    animation: intro-draw 0.9s var(--ease-out) forwards;
+  }
+
+  .intro-stroke-a { animation-delay: 0.15s; }
+  .intro-stroke-bar { animation-delay: 0.45s; }
+
+  .intro-dot {
+    opacity: 0;
+    animation: intro-fade 0.3s ease-out 0.8s forwards;
+  }
+
+  .intro-name {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .intro-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.5em);
+    animation: intro-char 0.55s var(--ease-out) forwards;
+    animation-delay: calc(0.35s + var(--i) * 0.05s);
+  }
+
+  .intro-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    opacity: 0;
+    animation: intro-fade 0.5s ease-out 1.1s forwards;
+  }
+
+  .intro-line {
+    width: 0;
+    height: 1px;
+    background: var(--color-accent);
+    animation: intro-grow 0.6s var(--ease-out) 1.25s forwards;
+  }
+
+  @keyframes intro-draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes intro-char {
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes intro-fade {
+    to { opacity: 1; }
+  }
+
+  @keyframes intro-grow {
+    to { width: min(16rem, 60vw); }
+  }
+
+  @keyframes intro-exit {
+    to { transform: translateY(-100%); }
+  }
+</style>

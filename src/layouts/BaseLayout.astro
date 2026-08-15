@@ -4,6 +4,7 @@ import '~/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import Header from '~/components/Header.astro';
 import Footer from '~/components/Footer.astro';
+import IntroOverlay from '~/components/IntroOverlay.astro';
 import { shared } from '~/copy/shared';
 import type { AltPaths, Lang } from '~/i18n/routes';
 
@@ -110,6 +111,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     </noscript>
   </head>
   <body class="min-h-dvh flex flex-col bg-paper text-ink">
+    <IntroOverlay />
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-ink focus:text-paper focus:px-4 focus:py-2"
@@ -142,7 +144,16 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
         );
         els.forEach(el => io.observe(el));
       };
-      document.addEventListener('astro:page-load', initReveal);
+      // While the intro overlay plays, hold the reveals so the hero's
+      // entrance happens after the curtain lifts instead of behind it.
+      const initWhenReady = () => {
+        if (document.documentElement.classList.contains('intro-play')) {
+          document.addEventListener('intro:done', initReveal, { once: true });
+        } else {
+          initReveal();
+        }
+      };
+      document.addEventListener('astro:page-load', initWhenReady);
     </script>
   </body>
 </html>
