@@ -11,7 +11,7 @@ statusSuffix: "Live at tegnsprogspakken.dk"
 screenshot: "tegnsprogspakken.png"
 screenshotAlt: "tegnsprogspakken.dk homepage hero: 'Tegn – vejen til kontakt og tryghed'"
 order: 4
-description: "Relaunch of Tegnsprogspakken for the Danish Deaf Association: a distinct design uplift, a static Astro stack, and a Git-based CMS the editors could use from day one."
+description: "Relaunch of DDL's sign-language resource platform: a distinct design uplift without losing a single link — and an editorial surface the editors could use from day one."
 ---
 
 ## Background

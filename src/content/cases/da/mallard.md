@@ -8,7 +8,7 @@ stack: ["Laravel", "Vue", "MySQL"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
 order: 1
-description: "Forretningskritisk ERP-system for Mallard — udviklet fra bunden i 2022 og siden da i uafbrudt daglig drift."
+description: "Forretningskritisk ERP der samlede Mallards planlægning, koordinering og administration i ét system — og fjernede de manuelle processer, driften hang fast i."
 ---
 
 ## Baggrund

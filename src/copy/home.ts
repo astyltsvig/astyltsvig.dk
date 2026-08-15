@@ -32,15 +32,15 @@ const da = {
     items: [
       {
         title: 'Platformudvikling',
-        text: 'Skræddersyede systemer — ERP, booking og administration — bygget i Laravel og Vue og driftet år efter år.',
+        text: 'Skræddersyede systemer til den drift, standardsoftware ikke dækker — bygget til at bære forretningen og driftet år efter år.',
       },
       {
         title: 'Hjemmesider',
-        text: 'Hurtige statiske sites i Astro med Git-baseret CMS. Lave driftomkostninger, ingen leverandørlås.',
+        text: 'Sites der loader øjeblikkeligt, er næsten gratis i drift — og kan opdateres af jer selv, uden en udvikler i røret.',
       },
       {
         title: 'Drift & infrastruktur',
-        text: 'DNS, email-autentificering og Google Workspace — teknisk ejerskab af det, der bare skal virke.',
+        text: 'Teknisk ejerskab af fundamentet — domæner, email og adgange — så det aldrig bliver dit problem.',
       },
     ],
     link: 'Læs mere om ydelserne',
@@ -79,15 +79,15 @@ const en: DeepString<typeof da> = {
     items: [
       {
         title: 'Platform development',
-        text: 'Bespoke systems — ERP, booking, and administration — built in Laravel and Vue and operated year after year.',
+        text: 'Bespoke systems for the operations off-the-shelf software does not cover — built to carry the business and operated year after year.',
       },
       {
         title: 'Websites',
-        text: 'Fast static sites in Astro with Git-based CMS. Low running costs, no vendor lock-in.',
+        text: 'Sites that load instantly, cost next to nothing to run — and can be updated by your own people, no developer on the line.',
       },
       {
         title: 'Operations & infrastructure',
-        text: 'DNS, email authentication, and Google Workspace — technical ownership of the things that simply have to work.',
+        text: 'Technical ownership of the foundation — domains, email, and access — so it never becomes your problem.',
       },
     ],
     link: 'Read more about the services',

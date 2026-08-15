@@ -11,7 +11,7 @@ statusSuffix: "Live at shows-calendar.pages.dev"
 screenshot: "shows-calendar.png"
 screenshotAlt: "Shows Calendar homepage with the hero 'Gå aldrig glip af et afsnit igen' and a grid of show posters"
 order: 11
-description: "Shows Calendar gathers your TV shows in one place: a monthly calendar of upcoming episodes, watched-episode tracking — and a personal iCal feed for your own calendar. An own product in production."
+description: "Never miss an episode again: all your shows in one calendar, watched episodes tracked — and new episodes landing automatically in your own calendar."
 ---
 
 ## Background

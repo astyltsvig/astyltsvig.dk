@@ -13,9 +13,10 @@ const da = {
   },
   portraitAlt: 'Portræt af Andreas Sørbye Styltsvig',
   bio: [
-    'Mit arbejde er de systemer, en virksomhed står og falder med: ERP, booking og administration. Jeg tager ansvaret for hele kæden — arkitektur, udvikling og daglig drift — så der aldrig er tvivl om, hvem der har bolden.',
-    'Min foretrukne stack er Laravel og Vue, men valget følger altid opgaven og det kodegrundlag, der allerede findes. Til hjemmesider bygger jeg statisk med Astro og Cloudflare, og på driftssiden ejer jeg gerne DNS, email-autentificering og Google Workspace for mine kunder.',
-    'AI er en åben og integreret del af mit arbejde: Arkitektur og beslutninger ligger hos mig — implementering, refaktorering og fejlfinding accelereres med AI. Det er en stor del af forklaringen på, hvad én person kan bygge og drive.',
+    'Mit arbejde er de systemer, en virksomhed står og falder med. Jeg tager ansvaret for hele kæden — fra idé til daglig drift — så der aldrig er tvivl om, hvem der har bolden. Det ansvar er ikke en byrde for mig; det er selve grunden til, at jeg arbejder, som jeg gør.',
+    'Min filosofi er enkel: få ting, gjort ordentligt, over lang tid. Jeg vil hellere have en håndfuld kunder, der bliver i ti år, end halvtreds der kommer og går. Det betyder ærlige anbefalinger — også når den rigtige løsning er den billige — og systemer bygget til at blive vedligeholdt, ikke bare leveret. Rolig, forudsigelig drift er i mine øjne den fineste disciplin i faget.',
+    'Vejen hertil gik gennem en professionsbachelor i softwareudvikling og et konsulentjob, hvor jeg tidligt fik ansvaret for en stor infrastrukturmigration hos Oticon. Da chancen for at stå på egne ben kom i 2020, greb jeg den — og har siden bygget min praksis op om tætte, langvarige kundeforhold, hvor jeg kender forretningen lige så godt som koden.',
+    'Jeg arbejder åbent med AI som en integreret del af hverdagen: beslutningerne og arkitekturen er mine, men tempoet er nyt. Jeg er transparent om det, fordi ærlighed om metoden hører med — og fordi det er en stor del af forklaringen på, hvad én person kan bygge og drive.',
   ],
   path: {
     eyebrow: 'Forløb',
@@ -92,9 +93,10 @@ const en: DeepString<typeof da> = {
   },
   portraitAlt: 'Portrait of Andreas Sørbye Styltsvig',
   bio: [
-    'My work is the systems a business stands or falls with: ERP, booking, and administration. I take responsibility for the whole chain — architecture, development, and daily operations — so there is never any doubt about who owns the problem.',
-    'My preferred stack is Laravel and Vue, but the choice always follows the task and the codebase that already exists. For websites I build statically with Astro and Cloudflare, and on the operations side I gladly own DNS, email authentication, and Google Workspace for my clients.',
-    'AI is an open and integrated part of my work: architecture and decisions stay with me — implementation, refactoring, and debugging are accelerated with AI. That is a large part of how one person can build and operate this much.',
+    'My work is the systems a business stands or falls with. I take responsibility for the whole chain — from idea to daily operations — so there is never any doubt about who owns the problem. That responsibility is not a burden to me; it is the very reason I work the way I do.',
+    'My philosophy is simple: few things, done properly, over a long time. I would rather have a handful of clients who stay for ten years than fifty who come and go. That means honest recommendations — including when the right solution is the cheap one — and systems built to be maintained, not just delivered. Calm, predictable operations is, to my mind, the finest discipline in this craft.',
+    'The road here went through a BSc in software development and a consulting job where I was trusted early with a major infrastructure migration at Oticon. When the chance to stand on my own came in 2020, I took it — and have since built my practice around close, long-term client relationships where I know the business as well as the code.',
+    'I work openly with AI as an integrated part of my day: the decisions and the architecture are mine, but the pace is new. I am transparent about it because honesty about the method belongs in the work — and because it is a large part of how one person can build and operate this much.',
   ],
   path: {
     eyebrow: 'Path',

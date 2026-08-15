@@ -8,7 +8,7 @@ stack: ["Laravel", "Vue", "MySQL"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
 order: 1
-description: "Business-critical ERP system for Mallard — built from scratch in 2022 and in uninterrupted daily production ever since."
+description: "Business-critical ERP that unified Mallard's planning, coordination, and administration in one system — and removed the manual processes the operation was stuck in."
 ---
 
 ## Background

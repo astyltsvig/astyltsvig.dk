@@ -11,7 +11,7 @@ statusSuffix: "Live på matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"
 screenshotAlt: "Forside af MatematikKlar med hero 'Bliv skarp til matematik — og til at undervise i den' og en prøveopgave"
 order: 10
-description: "Gratis dansk matematiktræning fra 1. klasse til studentereksamen: 912 opgaver bygget på Fælles Måls progression, med hints og forklaringer til hvert svar. Eget produkt i drift."
+description: "Gratis, reklamefri matematiktræning fra 1. klasse til studentereksamen — 912 opgaver der forklarer strategien bag hvert svar, ikke bare facit."
 ---
 
 ## Baggrund
