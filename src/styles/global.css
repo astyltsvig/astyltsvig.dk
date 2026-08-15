@@ -8,6 +8,8 @@
   --color-line: #e4e4de;
   --color-accent: #1b5e4a;
   --color-accent-strong: #14493a;
+  /* Lighter mint for links and details on ink backgrounds (the dark finale). */
+  --color-accent-soft: #5cb08d;
 
   --font-sans: 'Schibsted Grotesk Variable', 'Schibsted Grotesk', ui-sans-serif, system-ui,
     -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
