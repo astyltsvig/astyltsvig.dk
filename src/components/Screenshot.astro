@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  file: string;
+  alt: string;
+  loading?: 'eager' | 'lazy';
+  widths?: number[];
+  sizes?: string;
+  class?: string;
+}
+
+const {
+  file,
+  alt,
+  loading = 'lazy',
+  widths = [640, 960, 1280, 1920],
+  sizes = '(min-width: 1200px) 1120px, 100vw',
+  class: className,
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/cases/*.{png,jpg,jpeg,webp}');
+const importer = images[`/src/assets/cases/${file}`];
+const image = importer ? (await importer()).default : undefined;
+---
+{image && (
+  <div class:list={['border border-line bg-surface overflow-hidden', className]}>
+    <Image
+      src={image}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      format="webp"
+      quality={82}
+      loading={loading}
+      class="block w-full h-auto transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+    />
+  </div>
+)}

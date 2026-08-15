@@ -1,0 +1,80 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import PageIntro from '~/components/PageIntro.astro';
+import ContactCta from '~/components/ContactCta.astro';
+import { routes, type Lang } from '~/i18n/routes';
+import { services } from '~/copy/services';
+import { shared } from '~/copy/shared';
+import { breadcrumbList, SITE_URL, webPage } from '~/lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = services[lang];
+const s = shared[lang];
+const path = routes.services[lang];
+
+const jsonLd = [
+  webPage({ lang, path, name: c.meta.title, description: c.meta.description }),
+  breadcrumbList([
+    { name: s.nav.home, path: routes.home[lang] },
+    { name: s.nav.services, path },
+  ]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: c.services.map((service, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.lede,
+        provider: { '@id': `${SITE_URL}/#consulting` },
+        areaServed: ['DK', 'EU'],
+      },
+    })),
+  },
+];
+---
+<BaseLayout
+  lang={lang}
+  title={c.meta.title}
+  description={c.meta.description}
+  altPaths={{ da: routes.services.da, en: routes.services.en }}
+  jsonLd={jsonLd}
+>
+  <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
+
+  {c.services.map((service, i) => (
+    <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
+      <div class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-16">
+        <div class="reveal">
+          <span class="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
+          <h2 class="mt-2 text-[clamp(1.5rem,3vw,2.25rem)]">{service.title}</h2>
+          <p class="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-muted">{service.stack}</p>
+        </div>
+        <div class="min-w-0 reveal" style="--reveal-delay: 100ms">
+          <p class="text-lg max-w-[56ch]">{service.lede}</p>
+          <ul class="mt-6 max-w-[62ch]">
+            {service.items.map(item => (
+              <li class="relative pl-6 py-2 text-[0.9375rem] text-muted before:content-['—'] before:absolute before:left-0">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
+    <p class="eyebrow reveal">{c.process.eyebrow}</p>
+    <h2 class="mt-4 text-[clamp(1.5rem,3vw,2.25rem)] reveal" style="--reveal-delay: 80ms">{c.process.heading}</h2>
+    <p class="mt-5 max-w-[62ch] text-muted reveal" style="--reveal-delay: 160ms">{c.process.text}</p>
+  </section>
+
+  <ContactCta lang={lang} />
+</BaseLayout>

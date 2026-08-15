@@ -1,55 +1,68 @@
 ---
-import { t, routes, type Lang } from '~/i18n/utils';
-import Logo from './Logo.astro';
-import LanguageSwitcher from './LanguageSwitcher.astro';
-import ThemeToggle from './ThemeToggle.astro';
+import Logo from '~/components/Logo.astro';
+import { routes, type AltPaths, type Lang, type RouteKey } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
 
-interface Props { lang: Lang; }
-const { lang } = Astro.props;
-const d = t(lang);
+interface Props {
+  lang: Lang;
+  altPaths?: AltPaths;
+}
 
-const navItems = [
-  { label: d.nav.about, href: routes.about[lang] },
-  { label: d.nav.services, href: routes.services[lang] },
-  { label: d.nav.work, href: routes.work[lang] },
-  { label: d.nav.contact, href: routes.contact[lang] },
+const { lang, altPaths } = Astro.props;
+const s = shared[lang];
+
+const navItems: { key: RouteKey; label: string }[] = [
+  { key: 'work', label: s.nav.work },
+  { key: 'services', label: s.nav.services },
+  { key: 'about', label: s.nav.about },
+  { key: 'contact', label: s.nav.contact },
 ];
 
-const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (key: RouteKey) => {
+  const target = routes[key][lang].replace(/\/+$/, '') || '/';
+  return currentPath === target || (target !== '/' && currentPath.startsWith(`${target}/`));
+};
+
+const switchTarget: Lang = lang === 'da' ? 'en' : 'da';
+const switchUrl = altPaths?.[switchTarget];
+const switchLabel = switchTarget === 'da' ? s.languageSwitch.da : s.languageSwitch.en;
 ---
-<header class="sticky top-4 z-40 mx-4 md:mx-8 mt-4">
-  <div class="glass max-w-6xl mx-auto px-5 md:px-7 py-3 flex items-center justify-between gap-6 rounded-full">
+<header class="border-b border-line">
+  <div class="mx-auto max-w-6xl px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-8 gap-y-3">
     <Logo lang={lang} />
-    <nav aria-label="Primary" class="hidden md:flex items-center gap-7">
-      {navItems.map(item => {
-        const isActive = current === item.href.replace(/\/+$/, '') || current.startsWith(item.href + '/');
-        return (
-          <a
-            href={item.href}
-            class:list={[
-              'text-sm font-medium tracking-tight relative',
-              isActive ? 'text-[var(--color-accent)]' : 'text-[var(--color-text)]',
-            ]}
-            aria-current={isActive ? 'page' : undefined}
-          >
-            {item.label}
-            {isActive && <span class="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-2)]"></span>}
-          </a>
-        );
-      })}
+
+    <nav class="order-3 w-full sm:order-none sm:w-auto sm:ml-auto" aria-label={lang === 'da' ? 'Hovedmenu' : 'Main menu'}>
+      <ul class="flex items-center gap-5 md:gap-7">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={routes[item.key][lang]}
+              aria-current={isActive(item.key) ? 'page' : undefined}
+              class:list={[
+                'text-[0.9375rem] transition-colors duration-150 hover:text-accent',
+                isActive(item.key)
+                  ? 'text-accent underline underline-offset-8 decoration-1'
+                  : 'text-ink link-sweep',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
-    <div class="flex items-center gap-3">
-      <LanguageSwitcher lang={lang} />
-      <ThemeToggle lang={lang} />
-    </div>
+
+    {switchUrl && (
+      <a
+        href={switchUrl}
+        class="ml-auto sm:ml-0 font-mono text-xs uppercase tracking-[0.14em] text-muted hover:text-accent transition-colors duration-150"
+        aria-label={s.languageSwitch.label}
+        rel="alternate"
+        hreflang={switchTarget}
+      >
+        {switchLabel}
+      </a>
+    )}
   </div>
-  <nav aria-label="Primary mobile" class="md:hidden glass mt-2 rounded-2xl px-5 py-3 max-w-6xl mx-auto">
-    <ul class="flex flex-wrap gap-x-5 gap-y-2">
-      {navItems.map(item => (
-        <li>
-          <a href={item.href} class="text-sm">{item.label}</a>
-        </li>
-      ))}
-    </ul>
-  </nav>
 </header>

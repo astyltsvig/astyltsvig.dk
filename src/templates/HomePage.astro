@@ -1,0 +1,76 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Button from '~/components/Button.astro';
+import ClientLogos from '~/components/ClientLogos.astro';
+import ProjectRow from '~/components/ProjectRow.astro';
+import ContactCta from '~/components/ContactCta.astro';
+import { routes, type Lang } from '~/i18n/routes';
+import { home } from '~/copy/home';
+import { getCases } from '~/lib/cases';
+import { personGraph } from '~/lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = home[lang];
+const cases = await getCases(lang);
+---
+<BaseLayout
+  lang={lang}
+  title={c.meta.title}
+  description={c.meta.description}
+  altPaths={{ da: routes.home.da, en: routes.home.en }}
+  jsonLd={personGraph(lang)}
+>
+  <section class="mx-auto max-w-6xl px-6 md:px-10 pt-20 md:pt-32 pb-16 md:pb-24">
+    <p class="eyebrow reveal">{c.hero.eyebrow}</p>
+    <h1 class="mt-5 max-w-[20ch] text-[clamp(2.5rem,6.5vw,4.5rem)] reveal" style="--reveal-delay: 90ms">{c.hero.heading}</h1>
+    <p class="mt-7 max-w-[56ch] text-lg text-muted reveal" style="--reveal-delay: 180ms">{c.hero.lede}</p>
+    <div class="mt-10 flex flex-wrap items-center gap-6 reveal" style="--reveal-delay: 270ms">
+      <Button href={routes.work[lang]}>{c.hero.primaryCta}</Button>
+      <Button href={routes.contact[lang]} variant="link">{c.hero.secondaryCta}</Button>
+    </div>
+  </section>
+
+  <ClientLogos lang={lang} />
+
+  <section class="border-y border-line">
+    <ul class="mx-auto max-w-6xl px-6 md:px-10 py-4 flex flex-wrap gap-x-8 gap-y-1 font-mono text-xs uppercase tracking-[0.1em] text-muted">
+      {c.facts.map((fact, i) => <li class="reveal" style={`--reveal-delay: ${i * 60}ms`}>{fact}</li>)}
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow reveal">{c.work.eyebrow}</p>
+        <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.work.heading}</h2>
+      </div>
+      <Button href={routes.work[lang]} variant="link">{c.work.allLink}</Button>
+    </div>
+    <ul class="mt-10">
+      {cases.map((entry, i) => <ProjectRow entry={entry} lang={lang} revealDelay={Math.min(i * 50, 250)} />)}
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+    <p class="eyebrow reveal">{c.services.eyebrow}</p>
+    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.services.heading}</h2>
+    <ol class="mt-10 grid gap-10 md:grid-cols-3">
+      {c.services.items.map((item, i) => (
+        <li class="reveal" style={`--reveal-delay: ${i * 90}ms`}>
+          <span class="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="mt-2 text-lg font-semibold tracking-tight">{item.title}</h3>
+          <p class="mt-2 text-[0.9375rem] text-muted">{item.text}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="mt-10">
+      <Button href={routes.services[lang]} variant="link">{c.services.link}</Button>
+    </div>
+  </section>
+
+  <ContactCta lang={lang} />
+</BaseLayout>

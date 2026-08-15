@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import PageIntro from '~/components/PageIntro.astro';
+import ContactCta from '~/components/ContactCta.astro';
+import { routes, type Lang } from '~/i18n/routes';
+import { about } from '~/copy/about';
+import { shared } from '~/copy/shared';
+import { breadcrumbList, webPage } from '~/lib/seo';
+import portrait from '~/assets/andreas-styltsvig.png';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = about[lang];
+const s = shared[lang];
+const path = routes.about[lang];
+
+const jsonLd = [
+  webPage({ lang, path, name: c.meta.title, description: c.meta.description, type: 'AboutPage' }),
+  breadcrumbList([
+    { name: s.nav.home, path: routes.home[lang] },
+    { name: s.nav.about, path },
+  ]),
+];
+
+const linkFor = (value: string): string | undefined => {
+  if (value.includes('@')) return `mailto:${value}`;
+  if (value.startsWith('github.com') || value.startsWith('linkedin.com')) return `https://${value}`;
+  return undefined;
+};
+---
+<BaseLayout
+  lang={lang}
+  title={c.meta.title}
+  description={c.meta.description}
+  altPaths={{ da: routes.about.da, en: routes.about.en }}
+  jsonLd={jsonLd}
+  ogType="profile"
+>
+  <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 pb-16 md:pb-24">
+    <div class="grid gap-10 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-16">
+      <Image
+        src={portrait}
+        alt={c.portraitAlt}
+        widths={[320, 480, 640]}
+        sizes="(min-width: 768px) 256px, 60vw"
+        format="webp"
+        quality={82}
+        loading="eager"
+        class="w-48 md:w-full h-auto border border-line bg-surface reveal"
+      />
+      <div class="max-w-[62ch] space-y-5">
+        {c.bio.map((paragraph, i) => <p class="reveal" style={`--reveal-delay: ${80 + i * 80}ms`}>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+    <p class="eyebrow reveal">{c.path.eyebrow}</p>
+    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.path.heading}</h2>
+    <ol class="mt-10 border-t border-line">
+      {c.path.steps.map((step, i) => (
+        <li class="grid gap-2 py-5 border-b border-line sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8 reveal" style={`--reveal-delay: ${Math.min(i * 70, 280)}ms`}>
+          <span class="font-mono text-sm text-muted">{step.year}</span>
+          <p class="max-w-[62ch]">{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+    <p class="eyebrow reveal">{c.principles.eyebrow}</p>
+    <h2 class="mt-4 max-w-[26ch] text-[clamp(1.75rem,4vw,2.75rem)] reveal" style="--reveal-delay: 80ms">{c.principles.heading}</h2>
+    <ul class="mt-10 grid gap-x-16 gap-y-10 sm:grid-cols-2">
+      {c.principles.items.map((item, i) => (
+        <li class="reveal" style={`--reveal-delay: ${i * 80}ms`}>
+          <h3 class="text-lg font-semibold tracking-tight">{item.title}</h3>
+          <p class="mt-2 text-[0.9375rem] text-muted max-w-[52ch]">{item.text}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">
+    <p class="eyebrow reveal">{c.facts.eyebrow}</p>
+    <dl class="mt-8 max-w-xl border-t border-line reveal" style="--reveal-delay: 80ms">
+      {c.facts.items.map(item => {
+        const href = linkFor(item.value);
+        return (
+          <div class="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 py-3 border-b border-line">
+            <dt class="eyebrow pt-0.5">{item.label}</dt>
+            <dd class="text-[0.9375rem]">
+              {href ? (
+                <a
+                  href={href}
+                  rel={href.startsWith('https') ? 'me noopener' : undefined}
+                  class="text-accent underline underline-offset-4 decoration-1 hover:text-accent-strong transition-colors duration-150"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                item.value
+              )}
+            </dd>
+          </div>
+        );
+      })}
+    </dl>
+  </section>
+
+  <ContactCta lang={lang} />
+</BaseLayout>
