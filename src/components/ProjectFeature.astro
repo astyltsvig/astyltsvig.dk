@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import Screenshot from '~/components/Screenshot.astro';
 import { caseUrl, type Lang } from '~/i18n/routes';
 import { shared } from '~/copy/shared';
 import type { Case } from '~/lib/cases';
@@ -9,6 +8,13 @@ import mallardLogo from '~/assets/clients/mallard.png';
 import cpofLogo from '~/assets/clients/care-pension-forsikring.png';
 import securelifeLogo from '~/assets/clients/securelife.png';
 import cuaLogo from '~/assets/clients/cycling-without-age.png';
+import ddlLogo from '~/assets/clients/ddl.png';
+import df1866Logo from '~/assets/clients/df1866-lockup.png';
+import fspLogo from '~/assets/clients/festival-sans-pression-lockup.png';
+import book2goLogo from '~/assets/clients/book2go.png';
+import smartlinjenLogo from '~/assets/clients/smartlinjen.png';
+import matematikKlarLogo from '~/assets/clients/matematik-klar.png';
+import showsCalendarLogo from '~/assets/clients/shows-calendar.png';
 
 interface Props {
   entry: Case;
@@ -26,12 +32,20 @@ const meta = metaParts
   .filter((part, i) => metaParts.findIndex(p => p.toLowerCase() === part.toLowerCase()) === i)
   .join(' · ');
 
-/* Cases without a screenshot show the client's own logo on a dotted tile instead. */
+/* Listings always show the client's logo for a uniform look —
+   screenshots live on the case pages themselves. */
 const logos: Record<string, ImageMetadata> = {
   mallard: mallardLogo,
   cpof: cpofLogo,
   securelife: securelifeLogo,
   'cycling-without-age': cuaLogo,
+  'ddl-tegnsprogspakken': ddlLogo,
+  df1866: df1866Logo,
+  'festival-sans-pression': fspLogo,
+  book2go: book2goLogo,
+  smartlinjen: smartlinjenLogo,
+  'matematik-klar': matematikKlarLogo,
+  'shows-calendar': showsCalendarLogo,
 };
 const logo = logos[entry.slug];
 ---
@@ -41,28 +55,19 @@ const logo = logos[entry.slug];
     class="group grid items-center gap-8 py-12 md:grid-cols-2 md:gap-14 md:py-16"
   >
     <div class:list={['reveal', flipped && 'md:order-2']}>
-      {data.screenshot ? (
-        <Screenshot
-          file={data.screenshot}
-          alt={data.screenshotAlt ?? data.client}
-          widths={[480, 720, 1080]}
-          sizes="(min-width: 768px) 520px, 100vw"
-        />
-      ) : (
-        <div class="flex aspect-[16/10] items-center justify-center border border-line bg-surface logo-tile">
-          {logo && (
-            <Image
-              src={logo}
-              alt={`${data.client} logo`}
-              height={120}
-              densities={[1, 2]}
-              format="webp"
-              quality={85}
-              class="max-h-[30%] w-auto max-w-[55%] transition-transform duration-300 group-hover:scale-105"
-            />
-          )}
-        </div>
-      )}
+      <div class="flex aspect-[16/10] items-center justify-center border border-line bg-surface logo-tile px-8">
+        {logo && (
+          <Image
+            src={logo}
+            alt={`${data.client} logo`}
+            height={140}
+            densities={[1, 2]}
+            format="webp"
+            quality={85}
+            class="max-h-[30%] w-auto max-w-[75%] transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
+      </div>
     </div>
     <div class="reveal" style="--reveal-delay: 120ms">
       <p class="font-mono text-xs uppercase tracking-[0.1em] text-muted">{meta}</p>
