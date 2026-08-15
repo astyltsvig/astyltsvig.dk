@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import PageIntro from '~/components/PageIntro.astro';
-import ProjectRow from '~/components/ProjectRow.astro';
+import ProjectCard from '~/components/ProjectCard.astro';
 import ContactCta from '~/components/ContactCta.astro';
 import { routes, type Lang } from '~/i18n/routes';
 import { shared } from '~/copy/shared';
 import { work } from '~/copy/work';
-import { getCases, groupByCategory } from '~/lib/cases';
+import { getCases } from '~/lib/cases';
 import { breadcrumbList, webPage } from '~/lib/seo';
 
 interface Props {
@@ -17,7 +17,6 @@ const { lang } = Astro.props;
 const c = work[lang];
 const s = shared[lang];
 const cases = await getCases(lang);
-const groups = groupByCategory(cases);
 const path = routes.work[lang];
 
 const jsonLd = [
@@ -38,17 +37,13 @@ const jsonLd = [
 >
   <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
 
-  {[...groups.entries()].map(([categoryKey, members]) => (
-    <section class="mx-auto max-w-6xl px-6 md:px-10 pb-14 md:pb-20">
-      <p class="eyebrow reveal">{s.categories[categoryKey]}</p>
-      <p class="mt-2 max-w-[60ch] text-[0.9375rem] text-muted reveal" style="--reveal-delay: 70ms">{s.categoryLede[categoryKey]}</p>
-      <ul class="mt-6">
-        {members.map((entry, i) => (
-          <ProjectRow entry={entry} lang={lang} showThumb={true} showCategory={false} revealDelay={Math.min(i * 60, 240)} />
-        ))}
-      </ul>
-    </section>
-  ))}
+  <section class="mx-auto max-w-6xl px-6 md:px-10 pb-16 md:pb-24">
+    <ul class="grid gap-6 sm:grid-cols-2">
+      {cases.map((entry, i) => (
+        <ProjectCard entry={entry} lang={lang} revealDelay={Math.min((i % 4) * 80, 320)} />
+      ))}
+    </ul>
+  </section>
 
   <ContactCta lang={lang} />
 </BaseLayout>

@@ -4,11 +4,11 @@ const da = {
   meta: {
     title: 'Projekter — platforme, hjemmesider og egne produkter | AStyltsvig Consulting',
     description:
-      'Ti projekter fra AStyltsvig Consulting: forretningskritiske platforme i daglig drift, hurtige statiske hjemmesider og egne produkter — alle bygget og driftet af én person.',
+      'Projekter fra AStyltsvig Consulting: forretningskritiske platforme i daglig drift, hurtige hjemmesider og egne produkter — alle bygget og driftet af én person.',
   },
   intro: {
     eyebrow: 'Projekter',
-    heading: 'Ti projekter. Ét gennemgående ansvar.',
+    heading: 'Alle projekter. Ét gennemgående ansvar.',
     lede: 'Et udvalg af det, jeg har bygget og drifter. Flere kundeprojekter er ikke offentlige — de her kan deles.',
   },
   caseCta: {
@@ -20,11 +20,11 @@ const en: DeepString<typeof da> = {
   meta: {
     title: 'Work — platforms, websites, and own products | AStyltsvig Consulting',
     description:
-      'Ten projects from AStyltsvig Consulting: business-critical platforms in daily production, fast static websites, and own products — all built and operated by one person.',
+      'Projects from AStyltsvig Consulting: business-critical platforms in daily production, fast websites, and own products — all built and operated by one person.',
   },
   intro: {
     eyebrow: 'Work',
-    heading: 'Ten projects. One continuous responsibility.',
+    heading: 'Every project. One continuous responsibility.',
     lede: 'A selection of what I have built and operate. Several client projects are not public — these can be shared.',
   },
   caseCta: {
