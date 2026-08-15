@@ -9,6 +9,7 @@ import tegnsprogspakken from '~/assets/clients/ddl-tegnsprogspakken.png';
 import df1866 from '~/assets/clients/df1866.png';
 import fsp from '~/assets/clients/festival-sans-pression.webp';
 import cua from '~/assets/clients/cycling-without-age.png';
+import securelife from '~/assets/clients/securelife.png';
 
 interface Props {
   lang: Lang;
@@ -19,6 +20,7 @@ const c = home[lang].clients;
 
 const logos = [
   { image: mallard, name: 'Mallard' },
+  { image: securelife, name: 'SecureLife' },
   { image: cpof, name: 'Care Pension & Forsikring' },
   { image: ddl, name: 'Danske Døves Landsforbund' },
   { image: tegnsprogspakken, name: 'Tegnsprogspakken' },
@@ -26,8 +28,6 @@ const logos = [
   { image: cua, name: 'Cycling Without Age' },
   { image: fsp, name: 'Festival Sans Pression' },
 ];
-
-const wordmarks = ['SecureLife'];
 ---
 <section class="py-10 md:py-14 reveal">
   <p class="eyebrow mx-auto max-w-6xl px-6 md:px-10">{c.eyebrow}</p>
@@ -45,13 +45,8 @@ const wordmarks = ['SecureLife'];
                 format="webp"
                 quality={85}
                 loading="eager"
-                class="h-10 md:h-12 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-150"
+                class="h-10 md:h-12 w-auto opacity-90 hover:opacity-100 transition-opacity duration-150"
               />
-            </li>
-          ))}
-          {wordmarks.map(name => (
-            <li class="text-xl font-semibold tracking-tight text-muted/80 hover:text-ink transition-colors duration-150 whitespace-nowrap">
-              {name}
             </li>
           ))}
         </ul>
