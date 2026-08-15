@@ -54,6 +54,7 @@ const jsonLd = [
   altPaths={casePaths(entry.slug)}
   jsonLd={jsonLd}
   ogType="article"
+  image={`/og/${entry.slug}-${lang}.png`}
 >
   <article class="mx-auto max-w-6xl px-6 md:px-10 pt-14 md:pt-20">
     <a
@@ -77,6 +78,7 @@ const jsonLd = [
             alt={data.screenshotAlt ?? data.client}
             loading="eager"
             class="mb-12 reveal"
+            frameDomain={data.clientUrl ? new URL(data.clientUrl).host : undefined}
           />
         )}
         <div class="prose-case reveal" style="--reveal-delay: 80ms">
