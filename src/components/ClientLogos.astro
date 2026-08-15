@@ -3,7 +3,9 @@ import { Image } from 'astro:assets';
 import type { Lang } from '~/i18n/routes';
 import { home } from '~/copy/home';
 import mallard from '~/assets/clients/mallard.png';
-import ddl from '~/assets/clients/ddl-tegnsprogspakken.png';
+import cpof from '~/assets/clients/care-pension-forsikring.png';
+import ddl from '~/assets/clients/ddl.png';
+import tegnsprogspakken from '~/assets/clients/ddl-tegnsprogspakken.png';
 import df1866 from '~/assets/clients/df1866.png';
 import fsp from '~/assets/clients/festival-sans-pression.webp';
 
@@ -16,7 +18,9 @@ const c = home[lang].clients;
 
 const logos = [
   { image: mallard, name: 'Mallard' },
-  { image: ddl, name: 'Danske Døves Landsforbund — Tegnsprogspakken' },
+  { image: cpof, name: 'Care Pension & Forsikring' },
+  { image: ddl, name: 'Danske Døves Landsforbund' },
+  { image: tegnsprogspakken, name: 'Tegnsprogspakken' },
   { image: df1866, name: 'Døveforeningen af 1866' },
   { image: fsp, name: 'Festival Sans Pression' },
 ];
