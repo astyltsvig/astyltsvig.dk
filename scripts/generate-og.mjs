@@ -26,7 +26,7 @@ const fontFaces = readdirSync(fontDir)
 
 const staticPages = [
   { name: 'home', da: 'Softwarearkitekt &\nIT-konsulent', en: 'Software architect &\nIT consultant' },
-  { name: 'work', da: 'Ti projekter.\nÉt ansvar.', en: 'Ten projects.\nOne responsibility.' },
+  { name: 'work', da: 'Alle projekter.\nÉt ansvar.', en: 'Every project.\nOne responsibility.' },
   { name: 'services', da: 'Ydelser', en: 'Services' },
   { name: 'about', da: 'Andreas\nSørbye Styltsvig', en: 'Andreas\nSørbye Styltsvig' },
   { name: 'contact', da: 'Én mail er nok.', en: 'One email\nis enough.' },

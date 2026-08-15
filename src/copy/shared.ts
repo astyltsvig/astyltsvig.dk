@@ -47,11 +47,12 @@ const da = {
     back: 'Alle projekter',
     prev: 'Forrige',
     next: 'Næste',
+    viewCase: 'Se casen',
   },
   cta: {
     eyebrow: 'Kontakt',
     heading: 'Skal vi tale om dit projekt?',
-    body: 'Skriv kort hvad du har brug for — du får svar inden for to hverdage, fra den samme person der ender med at bygge løsningen.',
+    body: 'Skriv kort, hvad du har brug for — svaret kommer fra den samme person, der ender med at bygge løsningen.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {
@@ -112,11 +113,12 @@ const en: DeepString<typeof da> = {
     back: 'All projects',
     prev: 'Previous',
     next: 'Next',
+    viewCase: 'View case',
   },
   cta: {
     eyebrow: 'Contact',
     heading: 'Shall we talk about your project?',
-    body: 'Describe briefly what you need — you will hear back within two business days, from the same person who ends up building the solution.',
+    body: 'Describe briefly what you need — the reply comes from the same person who ends up building the solution.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {

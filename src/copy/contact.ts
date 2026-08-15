@@ -4,12 +4,12 @@ const da = {
   meta: {
     title: 'Kontakt — AStyltsvig Consulting, København',
     description:
-      'Skriv til hello@astyltsvig.dk med en kort beskrivelse af opgaven. Svar inden for to hverdage. AStyltsvig Consulting, CVR 36163771, Vanløse, København.',
+      'Skriv til hello@astyltsvig.dk med en kort beskrivelse af opgaven. AStyltsvig Consulting, CVR 36163771, Vanløse, København.',
   },
   intro: {
     eyebrow: 'Kontakt',
     heading: 'Én mail er nok.',
-    lede: 'Ingen formularer, ingen ticketsystemer. Skriv direkte — så svarer jeg personligt inden for to hverdage.',
+    lede: 'Ingen formularer, ingen ticketsystemer. Skriv direkte — så tager vi den derfra.',
   },
   email: 'hello@astyltsvig.dk',
   emailCta: 'Send en email',
@@ -21,7 +21,7 @@ const da = {
       'Hvilken sammenhæng den indgår i: eksisterende system, nyt projekt eller drift',
     ],
   },
-  response: 'Svar inden for to hverdage — fra mig, ikke fra en autoresponder.',
+  response: 'Ingen autosvar, ingen kø — mailen lander hos den, der bygger.',
   facts: {
     eyebrow: 'Virksomhed',
     items: [
@@ -38,12 +38,12 @@ const en: DeepString<typeof da> = {
   meta: {
     title: 'Contact — AStyltsvig Consulting, Copenhagen',
     description:
-      'Write to hello@astyltsvig.dk with a short description of the task. Reply within two business days. AStyltsvig Consulting, CVR 36163771, Vanløse, Copenhagen.',
+      'Write to hello@astyltsvig.dk with a short description of the task. AStyltsvig Consulting, CVR 36163771, Vanløse, Copenhagen.',
   },
   intro: {
     eyebrow: 'Contact',
     heading: 'One email is enough.',
-    lede: 'No forms, no ticket systems. Write directly — and I reply personally within two business days.',
+    lede: 'No forms, no ticket systems. Write directly — and we take it from there.',
   },
   email: 'hello@astyltsvig.dk',
   emailCta: 'Send an email',
@@ -55,7 +55,7 @@ const en: DeepString<typeof da> = {
       'The context it fits into: an existing system, a new project, or operations',
     ],
   },
-  response: 'A reply within two business days — from me, not an autoresponder.',
+  response: 'No autoresponders, no queue — the mail lands with the person who builds.',
   facts: {
     eyebrow: 'Business',
     items: [

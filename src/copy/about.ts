@@ -14,6 +14,7 @@ const da = {
   portraitAlt: 'Portræt af Andreas Sørbye Styltsvig',
   bio: [
     'Mit arbejde er de systemer, en virksomhed står og falder med. Jeg tager ansvaret for hele kæden — fra idé til daglig drift — så der aldrig er tvivl om, hvem der har bolden. Det ansvar er ikke en byrde for mig; det er selve grunden til, at jeg arbejder, som jeg gør.',
+    'Det, der brænder i mig, er at komme helt ind i mine kunders forretning — ikke kun deres kode. Jeg vil kende rutinerne, flaskehalsene og tallene, for det er dér, jeg kan se, hvor teknologi flytter mest. Når jeg designer, udvikler og leverer en løsning, er målet altid det samme: at være en ressource, kunden optimerer og vokser med — en del af væksten, ikke bare en leverandør, der fakturerer.',
     'Min filosofi er enkel: få ting, gjort ordentligt, over lang tid. Jeg vil hellere have en håndfuld kunder, der bliver i ti år, end halvtreds der kommer og går. Det betyder ærlige anbefalinger — også når den rigtige løsning er den billige — og systemer bygget til at blive vedligeholdt, ikke bare leveret. Rolig, forudsigelig drift er i mine øjne den fineste disciplin i faget.',
     'Vejen hertil gik gennem en professionsbachelor i softwareudvikling og et konsulentjob, hvor jeg tidligt fik ansvaret for en stor infrastrukturmigration hos Oticon. Da chancen for at stå på egne ben kom i 2020, greb jeg den — og har siden bygget min praksis op om tætte, langvarige kundeforhold, hvor jeg kender forretningen lige så godt som koden.',
     'Jeg arbejder åbent med AI som en integreret del af hverdagen: beslutningerne og arkitekturen er mine, men tempoet er nyt. Jeg er transparent om det, fordi ærlighed om metoden hører med — og fordi det er en stor del af forklaringen på, hvad én person kan bygge og drive.',
@@ -44,6 +45,17 @@ const da = {
       },
     ],
   },
+  skills: {
+    eyebrow: 'Kompetencer',
+    heading: 'Værktøjskassen.',
+    lede: 'Teknologierne skifter med opgaven — det her er dem, jeg griber oftest.',
+    items: [
+      'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+      'Astro', 'Next.js', 'Firebase', 'Supabase',
+      'Cloudflare', 'Hetzner', 'Google Workspace',
+      'DNS · SPF · DKIM · DMARC', 'CI/CD & Git-workflows', 'Sveltia CMS',
+    ],
+  },
   principles: {
     eyebrow: 'Arbejdsform',
     heading: 'Sådan arbejder jeg.',
@@ -62,7 +74,7 @@ const da = {
       },
       {
         title: 'Direkte linje',
-        text: 'Mail, telefon eller Slack. Ingen ticketsystemer imellem os — og svar inden for to hverdage.',
+        text: 'Du skriver, jeg svarer. Ingen ticketsystemer, ingen omstilling — en direkte linje til den, der bygger.',
       },
     ],
   },
@@ -94,6 +106,7 @@ const en: DeepString<typeof da> = {
   portraitAlt: 'Portrait of Andreas Sørbye Styltsvig',
   bio: [
     'My work is the systems a business stands or falls with. I take responsibility for the whole chain — from idea to daily operations — so there is never any doubt about who owns the problem. That responsibility is not a burden to me; it is the very reason I work the way I do.',
+    'What I burn for is getting deep into my clients\' business — not just their code. I want to know the routines, the bottlenecks, and the numbers, because that is where I can see where technology moves the most. When I design, build, and deliver a solution, the goal is always the same: to be a resource the client optimises and grows with — part of the growth, not just a supplier sending invoices.',
     'My philosophy is simple: few things, done properly, over a long time. I would rather have a handful of clients who stay for ten years than fifty who come and go. That means honest recommendations — including when the right solution is the cheap one — and systems built to be maintained, not just delivered. Calm, predictable operations is, to my mind, the finest discipline in this craft.',
     'The road here went through a BSc in software development and a consulting job where I was trusted early with a major infrastructure migration at Oticon. When the chance to stand on my own came in 2020, I took it — and have since built my practice around close, long-term client relationships where I know the business as well as the code.',
     'I work openly with AI as an integrated part of my day: the decisions and the architecture are mine, but the pace is new. I am transparent about it because honesty about the method belongs in the work — and because it is a large part of how one person can build and operate this much.',
@@ -124,6 +137,17 @@ const en: DeepString<typeof da> = {
       },
     ],
   },
+  skills: {
+    eyebrow: 'Competencies',
+    heading: 'The toolbox.',
+    lede: 'The technologies change with the task — these are the ones I reach for most.',
+    items: [
+      'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+      'Astro', 'Next.js', 'Firebase', 'Supabase',
+      'Cloudflare', 'Hetzner', 'Google Workspace',
+      'DNS · SPF · DKIM · DMARC', 'CI/CD & Git workflows', 'Sveltia CMS',
+    ],
+  },
   principles: {
     eyebrow: 'Way of working',
     heading: 'How I work.',
@@ -142,7 +166,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'A direct line',
-        text: 'Email, phone, or Slack. No ticket systems between us — and a reply within two business days.',
+        text: 'You write, I answer. No ticket systems, no switchboard — a direct line to the person who builds.',
       },
     ],
   },
