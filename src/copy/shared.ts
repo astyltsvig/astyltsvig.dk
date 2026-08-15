@@ -47,6 +47,7 @@ const da = {
     back: 'Alle projekter',
     prev: 'Forrige',
     next: 'Næste',
+    viewCase: 'Se casen',
   },
   cta: {
     eyebrow: 'Kontakt',
@@ -112,6 +113,7 @@ const en: DeepString<typeof da> = {
     back: 'All projects',
     prev: 'Previous',
     next: 'Next',
+    viewCase: 'View case',
   },
   cta: {
     eyebrow: 'Contact',

@@ -2,7 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import Button from '~/components/Button.astro';
 import ClientLogos from '~/components/ClientLogos.astro';
-import ProjectRow from '~/components/ProjectRow.astro';
+import ProjectFeature from '~/components/ProjectFeature.astro';
 import ContactCta from '~/components/ContactCta.astro';
 import { routes, type Lang } from '~/i18n/routes';
 import { home } from '~/copy/home';
@@ -16,6 +16,10 @@ interface Props {
 const { lang } = Astro.props;
 const c = home[lang];
 const cases = await getCases(lang);
+const featuredSlugs = ['mallard', 'ddl-tegnsprogspakken', 'smartlinjen', 'festival-sans-pression'];
+const featured = featuredSlugs
+  .map(slug => cases.find(c => c.slug === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined);
 ---
 <BaseLayout
   lang={lang}
@@ -51,9 +55,12 @@ const cases = await getCases(lang);
       </div>
       <Button href={routes.work[lang]} variant="link">{c.work.allLink}</Button>
     </div>
-    <ul class="mt-10">
-      {cases.map((entry, i) => <ProjectRow entry={entry} lang={lang} revealDelay={Math.min(i * 50, 250)} />)}
+    <ul class="mt-6">
+      {featured.map((entry, i) => <ProjectFeature entry={entry} lang={lang} index={i} />)}
     </ul>
+    <div class="border-t border-line pt-10 text-center">
+      <Button href={routes.work[lang]}>{c.work.allLink}</Button>
+    </div>
   </section>
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 py-16 md:py-24 border-t border-line">

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import PageIntro from '~/components/PageIntro.astro';
-import ProjectCard from '~/components/ProjectCard.astro';
+import ProjectFeature from '~/components/ProjectFeature.astro';
 import ContactCta from '~/components/ContactCta.astro';
 import { routes, type Lang } from '~/i18n/routes';
 import { shared } from '~/copy/shared';
@@ -38,9 +38,9 @@ const jsonLd = [
   <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
 
   <section class="mx-auto max-w-6xl px-6 md:px-10 pb-16 md:pb-24">
-    <ul class="grid gap-6 sm:grid-cols-2">
+    <ul>
       {cases.map((entry, i) => (
-        <ProjectCard entry={entry} lang={lang} revealDelay={Math.min((i % 4) * 80, 320)} />
+        <ProjectFeature entry={entry} lang={lang} index={i} />
       ))}
     </ul>
   </section>
