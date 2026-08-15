@@ -11,21 +11,36 @@ const da = {
     heading: 'Én mail er nok.',
     lede: 'Ingen formularer, ingen ticketsystemer. Skriv direkte — så tager vi den derfra.',
   },
-  email: 'hello@astyltsvig.dk',
-  emailCta: 'Send en email',
+  direct: {
+    eyebrow: 'Direkte linje',
+    email: 'hello@astyltsvig.dk',
+    note: 'Ingen autosvar, ingen kø — mailen lander hos den, der bygger.',
+    copy: 'Kopiér adressen',
+    copied: 'Kopieret ✓',
+    meta: ['Vanløse, København', 'Dansk & engelsk', 'CVR 36163771'],
+  },
   guide: {
     eyebrow: 'En god første mail',
+    heading: 'Tre ting, der får os hurtigt i gang.',
     items: [
-      'Hvad opgaven går ud på — i to-tre sætninger er fint',
-      'Hvornår den skal være leveret, hvis der er en deadline',
-      'Hvilken sammenhæng den indgår i: eksisterende system, nyt projekt eller drift',
+      {
+        title: 'Opgaven',
+        text: 'Hvad den går ud på — to-tre sætninger er fint.',
+      },
+      {
+        title: 'Tidshorisonten',
+        text: 'Hvornår den skal være leveret, hvis der er en deadline.',
+      },
+      {
+        title: 'Sammenhængen',
+        text: 'Eksisterende system, nyt projekt eller drift — hvad løsningen skal spille sammen med.',
+      },
     ],
   },
-  response: 'Ingen autosvar, ingen kø — mailen lander hos den, der bygger.',
   facts: {
     eyebrow: 'Virksomhed',
     items: [
-      { label: 'Virksomhed', value: 'AStyltsvig Consulting' },
+      { label: 'Indehaver', value: 'Andreas Sørbye Styltsvig' },
       { label: 'CVR', value: '36163771' },
       { label: 'Adresse', value: 'Vanløse, København' },
       { label: 'GitHub', value: 'github.com/astyltsvig' },
@@ -45,21 +60,36 @@ const en: DeepString<typeof da> = {
     heading: 'One email is enough.',
     lede: 'No forms, no ticket systems. Write directly — and we take it from there.',
   },
-  email: 'hello@astyltsvig.dk',
-  emailCta: 'Send an email',
+  direct: {
+    eyebrow: 'Direct line',
+    email: 'hello@astyltsvig.dk',
+    note: 'No autoresponders, no queue — the mail lands with the person who builds.',
+    copy: 'Copy the address',
+    copied: 'Copied ✓',
+    meta: ['Vanløse, Copenhagen', 'Danish & English', 'CVR 36163771'],
+  },
   guide: {
     eyebrow: 'A good first email',
+    heading: 'Three things that get us moving fast.',
     items: [
-      'What the task is about — two or three sentences is fine',
-      'When it needs to be delivered, if there is a deadline',
-      'The context it fits into: an existing system, a new project, or operations',
+      {
+        title: 'The task',
+        text: 'What it is about — two or three sentences is fine.',
+      },
+      {
+        title: 'The timeline',
+        text: 'When it needs to be delivered, if there is a deadline.',
+      },
+      {
+        title: 'The context',
+        text: 'An existing system, a new project, or operations — what the solution has to work with.',
+      },
     ],
   },
-  response: 'No autoresponders, no queue — the mail lands with the person who builds.',
   facts: {
     eyebrow: 'Business',
     items: [
-      { label: 'Business', value: 'AStyltsvig Consulting' },
+      { label: 'Owner', value: 'Andreas Sørbye Styltsvig' },
       { label: 'CVR', value: '36163771' },
       { label: 'Address', value: 'Vanløse, Copenhagen' },
       { label: 'GitHub', value: 'github.com/astyltsvig' },
