@@ -50,19 +50,28 @@ const jsonLd = [
   <PageIntro eyebrow={c.intro.eyebrow} heading={c.intro.heading} lede={c.intro.lede} />
 
   {c.services.map((service, i) => (
-    <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
-      <div class="grid gap-8 md:grid-cols-[16rem_minmax(0,1fr)] md:gap-16">
+    <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-24 border-t border-line">
+      <div class="grid gap-10 md:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] md:gap-16">
         <div class="reveal">
-          <span class="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
-          <h2 class="mt-2 text-[clamp(1.5rem,3vw,2.25rem)]">{service.title}</h2>
-          <p class="mt-4 font-mono text-xs uppercase tracking-[0.1em] text-muted">{service.stack}</p>
+          <span class="block select-none font-semibold leading-none tracking-tight text-[clamp(4.5rem,9vw,7rem)] text-line" aria-hidden="true">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <h2 class="mt-3 text-[clamp(1.5rem,3vw,2.25rem)]">{service.title}</h2>
+          <ul class="mt-6 flex flex-wrap gap-2">
+            {service.stack.split(' · ').map(keyword => (
+              <li class="border border-line bg-surface px-3 py-1 font-mono text-xs text-muted">{keyword}</li>
+            ))}
+          </ul>
         </div>
-        <div class="min-w-0 reveal" style="--reveal-delay: 100ms">
-          <p class="text-lg max-w-[56ch]">{service.lede}</p>
-          <ul class="mt-6 max-w-[62ch]">
-            {service.items.map(item => (
-              <li class="relative pl-6 py-2 text-[0.9375rem] text-muted before:content-['—'] before:absolute before:left-0">
-                {item}
+        <div class="min-w-0">
+          <p class="max-w-[44ch] text-xl md:text-2xl font-medium tracking-tight reveal" style="--reveal-delay: 100ms">{service.lede}</p>
+          <ul class="mt-9 max-w-[62ch] space-y-5">
+            {service.items.map((item, j) => (
+              <li class="flex gap-4 reveal" style={`--reveal-delay: ${180 + j * 90}ms`}>
+                <svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 L9 17 L4 12" />
+                </svg>
+                <span class="text-[0.9375rem] text-muted">{item}</span>
               </li>
             ))}
           </ul>
@@ -71,10 +80,12 @@ const jsonLd = [
     </section>
   ))}
 
-  <section class="mx-auto max-w-6xl px-6 md:px-10 py-14 md:py-20 border-t border-line">
-    <p class="eyebrow reveal">{c.process.eyebrow}</p>
-    <h2 class="mt-4 text-[clamp(1.5rem,3vw,2.25rem)] reveal" style="--reveal-delay: 80ms">{c.process.heading}</h2>
-    <p class="mt-5 max-w-[62ch] text-muted reveal" style="--reveal-delay: 160ms">{c.process.text}</p>
+  <section class="mx-auto max-w-6xl px-6 md:px-10 pb-16 md:pb-24 pt-4">
+    <div class="border border-line border-l-2 border-l-accent bg-surface p-8 md:p-12 reveal">
+      <p class="eyebrow">{c.process.eyebrow}</p>
+      <h2 class="mt-3 text-[clamp(1.5rem,3vw,2.25rem)]">{c.process.heading}</h2>
+      <p class="mt-4 max-w-[62ch] text-muted">{c.process.text}</p>
+    </div>
   </section>
 
   <ContactCta lang={lang} />
