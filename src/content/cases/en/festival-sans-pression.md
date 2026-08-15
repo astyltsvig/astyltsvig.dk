@@ -11,7 +11,7 @@ statusSuffix: "Live at festival-sans-pression.pages.dev"
 screenshot: "festival-sans-pression.png"
 screenshotAlt: "Festival Sans Pression homepage with pop-art poster and festival identity"
 order: 7
-description: "Festival site for Festival Sans Pression in Toulouse: a pop-art identity carried from poster to web, three display modes, and accessibility as a baseline."
+description: "Festival site in Toulouse where the artist's poster universe carries the whole experience — with three display modes so every visitor can use the site on their terms."
 ---
 
 ## Background

@@ -7,7 +7,7 @@ stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
 order: 3
-description: "Administration platform for insurance policies and pension schemes — in stable daily production since 2022, with the next generation underway."
+description: "Administration platform keeping track of insurance and pension schemes for hundreds of companies and thousands of employees — with traceability and correctness as the baseline."
 ---
 
 ## Background

@@ -11,7 +11,7 @@ statusSuffix: "Live på tegnsprogspakken.dk"
 screenshot: "tegnsprogspakken.png"
 screenshotAlt: "Forside af tegnsprogspakken.dk med hero: 'Tegn – vejen til kontakt og tryghed'"
 order: 4
-description: "Relancering af Tegnsprogspakken for Danske Døves Landsforbund: markant designløft, statisk Astro-stack og et Git-baseret CMS, redaktørerne kunne bruge fra dag ét."
+description: "Relancering af DDL's platform for tegnsprogsressourcer: markant designløft uden at miste ét eneste link — og en redaktørflade, redaktionen kunne bruge fra dag ét."
 ---
 
 ## Baggrund

@@ -10,7 +10,7 @@ statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "book2go.bike homepage with hero image and rickshaw"
 order: 8
-description: "International booking platform for Cycling Without Age — real-time, multilingual, and in daily production with affiliates worldwide."
+description: "Booking platform coordinating pilots, passengers, and rides for Cycling Without Age affiliates worldwide — in real time and in the chapters' own languages."
 ---
 
 ## Background

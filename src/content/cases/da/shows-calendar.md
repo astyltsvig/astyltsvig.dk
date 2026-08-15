@@ -11,7 +11,7 @@ statusSuffix: "Live på shows-calendar.pages.dev"
 screenshot: "shows-calendar.png"
 screenshotAlt: "Forside af Shows Calendar med hero 'Gå aldrig glip af et afsnit igen' og et grid af serieplakater"
 order: 11
-description: "Shows Calendar samler dine tv-serier ét sted: månedskalender over kommende afsnit, styr på hvad du har set — og en personlig iCal-feed til din egen kalender. Eget produkt i drift."
+description: "Slut med at misse afsnit: alle dine serier samlet i én kalender, styr på det sete — og nye afsnit lander automatisk i din egen kalender."
 ---
 
 ## Baggrund

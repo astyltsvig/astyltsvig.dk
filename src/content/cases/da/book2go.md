@@ -10,7 +10,7 @@ statusKey: "inDailyProduction"
 screenshot: "book2go.png"
 screenshotAlt: "Forside af book2go.bike med hero-billede og rickshaw"
 order: 8
-description: "International bookingplatform for Cycling Without Age — realtid, flersproget og i daglig drift hos afdelinger verden over."
+description: "Bookingplatform der koordinerer piloter, passagerer og ture for Cycling Without Age-afdelinger verden over — i realtid og på afdelingernes egne sprog."
 ---
 
 ## Baggrund

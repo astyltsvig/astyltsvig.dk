@@ -11,7 +11,7 @@ statusSuffix: "Working prototype · smartlinjen.dk"
 screenshot: "smartlinjen.png"
 screenshotAlt: "smartlinjen.dk homepage with the hero 'Tag telefonen. Uden at høre.' and an app demo of a transcribed call"
 order: 9
-description: "Smartlinjen makes phone calls accessible for deaf and hard-of-hearing users: live Danish transcription, and written replies read aloud in a natural Danish voice. An own product in development."
+description: "The telephone is still a wall for deaf and hard-of-hearing people. Smartlinjen tears it down: everything said appears as text in real time, and written replies are read aloud in a natural Danish voice."
 ---
 
 ## Background

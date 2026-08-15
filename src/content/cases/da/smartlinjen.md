@@ -11,7 +11,7 @@ statusSuffix: "Fungerende prototype · smartlinjen.dk"
 screenshot: "smartlinjen.png"
 screenshotAlt: "Forside af smartlinjen.dk med hero 'Tag telefonen. Uden at høre.' og app-demo af et transskriberet opkald"
 order: 9
-description: "Smartlinjen gør telefonopkald tilgængelige for døve og hørehæmmede: live dansk transskription og skrevne svar læst op med naturlig dansk stemme. Eget produkt under udvikling."
+description: "Telefonen er stadig en mur for døve og hørehæmmede. Smartlinjen river den ned: alt det sagte vises som tekst i realtid, og skrevne svar læses op med naturlig dansk stemme."
 ---
 
 ## Baggrund

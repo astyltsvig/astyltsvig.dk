@@ -7,7 +7,7 @@ stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMAR
 categoryKey: "operations"
 statusKey: "ongoing"
 order: 5
-description: "Ongoing technical ownership for Cycling Without Age: Google Workspace, DNS, and email authentication across the organisation's domains."
+description: "One technical point of contact for a global movement: oversight of the systems, cleaned-up access, and email that arrives — documented, so knowledge doesn't live in one head."
 ---
 
 ## Background

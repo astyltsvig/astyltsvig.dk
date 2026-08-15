@@ -7,7 +7,7 @@ stack: ["Laravel", "Inertia", "Vue 3", "Tailwind"]
 categoryKey: "platform"
 statusKey: "inDailyProduction"
 order: 3
-description: "Administrationsplatform for forsikringspolicer og pensionsordninger — i stabil daglig drift siden 2022, med næste generation undervejs."
+description: "Administrationsplatform der holder styr på forsikrings- og pensionsordninger for hundredvis af virksomheder og tusindvis af medarbejdere — med sporbarhed og korrekthed som grundvilkår."
 ---
 
 ## Baggrund

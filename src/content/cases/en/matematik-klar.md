@@ -11,7 +11,7 @@ statusSuffix: "Live at matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"
 screenshotAlt: "MatematikKlar homepage with the hero 'Bliv skarp til matematik — og til at undervise i den' and a sample exercise"
 order: 10
-description: "Free Danish maths training from 1st grade to the upper-secondary exam: 912 exercises built on the national curriculum's progression, with hints and explanations for every answer. An own product in production."
+description: "Free, ad-free maths training from 1st grade to the upper-secondary exam — 912 exercises that explain the strategy behind every answer, not just the result."
 ---
 
 ## Background
