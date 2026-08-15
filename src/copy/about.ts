@@ -45,6 +45,17 @@ const da = {
       },
     ],
   },
+  skills: {
+    eyebrow: 'Kompetencer',
+    heading: 'Værktøjskassen.',
+    lede: 'Teknologierne skifter med opgaven — det her er dem, jeg griber oftest.',
+    items: [
+      'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+      'Astro', 'Next.js', 'Firebase', 'Supabase',
+      'Cloudflare', 'Hetzner', 'Google Workspace',
+      'DNS · SPF · DKIM · DMARC', 'CI/CD & Git-workflows', 'Sveltia CMS',
+    ],
+  },
   principles: {
     eyebrow: 'Arbejdsform',
     heading: 'Sådan arbejder jeg.',
@@ -63,7 +74,7 @@ const da = {
       },
       {
         title: 'Direkte linje',
-        text: 'Mail, telefon eller Slack. Ingen ticketsystemer imellem os — og svar inden for to hverdage.',
+        text: 'Du skriver, jeg svarer. Ingen ticketsystemer, ingen omstilling — en direkte linje til den, der bygger.',
       },
     ],
   },
@@ -126,6 +137,17 @@ const en: DeepString<typeof da> = {
       },
     ],
   },
+  skills: {
+    eyebrow: 'Competencies',
+    heading: 'The toolbox.',
+    lede: 'The technologies change with the task — these are the ones I reach for most.',
+    items: [
+      'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
+      'Astro', 'Next.js', 'Firebase', 'Supabase',
+      'Cloudflare', 'Hetzner', 'Google Workspace',
+      'DNS · SPF · DKIM · DMARC', 'CI/CD & Git workflows', 'Sveltia CMS',
+    ],
+  },
   principles: {
     eyebrow: 'Way of working',
     heading: 'How I work.',
@@ -144,7 +166,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'A direct line',
-        text: 'Email, phone, or Slack. No ticket systems between us — and a reply within two business days.',
+        text: 'You write, I answer. No ticket systems, no switchboard — a direct line to the person who builds.',
       },
     ],
   },
