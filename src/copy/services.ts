@@ -8,8 +8,30 @@ const da = {
   },
   intro: {
     eyebrow: 'Ydelser',
-    heading: 'Forretning først. Teknologi som middel.',
-    lede: 'Mit fokus som konsulent er at udvikle din forretning med teknologi — ikke at sælge teknologi for teknologiens skyld. Platformudvikling er kernen; hjemmesider og drift løses ved siden af. Fælles for det hele: du taler med den, der bygger.',
+    heading: 'Jeg udvikler forretning — sammen med dig.',
+    lede: 'Løsningerne spænder bredt, men kernen er altid den samme: at udvikle din forretning med teknologi i tæt samarbejde. Siden her er ikke en fast menu — det er et udsnit af, hvad jeg har leveret indtil nu.',
+  },
+  approach: {
+    eyebrow: 'Kernen',
+    heading: 'Sådan udvikler vi forretningen.',
+    steps: [
+      {
+        title: 'Forstå forretningen',
+        text: 'Jeg sætter mig ind i jeres rutiner, flaskehalse og tal — det er dér, mulighederne gemmer sig.',
+      },
+      {
+        title: 'Find det, der flytter mest',
+        text: 'Vi prioriterer sammen: hvad giver størst effekt for indsatsen — nu og på lang sigt.',
+      },
+      {
+        title: 'Byg, lever og bliv',
+        text: 'Jeg designer, udvikler og leverer løsningen — og bliver i driften, mens forretningen vokser.',
+      },
+    ],
+  },
+  delivered: {
+    eyebrow: 'Leveret indtil videre',
+    heading: 'Et udsnit af løsningerne.',
   },
   services: [
     {
@@ -47,9 +69,9 @@ const da = {
     },
   ],
   process: {
-    eyebrow: 'Derudover',
-    heading: 'Rådgivning og review.',
-    text: 'Har du brug for et teknisk blik uden et byggeprojekt — retningsvalg, gennemgang af en løsning eller en second opinion på et tilbud — tager jeg også korte rådgivningsopgaver. Samme princip: konkret, ærligt og uden salgstale.',
+    eyebrow: 'Ikke på listen?',
+    heading: 'Dit behov bestemmer.',
+    text: 'Mine ydelser er ikke begrænset til det, du ser her. Har du en udfordring, der lugter af teknologi — stor eller lille, byggeprojekt eller bare et rådgivende blik — så tag den med. Vi finder ud af det sammen: konkret, ærligt og uden salgstale.',
   },
 } as const;
 
@@ -61,8 +83,30 @@ const en: DeepString<typeof da> = {
   },
   intro: {
     eyebrow: 'Services',
-    heading: 'Business first. Technology as the means.',
-    lede: 'My focus as a consultant is growing your business with technology — not selling technology for its own sake. Platform development is the core; websites and operations are handled alongside it. Common to all of it: you talk to the person who builds.',
+    heading: 'I grow businesses — together with you.',
+    lede: 'The solutions span widely, but the core is always the same: growing your business with technology, in close collaboration. This page is not a fixed menu — it is a selection of what I have delivered so far.',
+  },
+  approach: {
+    eyebrow: 'The core',
+    heading: 'How we grow the business.',
+    steps: [
+      {
+        title: 'Understand the business',
+        text: 'I get into your routines, bottlenecks, and numbers — that is where the opportunities hide.',
+      },
+      {
+        title: 'Find what moves the most',
+        text: 'We prioritise together: what gives the greatest effect for the effort — now and long term.',
+      },
+      {
+        title: 'Build, deliver, and stay',
+        text: 'I design, build, and deliver the solution — and stay in operations while the business grows.',
+      },
+    ],
+  },
+  delivered: {
+    eyebrow: 'Delivered so far',
+    heading: 'A selection of the solutions.',
   },
   services: [
     {
@@ -100,9 +144,9 @@ const en: DeepString<typeof da> = {
     },
   ],
   process: {
-    eyebrow: 'Beyond that',
-    heading: 'Advisory and review.',
-    text: 'If you need a technical eye without a build project — direction, a review of a solution, or a second opinion on a proposal — I also take on short advisory engagements. Same principle: concrete, honest, and free of sales talk.',
+    eyebrow: 'Not on the list?',
+    heading: 'Your need decides.',
+    text: 'My services are not limited to what you see here. If you have a challenge that smells of technology — big or small, a build project or just an advisory eye — bring it. We figure it out together: concrete, honest, and free of sales talk.',
   },
 };
 
