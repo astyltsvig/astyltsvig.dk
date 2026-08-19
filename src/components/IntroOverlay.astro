@@ -4,7 +4,14 @@
 // rises hugely through a baseline mask, then a double curtain lifts —
 // spruce green chasing ink — while the page plays its own entrance.
 // Plays once per browser session; skipped for reduced-motion and no-JS.
-const chars = [...'AStyltsvig'];
+// The full company name, one masked line per word, chars staggered across both.
+const lines = ['AStyltsvig', 'Consulting'];
+let charOffset = 0;
+const words = lines.map(word => {
+  const start = charOffset;
+  charOffset += word.length;
+  return { chars: [...word].map((ch, i) => ({ ch, index: start + i })) };
+});
 ---
 <div id="intro" class="intro-overlay" aria-hidden="true">
   <div class="intro-curtain intro-curtain-green"></div>
@@ -17,9 +24,13 @@ const chars = [...'AStyltsvig'];
         <circle class="intro-dot" cx="40" cy="40" r="2" stroke="none" />
       </svg>
       <p class="intro-name" aria-hidden="true">
-        {chars.map((ch, i) => <span class="intro-char" style={`--i:${i}`}>{ch}</span>)}
+        {words.map(word => (
+          <span class="intro-word">
+            {word.chars.map(({ ch, index }) => <span class="intro-char" style={`--i:${index}`}>{ch}</span>)}
+          </span>
+        ))}
       </p>
-      <p class="intro-kicker">Consulting · København</p>
+      <p class="intro-kicker">København</p>
       <div class="intro-line"></div>
     </div>
   </div>
@@ -121,21 +132,25 @@ const chars = [...'AStyltsvig'];
     animation: intro-fade 0.35s ease-out 1.1s forwards;
   }
 
-  /* The baseline mask the letters rise through. */
   .intro-name {
-    overflow: hidden;
-    padding-inline: 0.05em;
-    font-size: clamp(3rem, 11vw, 8rem);
+    font-size: clamp(2.75rem, 9vw, 6.5rem);
     font-weight: 600;
     letter-spacing: -0.03em;
     line-height: 1.05;
+  }
+
+  /* Each word is its own baseline mask the letters rise through. */
+  .intro-word {
+    display: block;
+    overflow: hidden;
+    padding-inline: 0.05em;
   }
 
   .intro-char {
     display: inline-block;
     transform: translateY(120%) rotate(4deg);
     animation: intro-char 0.8s var(--ease-out) forwards;
-    animation-delay: calc(0.55s + var(--i) * 0.07s);
+    animation-delay: calc(0.55s + var(--i) * 0.06s);
   }
 
   .intro-kicker {
