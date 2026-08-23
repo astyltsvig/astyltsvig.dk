@@ -1,9 +1,9 @@
 ---
 client: "Smartlinjen"
 clientUrl: "https://smartlinjen.dk"
-headline: "Telefonen gjort tilgængelig: dansk tale til tekst i realtid — og tekst tilbage som naturlig stemme."
-role: "Eget produkt — idé, udvikling, drift"
-period: "2026 – nu"
+headline: "Telefonen gjort tilgængelig: dansk tale bliver til tekst i realtid, og tekst bliver til naturlig stemme."
+role: "Eget produkt: idé, udvikling, drift"
+period: "2026 til nu"
 stack: ["Realtids-transskription", "Dansk talesyntese", "AI-hurtigsvar"]
 categoryKey: "ownProduct"
 statusKey: "ongoing"
@@ -11,18 +11,18 @@ statusSuffix: "Fungerende prototype · smartlinjen.dk"
 screenshot: "smartlinjen.png"
 screenshotAlt: "Forside af smartlinjen.dk med hero 'Tag telefonen. Uden at høre.' og app-demo af et transskriberet opkald"
 order: 9
-description: "Telefonen er stadig en mur for døve og hørehæmmede. Smartlinjen river den ned: alt det sagte vises som tekst i realtid, og skrevne svar læses op med naturlig dansk stemme."
+description: "For døve og hørehæmmede er telefonen stadig en mur. Smartlinjen viser alt det sagte som tekst i realtid og læser skrevne svar op med en naturlig dansk stemme."
 ---
 
 ## Baggrund
 
-Job, sundhed, bank og hverdag kører stadig på telefonopkald — og for døve og hørehæmmede er telefonen en mur. SMS'er ignoreres, tolkebestilling tager dage, og omkring 800.000 danskere har nedsat hørelse. Der findes i dag ingen løsning, der gør danske telefonopkald tilgængelige.
+Job, sundhed, bank og hverdag kører stadig på telefonopkald, og for døve og hørehæmmede er telefonen en mur. SMS'er bliver ignoreret, tolkebestilling tager dage, og omkring 800.000 danskere har nedsat hørelse. Der findes i dag ingen løsning, der gør danske telefonopkald tilgængelige.
 
 Smartlinjen er et internt produkt i AStyltsvig Consulting, bygget for at lave om på det.
 
 ## Idéen
 
-En telefon, der taler tekst: alt hvad opkalderen siger, står på skærmen i realtid — og brugerens skrevne svar læses op med en naturlig dansk stemme, brugeren selv har valgt. En personlig intro fortæller opkalderen, hvad der foregår, så samtalen føles normal i begge ender.
+En telefon, der taler tekst: alt hvad opkalderen siger, står på skærmen i realtid, og brugerens skrevne svar læses op med en naturlig dansk stemme, som brugeren selv har valgt. En personlig intro fortæller opkalderen, hvad der foregår, så samtalen føles normal i begge ender.
 
 ## Løsningen
 
@@ -32,4 +32,4 @@ Tilgængelighed og privatliv er bærende: hver tilstand kommunikeres med farve, 
 
 ## Status
 
-Prototypen gennemfører rigtige opkald i dag — ind- og udgående, med live transskription, talesyntese, AI-hurtigsvar, personlig ordbog og GDPR-klar datamodel. Næste skridt: eget nummer via viderestilling og pilotforløb med de første daglige brugere. Visionen er et tilgængeligt telefonnummer til alle døve og hørehæmmede i Danmark.
+Prototypen gennemfører rigtige opkald i dag, både ind- og udgående, med live transskription, talesyntese, AI-hurtigsvar, personlig ordbog og GDPR-klar datamodel. Næste skridt er eget nummer via viderestilling og pilotforløb med de første daglige brugere. Visionen er et tilgængeligt telefonnummer til alle døve og hørehæmmede i Danmark.

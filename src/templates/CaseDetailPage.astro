@@ -26,7 +26,7 @@ const prev = cases[(index - 1 + cases.length) % cases.length];
 const next = cases[(index + 1) % cases.length];
 
 const path = caseUrl(lang, entry.slug);
-const title = `${data.client} — ${data.headline}`;
+const title = `${data.client}: ${data.headline}`;
 
 const jsonLd = [
   webPage({ lang, path, name: title, description: data.description }),

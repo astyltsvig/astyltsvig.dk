@@ -2,7 +2,7 @@ import type { DeepString, Lang } from '~/i18n/routes';
 
 const da = {
   meta: {
-    title: 'Siden findes ikke — AStyltsvig Consulting',
+    title: 'Siden findes ikke · AStyltsvig Consulting',
     description: 'Siden du leder efter, findes ikke.',
   },
   code: '404',
@@ -13,7 +13,7 @@ const da = {
 
 const en: DeepString<typeof da> = {
   meta: {
-    title: 'Page not found — AStyltsvig Consulting',
+    title: 'Page not found · AStyltsvig Consulting',
     description: 'The page you are looking for does not exist.',
   },
   code: '404',
