@@ -21,7 +21,7 @@ Give customers a portal where their schemes and material live in one place, and 
 
 ## Approach
 
-A customer portal developed from scratch for Care Pension & Forsikring's needs, plus integration tools connecting the portal to the Excel-based advisory tool. The adviser's work and the customer's view stay in sync, with no duplicated effort and no manual go-betweens.
+A customer portal developed from scratch for Care Pension & Forsikring's needs, plus integration tools connecting the portal to the Excel-based advisory tool. The adviser's work and the customer's view stay in sync, which removes duplicated effort, automates the manual go-betweens, and streamlines the entire advisory flow.
 
 ## Outcome
 

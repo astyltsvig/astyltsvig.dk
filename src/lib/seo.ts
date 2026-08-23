@@ -50,7 +50,7 @@ const graphText = {
     personDescription:
       'IT-konsulent og softwarearkitekt i København. Bygger og drifter forretningskritiske platforme til ERP, booking og administration med Laravel og Vue som foretrukken stack.',
     orgDescription:
-      'Enkeltmandskonsulentvirksomhed i København. Skræddersyet platformudvikling, hjemmesider og teknisk drift med ét ansvarspunkt fra arkitektur til daglig produktion.',
+      'Enkeltmandskonsulentvirksomhed i København. Skræddersyet platformudvikling, hjemmesider og teknisk drift, der effektiviserer og automatiserer forretningen, med ét ansvarspunkt fra arkitektur til daglig produktion.',
     siteDescription:
       'AStyltsvig Consulting ved Andreas Sørbye Styltsvig. Softwarearkitektur, udvikling og drift af forretningskritiske platforme i København.',
     pageName: 'AStyltsvig Consulting · Andreas Sørbye Styltsvig',
@@ -60,7 +60,7 @@ const graphText = {
     personDescription:
       'IT consultant and software architect in Copenhagen. Builds and operates business-critical platforms for ERP, booking, and administration with Laravel and Vue as the preferred stack.',
     orgDescription:
-      'Independent one-person consultancy in Copenhagen. Bespoke platform development, websites, and technical operations with one point of responsibility from architecture to daily production.',
+      'Independent one-person consultancy in Copenhagen. Bespoke platform development, websites, and technical operations that streamline and automate the business, with one point of responsibility from architecture to daily production.',
     siteDescription:
       'AStyltsvig Consulting by Andreas Sørbye Styltsvig. Software architecture, development, and operations of business-critical platforms in Copenhagen.',
     pageName: 'AStyltsvig Consulting · Andreas Sørbye Styltsvig',

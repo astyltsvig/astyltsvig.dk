@@ -21,7 +21,7 @@ Give kunderne en portal, hvor deres ordninger og materiale er samlet ét sted, o
 
 ## Løsning
 
-En kundeportal udviklet fra bunden til Care Pension & Forsikrings behov, samt integrationsværktøjer der forbinder portalen med det Excel-baserede rådgivningsværktøj. Rådgiverens arbejde og kundens visning hænger sammen uden dobbeltarbejde og uden manuelle mellemled.
+En kundeportal udviklet fra bunden til Care Pension & Forsikrings behov, samt integrationsværktøjer der forbinder portalen med det Excel-baserede rådgivningsværktøj. Rådgiverens arbejde og kundens visning hænger sammen, hvilket fjerner dobbeltarbejde, automatiserer de manuelle mellemled og effektiviserer hele rådgivningsflowet.
 
 ## Resultat
 

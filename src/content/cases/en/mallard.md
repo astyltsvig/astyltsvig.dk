@@ -25,10 +25,10 @@ An ERP system built from the ground up around three core requirements:
 
 - The business's own processes as the starting point, so everyday work never has to be squeezed into a standard template
 - Operational stability first, because the system is mission-critical from morning to night
-- An architecture that grows as the needs change
+- A scalable architecture that grows as the needs change
 
 Architecture, development, and operations sit in the same hands. That gives short decision paths: from idea or bug report to a change in production, with no intermediaries.
 
 ## Outcome
 
-The system has been core infrastructure in Mallard's daily operation since 2022. The manual processes are gone, workflows are faster, and the platform keeps evolving as the business moves.
+The system has been core infrastructure in Mallard's daily operation since 2022. The manual processes have been automated away, workflows are streamlined, and the platform is continuously optimised and extended as the business moves.

@@ -25,10 +25,10 @@ Et ERP-system bygget fra bunden med tre bærende krav:
 
 - Forretningens egne processer som udgangspunkt, så hverdagen aldrig skal presses ned i en standardskabelon
 - Driftsstabilitet som førsteprioritet, fordi systemet er forretningskritisk fra morgen til aften
-- En arkitektur, der kan udvides i takt med at behovene ændrer sig
+- En skalerbar arkitektur, der kan udvides i takt med at behovene ændrer sig
 
 Arkitektur, udvikling og drift ligger samme sted. Det giver korte beslutningsveje: fra idé eller fejlmelding til ændring i produktion uden mellemled.
 
 ## Resultat
 
-Systemet har været kerneinfrastruktur i Mallards daglige drift siden 2022. De manuelle processer er væk, arbejdsgangene er hurtigere, og platformen videreudvikles løbende, efterhånden som forretningen flytter sig.
+Systemet har været kerneinfrastruktur i Mallards daglige drift siden 2022. De manuelle processer er automatiseret væk, arbejdsgangene er effektiviseret, og platformen optimeres og udvides løbende, efterhånden som forretningen flytter sig.

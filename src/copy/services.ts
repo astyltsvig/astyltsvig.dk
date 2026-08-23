@@ -9,7 +9,7 @@ const da = {
   intro: {
     eyebrow: 'Ydelser',
     heading: 'Jeg udvikler forretning sammen med dig.',
-    lede: 'Løsningerne spænder bredt, men kernen er altid den samme: at udvikle din forretning med teknologi i tæt samarbejde. Siden her viser et udsnit af, hvad jeg har leveret indtil nu.',
+    lede: 'Løsningerne spænder bredt, men kernen er altid den samme: at effektivisere, automatisere og optimere din forretning med teknologi i tæt samarbejde. Siden her viser et udsnit af, hvad jeg har leveret indtil nu.',
   },
   approach: {
     eyebrow: 'Kernen',
@@ -21,7 +21,7 @@ const da = {
       },
       {
         title: 'Find det, der flytter mest',
-        text: 'Vi prioriterer sammen: hvad giver størst effekt for indsatsen, både nu og på lang sigt.',
+        text: 'Vi prioriterer sammen: hvor kan vi effektivisere og optimere med størst effekt for indsatsen, både nu og på lang sigt.',
       },
       {
         title: 'Byg, lever og bliv',
@@ -39,9 +39,9 @@ const da = {
       stack: 'Effektivisering · Automatisering · Vækst',
       lede: 'Skræddersyede systemer til den drift, standardsoftware ikke dækker.',
       items: [
-        'Forretningskritiske platforme bygget fra bunden og designet efter den måde, jeres forretning faktisk arbejder på',
+        'Forretningskritiske platforme bygget fra bunden med en skalerbar arkitektur, designet efter den måde jeres forretning faktisk arbejder på',
         'Automatisering af manuelle arbejdsgange, så tiden går til forretning i stedet for genindtastning',
-        'Videreudvikling af eksisterende systemer: oprydning, modernisering og nye muligheder uden at bryde driften',
+        'Videreudvikling og optimering af eksisterende systemer: oprydning, modernisering og nye muligheder uden at bryde driften',
         'Drift med i pakken: jeg bliver ved systemet og holder det kørende, også efter det er leveret',
       ],
     },
@@ -50,8 +50,8 @@ const da = {
       stack: 'Synlighed · Selvbetjening · Lave omkostninger',
       lede: 'Hjemmesider der loader øjeblikkeligt, er næsten gratis i drift og kan opdateres af jer selv.',
       items: [
-        'Nye sites med jeres identitet i centrum: hurtige, tilgængelige og søgeoptimerede fra første dag',
-        'Migrering væk fra tunge og dyre systemer til en løsning med driftomkostninger tæt på nul',
+        'Nye sites med jeres identitet i centrum: hurtige, tilgængelige og SEO-optimerede fra første dag',
+        'Migrering væk fra tunge og dyre systemer til en performanceoptimeret løsning med driftomkostninger tæt på nul',
         'En redigeringsflade jeres egne folk kan bruge, så indholdet kan opdateres uden en udvikler i røret',
         'Design, tilgængelighed og SEO tænkt ind fra start',
       ],
@@ -84,7 +84,7 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'Services',
     heading: 'I grow businesses together with you.',
-    lede: 'The solutions span widely, but the core is always the same: growing your business with technology, in close collaboration. This page shows a selection of what I have delivered so far.',
+    lede: 'The solutions span widely, but the core is always the same: streamlining, automating, and optimising your business with technology, in close collaboration. This page shows a selection of what I have delivered so far.',
   },
   approach: {
     eyebrow: 'The core',
@@ -96,7 +96,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'Find what moves the most',
-        text: 'We prioritise together: what gives the greatest effect for the effort, both now and long term.',
+        text: 'We prioritise together: where can we streamline and optimise with the greatest effect for the effort, both now and long term.',
       },
       {
         title: 'Build, deliver, and stay',
@@ -114,9 +114,9 @@ const en: DeepString<typeof da> = {
       stack: 'Efficiency · Automation · Growth',
       lede: 'Bespoke systems for the operations off-the-shelf software does not cover.',
       items: [
-        'Business-critical platforms built from scratch and designed around the way your business actually works',
+        'Business-critical platforms built from scratch on a scalable architecture, designed around the way your business actually works',
         'Automation of manual workflows, so time goes to business instead of re-keying data',
-        'Further development of existing systems: cleanup, modernisation, and new capabilities without breaking production',
+        'Further development and optimisation of existing systems: cleanup, modernisation, and new capabilities without breaking production',
         'Operations included: I stay with the system and keep it running, also after it has been delivered',
       ],
     },
@@ -125,8 +125,8 @@ const en: DeepString<typeof da> = {
       stack: 'Visibility · Self-service · Low cost',
       lede: 'Websites that load instantly, cost next to nothing to run, and can be updated by your own people.',
       items: [
-        'New sites with your identity at the centre: fast, accessible, and search-optimised from day one',
-        'Migration away from heavy, expensive systems to a solution with running costs close to zero',
+        'New sites with your identity at the centre: fast, accessible, and SEO-optimised from day one',
+        'Migration away from heavy, expensive systems to a performance-optimised solution with running costs close to zero',
         'An editing surface your own people can use, so content can be updated without a developer on the line',
         'Design, accessibility, and SEO considered from the start',
       ],

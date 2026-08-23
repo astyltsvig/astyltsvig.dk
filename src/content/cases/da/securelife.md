@@ -28,4 +28,4 @@ Arkitektur, udvikling og drift gennem hele platformens levetid, fra det første 
 
 ## Resultat
 
-I stabil daglig drift siden 2022 med forretningskritiske processer for to brands. Platformen videreudvikles løbende i takt med, at forretningen udvikler sig.
+I stabil daglig drift siden 2022 med forretningskritiske processer for to brands. Platformen videreudvikles og optimeres løbende i takt med, at forretningen udvikler sig.

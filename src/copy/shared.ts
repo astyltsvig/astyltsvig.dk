@@ -24,8 +24,8 @@ const da = {
     operations: 'Drift',
   },
   categoryLede: {
-    platform: 'Forretningskritiske systemer i daglig produktion. Bygget, driftet og videreudviklet.',
-    web: 'Hurtige statiske sites med lave driftsomkostninger og redaktører, der kan selv.',
+    platform: 'Forretningskritiske systemer i daglig produktion. Bygget, driftet og løbende optimeret.',
+    web: 'Hurtige, SEO-optimerede statiske sites med lave driftsomkostninger og redaktører, der kan selv.',
     ownProduct: 'Produkter jeg selv har fået idéen til, bygget og sat i drift.',
     operations: 'Teknisk ejerskab af infrastruktur, DNS og email. Det der bare skal virke.',
   },
@@ -90,8 +90,8 @@ const en: DeepString<typeof da> = {
     operations: 'Operations',
   },
   categoryLede: {
-    platform: 'Business-critical systems in daily production. Built, operated, and continuously developed.',
-    web: 'Fast static sites with low running costs and editors who can work unassisted.',
+    platform: 'Business-critical systems in daily production. Built, operated, and continuously optimised.',
+    web: 'Fast, SEO-optimised static sites with low running costs and editors who can work unassisted.',
     ownProduct: 'Products I conceived, built, and put into production myself.',
     operations: 'Technical ownership of infrastructure, DNS, and email. The things that simply have to work.',
   },

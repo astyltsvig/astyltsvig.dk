@@ -28,4 +28,4 @@ Architecture, development, and operations across the platform's entire lifetime,
 
 ## Outcome
 
-In stable daily production since 2022, carrying business-critical processes for two brands. The platform is developed continuously as the business evolves.
+In stable daily production since 2022, carrying business-critical processes for two brands. The platform is continuously developed and optimised as the business evolves.

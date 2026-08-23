@@ -4,7 +4,7 @@ const da = {
   meta: {
     title: 'Projekter · platforme, hjemmesider og egne produkter | AStyltsvig Consulting',
     description:
-      'Projekter fra AStyltsvig Consulting: forretningskritiske platforme i daglig drift, hurtige hjemmesider og egne produkter. Alle bygget og driftet af én person.',
+      'Projekter fra AStyltsvig Consulting: forretningskritiske platforme der effektiviserer og automatiserer den daglige drift, hurtige hjemmesider og egne produkter. Alle bygget og driftet af én person.',
   },
   intro: {
     eyebrow: 'Projekter',
@@ -20,7 +20,7 @@ const en: DeepString<typeof da> = {
   meta: {
     title: 'Work · platforms, websites, and own products | AStyltsvig Consulting',
     description:
-      'Projects from AStyltsvig Consulting: business-critical platforms in daily production, fast websites, and own products. All built and operated by one person.',
+      'Projects from AStyltsvig Consulting: business-critical platforms that streamline and automate daily operations, fast websites, and own products. All built and operated by one person.',
   },
   intro: {
     eyebrow: 'Work',
