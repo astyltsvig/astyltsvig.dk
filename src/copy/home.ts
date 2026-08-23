@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Hej, jeg er Andreas — én mand, hele IT-afdelingen.',
-    lede: 'Vokset ud af regnearkene og standardsystemerne? Jeg designer, bygger og drifter den platform, jeres forretning faktisk har brug for — booking, økonomi og administration — sammen med hjemmesiderne og den tekniske drift udenom. Skræddersyet, i daglig produktion, fra første skitse til stabil drift.',
+    heading: 'Hej, jeg er Andreas. Jeg bygger og drifter digitale løsninger for virksomheder.',
+    lede: 'Skræddersyede systemer, hjemmesider og stabil teknisk drift. Jeg tager ansvaret hele vejen, fra den første skitse til en løsning der kører i hverdagen og udvikler sig med forretningen.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: "Hi, I'm Andreas — one person, the whole IT department.",
-    lede: 'Outgrown the spreadsheets and off-the-shelf systems? I design, build, and operate the platform your business actually needs — booking, finance, and administration — along with the websites and technical operations around it. Bespoke, in daily production, from first sketch to stable operation.',
+    heading: "Hi, I'm Andreas. I build and run digital solutions for businesses.",
+    lede: 'Bespoke systems, websites and stable technical operations. I take responsibility all the way, from the first sketch to a solution that runs every day and grows with the business.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
