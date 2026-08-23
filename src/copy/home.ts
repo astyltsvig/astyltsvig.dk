@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Hej, jeg er Andreas. Jeg bygger og drifter skræddersyede platforme for virksomheder.',
-    lede: 'Forretningsplatforme formet efter jeres arbejdsgange, uanset om de skal styre kunder, drift, økonomi eller noget helt fjerde. Jeg leverer hele forløbet fra den første skitse til stabil daglig drift.',
+    heading: 'Skræddersyede platforme, bygget til jeres forretning.',
+    lede: 'Platforme formet efter jeres arbejdsgange, uanset om de skal styre kunder, drift, økonomi eller noget helt fjerde. Ét samlet forløb fra første skitse til stabil daglig drift.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: "Hi, I'm Andreas. I build and run bespoke platforms for businesses.",
-    lede: 'Business platforms shaped around the way you work, whether they manage customers, operations, finances or something else entirely. I deliver the whole journey from first sketch to stable daily operation.',
+    heading: 'Bespoke platforms, built for your business.',
+    lede: 'Platforms shaped around the way you work, whether they manage customers, operations, finances or something else entirely. One complete journey from first sketch to stable daily operation.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
