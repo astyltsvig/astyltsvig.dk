@@ -1,11 +1,12 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-paper: #fafaf8;
-  --color-surface: #ffffff;
-  --color-ink: #17181a;
-  --color-muted: #6b6e66;
-  --color-line: #e4e4de;
+  /* Warm off-white instead of near-white — easier on the eyes for long reads. */
+  --color-paper: #f6f3ec;
+  --color-surface: #fcfaf4;
+  --color-ink: #1b1a16;
+  --color-muted: #696c63;
+  --color-line: #e2ddd0;
   --color-accent: #1b5e4a;
   --color-accent-strong: #14493a;
   /* Lighter mint for links and details on ink backgrounds (the dark finale). */
