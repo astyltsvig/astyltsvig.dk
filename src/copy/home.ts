@@ -9,7 +9,7 @@ const da = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
     heading: 'Hej, jeg er Andreas. Jeg bygger og drifter skræddersyede platforme for virksomheder.',
-    lede: 'Forretningsplatforme til CRM, ERP, booking og administration, bygget til jeres arbejdsgange. Jeg designer, udvikler og drifter dem selv, og de kører i daglig produktion hos mine kunder.',
+    lede: 'Forretningsplatforme formet efter jeres arbejdsgange, uanset om de skal styre kunder, drift, økonomi eller noget helt fjerde. Jeg designer, udvikler og drifter dem selv, og de kører i daglig produktion hos mine kunder.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -56,7 +56,7 @@ const en: DeepString<typeof da> = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
     heading: "Hi, I'm Andreas. I build and run bespoke platforms for businesses.",
-    lede: 'Business platforms for CRM, ERP, booking and administration, built around your workflows. I design, develop and operate them myself, and they run in daily production for my clients.',
+    lede: 'Business platforms shaped around the way you work, whether they manage customers, operations, finances or something else entirely. I design, develop and operate them myself, and they run in daily production for my clients.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
