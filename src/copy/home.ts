@@ -8,7 +8,7 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Skræddersyede platforme, bygget til jeres forretning.',
+    heading: 'Systemer, der passer til forretningen. Ikke omvendt.',
     lede: 'Platforme formet efter jeres arbejdsgange, uanset om de skal styre kunder, drift, økonomi eller noget helt fjerde. Ét samlet forløb fra første skitse til stabil daglig drift.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
@@ -55,7 +55,7 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: 'Bespoke platforms, built for your business.',
+    heading: 'Systems that fit your business. Not the other way around.',
     lede: 'Platforms shaped around the way you work, whether they manage customers, operations, finances or something else entirely. One complete journey from first sketch to stable daily operation.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
