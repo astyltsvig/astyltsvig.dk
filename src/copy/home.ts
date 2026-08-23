@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting · København',
-    heading: 'Jeg bygger og drifter de systemer, virksomheder driver forretning på.',
-    lede: 'Softwarearkitekt og IT-konsulent. Jeg bygger skræddersyede platforme til ERP, booking og administration, der effektiviserer driften og automatiserer de tunge arbejdsgange. Jeg står selv for hele forløbet fra første skitse til stabil daglig drift.',
+    heading: 'Specialdesignede softwareløsninger til jeres forretning.',
+    lede: 'Målet er at finde ud af, hvordan I som virksomhed kan accelerere jeres forretning ved hjælp af software: alt fra platforme, der automatiserer og effektiviserer jeres arbejdsgange, til søgemaskineoptimerede hjemmesider, der fremhæver jer online. Med et langsigtet og sundt samarbejde vil jeg være en stærk ressource for jeres vækst.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting · Copenhagen',
-    heading: 'I build and operate the systems businesses run on.',
-    lede: 'Software architect and IT consultant. I build bespoke platforms for ERP, booking, and administration that streamline operations and automate heavy workflows. I handle the whole journey myself, from the first sketch to stable daily operation.',
+    heading: 'Custom software solutions for your business.',
+    lede: 'The goal is to find out how software can accelerate your business: everything from platforms that automate and streamline your workflows, to search engine optimised websites that put you in front of customers. Through a healthy and lasting collaboration, I aim to be a strong resource for your growth.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
