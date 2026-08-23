@@ -9,7 +9,7 @@ const da = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
     heading: 'Systemer, der vokser med forretningen.',
-    lede: 'Platforme bygget op omkring jeres arbejdsgange og driftet år efter år. Fra den første idé til et system, hverdagen kan stå på.',
+    lede: 'Platforme bygget op omkring jeres arbejdsgange og driftet år efter år. Udgangspunktet er altid jeres hverdag og måden, I arbejder på. Derfra bliver løsningen til trin for trin, fra den første idé til et system, hverdagen kan stå på, og den udvikler sig videre i takt med forretningen.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -56,7 +56,7 @@ const en: DeepString<typeof da> = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
     heading: 'Systems that grow with your business.',
-    lede: 'Platforms built around the way you work and looked after year after year. From the first idea to a system the business relies on every day.',
+    lede: 'Platforms built around the way you work and looked after year after year. The starting point is always your everyday and the way you actually work. From there the solution takes shape step by step, from the first idea to a system the business relies on every day, and it keeps evolving as the business grows.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
