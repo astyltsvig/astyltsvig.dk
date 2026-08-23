@@ -9,7 +9,7 @@ const da = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
     heading: 'Specialdesignede softwareløsninger til jeres forretning.',
-    lede: 'Konsulentarbejde med udgangspunkt i forretningen: rutinerne, flaskehalsene og tallene, for det er dér, teknologi flytter mest. Digitale løsninger bliver bygget, optimeret og driftet løbende, så de skaber vækst i stedet for bøvl. Samarbejdet er tæt og langsigtet, en del af væksten frem for en leverandør, der sender fakturaer.',
+    lede: 'Filosofien er enkel: få ting, gjort ordentligt, over lang tid. Målet er systemer, der bærer forretningen i hverdagen og kører roligt og forudsigeligt år efter år. Derfor bygges løsningerne til at blive vedligeholdt og optimeret, ikke bare leveret, så de bliver en ressource, forretningen vokser med.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -56,7 +56,7 @@ const en: DeepString<typeof da> = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
     heading: 'Custom software solutions for your business.',
-    lede: 'Consulting that starts with the business: the routines, the bottlenecks and the numbers, because that is where technology moves the most. Digital solutions are built, optimised and operated continuously, so they create growth instead of friction. The collaboration is close and long term, part of the growth rather than a supplier sending invoices.',
+    lede: 'The philosophy is simple: few things, done properly, over a long time. The goal is systems that carry the business through the everyday and run calmly and predictably year after year. That is why solutions are built to be maintained and optimised, not just delivered, so they become a resource the business grows with.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
