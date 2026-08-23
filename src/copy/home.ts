@@ -9,7 +9,7 @@ const da = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
     heading: 'Specialdesignede softwareløsninger til jeres forretning.',
-    lede: 'Filosofien er enkel: få ting, gjort ordentligt, over lang tid. Målet er systemer, der bærer forretningen i hverdagen og kører roligt og forudsigeligt år efter år. Derfor bygges løsningerne til at blive vedligeholdt og optimeret, ikke bare leveret, så de bliver en ressource, forretningen vokser med.',
+    lede: 'Målet er at finde ud af, hvordan I som virksomhed kan accelerere jeres forretning ved hjælp af software: alt fra platforme, der automatiserer og effektiviserer jeres arbejdsgange, til søgemaskineoptimerede hjemmesider, der fremhæver jer online. Med et langsigtet og sundt samarbejde vil jeg være en stærk ressource for jeres vækst.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -56,7 +56,7 @@ const en: DeepString<typeof da> = {
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
     heading: 'Custom software solutions for your business.',
-    lede: 'The philosophy is simple: few things, done properly, over a long time. The goal is systems that carry the business through the everyday and run calmly and predictably year after year. That is why solutions are built to be maintained and optimised, not just delivered, so they become a resource the business grows with.',
+    lede: 'The goal is to find out how software can accelerate your business: everything from platforms that automate and streamline your workflows, to search engine optimised websites that put you in front of customers. Through a healthy and lasting collaboration, I aim to be a strong resource for your growth.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
