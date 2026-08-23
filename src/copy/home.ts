@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Systemer, der vokser med forretningen.',
-    lede: 'Platforme bygget op omkring jeres arbejdsgange og driftet år efter år. Udgangspunktet er altid forretningen: rutinerne, flaskehalsene og tallene, for det er dér, teknologi flytter mest. Derfra bliver løsningen til trin for trin, fra den første idé til et system, hverdagen kan stå på. Filosofien er enkel: få ting, gjort ordentligt, over lang tid. I ejer det hele undervejs, og målet er rolig, forudsigelig drift.',
+    heading: 'En ressource, forretningen vokser med.',
+    lede: 'Konsulentarbejde med udgangspunkt i forretningen: rutinerne, flaskehalsene og tallene, for det er dér, teknologi flytter mest. Digitale løsninger bliver bygget, optimeret og driftet løbende, så de skaber vækst i stedet for bøvl. Samarbejdet er tæt og langsigtet, en del af væksten frem for en leverandør, der sender fakturaer.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: 'Systems that grow with your business.',
-    lede: 'Platforms built around the way you work and looked after year after year. The starting point is always the business: the routines, the bottlenecks and the numbers, because that is where technology moves the most. From there the solution takes shape step by step, from the first idea to a system the business relies on every day. The philosophy is simple: few things, done properly, over a long time. You own everything along the way, and the goal is calm, predictable operations.',
+    heading: 'A resource your business grows with.',
+    lede: 'Consulting that starts with the business: the routines, the bottlenecks and the numbers, because that is where technology moves the most. Digital solutions are built, optimised and operated continuously, so they create growth instead of friction. The collaboration is close and long term, part of the growth rather than a supplier sending invoices.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
