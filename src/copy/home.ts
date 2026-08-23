@@ -8,7 +8,7 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'En ressource, forretningen vokser med.',
+    heading: 'Specialdesignede softwareløsninger til jeres forretning.',
     lede: 'Konsulentarbejde med udgangspunkt i forretningen: rutinerne, flaskehalsene og tallene, for det er dér, teknologi flytter mest. Digitale løsninger bliver bygget, optimeret og driftet løbende, så de skaber vækst i stedet for bøvl. Samarbejdet er tæt og langsigtet, en del af væksten frem for en leverandør, der sender fakturaer.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
@@ -55,7 +55,7 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: 'A resource your business grows with.',
+    heading: 'Custom software solutions for your business.',
     lede: 'Consulting that starts with the business: the routines, the bottlenecks and the numbers, because that is where technology moves the most. Digital solutions are built, optimised and operated continuously, so they create growth instead of friction. The collaboration is close and long term, part of the growth rather than a supplier sending invoices.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
