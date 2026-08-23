@@ -10,7 +10,7 @@ const da = {
     contact: 'Kontakt',
   },
   logo: {
-    label: 'AStyltsvig Consulting — til forsiden',
+    label: 'AStyltsvig Consulting, til forsiden',
   },
   languageSwitch: {
     label: 'Skift sprog',
@@ -24,10 +24,10 @@ const da = {
     operations: 'Drift',
   },
   categoryLede: {
-    platform: 'Forretningskritiske systemer i daglig produktion — bygget, driftet og videreudviklet.',
-    web: 'Hurtige statiske sites med lavt driftsaftryk og redaktører der kan selv.',
+    platform: 'Forretningskritiske systemer i daglig produktion. Bygget, driftet og videreudviklet.',
+    web: 'Hurtige statiske sites med lave driftsomkostninger og redaktører, der kan selv.',
     ownProduct: 'Produkter jeg selv har fået idéen til, bygget og sat i drift.',
-    operations: 'Teknisk ejerskab af infrastruktur, DNS og email — det der bare skal virke.',
+    operations: 'Teknisk ejerskab af infrastruktur, DNS og email. Det der bare skal virke.',
   },
   status: {
     inDailyProduction: 'I daglig drift',
@@ -52,7 +52,7 @@ const da = {
   cta: {
     eyebrow: 'Kontakt',
     heading: 'Skal vi tale om dit projekt?',
-    body: 'Skriv kort, hvad du har brug for — svaret kommer fra den samme person, der ender med at bygge løsningen.',
+    body: 'Skriv kort, hvad du har brug for. Svaret kommer fra den samme person, som ender med at bygge løsningen.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {
@@ -76,7 +76,7 @@ const en: DeepString<typeof da> = {
     contact: 'Contact',
   },
   logo: {
-    label: 'AStyltsvig Consulting — to the front page',
+    label: 'AStyltsvig Consulting, to the front page',
   },
   languageSwitch: {
     label: 'Switch language',
@@ -90,10 +90,10 @@ const en: DeepString<typeof da> = {
     operations: 'Operations',
   },
   categoryLede: {
-    platform: 'Business-critical systems in daily production — built, operated, and continuously developed.',
-    web: 'Fast static sites with a light operational footprint and editors who can work unassisted.',
+    platform: 'Business-critical systems in daily production. Built, operated, and continuously developed.',
+    web: 'Fast static sites with low running costs and editors who can work unassisted.',
     ownProduct: 'Products I conceived, built, and put into production myself.',
-    operations: 'Technical ownership of infrastructure, DNS, and email — the things that simply have to work.',
+    operations: 'Technical ownership of infrastructure, DNS, and email. The things that simply have to work.',
   },
   status: {
     inDailyProduction: 'In daily production',
@@ -118,7 +118,7 @@ const en: DeepString<typeof da> = {
   cta: {
     eyebrow: 'Contact',
     heading: 'Shall we talk about your project?',
-    body: 'Describe briefly what you need — the reply comes from the same person who ends up building the solution.',
+    body: 'Describe briefly what you need. The reply comes from the same person who ends up building the solution.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {
