@@ -2,19 +2,19 @@ import type { DeepString, Lang } from '~/i18n/routes';
 
 const da = {
   meta: {
-    title: 'Kontakt — AStyltsvig Consulting, København',
+    title: 'Kontakt · AStyltsvig Consulting, København',
     description:
       'Skriv til hello@astyltsvig.dk med en kort beskrivelse af opgaven. AStyltsvig Consulting, CVR 36163771, Vanløse, København.',
   },
   intro: {
     eyebrow: 'Kontakt',
     heading: 'Én mail er nok.',
-    lede: 'Ingen formularer, ingen ticketsystemer. Skriv direkte — så tager vi den derfra.',
+    lede: 'Ingen formularer og ingen ticketsystemer. Skriv direkte, så tager vi den derfra.',
   },
   direct: {
     eyebrow: 'Direkte linje',
     email: 'hello@astyltsvig.dk',
-    note: 'Ingen autosvar, ingen kø — mailen lander hos den, der bygger.',
+    note: 'Ingen autosvar og ingen kø. Mailen lander hos den, der bygger.',
     copy: 'Kopiér adressen',
     copied: 'Kopieret ✓',
     meta: ['Vanløse, København', 'Dansk & engelsk', 'CVR 36163771'],
@@ -25,7 +25,7 @@ const da = {
     items: [
       {
         title: 'Opgaven',
-        text: 'Hvad den går ud på — to-tre sætninger er fint.',
+        text: 'Hvad den går ud på. To eller tre sætninger er fint.',
       },
       {
         title: 'Tidshorisonten',
@@ -33,7 +33,7 @@ const da = {
       },
       {
         title: 'Sammenhængen',
-        text: 'Eksisterende system, nyt projekt eller drift — hvad løsningen skal spille sammen med.',
+        text: 'Hvad løsningen skal spille sammen med: et eksisterende system, et nyt projekt eller den daglige drift.',
       },
     ],
   },
@@ -51,19 +51,19 @@ const da = {
 
 const en: DeepString<typeof da> = {
   meta: {
-    title: 'Contact — AStyltsvig Consulting, Copenhagen',
+    title: 'Contact · AStyltsvig Consulting, Copenhagen',
     description:
       'Write to hello@astyltsvig.dk with a short description of the task. AStyltsvig Consulting, CVR 36163771, Vanløse, Copenhagen.',
   },
   intro: {
     eyebrow: 'Contact',
     heading: 'One email is enough.',
-    lede: 'No forms, no ticket systems. Write directly — and we take it from there.',
+    lede: 'No forms and no ticket systems. Write directly, and we take it from there.',
   },
   direct: {
     eyebrow: 'Direct line',
     email: 'hello@astyltsvig.dk',
-    note: 'No autoresponders, no queue — the mail lands with the person who builds.',
+    note: 'No autoresponders and no queue. The mail lands with the person who builds.',
     copy: 'Copy the address',
     copied: 'Copied ✓',
     meta: ['Vanløse, Copenhagen', 'Danish & English', 'CVR 36163771'],
@@ -74,7 +74,7 @@ const en: DeepString<typeof da> = {
     items: [
       {
         title: 'The task',
-        text: 'What it is about — two or three sentences is fine.',
+        text: 'What it is about. Two or three sentences is fine.',
       },
       {
         title: 'The timeline',
@@ -82,7 +82,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'The context',
-        text: 'An existing system, a new project, or operations — what the solution has to work with.',
+        text: 'What the solution has to work with: an existing system, a new project, or daily operations.',
       },
     ],
   },
