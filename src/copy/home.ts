@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Jeg bygger og drifter de systemer, virksomheder driver forretning på.',
-    lede: 'Softwarearkitekt og IT-konsulent. ERP, booking og administration — skræddersyede platforme i daglig produktion, leveret af én ansvarlig fra første skitse til stabil drift.',
+    heading: 'Hej, jeg er Andreas — én mand, hele IT-afdelingen.',
+    lede: 'Vokset ud af regnearkene og standardsystemerne? Jeg designer, bygger og drifter den platform, jeres forretning faktisk har brug for — booking, økonomi og administration — sammen med hjemmesiderne og den tekniske drift udenom. Skræddersyet, i daglig produktion, fra første skitse til stabil drift.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: 'I build and operate the systems businesses run on.',
-    lede: 'Software architect and IT consultant. ERP, booking, and administration — bespoke platforms in daily production, delivered by one accountable person from first sketch to stable operation.',
+    heading: "Hi, I'm Andreas — one person, the whole IT department.",
+    lede: 'Outgrown the spreadsheets and off-the-shelf systems? I design, build, and operate the platform your business actually needs — booking, finance, and administration — along with the websites and technical operations around it. Bespoke, in daily production, from first sketch to stable operation.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
