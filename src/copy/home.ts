@@ -8,8 +8,8 @@ const da = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — København',
-    heading: 'Systemer, der passer til forretningen.',
-    lede: 'Platforme formet efter jeres arbejdsgange, uanset om de skal styre kunder, drift, økonomi eller noget helt fjerde. Ét samlet forløb fra første skitse til stabil daglig drift.',
+    heading: 'Systemer, der vokser med forretningen.',
+    lede: 'Platforme bygget op omkring jeres arbejdsgange og driftet år efter år. Fra den første idé til et system, hverdagen kan stå på.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
   },
@@ -55,8 +55,8 @@ const en: DeepString<typeof da> = {
   },
   hero: {
     eyebrow: 'AStyltsvig Consulting — Copenhagen',
-    heading: 'Systems that fit your business.',
-    lede: 'Platforms shaped around the way you work, whether they manage customers, operations, finances or something else entirely. One complete journey from first sketch to stable daily operation.',
+    heading: 'Systems that grow with your business.',
+    lede: 'Platforms built around the way you work and looked after year after year. From the first idea to a system the business relies on every day.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
   },
