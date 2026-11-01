@@ -21,7 +21,7 @@ const da = {
     { value: '2020', label: 'Selvstændig siden' },
     { value: '3+', label: 'Platforme i daglig drift' },
     { value: '1', label: 'Ansvarlig fra idé til drift' },
-    { value: '0', label: 'Mellemled og ticketsystemer' },
+    { value: '10+', label: 'Projekter i porteføljen' },
   ],
   clients: {
     eyebrow: 'Kunder & samarbejder',
@@ -73,7 +73,7 @@ const en: DeepString<typeof da> = {
     { value: '2020', label: 'Independent since' },
     { value: '3+', label: 'Platforms in daily production' },
     { value: '1', label: 'Person from idea to production' },
-    { value: '0', label: 'Middlemen or ticket systems' },
+    { value: '10+', label: 'Projects in the portfolio' },
   ],
   clients: {
     eyebrow: 'Clients & collaborations',
