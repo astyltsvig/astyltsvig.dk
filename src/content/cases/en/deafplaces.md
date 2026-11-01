@@ -2,7 +2,7 @@
 client: "DeafPlaces"
 clientUrl: "https://deafplaces.app"
 headline: "A world map of places where you can use sign language: made by deaf people, for deaf travellers."
-role: "Own product: co-founder, development, operations"
+role: "Own product: idea, development, operations"
 period: "2026 to present"
 stack: ["Next.js", "Cloudflare (OpenNext)", "Interactive 3D globe map", "Multilingual"]
 categoryKey: "ownProduct"
@@ -16,7 +16,7 @@ description: "A free world map of deaf-owned and sign-friendly cafés, restauran
 
 ## Background
 
-Can I order here? Will the guide understand me? Is there a deaf club in town? Ordinary reviews rarely say whether the staff sign. Deaf people know, but that knowledge is scattered across Facebook groups and conversations. The idea came from Søren Kyu Winkel, who travelled in Thailand without knowing that several deaf Grab drivers work in Bangkok.
+Can I order here? Will the guide understand me? Is there a deaf club in town? Ordinary reviews rarely say whether the staff sign. Deaf people know, but that knowledge is scattered across Facebook groups and conversations.
 
 ## Brief
 

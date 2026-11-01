@@ -2,7 +2,7 @@
 client: "DeafPlaces"
 clientUrl: "https://deafplaces.app"
 headline: "Et verdenskort over steder, hvor du kan bruge tegnsprog: lavet af døve, til døve rejsende."
-role: "Eget produkt: medstifter, udvikling, drift"
+role: "Eget produkt: idé, udvikling, drift"
 period: "2026 til nu"
 stack: ["Next.js", "Cloudflare (OpenNext)", "Interaktivt 3D-globus-kort", "Flersproget"]
 categoryKey: "ownProduct"
@@ -16,7 +16,7 @@ description: "Et gratis verdenskort over døveejede og tegnsprogsvenlige caféer
 
 ## Baggrund
 
-Kan jeg bestille her? Forstår guiden mig? Er der en døveforening i byen? Almindelige anmeldelser siger sjældent noget om, hvorvidt personalet kan tegnsprog. Døve ved det, men viden ligger spredt i Facebook-grupper og samtaler. Idéen kom fra Søren Kyu Winkel, der på en rejse i Thailand ikke anede, at flere døve Grab-chauffører kører i Bangkok.
+Kan jeg bestille her? Forstår guiden mig? Er der en døveforening i byen? Almindelige anmeldelser siger sjældent noget om, hvorvidt personalet kan tegnsprog. Døve ved det, men viden ligger spredt i Facebook-grupper og samtaler.
 
 ## Opgave
 
