@@ -19,7 +19,7 @@ interface Props {
 const { lang } = Astro.props;
 const c = home[lang];
 const cases = await getCases(lang);
-const featuredSlugs = ['book2go', 'ddl-tegnsprogspakken', 'smartlinjen', 'festival-sans-pression'];
+const featuredSlugs = ['book2go', 'ddl-tegnsprogspakken', 'festival-sans-pression', 'df1866'];
 const featured = featuredSlugs
   .map(slug => cases.find(c => c.slug === slug))
   .filter((c): c is NonNullable<typeof c> => c !== undefined);
@@ -59,21 +59,21 @@ const featured = featuredSlugs
     </a>
     </div>
 
-    {/* Two real project screenshots, stacked like browser windows. Desktop only. */}
+    {/* Two client-project screenshots, stacked like browser windows. Desktop only. */}
     <div class="relative hidden lg:block reveal" style="--reveal-delay: 240ms" aria-hidden="true">
       <Screenshot
-        file="tegnsprogspakken.png"
+        file="book2go.png"
         alt=""
-        frameDomain="tegnsprogspakken.dk"
+        frameDomain="book2go.bike"
         loading="eager"
         widths={[480, 720]}
         sizes="360px"
         class="w-[88%] ml-auto shadow-[0_30px_60px_-35px_rgb(27_26_22/0.35)]"
       />
       <Screenshot
-        file="smartlinjen.png"
+        file="tegnsprogspakken.png"
         alt=""
-        frameDomain="smartlinjen.dk"
+        frameDomain="tegnsprogspakken.dk"
         loading="eager"
         widths={[480, 720, 960]}
         sizes="400px"
