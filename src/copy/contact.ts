@@ -9,12 +9,12 @@ const da = {
   intro: {
     eyebrow: 'Kontakt',
     heading: 'Én mail er nok.',
-    lede: 'Ingen formularer og intet ticketsystem. Skriv et par linjer om, hvad I har brug for, så tager vi den derfra.',
+    lede: 'Skriv et par linjer om, hvad I har brug for, så tager vi den derfra.',
   },
   direct: {
     eyebrow: 'Direkte linje',
     email: 'hello@astyltsvig.dk',
-    note: 'Ingen autosvar og ingen kø. Mailen lander direkte hos mig.',
+    note: 'Mailen lander direkte hos mig, og svaret kommer fra mig personligt.',
     copy: 'Kopiér adressen',
     copied: 'Kopieret ✓',
     meta: ['Vanløse, København', 'Dansk & engelsk', 'CVR 36163771'],
@@ -58,12 +58,12 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'Contact',
     heading: 'One email is enough.',
-    lede: 'No forms and no ticket system. Write a few lines about what you need, and we take it from there.',
+    lede: 'Write a few lines about what you need, and we take it from there.',
   },
   direct: {
     eyebrow: 'Direct line',
     email: 'hello@astyltsvig.dk',
-    note: 'No autoresponders and no queue. The email lands straight with me.',
+    note: 'The email lands straight with me, and the reply comes from me personally.',
     copy: 'Copy the address',
     copied: 'Copied ✓',
     meta: ['Vanløse, Copenhagen', 'Danish & English', 'CVR 36163771'],

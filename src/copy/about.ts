@@ -66,7 +66,7 @@ const da = {
       },
       {
         title: 'Én ansvarlig',
-        text: 'Ingen underleverandører og ingen mellemled. I taler med den, der bygger, i dag og om tre år.',
+        text: 'I taler med den, der bygger løsningen, både i dag og om tre år.',
       },
       {
         title: 'Løbende aftaler',
@@ -74,7 +74,7 @@ const da = {
       },
       {
         title: 'Direkte linje',
-        text: 'I skriver, jeg svarer. Ingen ticketsystemer og ingen omstilling.',
+        text: 'I skriver, jeg svarer. Spørgsmål og ændringer går direkte til den, der kender systemet bedst.',
       },
     ],
   },
@@ -158,7 +158,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'One accountable person',
-        text: 'No subcontractors and no middlemen. You talk to the person who builds, today and in three years.',
+        text: 'You talk to the person who builds the solution, today and in three years.',
       },
       {
         title: 'Ongoing agreements',
@@ -166,7 +166,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'A direct line',
-        text: 'You write, I answer. No ticket systems and no switchboard.',
+        text: 'You write, I answer. Questions and changes go straight to the person who knows the system best.',
       },
     ],
   },

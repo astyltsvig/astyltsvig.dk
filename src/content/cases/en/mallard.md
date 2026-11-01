@@ -27,7 +27,7 @@ An ERP system built from the ground up around three core requirements:
 - Operational stability first, because the system is mission-critical from morning to night
 - A scalable architecture that grows as the needs change
 
-Architecture, development, and operations sit in the same hands. That gives short decision paths: from idea or bug report to a change in production, with no intermediaries.
+Architecture, development, and operations sit in the same hands. That gives short decision paths: from idea or bug report to a change in production, fast.
 
 ## Outcome
 
