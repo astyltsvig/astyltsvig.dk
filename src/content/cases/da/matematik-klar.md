@@ -10,7 +10,7 @@ statusKey: "inDailyProduction"
 statusSuffix: "Live på matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"
 screenshotAlt: "Forside af MatematikKlar med en prøveopgave"
-order: 10
+order: 12
 description: "Gratis og reklamefri matematiktræning fra 1. klasse til studentereksamen: 912 opgaver, der forklarer strategien bag hvert eneste svar."
 ---
 
