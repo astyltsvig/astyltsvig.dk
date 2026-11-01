@@ -9,27 +9,27 @@ const da = {
   intro: {
     eyebrow: 'Kontakt',
     heading: 'Én mail er nok.',
-    lede: 'Ingen formularer og ingen ticketsystemer. Skriv direkte, så tager vi den derfra.',
+    lede: 'Skriv et par linjer om, hvad I har brug for, så tager vi den derfra.',
   },
   direct: {
     eyebrow: 'Direkte linje',
     email: 'hello@astyltsvig.dk',
-    note: 'Ingen autosvar og ingen kø. Mailen lander hos den, der bygger.',
+    note: 'Mailen lander direkte hos mig, og svaret kommer fra mig personligt.',
     copy: 'Kopiér adressen',
     copied: 'Kopieret ✓',
     meta: ['Vanløse, København', 'Dansk & engelsk', 'CVR 36163771'],
   },
   guide: {
     eyebrow: 'En god første mail',
-    heading: 'Tre ting, der får os hurtigt i gang.',
+    heading: 'Tre ting, der gør det første svar bedre.',
     items: [
       {
         title: 'Opgaven',
-        text: 'Hvad den går ud på. To eller tre sætninger er fint.',
+        text: 'Hvad det handler om. To-tre sætninger er rigeligt.',
       },
       {
         title: 'Tidshorisonten',
-        text: 'Hvornår den skal være leveret, hvis der er en deadline.',
+        text: 'Hvornår det skal være klar, hvis der er en deadline.',
       },
       {
         title: 'Sammenhængen',
@@ -58,27 +58,27 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'Contact',
     heading: 'One email is enough.',
-    lede: 'No forms and no ticket systems. Write directly, and we take it from there.',
+    lede: 'Write a few lines about what you need, and we take it from there.',
   },
   direct: {
     eyebrow: 'Direct line',
     email: 'hello@astyltsvig.dk',
-    note: 'No autoresponders and no queue. The mail lands with the person who builds.',
+    note: 'The email lands straight with me, and the reply comes from me personally.',
     copy: 'Copy the address',
     copied: 'Copied ✓',
     meta: ['Vanløse, Copenhagen', 'Danish & English', 'CVR 36163771'],
   },
   guide: {
     eyebrow: 'A good first email',
-    heading: 'Three things that get us moving fast.',
+    heading: 'Three things that make the first reply better.',
     items: [
       {
         title: 'The task',
-        text: 'What it is about. Two or three sentences is fine.',
+        text: 'What it is about. Two or three sentences is plenty.',
       },
       {
         title: 'The timeline',
-        text: 'When it needs to be delivered, if there is a deadline.',
+        text: 'When it needs to be ready, if there is a deadline.',
       },
       {
         title: 'The context',

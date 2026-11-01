@@ -9,7 +9,7 @@ const da = {
   intro: {
     eyebrow: 'Projekter',
     heading: 'Det jeg har bygget, og det jeg stadig passer.',
-    lede: 'Et udvalg af det, jeg har bygget og drifter. Flere kundeprojekter er fortrolige, så her viser jeg dem, der kan deles.',
+    lede: 'Kundeplatforme, hjemmesider og egne produkter. En del kundearbejde er fortroligt, så her er det, der kan vises frem.',
   },
   caseCta: {
     heading: 'Et lignende projekt i tankerne?',
@@ -25,7 +25,7 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'Work',
     heading: 'What I have built, and what I still look after.',
-    lede: 'A selection of what I have built and operate. Several client projects are confidential, so these are the ones I can share.',
+    lede: 'Client platforms, websites, and own products. Some client work is confidential, so these are the ones I can show.',
   },
   caseCta: {
     heading: 'Have a similar project in mind?',

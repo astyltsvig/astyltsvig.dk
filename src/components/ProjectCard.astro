@@ -1,0 +1,45 @@
+---
+import { caseUrl, type Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import type { Case } from '~/lib/cases';
+import Screenshot from '~/components/Screenshot.astro';
+
+interface Props {
+  entry: Case;
+  lang: Lang;
+  index: number;
+}
+
+const { entry, lang, index } = Astro.props;
+const s = shared[lang];
+const { data } = entry;
+
+const metaParts = [s.categories[data.categoryKey], data.period];
+const meta = metaParts
+  .filter((part, i) => metaParts.findIndex(p => p.toLowerCase() === part.toLowerCase()) === i)
+  .join(' · ');
+const domain = data.clientUrl ? new URL(data.clientUrl).hostname.replace(/^www\./, '') : undefined;
+---
+<li class="reveal" style={`--reveal-delay: ${(index % 2) * 100}ms`}>
+  <a href={caseUrl(lang, entry.slug)} class="group block">
+    {data.screenshot && (
+      <Screenshot
+        file={data.screenshot}
+        alt={data.screenshotAlt ?? data.client}
+        frameDomain={domain}
+        widths={[480, 720, 1080]}
+        sizes="(min-width: 1152px) 540px, (min-width: 768px) 46vw, 100vw"
+        class="transition-[border-color,box-shadow] duration-300 group-hover:border-accent group-hover:shadow-[0_24px_48px_-28px_rgb(27_94_74/0.45)]"
+      />
+    )}
+    <p class="mt-6 font-mono text-xs uppercase tracking-[0.1em] text-muted">{meta}</p>
+    <h3 class="mt-2 text-xl md:text-2xl font-semibold tracking-tight group-hover:text-accent transition-colors duration-150">
+      {data.client}
+    </h3>
+    <p class="mt-3 max-w-[52ch] text-[0.9375rem] text-muted">{data.description}</p>
+    <span class="mt-4 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-accent">
+      {s.caseNav.viewCase}
+      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+    </span>
+  </a>
+</li>

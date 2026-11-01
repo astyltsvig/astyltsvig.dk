@@ -27,7 +27,7 @@ Et ERP-system bygget fra bunden med tre bærende krav:
 - Driftsstabilitet som førsteprioritet, fordi systemet er forretningskritisk fra morgen til aften
 - En skalerbar arkitektur, der kan udvides i takt med at behovene ændrer sig
 
-Arkitektur, udvikling og drift ligger samme sted. Det giver korte beslutningsveje: fra idé eller fejlmelding til ændring i produktion uden mellemled.
+Arkitektur, udvikling og drift ligger samme sted. Det giver korte beslutningsveje: fra idé eller fejlmelding til ændring i produktion på kort tid.
 
 ## Resultat
 

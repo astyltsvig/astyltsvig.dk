@@ -25,8 +25,8 @@ const da = {
   },
   categoryLede: {
     platform: 'Forretningskritiske systemer i daglig produktion. Bygget, driftet og løbende optimeret.',
-    web: 'Hurtige, SEO-optimerede statiske sites med lave driftsomkostninger og redaktører, der kan selv.',
-    ownProduct: 'Produkter jeg selv har fået idéen til, bygget og sat i drift.',
+    web: 'Hurtige sites, der bliver fundet på Google, koster næsten intet i drift og kan redigeres uden en udvikler.',
+    ownProduct: 'Mine egne idéer, bygget og sat i drift.',
     operations: 'Teknisk ejerskab af infrastruktur, DNS og email. Det der bare skal virke.',
   },
   status: {
@@ -51,8 +51,8 @@ const da = {
   },
   cta: {
     eyebrow: 'Kontakt',
-    heading: 'Skal vi tale om dit projekt?',
-    body: 'Skriv kort, hvad du har brug for. Svaret kommer fra den samme person, som ender med at bygge løsningen.',
+    heading: 'Har I et projekt i tankerne?',
+    body: 'Skriv et par linjer om, hvad I har brug for. Svaret kommer fra mig, og det er også mig, der bygger løsningen.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {
@@ -91,8 +91,8 @@ const en: DeepString<typeof da> = {
   },
   categoryLede: {
     platform: 'Business-critical systems in daily production. Built, operated, and continuously optimised.',
-    web: 'Fast, SEO-optimised static sites with low running costs and editors who can work unassisted.',
-    ownProduct: 'Products I conceived, built, and put into production myself.',
+    web: 'Fast sites that get found on Google, cost next to nothing to run, and can be edited without a developer.',
+    ownProduct: 'My own ideas, built and put into production.',
     operations: 'Technical ownership of infrastructure, DNS, and email. The things that simply have to work.',
   },
   status: {
@@ -117,8 +117,8 @@ const en: DeepString<typeof da> = {
   },
   cta: {
     eyebrow: 'Contact',
-    heading: 'Shall we talk about your project?',
-    body: 'Describe briefly what you need. The reply comes from the same person who ends up building the solution.',
+    heading: 'Got a project in mind?',
+    body: 'Write a few lines about what you need. The reply comes from me, and I am also the one who builds it.',
     email: 'hello@astyltsvig.dk',
   },
   footer: {
