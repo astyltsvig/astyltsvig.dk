@@ -21,6 +21,9 @@
   html {
     background-color: var(--color-paper);
     scroll-behavior: smooth;
+    /* Stop iOS Safari from inflating text when the phone is turned sideways. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -15,9 +15,9 @@ const year = new Date().getFullYear();
     <div class="grid gap-10 sm:grid-cols-3">
       <div>
         <h2 class="eyebrow !text-paper/50">{s.footer.contactHeading}</h2>
-        <ul class="mt-4 space-y-2 text-[0.9375rem]">
+        <ul class="mt-4 space-y-4 sm:space-y-2 text-[0.9375rem]">
           <li>
-            <a href="mailto:hello@astyltsvig.dk" class="link-sweep hover:text-accent-soft transition-colors duration-150">
+            <a href="mailto:hello@astyltsvig.dk" class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
               hello@astyltsvig.dk
             </a>
           </li>
@@ -34,19 +34,19 @@ const year = new Date().getFullYear();
       </div>
       <div>
         <h2 class="eyebrow !text-paper/50">{s.footer.linksHeading}</h2>
-        <ul class="mt-4 space-y-2 text-[0.9375rem]">
+        <ul class="mt-4 space-y-4 sm:space-y-2 text-[0.9375rem]">
           <li>
-            <a href="https://github.com/astyltsvig" rel="me noopener" class="link-sweep hover:text-accent-soft transition-colors duration-150">
+            <a href="https://github.com/astyltsvig" rel="me noopener" class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
               GitHub
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/astyltsvig/" rel="me noopener" class="link-sweep hover:text-accent-soft transition-colors duration-150">
+            <a href="https://www.linkedin.com/in/astyltsvig/" rel="me noopener" class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
               LinkedIn
             </a>
           </li>
           <li>
-            <a href={routes.contact[lang]} class="link-sweep hover:text-accent-soft transition-colors duration-150">
+            <a href={routes.contact[lang]} class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
               {s.nav.contact}
             </a>
           </li>
