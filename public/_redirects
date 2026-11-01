@@ -1,0 +1,11 @@
+# Cloudflare Pages redirects — https://developers.cloudflare.com/pages/configuration/redirects/
+# English paths without the /en prefix (seen as 404s in Web Analytics) go to the English page.
+/about     /en/about/     301
+/about/    /en/about/     301
+/services  /en/services/  301
+/services/ /en/services/  301
+/work      /en/work/      301
+/work/     /en/work/      301
+/work/*    /en/work/:splat 301
+/contact   /en/contact/   301
+/contact/  /en/contact/   301
