@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://astyltsvig.dk',
+  trailingSlash: 'always',
   i18n: {
     defaultLocale: 'da',
     locales: ['da', 'en'],
@@ -17,7 +18,6 @@ export default defineConfig({
       },
       changefreq: 'monthly',
       priority: 0.7,
-      lastmod: new Date(),
       serialize(item) {
         const url = item.url;
         if (url === 'https://astyltsvig.dk/' || url === 'https://astyltsvig.dk/en/') {

@@ -1,0 +1,12 @@
+# Cloudflare Pages response headers — https://developers.cloudflare.com/pages/configuration/headers/
+
+# Keep the *.pages.dev copies (production alias and preview deployments) out of search
+# results, so only astyltsvig.dk gets indexed.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Astro's build output is content-hashed, so it can be cached for a year.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

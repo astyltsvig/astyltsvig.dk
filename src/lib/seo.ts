@@ -84,7 +84,7 @@ export function personGraph(lang: Lang) {
         jobTitle: text.jobTitle,
         description: text.personDescription,
         url: `${SITE_URL}/`,
-        mainEntityOfPage: `${SITE_URL}${lang === 'da' ? '/om' : '/en/about'}`,
+        mainEntityOfPage: `${SITE_URL}${lang === 'da' ? '/om/' : '/en/about/'}`,
         email: 'hello@astyltsvig.dk',
         image: `${SITE_URL}/og-default.png`,
         address: {
@@ -160,7 +160,7 @@ export function personGraph(lang: Lang) {
       },
       {
         '@type': 'WebPage',
-        '@id': `${SITE_URL}/#webpage`,
+        '@id': `${SITE_URL}${homePath}#webpage`,
         url: `${SITE_URL}${homePath}`,
         name: text.pageName,
         isPartOf: { '@id': `${SITE_URL}/#website` },

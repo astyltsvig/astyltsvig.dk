@@ -1,4 +1,5 @@
 ---
+import { existsSync } from 'node:fs';
 import { render } from 'astro:content';
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ProjectMeta from '~/components/ProjectMeta.astro';
@@ -26,10 +27,21 @@ const prev = cases[(index - 1 + cases.length) % cases.length];
 const next = cases[(index + 1) % cases.length];
 
 const path = caseUrl(lang, entry.slug);
-const title = `${data.client}: ${data.headline}`;
+const fullTitle = `${data.client}: ${data.headline}`;
+// Google cuts titles at roughly 60 characters, so long headlines move to og:title
+// and the <title> becomes "Client · Category | AStyltsvig Consulting".
+const title =
+  fullTitle.length <= 60
+    ? fullTitle
+    : `${data.client} · ${s.categories[data.categoryKey]} | AStyltsvig Consulting`;
+
+// Fall back to the default share image if the per-case OG image has not been generated yet
+// (run `node scripts/generate-og.mjs` after adding a case).
+const ogCandidate = `/og/${entry.slug}-${lang}.png`;
+const ogImage = existsSync(`public${ogCandidate}`) ? ogCandidate : undefined;
 
 const jsonLd = [
-  webPage({ lang, path, name: title, description: data.description }),
+  webPage({ lang, path, name: fullTitle, description: data.description }),
   breadcrumbList([
     { name: s.nav.home, path: routes.home[lang] },
     { name: s.nav.work, path: routes.work[lang] },
@@ -42,6 +54,7 @@ const jsonLd = [
     headline: data.headline,
     description: data.description,
     url: `${SITE_URL}${path}`,
+    image: `${SITE_URL}${ogImage ?? '/og-default.png'}`,
     author: { '@id': `${SITE_URL}/#andreas` },
     inLanguage: lang,
   },
@@ -50,11 +63,12 @@ const jsonLd = [
 <BaseLayout
   lang={lang}
   title={title}
+  ogTitle={fullTitle}
   description={data.description}
   altPaths={casePaths(entry.slug)}
   jsonLd={jsonLd}
   ogType="article"
-  image={`/og/${entry.slug}-${lang}.png`}
+  image={ogImage}
 >
   <article class="mx-auto max-w-6xl px-6 md:px-10 pt-14 md:pt-20">
     <a

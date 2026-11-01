@@ -10,6 +10,8 @@ import type { AltPaths, Lang } from '~/i18n/routes';
 
 interface Props {
   title: string;
+  /** Longer title for social previews (og/twitter). Defaults to `title`. */
+  ogTitle?: string;
   description: string;
   lang: Lang;
   /** Equivalent path in each locale — drives hreflang and the language switcher. Omit to disable (404). */
@@ -25,6 +27,7 @@ interface Props {
 
 const {
   title,
+  ogTitle,
   description,
   lang,
   altPaths,
@@ -51,6 +54,7 @@ const ogLocaleAlt = lang === 'da' ? 'en_GB' : 'da_DK';
 const robots = noindex
   ? 'noindex,nofollow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+const socialTitle = ogTitle ?? title;
 const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 <!doctype html>
@@ -74,7 +78,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlt} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
@@ -86,7 +90,7 @@ const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     {ogType === 'article' && <meta property="article:author" content={author} />}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={`${siteName} · ${author}`} />
