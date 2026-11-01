@@ -1,11 +1,13 @@
 export type Lang = 'da' | 'en';
 
+// Every path ends in a slash: that is the URL Cloudflare Pages serves (others 308-redirect),
+// so links, canonicals, hreflang and JSON-LD all point straight at the final URL.
 export const routes = {
   home: { da: '/', en: '/en/' },
-  about: { da: '/om', en: '/en/about' },
-  services: { da: '/ydelser', en: '/en/services' },
-  work: { da: '/projekter', en: '/en/work' },
-  contact: { da: '/kontakt', en: '/en/contact' },
+  about: { da: '/om/', en: '/en/about/' },
+  services: { da: '/ydelser/', en: '/en/services/' },
+  work: { da: '/projekter/', en: '/en/work/' },
+  contact: { da: '/kontakt/', en: '/en/contact/' },
 } as const;
 
 export type RouteKey = keyof typeof routes;
@@ -13,7 +15,7 @@ export type RouteKey = keyof typeof routes;
 export type AltPaths = { da: string; en: string };
 
 export function caseUrl(lang: Lang, slug: string): string {
-  return lang === 'da' ? `/projekter/${slug}` : `/en/work/${slug}`;
+  return lang === 'da' ? `/projekter/${slug}/` : `/en/work/${slug}/`;
 }
 
 export function casePaths(slug: string): AltPaths {
