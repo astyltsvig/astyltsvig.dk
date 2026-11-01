@@ -27,8 +27,8 @@ const da = {
     eyebrow: 'Kunder & samarbejder',
   },
   work: {
-    eyebrow: 'Udvalgte projekter',
-    heading: 'Fra forretningskritisk ERP til egne produkter.',
+    eyebrow: 'Projekter',
+    heading: 'Udvalgt kundearbejde.',
     allLink: 'Alle projekter',
   },
   services: {
@@ -79,8 +79,8 @@ const en: DeepString<typeof da> = {
     eyebrow: 'Clients & collaborations',
   },
   work: {
-    eyebrow: 'Selected work',
-    heading: 'From business-critical ERP to own products.',
+    eyebrow: 'Work',
+    heading: 'Selected client work.',
     allLink: 'All projects',
   },
   services: {
