@@ -2,151 +2,151 @@ import type { DeepString, Lang } from '~/i18n/routes';
 
 const da = {
   meta: {
-    title: 'Ydelser · forretningsudvikling med teknologi | AStyltsvig Consulting',
+    title: 'Ydelser · platforme, hjemmesider og drift | AStyltsvig Consulting',
     description:
-      'Platformudvikling, hjemmesider og teknisk drift med ét fokus: at udvikle din forretning med teknologi. Én ansvarlig fra idé til daglig drift.',
+      'Skræddersyede platforme, hurtige hjemmesider og teknisk drift. Én ansvarlig softwarearkitekt fra første skitse til daglig drift.',
   },
   intro: {
     eyebrow: 'Ydelser',
-    heading: 'Jeg udvikler forretning sammen med dig.',
-    lede: 'Løsningerne spænder bredt, men kernen er altid den samme: at effektivisere, automatisere og optimere din forretning med teknologi i tæt samarbejde. Siden her viser et udsnit af, hvad jeg har leveret indtil nu.',
+    heading: 'Jeg bygger det, jeres forretning mangler.',
+    lede: 'Ofte er det et system, der afløser regneark og dobbeltarbejde. Andre gange en hjemmeside, der skal fornyes, eller et domæne, der skal ryddes op i. Spørgsmålet er altid det samme: hvor kan teknologi spare jer mest tid og flest fejl?',
   },
   approach: {
-    eyebrow: 'Kernen',
-    heading: 'Sådan udvikler vi forretningen.',
+    eyebrow: 'Tilgang',
+    heading: 'Sådan griber jeg det an.',
     steps: [
       {
         title: 'Forstå forretningen',
-        text: 'Jeg sætter mig ind i jeres rutiner, flaskehalse og tal. Det er dér, mulighederne gemmer sig.',
+        text: 'Før der skrives en linje kode, sætter jeg mig ind i jeres arbejdsgange, flaskehalse og tal.',
       },
       {
-        title: 'Find det, der flytter mest',
-        text: 'Vi prioriterer sammen: hvor kan vi effektivisere og optimere med størst effekt for indsatsen, både nu og på lang sigt.',
+        title: 'Start dér, hvor det batter',
+        text: 'Vi prioriterer sammen og tager det, der giver mest effekt for indsatsen, først.',
       },
       {
         title: 'Byg, lever og bliv',
-        text: 'Jeg designer, udvikler og leverer løsningen og bliver i driften, mens forretningen vokser.',
+        text: 'Jeg bygger og leverer løsningen og bliver på, når den kører. Systemet udvikler sig med jer.',
       },
     ],
   },
   delivered: {
-    eyebrow: 'Leveret indtil videre',
-    heading: 'Et udsnit af løsningerne.',
+    eyebrow: 'Overblik',
+    heading: 'Det kan jeg hjælpe med.',
   },
   services: [
     {
       title: 'Platformudvikling',
       stack: 'Effektivisering · Automatisering · Vækst',
-      lede: 'Skræddersyede systemer til den drift, standardsoftware ikke dækker.',
+      lede: 'Skræddersyede systemer til den del af driften, standardsoftware ikke dækker.',
       items: [
-        'Forretningskritiske platforme bygget fra bunden med en skalerbar arkitektur, designet efter den måde jeres forretning faktisk arbejder på',
-        'Automatisering af manuelle arbejdsgange, så tiden går til forretning i stedet for genindtastning',
-        'Videreudvikling og optimering af eksisterende systemer: oprydning, modernisering og nye muligheder uden at bryde driften',
-        'Drift med i pakken: jeg bliver ved systemet og holder det kørende, også efter det er leveret',
+        'Platforme bygget fra bunden omkring den måde, I faktisk arbejder på',
+        'Automatisering af manuelle arbejdsgange, så tiden går til kunderne i stedet for genindtastning',
+        'Modernisering af eksisterende systemer uden at stoppe driften',
+        'Drift og videreudvikling efter lancering, så systemet vokser med jer',
       ],
     },
     {
       title: 'Hjemmesider & CMS',
       stack: 'Synlighed · Selvbetjening · Lave omkostninger',
-      lede: 'Hjemmesider der loader øjeblikkeligt, er næsten gratis i drift og kan opdateres af jer selv.',
+      lede: 'Hurtige hjemmesider, der bliver fundet, næsten ikke koster noget i drift og kan redigeres af jer selv.',
       items: [
-        'Nye sites med jeres identitet i centrum: hurtige, tilgængelige og SEO-optimerede fra første dag',
-        'Migrering væk fra tunge og dyre systemer til en performanceoptimeret løsning med driftomkostninger tæt på nul',
-        'En redigeringsflade jeres egne folk kan bruge, så indholdet kan opdateres uden en udvikler i røret',
-        'Design, tilgængelighed og SEO tænkt ind fra start',
+        'Nye sites med jeres identitet i centrum, hurtige og tilgængelige fra dag ét',
+        'Flytning væk fra tunge, dyre platforme til en løsning med driftsudgifter tæt på nul',
+        'En redigeringsflade, jeres egne folk kan bruge uden at ringe til en udvikler',
+        'SEO, tilgængelighed og design tænkt ind fra starten, ikke klistret på bagefter',
       ],
     },
     {
       title: 'Drift & infrastruktur',
-      stack: 'Stabilitet · Sikkerhed · Ro i maven',
-      lede: 'Teknisk ejerskab af fundamentet, så det aldrig bliver jeres problem.',
+      stack: 'Stabilitet · Sikkerhed · Overblik',
+      lede: 'Teknisk ejerskab af fundamentet, så det ikke er noget, I skal tænke på.',
       items: [
-        'Domæner og flytninger uden nedetid, også når email ikke må afbrydes',
-        'Email der når frem i indbakken, og et domæne der ikke kan misbruges af andre',
+        'Domæneflytninger uden nedetid, også på email',
+        'Email, der lander i indbakken, og et domæne, ingen andre kan misbruge',
         'Styr på brugere, adgange og opsætning i jeres kontorplatform',
-        'Ét teknisk kontaktpunkt for organisationen, dokumenteret så viden ikke bor i én persons hoved',
+        'Dokumentation, så viden ikke kun bor i ét hoved',
       ],
     },
   ],
   process: {
     eyebrow: 'Ikke på listen?',
-    heading: 'Dit behov bestemmer.',
-    text: 'Mine ydelser er ikke begrænset til det, du ser her. Har du en udfordring, der lugter af teknologi, stor eller lille, så tag den med. Vi finder ud af det sammen: konkret, ærligt og uden salgstale.',
+    heading: 'Spørg alligevel.',
+    text: 'Listen er ikke udtømmende. Har I et problem, der kan løses med teknologi, stort eller lille, så skriv. I får et ærligt svar, også hvis svaret er, at I ikke har brug for mig.',
   },
 } as const;
 
 const en: DeepString<typeof da> = {
   meta: {
-    title: 'Services · growing businesses with technology | AStyltsvig Consulting',
+    title: 'Services · platforms, websites, and operations | AStyltsvig Consulting',
     description:
-      'Platform development, websites, and technical operations with one focus: growing your business with technology. One accountable person from idea to daily production.',
+      'Bespoke platforms, fast websites, and technical operations. One accountable software architect from the first sketch to daily production.',
   },
   intro: {
     eyebrow: 'Services',
-    heading: 'I grow businesses together with you.',
-    lede: 'The solutions span widely, but the core is always the same: streamlining, automating, and optimising your business with technology, in close collaboration. This page shows a selection of what I have delivered so far.',
+    heading: 'I build what your business is missing.',
+    lede: 'Often it is a system that replaces spreadsheets and double work. Sometimes a website that needs renewing, or a domain that needs cleaning up. The question is always the same: where can technology save you the most time and the most mistakes?',
   },
   approach: {
-    eyebrow: 'The core',
-    heading: 'How we grow the business.',
+    eyebrow: 'Approach',
+    heading: 'How I go about it.',
     steps: [
       {
         title: 'Understand the business',
-        text: 'I get into your routines, bottlenecks, and numbers. That is where the opportunities hide.',
+        text: 'Before a line of code is written, I get to know your workflows, bottlenecks, and numbers.',
       },
       {
-        title: 'Find what moves the most',
-        text: 'We prioritise together: where can we streamline and optimise with the greatest effect for the effort, both now and long term.',
+        title: 'Start where it counts',
+        text: 'We prioritise together and tackle what gives the most effect for the effort first.',
       },
       {
         title: 'Build, deliver, and stay',
-        text: 'I design, build, and deliver the solution, and I stay in operations while the business grows.',
+        text: 'I build and deliver the solution and stay on once it is running. The system evolves with you.',
       },
     ],
   },
   delivered: {
-    eyebrow: 'Delivered so far',
-    heading: 'A selection of the solutions.',
+    eyebrow: 'Overview',
+    heading: 'What I can help with.',
   },
   services: [
     {
       title: 'Platform development',
       stack: 'Efficiency · Automation · Growth',
-      lede: 'Bespoke systems for the operations off-the-shelf software does not cover.',
+      lede: 'Bespoke systems for the part of your operations off-the-shelf software does not cover.',
       items: [
-        'Business-critical platforms built from scratch on a scalable architecture, designed around the way your business actually works',
-        'Automation of manual workflows, so time goes to business instead of re-keying data',
-        'Further development and optimisation of existing systems: cleanup, modernisation, and new capabilities without breaking production',
-        'Operations included: I stay with the system and keep it running, also after it has been delivered',
+        'Platforms built from scratch around the way you actually work',
+        'Automation of manual workflows, so time goes to customers instead of re-keying data',
+        'Modernising existing systems without stopping production',
+        'Operations and further development after launch, so the system grows with you',
       ],
     },
     {
       title: 'Websites & CMS',
       stack: 'Visibility · Self-service · Low cost',
-      lede: 'Websites that load instantly, cost next to nothing to run, and can be updated by your own people.',
+      lede: 'Fast websites that get found, cost next to nothing to run, and can be edited by your own people.',
       items: [
-        'New sites with your identity at the centre: fast, accessible, and SEO-optimised from day one',
-        'Migration away from heavy, expensive systems to a performance-optimised solution with running costs close to zero',
-        'An editing surface your own people can use, so content can be updated without a developer on the line',
-        'Design, accessibility, and SEO considered from the start',
+        'New sites with your identity at the centre, fast and accessible from day one',
+        'Moving off heavy, expensive platforms to a setup with running costs close to zero',
+        'An editing surface your own people can use without calling a developer',
+        'SEO, accessibility, and design built in from the start, not bolted on afterwards',
       ],
     },
     {
       title: 'Operations & infrastructure',
-      stack: 'Stability · Security · Peace of mind',
-      lede: 'Technical ownership of the foundation, so it never becomes your problem.',
+      stack: 'Stability · Security · Overview',
+      lede: 'Technical ownership of the foundation, so it is not something you have to think about.',
       items: [
-        'Domains and migrations without downtime, also when email must not be interrupted',
-        'Email that reaches the inbox, and a domain no one else can abuse',
+        'Domain migrations without downtime, email included',
+        'Email that lands in the inbox, and a domain no one else can abuse',
         'Users, access, and setup under control in your office platform',
-        'A single technical point of contact for the organisation, documented so knowledge does not live in one person\'s head',
+        'Documentation, so knowledge does not live in one person\'s head',
       ],
     },
   ],
   process: {
     eyebrow: 'Not on the list?',
-    heading: 'Your need decides.',
-    text: 'My services are not limited to what you see here. If you have a challenge that smells of technology, big or small, bring it. We figure it out together: concrete, honest, and free of sales talk.',
+    heading: 'Ask anyway.',
+    text: 'The list is not exhaustive. If you have a problem technology can solve, big or small, write to me. You get an honest answer, even if the answer is that you do not need me.',
   },
 };
 

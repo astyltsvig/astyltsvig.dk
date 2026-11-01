@@ -9,15 +9,15 @@ const da = {
   intro: {
     eyebrow: 'Om',
     heading: 'Arkitektur, kode og drift samlet hos én person.',
-    lede: 'Jeg hedder Andreas Sørbye Styltsvig. Jeg driver AStyltsvig Consulting fra Vanløse i København og har været fuldtidsselvstændig siden 2020.',
+    lede: 'Jeg hedder Andreas Sørbye Styltsvig og er softwarearkitekt. Siden 2020 har jeg drevet AStyltsvig Consulting fra Vanløse i København.',
   },
   portraitAlt: 'Portræt af Andreas Sørbye Styltsvig',
   bio: [
-    'Jeg arbejder med de systemer, en virksomhed står og falder med. Jeg tager ansvaret for hele kæden fra idé til daglig drift, så der aldrig er tvivl om, hvem der har bolden. Det ansvar trives jeg med, og det er en stor del af grunden til, at jeg arbejder, som jeg gør.',
-    'Det, der driver mig, er at komme helt ind i mine kunders forretning. Jeg vil kende rutinerne, flaskehalsene og tallene, for det er dér, jeg kan se, hvor teknologien kan effektivisere, automatisere og optimere mest. Målet er altid det samme: at være en, kunden vokser og skalerer med over mange år.',
-    'Min tilgang er enkel: få ting, gjort ordentligt, over lang tid. Jeg vil hellere have en håndfuld kunder, der bliver i ti år, end halvtreds der kommer og går. Derfor får du ærlige anbefalinger, også når den rigtige løsning er den billige, og systemer der er bygget til at blive vedligeholdt i mange år. Rolig, forudsigelig drift er i mine øjne noget af det fineste i faget.',
-    'Vejen hertil gik gennem en professionsbachelor i softwareudvikling og et konsulentjob, hvor jeg tidligt fik ansvaret for en stor infrastrukturmigration hos Oticon. Da chancen for at stå på egne ben kom i 2020, greb jeg den. Siden har jeg bygget min praksis op omkring tætte, langvarige kundeforhold, hvor jeg kender forretningen lige så godt som koden.',
-    'Jeg bruger AI som en naturlig del af arbejdet. Beslutningerne og arkitekturen er mine, men tempoet er nyt. Det fortæller jeg åbent om, fordi ærlighed om metoden hører med, og fordi det forklarer meget af, hvad én person kan nå at bygge og drive.',
+    'Jeg bygger og drifter de systemer, en virksomhed ikke kan undvære. Jeg har ansvaret fra første skitse til daglig drift, så der aldrig er tvivl om, hvem der har bolden.',
+    'De bedste løsninger opstår, når jeg kender forretningen lige så godt som koden. Derfor sætter jeg mig ind i arbejdsgangene, flaskehalsene og tallene, før jeg foreslår noget. Det er dér, det bliver tydeligt, hvad der skal automatiseres, og hvad der skal have lov at være, som det er.',
+    'Jeg arbejder med få kunder over lang tid. Det betyder ærlige anbefalinger, også når den rigtige løsning er den billige, og systemer bygget til at blive passet i mange år. En stille drift uden overraskelser er noget af det, jeg er mest stolt af.',
+    'Før jeg gik selvstændig, var jeg konsulent hos Prolike, hvor jeg som nyuddannet stod for at flytte Oticons byggesystemer fra Jenkins og SVN til Azure DevOps. I 2020 gik jeg selvstændig på fuld tid.',
+    'Jeg bruger AI aktivt i arbejdet, og det siger jeg gerne højt. Arkitekturen og beslutningerne er mine, men værktøjerne gør, at én person i dag kan bygge og drive det, der før krævede et helt team.',
   ],
   path: {
     eyebrow: 'Forløb',
@@ -41,14 +41,14 @@ const da = {
       },
       {
         year: '2026',
-        text: 'Egne produkter lanceret: Smartlinjen, MatematikKlar og Shows Calendar.',
+        text: 'Egne produkter i luften: Smartlinjen, MatematikKlar og Shows Calendar.',
       },
     ],
   },
   skills: {
     eyebrow: 'Kompetencer',
     heading: 'Værktøjskassen.',
-    lede: 'Teknologierne skifter med opgaven. Det her er dem, jeg griber oftest.',
+    lede: 'Værktøjet følger opgaven. Det her er dem, jeg griber oftest.',
     items: [
       'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
       'Astro', 'Next.js', 'Firebase', 'Supabase',
@@ -61,20 +61,20 @@ const da = {
     heading: 'Sådan arbejder jeg.',
     items: [
       {
-        title: 'Du ejer alt',
-        text: 'Koden ligger i dit repo, og sitet kører på dit domæne. Du er aldrig låst til mig eller til en bestemt leverandør.',
+        title: 'I ejer det hele',
+        text: 'Koden ligger i jeres repo, og sitet kører på jeres domæne. I er aldrig låst til mig eller til en bestemt leverandør.',
       },
       {
         title: 'Én ansvarlig',
-        text: 'Ingen underleverandører eller mellemled. Du taler med den, der bygger, både i dag og om tre år.',
+        text: 'Ingen underleverandører og ingen mellemled. I taler med den, der bygger, i dag og om tre år.',
       },
       {
         title: 'Løbende aftaler',
-        text: 'Frem for fastpris. Jeg bygger det, der er rigtigt for forretningen, og samarbejdet kan stoppes når som helst.',
+        text: 'I stedet for fastpris. Vi bygger det, der giver mening for forretningen, og I kan stoppe samarbejdet når som helst.',
       },
       {
         title: 'Direkte linje',
-        text: 'Du skriver, jeg svarer. Ingen ticketsystemer og ingen omstilling, bare en direkte linje til den, der bygger.',
+        text: 'I skriver, jeg svarer. Ingen ticketsystemer og ingen omstilling.',
       },
     ],
   },
@@ -101,15 +101,15 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'About',
     heading: 'Architecture, code, and operations in one pair of hands.',
-    lede: 'I am Andreas Sørbye Styltsvig. I run AStyltsvig Consulting from Vanløse in Copenhagen and have been independent full-time since 2020.',
+    lede: 'I am Andreas Sørbye Styltsvig, a software architect. Since 2020 I have run AStyltsvig Consulting from Vanløse in Copenhagen.',
   },
   portraitAlt: 'Portrait of Andreas Sørbye Styltsvig',
   bio: [
-    'I work with the systems a business stands or falls with. I take responsibility for the whole chain from idea to daily operations, so there is never any doubt about who owns the problem. I genuinely enjoy that responsibility, and it is a big part of why I work the way I do.',
-    'What drives me is getting deep into my clients\' business. I want to know the routines, the bottlenecks, and the numbers, because that is where I can see where technology can streamline, automate, and optimise the most. The goal is always the same: to be someone the client grows and scales with over many years.',
-    'My approach is simple: few things, done properly, over a long time. I would rather have a handful of clients who stay for ten years than fifty who come and go. So you get honest recommendations, including when the right solution is the cheap one, and systems built to be maintained for many years. Calm, predictable operations is, to my mind, one of the finest parts of this craft.',
-    'The road here went through a BSc in software development and a consulting job where I was trusted early with a major infrastructure migration at Oticon. When the chance to stand on my own came in 2020, I took it. Since then I have built my practice around close, long-term client relationships where I know the business as well as the code.',
-    'I use AI as a natural part of my work. The decisions and the architecture are mine, but the pace is new. I am open about it because honesty about the method belongs in the work, and because it explains a lot of what one person can manage to build and operate.',
+    'I build and run the systems a business cannot do without. I own the whole chain from the first sketch to daily production, so there is never any doubt about who has the ball.',
+    'The best solutions come from knowing the business as well as the code. So I get into the workflows, the bottlenecks, and the numbers before I suggest anything. That is where it becomes clear what should be automated and what should be left alone.',
+    'I work with few clients over a long time. That means honest recommendations, including when the right solution is the cheap one, and systems built to be looked after for years. Quiet operations without surprises is one of the things I am proudest of.',
+    'Before going independent, I was a consultant at Prolike, where, fresh out of school, I led the move of Oticon\'s build systems from Jenkins and SVN to Azure DevOps. In 2020 I went independent full-time.',
+    'I use AI actively in my work, and I am happy to say so. The architecture and the decisions are mine, but the tools mean one person today can build and run what used to take a whole team.',
   ],
   path: {
     eyebrow: 'Path',
@@ -133,14 +133,14 @@ const en: DeepString<typeof da> = {
       },
       {
         year: '2026',
-        text: 'Own products launched: Smartlinjen, MatematikKlar, and Shows Calendar.',
+        text: 'Own products live: Smartlinjen, MatematikKlar, and Shows Calendar.',
       },
     ],
   },
   skills: {
     eyebrow: 'Competencies',
     heading: 'The toolbox.',
-    lede: 'The technologies change with the task. These are the ones I reach for most.',
+    lede: 'The tool follows the task. These are the ones I reach for most.',
     items: [
       'Laravel', 'Vue', 'TypeScript', 'PHP', 'MySQL', 'PostgreSQL',
       'Astro', 'Next.js', 'Firebase', 'Supabase',
@@ -158,15 +158,15 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'One accountable person',
-        text: 'No subcontractors or intermediaries. You talk to the person who builds, both today and in three years.',
+        text: 'No subcontractors and no middlemen. You talk to the person who builds, today and in three years.',
       },
       {
         title: 'Ongoing agreements',
-        text: 'Rather than fixed price. I build what is right for the business, and the engagement can stop at any time.',
+        text: 'Instead of fixed price. We build what makes sense for the business, and you can end the engagement at any time.',
       },
       {
         title: 'A direct line',
-        text: 'You write, I answer. No ticket systems and no switchboard, just a direct line to the person who builds.',
+        text: 'You write, I answer. No ticket systems and no switchboard.',
       },
     ],
   },

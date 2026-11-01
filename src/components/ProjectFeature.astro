@@ -58,7 +58,8 @@ const logo = logos[entry.slug];
     class="group grid items-center gap-8 py-12 md:grid-cols-2 md:gap-14 md:py-16"
   >
     <div class:list={['reveal', flipped && 'md:order-2']}>
-      <div class="flex aspect-[16/10] items-center justify-center border border-line bg-surface logo-tile px-8">
+      <div class="relative flex aspect-[16/10] items-center justify-center overflow-hidden border border-line bg-surface logo-tile px-8 transition-colors duration-300 group-hover:border-accent">
+        <span class="absolute left-5 top-4 font-mono text-xs text-muted" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
         {logo && (
           <Image
             src={logo}
@@ -67,7 +68,7 @@ const logo = logos[entry.slug];
             densities={[1, 2]}
             format="webp"
             quality={85}
-            class="max-h-[30%] w-auto max-w-[75%] transition-transform duration-300 group-hover:scale-105"
+            class="max-h-[34%] w-auto max-w-[70%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.08]"
           />
         )}
       </div>
@@ -90,5 +91,21 @@ const logo = logos[entry.slug];
   .logo-tile {
     background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
     background-size: 18px 18px;
+  }
+
+  /* A soft spruce wash rises from the bottom of the tile on hover. */
+  .logo-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, color-mix(in srgb, var(--color-accent) 9%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out);
+    pointer-events: none;
+  }
+
+  :global(.group:hover) .logo-tile::after,
+  :global(.group:focus-visible) .logo-tile::after {
+    opacity: 1;
   }
 </style>

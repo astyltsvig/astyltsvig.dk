@@ -4,46 +4,51 @@ const da = {
   meta: {
     title: 'AStyltsvig Consulting · softwarearkitekt og IT-konsulent i København',
     description:
-      'Andreas Sørbye Styltsvig bygger og drifter forretningskritiske platforme inden for ERP, booking og administration, der effektiviserer og automatiserer driften. Uafhængig konsulent i København med Laravel og Vue som foretrukken stack.',
+      'Andreas Sørbye Styltsvig bygger og drifter skræddersyede platforme og hurtige hjemmesider, der fjerner manuelt arbejde og skaber vækst. Uafhængig softwarearkitekt i København.',
   },
   hero: {
-    eyebrow: 'AStyltsvig Consulting · København',
-    heading: 'Specialdesignede softwareløsninger til jeres forretning.',
-    lede: 'Målet er at finde ud af, hvordan I som virksomhed kan accelerere jeres forretning ved hjælp af software: alt fra platforme, der automatiserer og effektiviserer jeres arbejdsgange, til søgemaskineoptimerede hjemmesider, der fremhæver jer online. Med et langsigtet og sundt samarbejde vil jeg være en stærk ressource for jeres vækst.',
+    eyebrow: 'Softwarearkitekt · København',
+    heading: 'Software skræddersyet til den måde, I arbejder på.',
+    lede: 'Jeg bygger platforme, der fjerner det manuelle arbejde, og hjemmesider, der bliver fundet. Og jeg bliver, når det er gået live, så I har én fast udvikler, der kender både koden og forretningen.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
+    byline: {
+      name: 'Andreas Sørbye Styltsvig',
+      role: 'Ejer af AStyltsvig Consulting',
+    },
   },
   facts: [
-    'Uafhængig konsulent siden 2020',
-    '3+ platforme i daglig produktion',
-    'Vanløse, København',
+    { value: '2020', label: 'Selvstændig siden' },
+    { value: '3+', label: 'Platforme i daglig drift' },
+    { value: '1', label: 'Ansvarlig fra idé til drift' },
+    { value: '0', label: 'Mellemled og ticketsystemer' },
   ],
   clients: {
     eyebrow: 'Kunder & samarbejder',
   },
   work: {
-    eyebrow: 'Projekter',
+    eyebrow: 'Udvalgte projekter',
     heading: 'Fra forretningskritisk ERP til egne produkter.',
     allLink: 'Alle projekter',
   },
   services: {
     eyebrow: 'Ydelser',
-    heading: 'Tre måder at arbejde sammen på.',
+    heading: 'Det kan I bruge mig til.',
     items: [
       {
-        title: 'Platformudvikling',
-        text: 'Skræddersyede systemer til den drift, standardsoftware ikke dækker. Effektiviserer arbejdsgange, automatiserer manuelle processer og skalerer med forretningen.',
+        title: 'Platforme',
+        text: 'Systemer til den del af driften, som standardsoftware ikke dækker. Mindre genindtastning, færre regneark og mere tid til kunderne.',
       },
       {
         title: 'Hjemmesider',
-        text: 'Sites der loader øjeblikkeligt, er SEO-optimerede og næsten gratis i drift. Indholdet kan I selv opdatere, uden at der skal en udvikler i røret.',
+        text: 'Lynhurtige sites, der klarer sig godt på Google og næsten ikke koster noget i drift. Indholdet retter I selv.',
       },
       {
         title: 'Drift & infrastruktur',
-        text: 'Jeg tager teknisk ejerskab af fundamentet med domæner, email og adgange og optimerer sikkerhed og driftsstabilitet, så det aldrig bliver dit problem.',
+        text: 'Domæner, email og adgange, der bare virker. Jeg holder styr på fundamentet, så I ikke behøver.',
       },
     ],
-    link: 'Læs mere om ydelserne',
+    link: 'Mere om ydelserne',
   },
 } as const;
 
@@ -51,46 +56,51 @@ const en: DeepString<typeof da> = {
   meta: {
     title: 'AStyltsvig Consulting · software architect and IT consultant in Copenhagen',
     description:
-      'Andreas Sørbye Styltsvig builds and operates business-critical platforms for ERP, booking, and administration that streamline and automate operations. Independent consultant in Copenhagen with Laravel and Vue as the preferred stack.',
+      'Andreas Sørbye Styltsvig builds and runs bespoke platforms and fast websites that remove manual work and drive growth. Independent software architect in Copenhagen.',
   },
   hero: {
-    eyebrow: 'AStyltsvig Consulting · Copenhagen',
-    heading: 'Custom software solutions for your business.',
-    lede: 'The goal is to find out how software can accelerate your business: everything from platforms that automate and streamline your workflows, to search engine optimised websites that put you in front of customers. Through a healthy and lasting collaboration, I aim to be a strong resource for your growth.',
+    eyebrow: 'Software architect · Copenhagen',
+    heading: 'Software built around the way you actually work.',
+    lede: 'I build platforms that take the manual work off your plate and websites that get found. And I stay after launch, so you have one developer who knows both the code and the business.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
+    byline: {
+      name: 'Andreas Sørbye Styltsvig',
+      role: 'Owner of AStyltsvig Consulting',
+    },
   },
   facts: [
-    'Independent consultant since 2020',
-    '3+ platforms in daily production',
-    'Vanløse, Copenhagen',
+    { value: '2020', label: 'Independent since' },
+    { value: '3+', label: 'Platforms in daily production' },
+    { value: '1', label: 'Person from idea to production' },
+    { value: '0', label: 'Middlemen or ticket systems' },
   ],
   clients: {
     eyebrow: 'Clients & collaborations',
   },
   work: {
-    eyebrow: 'Work',
+    eyebrow: 'Selected work',
     heading: 'From business-critical ERP to own products.',
     allLink: 'All projects',
   },
   services: {
     eyebrow: 'Services',
-    heading: 'Three ways to work together.',
+    heading: 'What you can use me for.',
     items: [
       {
-        title: 'Platform development',
-        text: 'Bespoke systems for the operations off-the-shelf software does not cover. Streamlining workflows, automating manual processes, and scaling with the business.',
+        title: 'Platforms',
+        text: 'Systems for the part of your operations that off-the-shelf software does not cover. Less re-keying, fewer spreadsheets, more time for customers.',
       },
       {
         title: 'Websites',
-        text: 'Sites that load instantly, are SEO-optimised, and cost next to nothing to run. Your own people can update the content without a developer on the line.',
+        text: 'Fast sites that do well on Google and cost next to nothing to run. You edit the content yourselves.',
       },
       {
         title: 'Operations & infrastructure',
-        text: 'I take technical ownership of the foundation, including domains, email, and access, and optimise security and operational stability, so it never becomes your problem.',
+        text: 'Domains, email, and access that simply work. I look after the foundation so you do not have to.',
       },
     ],
-    link: 'Read more about the services',
+    link: 'More about the services',
   },
 };
 
