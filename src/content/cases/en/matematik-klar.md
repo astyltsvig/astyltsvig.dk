@@ -10,7 +10,7 @@ statusKey: "inDailyProduction"
 statusSuffix: "Live at matematik-klar.pages.dev"
 screenshot: "matematik-klar.png"
 screenshotAlt: "MatematikKlar homepage with a sample exercise"
-order: 10
+order: 12
 description: "Free, ad-free maths training from 1st grade to the upper-secondary exam: 912 exercises that explain the strategy behind every single answer."
 ---
 

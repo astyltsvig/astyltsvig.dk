@@ -10,7 +10,7 @@ statusKey: "inDailyProduction"
 statusSuffix: "Live at shows-calendar.pages.dev"
 screenshot: "shows-calendar.png"
 screenshotAlt: "Shows Calendar homepage with the hero 'Gå aldrig glip af et afsnit igen' and a grid of show posters"
-order: 11
+order: 13
 description: "Done missing episodes: all your shows in one calendar, watched episodes tracked, and new episodes landing automatically in your own calendar."
 ---
 
