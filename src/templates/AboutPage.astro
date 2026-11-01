@@ -111,12 +111,12 @@ const linkFor = (value: string): string | undefined => {
         return (
           <div class="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 py-3 border-b border-line">
             <dt class="eyebrow pt-0.5">{item.label}</dt>
-            <dd class="text-[0.9375rem]">
+            <dd class="text-[0.9375rem] [overflow-wrap:anywhere]">
               {href ? (
                 <a
                   href={href}
                   rel={href.startsWith('https') ? 'me noopener' : undefined}
-                  class="text-accent underline underline-offset-4 decoration-1 hover:text-accent-strong transition-colors duration-150"
+                  class="inline-block py-2 -my-2 text-accent underline underline-offset-4 decoration-1 hover:text-accent-strong transition-colors duration-150"
                 >
                   {item.value}
                 </a>
