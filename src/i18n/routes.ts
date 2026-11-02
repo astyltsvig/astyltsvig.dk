@@ -12,6 +12,15 @@ export const routes = {
 
 export type RouteKey = keyof typeof routes;
 
+/** Service landing pages, each aimed at one kind of search. Slugs are translated, so they live here. */
+export const landingRoutes = {
+  websites: { da: '/ydelser/hjemmesider/', en: '/en/services/websites/' },
+  platforms: { da: '/ydelser/platforme/', en: '/en/services/platforms/' },
+  accessibility: { da: '/ydelser/tilgaengelighed/', en: '/en/services/accessibility/' },
+} as const;
+
+export type LandingKey = keyof typeof landingRoutes;
+
 export type AltPaths = { da: string; en: string };
 
 export function caseUrl(lang: Lang, slug: string): string {
