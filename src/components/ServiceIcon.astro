@@ -1,0 +1,39 @@
+---
+import type { ServiceKey } from '~/i18n/routes';
+
+interface Props {
+  name: ServiceKey;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+{/* Simple line icons in one stroke weight, so the three services read as a set. */}
+<svg viewBox="0 0 32 32" class={className} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {name === 'business' && (
+    <>
+      <path d="M5 25 L12 17 L17 21 L27 9" />
+      <path d="M21 9 H27 V15" />
+      <path d="M5 29 H27" />
+    </>
+  )}
+  {name === 'platforms' && (
+    <>
+      <rect x="4" y="4" width="9" height="9" rx="1.5" />
+      <rect x="19" y="4" width="9" height="9" rx="1.5" />
+      <rect x="11.5" y="19" width="9" height="9" rx="1.5" />
+      <path d="M8.5 13 V16 H23.5 V13" />
+      <path d="M16 16 V19" />
+    </>
+  )}
+  {name === 'websites' && (
+    <>
+      <rect x="3" y="5" width="26" height="22" rx="2" />
+      <path d="M3 11 H29" />
+      <circle cx="7" cy="8" r="0.6" fill="currentColor" />
+      <circle cx="10" cy="8" r="0.6" fill="currentColor" />
+      <path d="M8 17 H20" />
+      <path d="M8 21 H15" />
+    </>
+  )}
+</svg>

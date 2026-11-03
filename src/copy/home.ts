@@ -37,7 +37,7 @@ const da = {
     items: [
       {
         title: 'Forretningsudvikling',
-        text: 'Jeg finder de steder i jeres forretning, hvor software kan spare tid, fjerne fejl og åbne nye muligheder.',
+        text: 'Jeg finder de steder i jeres forretning, hvor software kan spare tid, fjerne fejl og skabe nye muligheder.',
       },
       {
         title: 'Platforme og integrationer',
@@ -45,7 +45,7 @@ const da = {
       },
       {
         title: 'Hjemmesider',
-        text: 'Lynhurtige sites, der klarer sig godt på Google og næsten ikke koster noget i drift. Indholdet retter I selv.',
+        text: 'Hurtige hjemmesider, der bliver fundet på Google, koster næsten intet i drift og kan redigeres af jer selv.',
       },
     ],
     link: 'Mere om ydelserne',
@@ -89,7 +89,7 @@ const en: DeepString<typeof da> = {
     items: [
       {
         title: 'Business development',
-        text: 'I find the places in your business where software can save time, remove errors, and open new opportunities.',
+        text: 'I find the places in your business where software can save time, remove errors, and create new opportunities.',
       },
       {
         title: 'Platforms and integrations',
@@ -97,7 +97,7 @@ const en: DeepString<typeof da> = {
       },
       {
         title: 'Websites',
-        text: 'Fast sites that do well on Google and cost next to nothing to run. You edit the content yourselves.',
+        text: 'Fast websites that get found on Google, cost next to nothing to run, and can be edited by you.',
       },
     ],
     link: 'More about the services',
