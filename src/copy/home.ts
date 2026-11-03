@@ -36,16 +36,16 @@ const da = {
     heading: 'Det kan I bruge mig til.',
     items: [
       {
-        title: 'Platforme',
-        text: 'Systemer til den del af driften, som standardsoftware ikke dækker. Mindre genindtastning, færre regneark og mere tid til kunderne.',
+        title: 'Forretningsudvikling',
+        text: 'Jeg finder de steder i jeres forretning, hvor software kan spare tid, fjerne fejl og skabe nye muligheder.',
+      },
+      {
+        title: 'Platforme og integrationer',
+        text: 'Skræddersyede systemer, der samler arbejdet ét sted og får jeres øvrige software til at spille sammen.',
       },
       {
         title: 'Hjemmesider',
-        text: 'Lynhurtige sites, der klarer sig godt på Google og næsten ikke koster noget i drift. Indholdet retter I selv.',
-      },
-      {
-        title: 'Drift & infrastruktur',
-        text: 'Domæner, email og adgange, der bare virker. Jeg holder styr på fundamentet, så I ikke behøver.',
+        text: 'Hurtige hjemmesider, der bliver fundet på Google, koster næsten intet i drift og kan redigeres af jer selv.',
       },
     ],
     link: 'Mere om ydelserne',
@@ -88,16 +88,16 @@ const en: DeepString<typeof da> = {
     heading: 'What you can use me for.',
     items: [
       {
-        title: 'Platforms',
-        text: 'Systems for the part of your operations that off-the-shelf software does not cover. Less re-keying, fewer spreadsheets, more time for customers.',
+        title: 'Business development',
+        text: 'I find the places in your business where software can save time, remove errors, and create new opportunities.',
+      },
+      {
+        title: 'Platforms and integrations',
+        text: 'Bespoke systems that bring the work together in one place and make your other software work together.',
       },
       {
         title: 'Websites',
-        text: 'Fast sites that do well on Google and cost next to nothing to run. You edit the content yourselves.',
-      },
-      {
-        title: 'Operations & infrastructure',
-        text: 'Domains, email, and access that simply work. I look after the foundation so you do not have to.',
+        text: 'Fast websites that get found on Google, cost next to nothing to run, and can be edited by you.',
       },
     ],
     link: 'More about the services',

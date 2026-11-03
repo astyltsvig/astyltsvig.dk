@@ -16,19 +16,23 @@ export type RouteKey = keyof typeof routes;
 export const landingRoutes = {
   websites: { da: '/ydelser/hjemmesider/', en: '/en/services/websites/' },
   platforms: { da: '/ydelser/platforme/', en: '/en/services/platforms/' },
-  accessibility: { da: '/ydelser/tilgaengelighed/', en: '/en/services/accessibility/' },
 } as const;
 
 export type LandingKey = keyof typeof landingRoutes;
 
-/** In-page anchors for the three service sections on the services page, in display order. */
-export const serviceAnchors = ['platforme', 'hjemmesider', 'drift'] as const;
+/** In-page anchors for the service cards on the services page. */
+export const serviceAnchors = {
+  business: 'forretningsudvikling',
+  platforms: 'platforme',
+  websites: 'hjemmesider',
+} as const;
+
+export type ServiceKey = keyof typeof serviceAnchors;
 
 /** In-page anchors for the case groups on the work page. */
 export const categoryAnchors = {
   platform: 'platforme',
   web: 'hjemmesider',
-  operations: 'drift',
   ownProduct: 'egne-produkter',
 } as const;
 

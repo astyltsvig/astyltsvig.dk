@@ -10,7 +10,7 @@ const cases = defineCollection({
     role: z.string(),
     period: z.string(),
     stack: z.array(z.string()),
-    categoryKey: z.enum(['platform', 'web', 'ownProduct', 'operations']),
+    categoryKey: z.enum(['platform', 'web', 'ownProduct']),
     statusKey: z.enum(['inDailyProduction', 'delivered', 'ongoing']),
     statusSuffix: z.string().optional(),
     screenshot: z.string().optional(),

@@ -21,13 +21,11 @@ const da = {
     platform: 'Platforme',
     web: 'Hjemmesider',
     ownProduct: 'Egne produkter',
-    operations: 'Drift',
   },
   categoryLede: {
     platform: 'Forretningskritiske systemer i daglig produktion. Bygget, driftet og løbende optimeret.',
     web: 'Hurtige sites, der bliver fundet på Google, koster næsten intet i drift og kan redigeres uden en udvikler.',
     ownProduct: 'Mine egne idéer, bygget og sat i drift.',
-    operations: 'Teknisk ejerskab af infrastruktur, DNS og email. Det der bare skal virke.',
   },
   status: {
     inDailyProduction: 'I daglig drift',
@@ -88,13 +86,11 @@ const en: DeepString<typeof da> = {
     platform: 'Platforms',
     web: 'Websites',
     ownProduct: 'Own products',
-    operations: 'Operations',
   },
   categoryLede: {
     platform: 'Business-critical systems in daily production. Built, operated, and continuously optimised.',
     web: 'Fast sites that get found on Google, cost next to nothing to run, and can be edited without a developer.',
     ownProduct: 'My own ideas, built and put into production.',
-    operations: 'Technical ownership of infrastructure, DNS, and email. The things that simply have to work.',
   },
   status: {
     inDailyProduction: 'In daily production',

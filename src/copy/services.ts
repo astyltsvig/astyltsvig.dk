@@ -1,170 +1,164 @@
-import type { DeepString, Lang } from '~/i18n/routes';
+import type { DeepString, Lang, ServiceKey } from '~/i18n/routes';
+
+/*
+ * The services page is a short menu: four services, each with a deeper page
+ * (or the matching projects), then how a collaboration runs. Order follows the
+ * reader's questions: what can I get help with → how does it work → contact.
+ */
+
+/** Display order of the service cards. */
+export const serviceOrder: ServiceKey[] = ['business', 'platforms', 'websites'];
+
+/** Case slugs shown as examples on each card (identical across locales). */
+export const serviceCases: Record<ServiceKey, string[]> = {
+  business: ['cpof', 'mallard'],
+  platforms: ['securelife', 'book2go'],
+  websites: ['ddl-tegnsprogspakken', 'festival-sans-pression'],
+};
 
 const da = {
   meta: {
-    title: 'Ydelser · platforme, hjemmesider og drift | AStyltsvig Consulting',
+    title: 'Ydelser · forretningsudvikling, platforme og hjemmesider | AStyltsvig Consulting',
     description:
-      'Skræddersyede platforme, hurtige hjemmesider og teknisk drift. Én ansvarlig softwarearkitekt fra første skitse til daglig drift.',
+      'Forretningsudvikling med software, skræddersyede platforme og integrationer samt hjemmesider, der bliver fundet. Én softwarearkitekt fra første snak til daglig drift.',
   },
   intro: {
     eyebrow: 'Ydelser',
-    heading: 'Jeg bygger det, jeres forretning mangler.',
-    lede: 'Ofte er det et system, der afløser regneark og dobbeltarbejde. Andre gange en hjemmeside, der skal fornyes, eller et domæne, der skal ryddes op i. Spørgsmålet er altid det samme: hvor kan teknologi spare jer mest tid og flest fejl?',
+    heading: 'Det kan jeg hjælpe jer med.',
+    lede: 'Jeg hjælper virksomheder med at bruge software til at arbejde smartere. Det, jeg bygger, drifter og videreudvikler jeg også selv, så I har én ansvarlig hele vejen.',
   },
-  approach: {
-    eyebrow: 'Tilgang',
-    heading: 'Sådan griber jeg det an.',
-    steps: [
-      {
-        title: 'Forstå forretningen',
-        text: 'Før der skrives en linje kode, sætter jeg mig ind i jeres arbejdsgange, flaskehalse og tal.',
-      },
-      {
-        title: 'Start dér, hvor det batter',
-        text: 'Vi prioriterer sammen og tager det, der giver mest effekt for indsatsen, først.',
-      },
-      {
-        title: 'Byg, lever og bliv',
-        text: 'Jeg bygger og leverer løsningen og bliver på, når den kører. Systemet udvikler sig med jer.',
-      },
-    ],
-  },
-  delivered: {
-    eyebrow: 'Overblik',
-    heading: 'Det kan jeg hjælpe med.',
-  },
-  services: [
-    {
-      title: 'Platformudvikling',
-      stack: 'Effektivisering · Automatisering · Vækst',
-      lede: 'Skræddersyede systemer til den del af driften, standardsoftware ikke dækker.',
-      items: [
-        'Platforme bygget fra bunden omkring den måde, I faktisk arbejder på',
-        'Automatisering af manuelle arbejdsgange, så tiden går til kunderne i stedet for genindtastning',
-        'Modernisering af eksisterende systemer uden at stoppe driften',
-        'Drift og videreudvikling efter lancering, så systemet vokser med jer',
-      ],
-    },
-    {
-      title: 'Hjemmesider & CMS',
-      stack: 'Synlighed · Selvbetjening · Lave omkostninger',
-      lede: 'Hurtige hjemmesider, der bliver fundet, næsten ikke koster noget i drift og kan redigeres af jer selv.',
-      items: [
-        'Nye sites med jeres identitet i centrum, hurtige og tilgængelige fra dag ét',
-        'Flytning væk fra tunge, dyre platforme til en løsning med driftsudgifter tæt på nul',
-        'En redigeringsflade, jeres egne folk kan bruge uden at ringe til en udvikler',
-        'SEO, tilgængelighed og design tænkt ind fra starten, ikke klistret på bagefter',
-      ],
-    },
-    {
-      title: 'Drift & infrastruktur',
-      stack: 'Stabilitet · Sikkerhed · Overblik',
-      lede: 'Teknisk ejerskab af fundamentet, så det ikke er noget, I skal tænke på.',
-      items: [
-        'Domæneflytninger uden nedetid, også på email',
-        'Email, der lander i indbakken, og et domæne, ingen andre kan misbruge',
-        'Styr på brugere, adgange og opsætning i jeres kontorplatform',
-        'Dokumentation, så viden ikke kun bor i ét hoved',
-      ],
-    },
-  ],
-  links: {
-    readMore: 'Læs mere om ydelsen',
-    cases: 'Se projekter',
-  },
-  specialties: {
-    eyebrow: 'Læs mere',
-    heading: 'Dyk ned i det, I har brug for.',
+  cards: {
+    examples: 'Eksempler',
     readMore: 'Læs mere',
+    talk: 'Tag en snak',
+  },
+  items: {
+    business: {
+      title: 'Forretningsudvikling',
+      lede: 'Jeg finder de steder i jeres forretning, hvor software kan spare tid, fjerne fejl og skabe nye muligheder.',
+      points: [
+        'Kortlægning af arbejdsgange',
+        'En plan med det vigtigste først',
+        'Sparring om arkitektur og valg',
+      ],
+    },
+    platforms: {
+      title: 'Platforme og integrationer',
+      lede: 'Skræddersyede systemer, der samler arbejdet ét sted og får jeres øvrige software til at spille sammen.',
+      points: [
+        'Platforme og ERP-systemer',
+        'Integration af økonomi og CRM',
+        'Automatisering af rutiner',
+      ],
+    },
+    websites: {
+      title: 'Hjemmesider',
+      lede: 'Hurtige hjemmesider, der bliver fundet på Google, koster næsten intet i drift og kan redigeres af jer selv.',
+      points: [
+        'Design med jeres identitet',
+        'Teknisk SEO og hastighed',
+        'Redigering uden en udvikler',
+      ],
+    },
+  },
+  other: {
+    text: 'Passer jeres opgave ikke helt ind? Skriv alligevel, så får I et ærligt svar.',
+    link: 'Skriv til mig',
   },
   process: {
-    eyebrow: 'Ikke på listen?',
-    heading: 'Spørg alligevel.',
-    text: 'Listen er ikke udtømmende. Har I et problem, der kan løses med teknologi, stort eller lille, så skriv. I får et ærligt svar, også hvis svaret er, at I ikke har brug for mig.',
+    eyebrow: 'Samarbejde',
+    heading: 'Sådan arbejder vi sammen.',
+    steps: [
+      {
+        title: 'En snak',
+        text: 'I fortæller, hvad der driller, og jeg spørger ind til arbejdsgange, tal og mål.',
+      },
+      {
+        title: 'Et konkret forslag',
+        text: 'Hvad jeg vil bygge, i hvilken rækkefølge, og et prisoverslag at tage stilling til.',
+      },
+      {
+        title: 'Byg i etaper',
+        text: 'I får noget at bruge tidligt og kan følge fremskridtet hele vejen undervejs.',
+      },
+      {
+        title: 'Drift og udvikling',
+        text: 'Når løsningen kører, bliver jeg på, og den udvikler sig sammen med jer.',
+      },
+    ],
   },
 } as const;
 
 const en: DeepString<typeof da> = {
   meta: {
-    title: 'Services · platforms, websites, and operations | AStyltsvig Consulting',
+    title: 'Services · business development, platforms, and websites | AStyltsvig Consulting',
     description:
-      'Bespoke platforms, fast websites, and technical operations. One accountable software architect from the first sketch to daily production.',
+      'Business development with software, bespoke platforms and integrations, and websites that get found. One software architect from the first conversation to daily production.',
   },
   intro: {
     eyebrow: 'Services',
-    heading: 'I build what your business is missing.',
-    lede: 'Often it is a system that replaces spreadsheets and double work. Sometimes a website that needs renewing, or a domain that needs cleaning up. The question is always the same: where can technology save you the most time and the most mistakes?',
+    heading: 'What I can help you with.',
+    lede: 'I help businesses use software to work smarter. What I build, I also run and develop further myself, so you have one person responsible all the way.',
   },
-  approach: {
-    eyebrow: 'Approach',
-    heading: 'How I go about it.',
-    steps: [
-      {
-        title: 'Understand the business',
-        text: 'Before a line of code is written, I get to know your workflows, bottlenecks, and numbers.',
-      },
-      {
-        title: 'Start where it counts',
-        text: 'We prioritise together and tackle what gives the most effect for the effort first.',
-      },
-      {
-        title: 'Build, deliver, and stay',
-        text: 'I build and deliver the solution and stay on once it is running. The system evolves with you.',
-      },
-    ],
-  },
-  delivered: {
-    eyebrow: 'Overview',
-    heading: 'What I can help with.',
-  },
-  services: [
-    {
-      title: 'Platform development',
-      stack: 'Efficiency · Automation · Growth',
-      lede: 'Bespoke systems for the part of your operations off-the-shelf software does not cover.',
-      items: [
-        'Platforms built from scratch around the way you actually work',
-        'Automation of manual workflows, so time goes to customers instead of re-keying data',
-        'Modernising existing systems without stopping production',
-        'Operations and further development after launch, so the system grows with you',
-      ],
-    },
-    {
-      title: 'Websites & CMS',
-      stack: 'Visibility · Self-service · Low cost',
-      lede: 'Fast websites that get found, cost next to nothing to run, and can be edited by your own people.',
-      items: [
-        'New sites with your identity at the centre, fast and accessible from day one',
-        'Moving off heavy, expensive platforms to a setup with running costs close to zero',
-        'An editing surface your own people can use without calling a developer',
-        'SEO, accessibility, and design built in from the start, not bolted on afterwards',
-      ],
-    },
-    {
-      title: 'Operations & infrastructure',
-      stack: 'Stability · Security · Overview',
-      lede: 'Technical ownership of the foundation, so it is not something you have to think about.',
-      items: [
-        'Domain migrations without downtime, email included',
-        'Email that lands in the inbox, and a domain no one else can abuse',
-        'Users, access, and setup under control in your office platform',
-        'Documentation, so knowledge does not live in one person\'s head',
-      ],
-    },
-  ],
-  links: {
-    readMore: 'Read more about this service',
-    cases: 'See projects',
-  },
-  specialties: {
-    eyebrow: 'Read more',
-    heading: 'Dig into what you need.',
+  cards: {
+    examples: 'Examples',
     readMore: 'Read more',
+    talk: 'Get in touch',
+  },
+  items: {
+    business: {
+      title: 'Business development',
+      lede: 'I find the places in your business where software can save time, remove errors, and create new opportunities.',
+      points: [
+        'Mapping of workflows',
+        'A plan with priorities first',
+        'Sparring on architecture',
+      ],
+    },
+    platforms: {
+      title: 'Platforms and integrations',
+      lede: 'Bespoke systems that bring the work together in one place and make your other software work together.',
+      points: [
+        'Platforms and ERP systems',
+        'Integration of finance and CRM',
+        'Automation of routine work',
+      ],
+    },
+    websites: {
+      title: 'Websites',
+      lede: 'Fast websites that get found on Google, cost next to nothing to run, and can be edited by you.',
+      points: [
+        'Design with your identity',
+        'Technical SEO and speed',
+        'Editing without a developer',
+      ],
+    },
+  },
+  other: {
+    text: 'Does your task not quite fit? Write anyway, and you will get an honest answer.',
+    link: 'Write to me',
   },
   process: {
-    eyebrow: 'Not on the list?',
-    heading: 'Ask anyway.',
-    text: 'The list is not exhaustive. If you have a problem technology can solve, big or small, write to me. You get an honest answer, even if the answer is that you do not need me.',
+    eyebrow: 'Working together',
+    heading: 'How we work together.',
+    steps: [
+      {
+        title: 'A conversation',
+        text: 'You tell me what is getting in the way, and I ask about workflows, numbers, and goals.',
+      },
+      {
+        title: 'A concrete proposal',
+        text: 'What I will build, in which order, and an estimate for you to decide on.',
+      },
+      {
+        title: 'Build in stages',
+        text: 'You get something usable early and can follow the progress all the way.',
+      },
+      {
+        title: 'Run and evolve',
+        text: 'Once the solution is live, I stay on, and it evolves together with you.',
+      },
+    ],
   },
 };
 
