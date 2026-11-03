@@ -9,3 +9,8 @@
 /work/*    /en/work/:splat 301
 /contact   /en/contact/   301
 /contact/  /en/contact/   301
+# The accessibility landing page was retired; send old links to the services overview.
+/ydelser/tilgaengelighed   /ydelser/       301
+/ydelser/tilgaengelighed/  /ydelser/       301
+/en/services/accessibility   /en/services/ 301
+/en/services/accessibility/  /en/services/ 301

@@ -4,7 +4,7 @@ headline: "Ét teknisk kontaktpunkt for en global bevægelse."
 role: "Teknisk administrator"
 period: "Løbende"
 stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMARC"]
-categoryKey: "operations"
+categoryKey: "platform"
 statusKey: "ongoing"
 order: 5
 description: "Ét teknisk kontaktpunkt for en global bevægelse: overblik over systemerne, oprydning i adgange og email der når frem. Alt sammen dokumenteret, så viden ikke bor i ét hoved."

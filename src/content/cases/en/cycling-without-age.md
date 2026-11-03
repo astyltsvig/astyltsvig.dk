@@ -4,7 +4,7 @@ headline: "A single point of technical ownership for a global movement."
 role: "Technical administrator"
 period: "Ongoing"
 stack: ["Google Workspace", "Zendesk", "Looker Studio", "DNS / SPF / DKIM / DMARC"]
-categoryKey: "operations"
+categoryKey: "platform"
 statusKey: "ongoing"
 order: 5
 description: "One technical point of contact for a global movement: oversight of the systems, cleaned-up access, and email that arrives. All of it documented, so knowledge doesn't live in one head."

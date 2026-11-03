@@ -7,40 +7,48 @@ import type { DeepString, Lang, ServiceKey } from '~/i18n/routes';
  */
 
 /** Display order of the service cards. */
-export const serviceOrder: ServiceKey[] = ['platforms', 'websites', 'accessibility', 'operations'];
+export const serviceOrder: ServiceKey[] = ['business', 'platforms', 'websites'];
 
 /** Case slugs shown as examples on each card (identical across locales). */
 export const serviceCases: Record<ServiceKey, string[]> = {
-  platforms: ['mallard', 'securelife', 'cpof', 'book2go'],
+  business: ['cpof', 'cycling-without-age'],
+  platforms: ['securelife', 'book2go', 'mallard'],
   websites: ['ddl-tegnsprogspakken', 'festival-sans-pression', 'df1866'],
-  accessibility: ['ddl-tegnsprogspakken', 'df1866'],
-  operations: ['cycling-without-age'],
 };
 
 const da = {
   meta: {
-    title: 'Ydelser · software, hjemmesider og drift | AStyltsvig Consulting',
+    title: 'Ydelser · forretningsudvikling, platforme og hjemmesider | AStyltsvig Consulting',
     description:
-      'Skræddersyet software, hjemmesider der bliver fundet, tilgængelige løsninger for døve og teknisk drift. Én softwarearkitekt fra første snak til daglig drift.',
+      'Forretningsudvikling med software, skræddersyede platforme og integrationer samt hjemmesider, der bliver fundet. Én softwarearkitekt fra første snak til daglig drift.',
   },
   intro: {
     eyebrow: 'Ydelser',
     heading: 'Det kan jeg hjælpe jer med.',
-    lede: 'Fire områder, jeg kender indgående. Vælg det, der ligner jeres opgave, og læs mere om, hvordan jeg griber den an.',
+    lede: 'Jeg hjælper virksomheder med at bruge software til at arbejde smartere, fra idé og plan til et system i daglig drift. Alt, hvad jeg bygger, drifter og videreudvikler jeg også selv, så I har én ansvarlig hele vejen.',
   },
   cards: {
     examples: 'Eksempler',
     readMore: 'Læs mere',
-    seeProjects: 'Se projektet',
+    talk: 'Tag en snak',
   },
   items: {
+    business: {
+      title: 'Forretningsudvikling med software',
+      lede: 'Jeg sætter mig ind i jeres forretning og finder de steder, hvor software kan spare tid, fjerne fejl og åbne nye muligheder.',
+      points: [
+        'Kortlægning af arbejdsgange, flaskehalse og systemer',
+        'En prioriteret plan, hvor det, der batter mest, kommer først',
+        'Teknisk sparring og arkitektur, også sammen med andre leverandører',
+      ],
+    },
     platforms: {
-      title: 'Skræddersyet software',
-      lede: 'Ét system, der samler det, I i dag klarer med regneark, mails og dobbeltindtastning.',
+      title: 'Platforme og integrationer',
+      lede: 'Skræddersyede systemer, der samler arbejdet ét sted og får jeres øvrige software til at spille sammen.',
       points: [
         'Platforme og ERP bygget omkring jeres arbejdsgange',
+        'Integrationer mellem økonomi, CRM, booking og andre systemer',
         'Automatisering af det manuelle og gentagne',
-        'Modernisering af eksisterende systemer, mens driften kører',
       ],
     },
     websites: {
@@ -50,24 +58,6 @@ const da = {
         'Nyt design med jeres identitet i centrum',
         'Teknisk SEO og hastighed fra dag ét',
         'Hosting med driftsudgifter tæt på nul',
-      ],
-    },
-    accessibility: {
-      title: 'Tilgængelighed og tegnsprog',
-      lede: 'Hjemmesider og apps, alle kan bruge, med erfaring fra døveområdet og dansk tegnsprog.',
-      points: [
-        'WCAG bygget ind fra første linje',
-        'Tegnsprogsvideo og undertekster, der virker',
-        'Gennemgang af eksisterende sites med konkrete rettelser',
-      ],
-    },
-    operations: {
-      title: 'Drift og infrastruktur',
-      lede: 'Teknisk ejerskab af domæner, email og adgange, så fundamentet bare virker.',
-      points: [
-        'Domæneflytning med email, uden nedetid',
-        'Email, der lander i indbakken',
-        'Styr på brugere, adgange og dokumentation',
       ],
     },
   },
@@ -101,28 +91,37 @@ const da = {
 
 const en: DeepString<typeof da> = {
   meta: {
-    title: 'Services · software, websites, and operations | AStyltsvig Consulting',
+    title: 'Services · business development, platforms, and websites | AStyltsvig Consulting',
     description:
-      'Custom software, websites that get found, accessible solutions for deaf users, and technical operations. One software architect from the first conversation to daily production.',
+      'Business development with software, bespoke platforms and integrations, and websites that get found. One software architect from the first conversation to daily production.',
   },
   intro: {
     eyebrow: 'Services',
     heading: 'What I can help you with.',
-    lede: 'Four areas I know inside out. Pick the one that looks like your task and read how I approach it.',
+    lede: 'I help businesses use software to work smarter, from idea and plan to a system in daily production. Everything I build, I also run and develop further myself, so you have one person responsible all the way.',
   },
   cards: {
     examples: 'Examples',
     readMore: 'Read more',
-    seeProjects: 'See the project',
+    talk: 'Get in touch',
   },
   items: {
+    business: {
+      title: 'Business development with software',
+      lede: 'I get to know your business and find the places where software can save time, remove errors, and open new opportunities.',
+      points: [
+        'Mapping of workflows, bottlenecks, and systems',
+        'A prioritised plan where what matters most comes first',
+        'Technical sparring and architecture, also alongside other suppliers',
+      ],
+    },
     platforms: {
-      title: 'Custom software',
-      lede: 'One system that brings together what you handle today with spreadsheets, emails, and double entry.',
+      title: 'Platforms and integrations',
+      lede: 'Bespoke systems that bring the work together in one place and make your other software work together.',
       points: [
         'Platforms and ERP built around your workflows',
+        'Integrations between finance, CRM, booking, and other systems',
         'Automation of the manual and repetitive',
-        'Modernising existing systems while operations keep running',
       ],
     },
     websites: {
@@ -132,24 +131,6 @@ const en: DeepString<typeof da> = {
         'New design with your identity at the centre',
         'Technical SEO and speed from day one',
         'Hosting with running costs close to zero',
-      ],
-    },
-    accessibility: {
-      title: 'Accessibility and sign language',
-      lede: 'Websites and apps everyone can use, backed by experience from the deaf community and Danish Sign Language.',
-      points: [
-        'WCAG built in from the first line',
-        'Sign language video and captions that work',
-        'Reviews of existing sites with concrete fixes',
-      ],
-    },
-    operations: {
-      title: 'Operations and infrastructure',
-      lede: 'Technical ownership of domains, email, and access, so the foundation simply works.',
-      points: [
-        'Domain migration including email, without downtime',
-        'Email that lands in the inbox',
-        'Users, access, and documentation under control',
       ],
     },
   },
