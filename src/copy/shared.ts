@@ -57,6 +57,7 @@ const da = {
   },
   footer: {
     contactHeading: 'Kontakt',
+    siteHeading: 'Sider',
     businessHeading: 'Virksomhed',
     linksHeading: 'Links',
     location: 'Vanløse, København',
@@ -123,6 +124,7 @@ const en: DeepString<typeof da> = {
   },
   footer: {
     contactHeading: 'Contact',
+    siteHeading: 'Pages',
     businessHeading: 'Business',
     linksHeading: 'Links',
     location: 'Vanløse, Copenhagen',

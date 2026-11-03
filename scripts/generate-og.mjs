@@ -30,6 +30,9 @@ const staticPages = [
   { name: 'services', da: 'Ydelser', en: 'Services' },
   { name: 'about', da: 'Andreas\nSørbye Styltsvig', en: 'Andreas\nSørbye Styltsvig' },
   { name: 'contact', da: 'Én mail er nok.', en: 'One email\nis enough.' },
+  { name: 'service-websites', da: 'Hjemmesider, der\nbliver fundet.', en: 'Websites that\nget found.' },
+  { name: 'service-platforms', da: 'Skræddersyet\nsoftware & ERP', en: 'Custom software\n& ERP' },
+  { name: 'service-accessibility', da: 'Tilgængeligt\nfor alle.', en: 'Accessible\nto everyone.' },
 ];
 
 const caseTitles = [];

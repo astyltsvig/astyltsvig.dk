@@ -1,5 +1,6 @@
 ---
-import { routes, type Lang } from '~/i18n/routes';
+import { landingRoutes, routes, type Lang } from '~/i18n/routes';
+import { landing, landingOrder } from '~/copy/landing';
 import { shared } from '~/copy/shared';
 
 interface Props {
@@ -9,10 +10,18 @@ interface Props {
 const { lang } = Astro.props;
 const s = shared[lang];
 const year = new Date().getFullYear();
+const linkClass = 'inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150';
+const siteLinks: { href: string; label: string; sub?: boolean }[] = [
+  { href: routes.services[lang], label: s.nav.services },
+  ...landingOrder.map(key => ({ href: landingRoutes[key][lang], label: landing[key][lang].serviceName, sub: true })),
+  { href: routes.work[lang], label: s.nav.work },
+  { href: routes.about[lang], label: s.nav.about },
+  { href: routes.contact[lang], label: s.nav.contact },
+];
 ---
 <footer class="bg-ink text-paper border-t border-paper/10">
   <div class="mx-auto max-w-6xl px-6 md:px-10 py-14">
-    <div class="grid gap-10 sm:grid-cols-3">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div>
         <h2 class="eyebrow !text-paper/50">{s.footer.contactHeading}</h2>
         <ul class="mt-4 space-y-4 sm:space-y-2 text-[0.9375rem]">
@@ -24,6 +33,16 @@ const year = new Date().getFullYear();
           <li class="text-paper/60">{s.footer.location}</li>
         </ul>
       </div>
+      <nav aria-label={s.footer.siteHeading}>
+        <h2 class="eyebrow !text-paper/50">{s.footer.siteHeading}</h2>
+        <ul class="mt-4 space-y-4 sm:space-y-2 text-[0.9375rem]">
+          {siteLinks.map(link => (
+            <li class:list={[link.sub && 'pl-4 text-paper/70']}>
+              <a href={link.href} class={linkClass}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div>
         <h2 class="eyebrow !text-paper/50">{s.footer.businessHeading}</h2>
         <ul class="mt-4 space-y-2 text-[0.9375rem] text-paper/60">
@@ -43,11 +62,6 @@ const year = new Date().getFullYear();
           <li>
             <a href="https://www.linkedin.com/in/astyltsvig/" rel="me noopener" class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
               LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href={routes.contact[lang]} class="inline-block py-1.5 -my-1.5 sm:py-0 sm:my-0 link-sweep hover:text-accent-soft transition-colors duration-150">
-              {s.nav.contact}
             </a>
           </li>
         </ul>

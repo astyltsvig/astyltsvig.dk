@@ -11,6 +11,7 @@ const da = {
     heading: 'Det jeg har bygget, og det jeg stadig passer.',
     lede: 'Kundeplatforme, hjemmesider og egne produkter. En del kundearbejde er fortroligt, så her er det, der kan vises frem.',
   },
+  jumpLabel: 'Spring til kategori',
   caseCta: {
     heading: 'Et lignende projekt i tankerne?',
   },
@@ -27,6 +28,7 @@ const en: DeepString<typeof da> = {
     heading: 'What I have built, and what I still look after.',
     lede: 'Client platforms, websites, and own products. Some client work is confidential, so these are the ones I can show.',
   },
+  jumpLabel: 'Jump to category',
   caseCta: {
     heading: 'Have a similar project in mind?',
   },

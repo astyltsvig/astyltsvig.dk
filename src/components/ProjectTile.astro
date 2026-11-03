@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import { caseUrl, type Lang } from '~/i18n/routes';
+import { shared } from '~/copy/shared';
+import type { Case } from '~/lib/cases';
+import { caseLogos } from '~/lib/caseLogos';
+import Screenshot from '~/components/Screenshot.astro';
+
+interface Props {
+  entry: Case;
+  lang: Lang;
+  index: number;
+}
+
+const { entry, lang, index } = Astro.props;
+const s = shared[lang];
+const { data } = entry;
+const meta = [data.period, s.status[data.statusKey]]
+  .filter((part, i, all) => all.findIndex(p => p.toLowerCase() === part.toLowerCase()) === i)
+  .join(' · ');
+const logo = caseLogos[entry.slug];
+const domain = data.clientUrl ? new URL(data.clientUrl).hostname.replace(/^www\./, '') : undefined;
+---
+<li class="reveal" style={`--reveal-delay: ${(index % 3) * 80}ms`}>
+  <a href={caseUrl(lang, entry.slug)} class="group flex h-full flex-col">
+    <div class="relative flex aspect-[16/10] items-center justify-center overflow-hidden border border-line bg-surface logo-tile px-8 transition-colors duration-300 group-hover:border-accent">
+      {logo && (
+        <Image
+          src={logo}
+          alt={`${data.client} logo`}
+          height={120}
+          densities={[1, 2]}
+          format="webp"
+          quality={85}
+          class="max-h-[30%] w-auto max-w-[64%] object-contain transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+        />
+      )}
+      {!logo && data.screenshot && (
+        <Screenshot
+          file={data.screenshot}
+          alt={data.screenshotAlt ?? data.client}
+          frameDomain={domain}
+          widths={[480, 720]}
+          sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 85vw"
+          class="relative w-[78%] shadow-[0_20px_40px_-26px_rgb(27_26_22/0.4)] transition-transform duration-500 group-hover:-translate-y-1"
+        />
+      )}
+    </div>
+    <p class="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-muted">{meta}</p>
+    <h3 class="mt-2 text-lg md:text-xl font-semibold tracking-tight group-hover:text-accent transition-colors duration-150">
+      {data.client}
+    </h3>
+    <p class="mt-2 text-[0.9375rem] text-muted">{data.description}</p>
+    <span class="mt-auto pt-4 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-accent">
+      {s.caseNav.viewCase}
+      <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+    </span>
+  </a>
+</li>
+
+<style>
+  .logo-tile {
+    background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+</style>
