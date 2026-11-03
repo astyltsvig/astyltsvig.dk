@@ -68,6 +68,10 @@ const da = {
       ],
     },
   ],
+  links: {
+    readMore: 'Læs mere om ydelsen',
+    cases: 'Se projekter',
+  },
   specialties: {
     eyebrow: 'Læs mere',
     heading: 'Dyk ned i det, I har brug for.',
@@ -148,6 +152,10 @@ const en: DeepString<typeof da> = {
       ],
     },
   ],
+  links: {
+    readMore: 'Read more about this service',
+    cases: 'See projects',
+  },
   specialties: {
     eyebrow: 'Read more',
     heading: 'Dig into what you need.',

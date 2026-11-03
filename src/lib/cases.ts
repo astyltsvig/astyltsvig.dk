@@ -3,7 +3,7 @@ import type { Lang } from '~/i18n/routes';
 
 export type Case = CollectionEntry<'cases'> & { slug: string };
 
-export const categoryOrder = ['platform', 'web', 'ownProduct', 'operations'] as const;
+export const categoryOrder = ['platform', 'web', 'operations', 'ownProduct'] as const;
 export type CategoryKey = (typeof categoryOrder)[number];
 
 /** All cases for a locale, sorted by `order`. Slugs are derived from the entry id (`da/mallard` → `mallard`). */

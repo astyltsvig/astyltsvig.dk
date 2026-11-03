@@ -21,6 +21,17 @@ export const landingRoutes = {
 
 export type LandingKey = keyof typeof landingRoutes;
 
+/** In-page anchors for the three service sections on the services page, in display order. */
+export const serviceAnchors = ['platforme', 'hjemmesider', 'drift'] as const;
+
+/** In-page anchors for the case groups on the work page. */
+export const categoryAnchors = {
+  platform: 'platforme',
+  web: 'hjemmesider',
+  operations: 'drift',
+  ownProduct: 'egne-produkter',
+} as const;
+
 export type AltPaths = { da: string; en: string };
 
 export function caseUrl(lang: Lang, slug: string): string {
