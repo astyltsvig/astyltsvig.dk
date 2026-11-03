@@ -33,11 +33,11 @@ const websitesDa = {
       },
       {
         title: 'Næsten gratis i drift',
-        text: 'Ingen tunge servere eller dyre licenser. Hosting på Cloudflare koster typisk ingenting eller meget lidt om måneden.',
+        text: 'Siderne hostes på Cloudflares globale netværk, som typisk koster ingenting eller meget lidt om måneden.',
       },
       {
         title: 'I redigerer selv',
-        text: 'En enkel redaktørflade, så jeres egne folk kan opdatere tekster, billeder og nyheder uden at ringe til en udvikler.',
+        text: 'En enkel redaktørflade, så jeres egne folk selv kan opdatere tekster, billeder og nyheder, når det passer jer.',
       },
     ],
   },
@@ -68,11 +68,11 @@ const websitesDa = {
       },
       {
         q: 'Hvad koster det at drive hjemmesiden bagefter?',
-        a: 'Typisk meget lidt. Siderne bygges som statiske filer og hostes på Cloudflare, så der er ingen server at betale for eller vedligeholde. Udgiften er som regel domænet.',
+        a: 'Typisk meget lidt. Siderne bygges som statiske filer og hostes på Cloudflare, som er både billigt og driftssikkert. Den største udgift er som regel domænet.',
       },
       {
         q: 'Kan vi selv rette i teksterne?',
-        a: 'Ja. I får en redaktørflade i browseren, hvor I kan rette tekster, skifte billeder og lægge nyheder op. Der skal ingen kode til.',
+        a: 'Ja. I får en redaktørflade i browseren, hvor I kan rette tekster, skifte billeder og lægge nyheder op, lige så nemt som at skrive en mail.',
       },
       {
         q: 'Kan I flytte vores eksisterende hjemmeside uden at miste placeringer på Google?',
@@ -109,11 +109,11 @@ const websitesEn: DeepString<typeof websitesDa> = {
       },
       {
         title: 'Next to free to run',
-        text: 'No heavy servers or expensive licences. Hosting on Cloudflare typically costs nothing or very little per month.',
+        text: 'The pages are hosted on Cloudflare\'s global network, which typically costs nothing or very little per month.',
       },
       {
         title: 'You edit it yourselves',
-        text: 'A simple editing interface, so your own people can update text, images, and news without calling a developer.',
+        text: 'A simple editing interface, so your own people can update text, images, and news whenever it suits you.',
       },
     ],
   },
@@ -144,11 +144,11 @@ const websitesEn: DeepString<typeof websitesDa> = {
       },
       {
         q: 'What does it cost to run the website afterwards?',
-        a: 'Usually very little. The pages are built as static files and hosted on Cloudflare, so there is no server to pay for or maintain. The main cost is usually the domain.',
+        a: 'Usually very little. The pages are built as static files and hosted on Cloudflare, which is both cheap and reliable. The main cost is usually the domain.',
       },
       {
         q: 'Can we edit the text ourselves?',
-        a: 'Yes. You get an editing interface in the browser where you can change text, swap images, and post news. No code required.',
+        a: 'Yes. You get an editing interface in the browser where you can change text, swap images, and post news, as easily as writing an email.',
       },
       {
         q: 'Can you move our existing website without losing our Google rankings?',
@@ -189,7 +189,7 @@ const platformsDa: DeepString<typeof websitesDa> = {
       },
       {
         title: 'Én ansvarlig',
-        text: 'Samme person står for arkitektur, udvikling og daglig drift. Ingen overdragelser, ingen viden der forsvinder.',
+        text: 'Samme person står for arkitektur, udvikling og daglig drift, så viden og ansvar samles ét sted.',
       },
     ],
   },
@@ -220,7 +220,7 @@ const platformsDa: DeepString<typeof websitesDa> = {
       },
       {
         q: 'Hvilken teknologi bruger du?',
-        a: 'Som regel Laravel og Vue med MySQL eller PostgreSQL. Det er gennemprøvede, udbredte værktøjer, så systemet ikke er låst til én udvikler.',
+        a: 'Som regel Laravel og Vue med MySQL eller PostgreSQL. Det er gennemprøvede og udbredte værktøjer, som mange udviklere kender.',
       },
       {
         q: 'Hvad sker der efter lanceringen?',
@@ -265,7 +265,7 @@ const platformsEn: DeepString<typeof websitesDa> = {
       },
       {
         title: 'One accountable person',
-        text: 'The same person owns architecture, development, and daily operations. No hand-overs, no knowledge that disappears.',
+        text: 'The same person owns architecture, development, and daily operations, so knowledge and responsibility sit in one place.',
       },
     ],
   },
@@ -296,7 +296,7 @@ const platformsEn: DeepString<typeof websitesDa> = {
       },
       {
         q: 'What technology do you use?',
-        a: 'Usually Laravel and Vue with MySQL or PostgreSQL. Proven, widely used tools, so the system is not locked to one developer.',
+        a: 'Usually Laravel and Vue with MySQL or PostgreSQL. Proven, widely used tools that many developers know.',
       },
       {
         q: 'What happens after launch?',
