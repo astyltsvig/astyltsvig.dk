@@ -14,3 +14,8 @@
 /ydelser/tilgaengelighed/  /ydelser/       301
 /en/services/accessibility   /en/services/ 301
 /en/services/accessibility/  /en/services/ 301
+# Cycling Without Age and Book2Go are now one case.
+/projekter/cycling-without-age   /projekter/book2go/  301
+/projekter/cycling-without-age/  /projekter/book2go/  301
+/en/work/cycling-without-age     /en/work/book2go/    301
+/en/work/cycling-without-age/    /en/work/book2go/    301
