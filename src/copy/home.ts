@@ -9,7 +9,7 @@ const da = {
   hero: {
     eyebrow: 'Softwarearkitekt · København',
     heading: 'Software skræddersyet til den måde, I arbejder på.',
-    lede: 'Jeg bygger platforme, der fjerner det manuelle arbejde, og hjemmesider, der bliver fundet. Og jeg bliver, når det er gået live, så I har én fast udvikler, der kender både koden og forretningen.',
+    lede: 'Platforme og integrationer, der fjerner det manuelle arbejde, og hjemmesider, der bliver fundet. Jeg drifter selv det, jeg bygger, så I har én fast udvikler, der kender både koden og forretningen.',
     primaryCta: 'Se projekterne',
     secondaryCta: 'Skriv til mig',
     byline: {
@@ -17,12 +17,7 @@ const da = {
       role: 'Ejer af AStyltsvig Consulting',
     },
   },
-  facts: [
-    { value: '2020', label: 'Selvstændig siden' },
-    { value: '3+', label: 'Platforme i daglig drift' },
-    { value: '1', label: 'Ansvarlig fra idé til drift' },
-    { value: '10+', label: 'Projekter i porteføljen' },
-  ],
+  facts: ['Selvstændig siden 2020', '10+ projekter', 'Platforme i daglig drift'],
   clients: {
     eyebrow: 'Kunder & samarbejder',
   },
@@ -61,7 +56,7 @@ const en: DeepString<typeof da> = {
   hero: {
     eyebrow: 'Software architect · Copenhagen',
     heading: 'Software built around the way you actually work.',
-    lede: 'I build platforms that take the manual work off your plate and websites that get found. And I stay after launch, so you have one developer who knows both the code and the business.',
+    lede: 'Platforms and integrations that take the manual work off your plate, and websites that get found. I run what I build myself, so you have one developer who knows both the code and the business.',
     primaryCta: 'See the work',
     secondaryCta: 'Get in touch',
     byline: {
@@ -69,12 +64,7 @@ const en: DeepString<typeof da> = {
       role: 'Owner of AStyltsvig Consulting',
     },
   },
-  facts: [
-    { value: '2020', label: 'Independent since' },
-    { value: '3+', label: 'Platforms in daily production' },
-    { value: '1', label: 'Person from idea to production' },
-    { value: '10+', label: 'Projects in the portfolio' },
-  ],
+  facts: ['Independent since 2020', '10+ projects', 'Platforms in daily production'],
   clients: {
     eyebrow: 'Clients & collaborations',
   },
