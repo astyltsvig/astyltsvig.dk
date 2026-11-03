@@ -9,7 +9,6 @@ const da = {
   intro: {
     eyebrow: 'Om',
     heading: 'Hej, jeg er Andreas.',
-    lede: 'Jeg er softwarearkitekt og har været selvstændig siden 2020. Jeg bygger platforme og hjemmesider for virksomheder og foreninger, og jeg passer dem, når de er gået live.',
   },
   bio: [
     'Jeg bygger og drifter de systemer, en virksomhed ikke kan undvære. Jeg har ansvaret fra første skitse til daglig drift, så der aldrig er tvivl om, hvem der har bolden.',
@@ -24,24 +23,6 @@ const da = {
     { label: 'Base', value: 'Vanløse, København' },
     { label: 'Uddannet', value: 'Softwareudvikler' },
   ],
-  principles: {
-    eyebrow: 'Samarbejde',
-    heading: 'Det kan I regne med.',
-    items: [
-      {
-        title: 'Jeg starter i jeres hverdag',
-        text: 'Før jeg foreslår noget, sætter jeg mig ind i, hvordan I arbejder, og hvor tiden forsvinder. Nogle gange er svaret et nyt system, andre gange en lille rettelse.',
-      },
-      {
-        title: 'Den samme person hele vejen',
-        text: 'Jeg tegner, bygger og drifter selv. Skriver I om tre år, er det stadig mig, der svarer, og jeg kender systemet.',
-      },
-      {
-        title: 'I ejer det, jeg bygger',
-        text: 'Koden ligger i jeres repo og kører på jeres domæne. Samarbejdet er løbende, og I kan stoppe, når I vil.',
-      },
-    ],
-  },
   background: {
     eyebrow: 'Baggrund',
     heading: 'Fra Oticon til egen praksis.',
@@ -66,7 +47,6 @@ const en: DeepString<typeof da> = {
   intro: {
     eyebrow: 'About',
     heading: 'Hi, I am Andreas.',
-    lede: 'I am a software architect and have been independent since 2020. I build platforms and websites for businesses and associations, and I look after them once they are live.',
   },
   bio: [
     'I build and run the systems a business cannot do without. I own the whole chain from the first sketch to daily production, so there is never any doubt about who has the ball.',
@@ -81,24 +61,6 @@ const en: DeepString<typeof da> = {
     { label: 'Based in', value: 'Vanløse, Copenhagen' },
     { label: 'Trained as', value: 'Software developer' },
   ],
-  principles: {
-    eyebrow: 'Working together',
-    heading: 'What you can count on.',
-    items: [
-      {
-        title: 'I start with your day-to-day',
-        text: 'Before suggesting anything, I learn how you work and where the time goes. Sometimes the answer is a new system, sometimes a small fix.',
-      },
-      {
-        title: 'The same person all the way',
-        text: 'I design, build and run it myself. If you write in three years, I am still the one answering, and I know the system.',
-      },
-      {
-        title: 'You own what I build',
-        text: 'The code lives in your repo and runs on your domain. The engagement is ongoing, and you can stop whenever you like.',
-      },
-    ],
-  },
   background: {
     eyebrow: 'Background',
     heading: 'From Oticon to my own practice.',
